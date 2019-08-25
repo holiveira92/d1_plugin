@@ -118,7 +118,20 @@ class Admin{
 					'label_for' => 'descricao_link',
 					'class' => 'example-class'
 				)
+			),
+			array(
+				'id' => 'img1',
+				'title' => 'Hero Image',
+				'callback' => array( $this, 'd1ImgHero' ),
+				'page' => 'd1_plugin',
+				'section' => 'd1_admin_index',
+				'args' => array(
+					'label_for' => 'img1',
+					'class' => 'example-class'
+				)
 			)
+
+				
 		);
 
 	}
@@ -139,5 +152,10 @@ class Admin{
 	public function d1FirstName(){
 		$value = esc_attr( get_option( 'descricao_link' ) );
 		echo '<input type="text" class="regular-text" name="descricao_link" value="' . $value . '" placeholder="Descricao do Link">';
+	}
+
+	public function d1ImgHero(){
+		$value = esc_attr( get_option( 'img1' ) );
+		echo '<input type="file" class="regular-text" name="img1" value="' . $value . '">';
 	}
 }
