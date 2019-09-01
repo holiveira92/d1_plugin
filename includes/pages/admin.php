@@ -11,6 +11,10 @@ class Admin{
 	public $pages = array();
 	public $subpages = array();
 
+	function __construct(){
+		add_action( 'whitelist_options', array( $this, 'whitelist_custom_options_page' ),11 );
+	}
+	
 	public function register(){
 		$this->plugin_path = plugin_dir_path( dirname( __FILE__, 2 ) );
 		$this->plugin_url = plugin_dir_url( dirname( __FILE__, 2 ) );
@@ -31,12 +35,14 @@ class Admin{
 		
 		// add settings section
 		foreach ( $this->sections as $section ) {
-			add_settings_section( $section["id"], $section["title"], ( isset( $section["callback"] ) ? $section["callback"] : '' ), $section["page"] );
+			//add_settings_section( $section["id"], $section["title"], ( isset( $section["callback"] ) ? $section["callback"] : '' ), $section["page"] );
+			$this->add_settings_section( $section["id"], $section["title"], ( isset( $section["callback"] ) ? $section["callback"] : '' ), $section["page"] );
 		}
 
 		// add settings field
 		foreach ( $this->fields as $field ) {
-			add_settings_field( $field["id"], $field["title"], ( isset( $field["callback"] ) ? $field["callback"] : '' ), $field["page"], $field["section"], ( isset( $field["args"] ) ? $field["args"] : '' ) );
+			//add_settings_field( $field["id"], $field["title"], ( isset( $field["callback"] ) ? $field["callback"] : '' ), $field["page"], $field["section"], ( isset( $field["args"] ) ? $field["args"] : '' ) );
+			$this->add_settings_section( $field["id"], $field["title"], ( isset( $field["callback"] ) ? $field["callback"] : '' ), $field["page"], $field["section"], ( isset( $field["args"] ) ? $field["args"] : '' ) );
 		}
 
 		if ( ! empty($this->admin_pages) ) {
@@ -157,5 +163,30 @@ class Admin{
 	public function d1ImgHero(){
 		$value = esc_attr( get_option( 'img1' ) );
 		echo '<input type="file" class="regular-text" name="img1" value="' . $value . '">';
+	}
+
+	// White-lists options on custom pages.
+	// Workaround for second issue: http://j.mp/Pk3UCF
+	function whitelist_custom_options_page( $whitelist_options ){
+		print_r($whitelist_options);die;
+		// Custom options are mapped by section id; Re-map by page slug.
+		foreach($this->page_sections as $page => $sections ){
+			$whitelist_options[$page] = array();
+			foreach( $sections as $section )
+				if( !empty( $whitelist_options[$section] ) )
+					foreach( $whitelist_options[$section] as $option )
+						$whitelist_options[$page][] = $option;
+				}
+		return $whitelist_options;
+	}
+
+	// Wrapper for wp's `add_settings_section()` that tracks custom sections
+	private function add_settings_section( $id, $title, $cb, $page ){
+		add_settings_section( $id, $title, $cb, $page );
+		if( $id != $page ){
+			if( !isset($this->page_sections[$page]))
+				$this->page_sections[$page] = array();
+			$this->page_sections[$page][$id] = $id;
+		}
 	}
 }
