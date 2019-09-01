@@ -28,6 +28,7 @@ class D1Plugin{
     function __construct() {
         $this->plugin = plugin_basename( __FILE__ );
         $this->autoload();
+        $this->whitelist_plugin = array('d1_plugin','d1_plugin_solucoes','d1_plugin_conteudo','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista');
     }
 
     private function autoload(){
@@ -40,6 +41,8 @@ class D1Plugin{
         add_action('wp_enqueue_scripts', array($this,'main_enqueue'));//inserindo script para tela principal
         add_action('admin_menu',array($this,'add_admin_pages'));
         add_filter("plugin_action_links_$this->plugin",array($this,'settings_link'));
+        add_action('admin_menu',array($this,'custom_menu_page_removing'));
+        add_action('admin_head',array($this,'replace_admin_menu_icons_css'));
     }
     
     public function settings_link( $links ) {
@@ -49,7 +52,31 @@ class D1Plugin{
     }
 
     public function add_admin_pages() {
-        add_menu_page('D1 Plugin','D1 Plugin','manage_options','d1_plugin',array($this,'admin_index'),'',110);
+        /* HOME PAGE */
+        add_menu_page('Página Inicial','Página Inicial','manage_options','d1_plugin',array($this,'admin_index'), get_template_directory_uri()."/images/d1_logo_admin.ico",110);
+        add_submenu_page('d1_plugin','Plataforma','Plataforma','manage_options','d1_plugin_plataforma',''); 
+
+        /* SOLUÇÕES */
+        add_menu_page('Soluções','Soluções','manage_options','d1_plugin_solucoes',array($this,'admin_index'),'dashicons-admin-site-alt3',111);
+        add_submenu_page('d1_plugin_solucoes','Segmentos','Segmentos','manage_options','d1_plugin_segmentos',''); 
+        add_submenu_page('d1_plugin_solucoes','Departamentos','Departamenos','manage_options','d1_plugin_departamentos',''); 
+        add_submenu_page('d1_plugin_solucoes','Objetivos de Negócio','Objetivos de Negócio','manage_options','d1_plugin_obj_negocio',''); 
+
+        /* CONTEÚDO */
+        add_menu_page('Conteúdo','Conteúdo','manage_options','d1_plugin_conteudo',array($this,'admin_index'),'dashicons-welcome-widgets-menus',112);
+        add_submenu_page('d1_plugin_conteudo','Cases','Cases','manage_options','d1_plugin_cases',''); 
+        add_submenu_page('d1_plugin_conteudo','Blog','Blog','manage_options','d1_plugin_blog',''); 
+        add_submenu_page('d1_plugin_conteudo','Whitepapers','Whitepapers','manage_options','d1_plugin_whitepapers',''); 
+        add_submenu_page('d1_plugin_conteudo','Webinários','Webinários','manage_options','d1_plugin_webinarios',''); 
+        
+        /* PREÇO */
+        add_menu_page('Preço','Preço','manage_options','d1_plugin_preco',array($this,'admin_index'),'dashicons-cart',113);
+
+        /* SOBRE */
+        add_menu_page('Sobre','Sobre','manage_options','d1_plugin_sobre',array($this,'admin_index'),'dashicons-info',114);
+
+        /* FALAR COM ESPECIALISTA */
+        add_menu_page('Falar com Especialista','Falar com Especialista','manage_options','d1_plugin_especialista',array($this,'admin_index'),'dashicons-businessperson',115);
     }
 
     public function admin_index() {
@@ -79,7 +106,33 @@ class D1Plugin{
 		// enqueue all our scripts
         //wp_register_script('index',plugins_url('/resources/index.js',__FILE__,array('jquery')));
         //wp_enqueue_script('index', plugins_url( '/resources/index.js', __FILE__ ), array('jquery'), null, true);
-	}
+    }
+    
+    function custom_menu_page_removing(){
+        //remove_menu_page('wp-backitup_backup');
+        //remove_submenu_page( $parent_slug, $menu_slug );
+        global $submenu, $menu;
+        $menu_item = array_values($menu);
+        $post_types = get_post_types();
+        //pre(get_post_types());die;
+        foreach($menu_item as $key=>$m){
+            if(!empty($m[2]) && !in_array($m[2],$this->whitelist_plugin)){
+                remove_menu_page($m[2]);
+            }
+        }
+        foreach($submenu as $key=>$sub){
+            //remove_submenu_page($key);
+        }
+    }
+
+    function replace_admin_menu_icons_css() {
+        ?>
+        <style>
+            #adminmenu .wp-menu-image img {padding:0 !important;}
+        </style>
+        <?php
+    }
+    
 }
 
     $d1 = new D1Plugin();
