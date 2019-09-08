@@ -16,6 +16,8 @@
 2 - TESTAR SCRIPT DE DESINSTALAÇÃO DO PLUGIN QUE APAGA DADOS NO BD
 3 - VERIFICAR ANEXOS DE JS E CSS PARA PAINEL DE ADM E TELA PRINCIPAL
 4 - UTILIZAR BIBLIOTECA PARA LINGUAGES
+5 - CRIAR SHORTCODES PARA COMPONENTES DA VIEW
+6 - MOTIVO PARA CRIAR PROPRIA API DE CONFIGURAÇÕES E NÃO USAR DA WORDPRESS: https://wpshout.com/wordpress-options-page/
 */
 defined('ABSPATH') or die('Access Denied!');
 require_once plugin_dir_path( __FILE__ ) . 'includes/pages/admin.php';
@@ -29,7 +31,21 @@ class D1Plugin{
         $this->plugin = plugin_basename( __FILE__ );
         $this->autoload();
         $this->whitelist_plugin = array('d1_plugin','d1_plugin_solucoes','d1_plugin_conteudo','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista');
+        require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
+		$this->admin_fields = new Admin_Fields();
     }
+
+    function add_custom_options_page(){
+        add_filter('whitelist_options',function($whitelist_options){
+            $all_options_settings = $this->admin_fields->getSettings();
+            foreach($all_options_settings as $option){
+                foreach($option as $key=>$setting){
+                    $whitelist_options[$setting['option_group']][] = $setting['option_name'];
+                }
+            }
+			return $whitelist_options;
+		});
+	}
 
     private function autoload(){
 
@@ -43,6 +59,7 @@ class D1Plugin{
         add_filter("plugin_action_links_$this->plugin",array($this,'settings_link'));
         add_action('admin_menu',array($this,'custom_menu_page_removing'));
         add_action('admin_head',array($this,'replace_admin_menu_icons_css'));
+        $this->add_custom_options_page();
     }
     
     public function settings_link( $links ) {
@@ -54,7 +71,7 @@ class D1Plugin{
     public function add_admin_pages() {
         /* HOME PAGE */
         add_menu_page('Página Inicial','Página Inicial','manage_options','d1_plugin',array($this,'admin_index'), get_template_directory_uri()."/images/d1_logo_admin.ico",110);
-        add_submenu_page('d1_plugin','Plataforma','Plataforma','manage_options','d1_plugin_plataforma',''); 
+        add_submenu_page('d1_plugin','Plataforma','Plataforma','manage_options','d1_plugin_plataforma',array($this,'plataforma_admin')); 
 
         /* SOLUÇÕES */
         add_menu_page('Soluções','Soluções','manage_options','d1_plugin_solucoes',array($this,'admin_index'),'dashicons-admin-site-alt3',111);
@@ -79,12 +96,18 @@ class D1Plugin{
         add_menu_page('Falar com Especialista','Falar com Especialista','manage_options','d1_plugin_especialista',array($this,'admin_index'),'dashicons-businessperson',115);
     }
 
-    public function admin_index() {
+    public function admin_index(){
         require_once plugin_dir_path( __FILE__ ) . 'includes/pages/admin.php';
         $adm = new Admin();
         $adm->register();
         require_once plugin_dir_path( __FILE__ ) . 'templates/admin.php';
     }
+
+    public function plataforma_admin() {
+        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/teste.php';
+        $tst = new Teste();
+    }
+    
 
 	function activate(){
 		require_once plugin_dir_path( __FILE__ ) . 'includes/base/d1_plugin_activate.php';
