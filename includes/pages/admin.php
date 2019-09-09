@@ -9,17 +9,16 @@ class Admin{
 	public $settings;
 	public $callbacks;
 	public $pages = array();
-	public $subpages = array();
+    public $subpages = array();
+    private $active_tab;
 
 	function __construct(){
 		require_once  dirname(__FILE__).'/../fields/admin_fields.php';
-		$this->admin_fields = new Admin_Fields();
+        $this->admin_fields = new Admin_Fields();
+        $this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'config_geral';
 	}
 	
 	public function register(){
-		$this->plugin_path = plugin_dir_path( dirname( __FILE__, 2 ) );
-		$this->plugin_url = plugin_dir_url( dirname( __FILE__, 2 ) );
-		$this->plugin = plugin_basename( dirname( __FILE__, 3 ) ) . '/d1_plugin.php';
 		$this->setPages();
 		$this->setSettings();
 		$this->setSections();
@@ -75,32 +74,78 @@ class Admin{
 	}
 
 	public function setSettings(){
+        /*
 		$d1_options_group =  $this->admin_fields->getSettings('d1_options_group');
 		$secao1_options_group =  $this->admin_fields->getSettings('secao1_options_group');
-		$this->settings = array_merge($d1_options_group,$secao1_options_group);
+        $this->settings = array_merge($d1_options_group,$secao1_options_group);
+        */
+        switch($this->active_tab){
+            case 'config_geral': 
+                $this->settings =  $this->admin_fields->getSettings('d1_options_group');
+                break;
+            case 'secao1': 
+                $this->settings =  $this->admin_fields->getSettings('secao1_options_group');
+                break;
+            default:
+                $this->settings =  $this->admin_fields->getSettings('d1_options_group');
+                break;
+        }
+        //pre($this->settings);die;
 	}
 
 	public function setSections(){
-		$this->sections = array(
-			array(
-				'id' => 'd1_admin_index',
-				'title' => 'Configurações Gerais',
-				'callback' => array( $this, 'd1AdminConfGeral' ),
-				'page' => 'd1_plugin'
-			),
-			array(
-				'id' => 'd1_admin_secao1',
-				'title' => 'Configurações Seção 1 - Hero',
-				'callback' => array( $this, 'd1Section1Hero' ),
-				'page' => 'd1_plugin'
-			),
-		);
+        switch($this->active_tab){
+            case 'config_geral': 
+            $this->sections = array(
+                array(
+                    'id' => 'd1_admin_index',
+                    'title' => 'Configurações Gerais',
+                    'callback' => array( $this, 'd1AdminConfGeral' ),
+                    'page' => 'd1_plugin'
+                ),
+            );
+            break;
+            case 'secao1': 
+            $this->sections = array(
+                array(
+                    'id' => 'd1_admin_secao1',
+                    'title' => 'Configurações Seção 1 - Hero',
+                    'callback' => array( $this, 'd1Section1Hero' ),
+                    'page' => 'd1_plugin'
+                ),
+            );
+            break;
+            default:
+            $this->sections = array(
+                array(
+                    'id' => 'd1_admin_index',
+                    'title' => 'Configurações Gerais',
+                    'callback' => array( $this, 'd1AdminConfGeral' ),
+                    'page' => 'd1_plugin'
+                ),
+            );
+            break;
+
+        }
 	}
 
 	public function setFields(){
-		$d1_admin_data = $this->admin_fields->getFields('d1_admin_index');
+        /*
+		$this->fields = $this->admin_fields->getFields('d1_admin_index');
 		$d1_admin_secao1_data = $this->admin_fields->getFields('d1_admin_secao1');
-		$this->fields = array_merge($d1_admin_data,$d1_admin_secao1_data);
+        $this->fields = array_merge($d1_admin_data,$d1_admin_secao1_data);
+        */
+        switch($this->active_tab){
+            case 'config_geral': 
+                $this->fields =  $this->admin_fields->getFields('d1_admin_index');
+                break;
+            case 'secao1': 
+                $this->fields =  $this->admin_fields->getFields('d1_admin_secao1');
+                break;
+            default:
+                $this->fields =  $this->admin_fields->getFields('d1_admin_index');
+                break;
+        }
 	}
 
 	public function d1AdminConfGeral(){ echo 'Opções de Navegação';}

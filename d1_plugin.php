@@ -36,16 +36,18 @@ class D1Plugin{
     }
 
     function add_custom_options_page(){
-        add_filter('whitelist_options',function($whitelist_options){
-            $all_options_settings = $this->admin_fields->getSettings();
-            foreach($all_options_settings as $option){
-                foreach($option as $key=>$setting){
-                    $whitelist_options[$setting['option_group']][] = $setting['option_name'];
-                }
+        add_filter('whitelist_options',array($this,'setWhitelistOptions'));
+    }
+    
+    function setWhitelistOptions($whitelist_options){
+        $all_options_settings = $this->admin_fields->getSettings();
+        foreach($all_options_settings as $option){
+            foreach($option as $key=>$setting){
+                $whitelist_options[$setting['option_group']][] = $setting['option_name'];
             }
-			return $whitelist_options;
-		});
-	}
+        }
+        return $whitelist_options;
+    }
 
     private function autoload(){
 
