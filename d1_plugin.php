@@ -106,11 +106,9 @@ class D1Plugin{
     }
 
     public function plataforma_admin() {
-        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/teste.php';
-        $tst = new Teste();
+        
     }
     
-
 	function activate(){
 		require_once plugin_dir_path( __FILE__ ) . 'includes/base/d1_plugin_activate.php';
 		D1PluginActivate::activate();
@@ -128,9 +126,11 @@ class D1Plugin{
     }
     
     function main_enqueue(){
-		// enqueue all our scripts
-        //wp_register_script('index',plugins_url('/resources/index.js',__FILE__,array('jquery')));
-        //wp_enqueue_script('index', plugins_url( '/resources/index.js', __FILE__ ), array('jquery'), null, true);
+        //wp_register_script('home', home_url() . '/wp-content/themes/d1_theme/js/home.js', array( 'jquery' ));
+        //empilhando os scripts necessários para a página principal
+        //wp_enqueue_script( 'jquery', home_url() . '/wp-content/themes/d1_theme/js/home.js');
+        //wp_enqueue_script('home');
+
     }
     
     function custom_menu_page_removing(){

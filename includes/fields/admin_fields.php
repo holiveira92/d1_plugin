@@ -83,7 +83,9 @@ class Admin_Fields {
 	//Campos de entrada da página seção 1 - hero
 	public function secao1_hero_name(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Nome Hero">';}
 	public function secao1_hero_cargo(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Cargo Hero">';}
-    public function secao1_hero_descricao(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Descrição Hero">';}
+	public function secao1_hero_descricao(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Descrição Trabalho Hero">';}
+	public function secao1_hero_title(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Proposta Hero">';}
     public function secao1_descricao_primaria(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Descrição Primária">';}
-    public function secao1_descricao_secundaria(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Descrição Secundária">';}
+	public function secao1_descricao_secundaria(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Descrição Secundária">';}
+	public function secao1_conheca_um_minuto(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="URL do Video Conheça em 1 Minuto">';}
 }
