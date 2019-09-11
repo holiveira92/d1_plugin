@@ -8,7 +8,7 @@
 	<h2 class="nav-tab-wrapper">
 		<a href="?page=d1_plugin&tab=config_geral" class="nav-tab <?php echo $active_tab == 'config_geral' ? 'nav-tab-active' : ''; ?>">Geral</a>
 		<a href="?page=d1_plugin&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Seção1-Hero</a>
-		<a href="?page=d1_plugin&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Seção2</a>
+		<a href="?page=d1_plugin&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Seção2-Cases</a>
 		<a href="?page=d1_plugin&tab=secao3" class="nav-tab <?php echo $active_tab == 'secao3' ? 'nav-tab-active' : ''; ?>">Seção3</a>
 		<a href="?page=d1_plugin&tab=secao4" class="nav-tab <?php echo $active_tab == 'secao4' ? 'nav-tab-active' : ''; ?>">Seção4</a>
 		<a href="?page=d1_plugin&tab=secao5" class="nav-tab <?php echo $active_tab == 'secao5' ? 'nav-tab-active' : ''; ?>">Seção5</a>
@@ -27,6 +27,10 @@
 				break;
 			case 'secao1':
 				settings_fields('secao1_options_group');
+				do_settings_sections('d1_plugin');
+				break;
+			case 'secao2':
+				settings_fields('secao2_options_group');
 				do_settings_sections('d1_plugin');
 				break;
 			default:

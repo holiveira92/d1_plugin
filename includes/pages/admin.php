@@ -74,73 +74,77 @@ class Admin{
 	}
 
 	public function setSettings(){
-        /*
-		$d1_options_group =  $this->admin_fields->getSettings('d1_options_group');
-		$secao1_options_group =  $this->admin_fields->getSettings('secao1_options_group');
-        $this->settings = array_merge($d1_options_group,$secao1_options_group);
-        */
         switch($this->active_tab){
             case 'config_geral': 
                 $this->settings =  $this->admin_fields->getSettings('d1_options_group');
                 break;
             case 'secao1': 
                 $this->settings =  $this->admin_fields->getSettings('secao1_options_group');
+				break;
+			case 'secao2': 
+                $this->settings =  $this->admin_fields->getSettings('secao2_options_group');
                 break;
             default:
                 $this->settings =  $this->admin_fields->getSettings('d1_options_group');
                 break;
         }
-        //pre($this->settings);die;
 	}
 
 	public function setSections(){
         switch($this->active_tab){
             case 'config_geral': 
-            $this->sections = array(
-                array(
-                    'id' => 'd1_admin_index',
-                    'title' => 'Configurações Gerais',
-                    'callback' => array( $this, 'd1AdminConfGeral' ),
-                    'page' => 'd1_plugin'
-                ),
-            );
-            break;
+				$this->sections = array(
+					array(
+						'id' => 'd1_admin_index',
+						'title' => 'Configurações Gerais',
+						'callback' => array( $this, 'd1AdminConfGeral' ),
+						'page' => 'd1_plugin'
+					),
+				);
+				break;
             case 'secao1': 
-            $this->sections = array(
-                array(
-                    'id' => 'd1_admin_secao1',
-                    'title' => 'Configurações Seção 1 - Hero',
-                    'callback' => array( $this, 'd1Section1Hero' ),
-                    'page' => 'd1_plugin'
-                ),
-            );
-            break;
+				$this->sections = array(
+					array(
+						'id' => 'd1_admin_secao1',
+						'title' => 'Configurações Seção 1 - Hero',
+						'callback' => array( $this, 'd1Section1Hero' ),
+						'page' => 'd1_plugin'
+					),
+				);
+				break;
+			case 'secao2': 
+				$this->sections = array(
+					array(
+						'id' => 'd1_admin_secao2',
+						'title' => 'Configurações Seção 2 - Cases de Sucesso',
+						'callback' => array( $this, 'd1Section2Cases' ),
+						'page' => 'd1_plugin'
+					),
+				);
+				break;
             default:
-            $this->sections = array(
-                array(
-                    'id' => 'd1_admin_index',
-                    'title' => 'Configurações Gerais',
-                    'callback' => array( $this, 'd1AdminConfGeral' ),
-                    'page' => 'd1_plugin'
-                ),
-            );
-            break;
-
+				$this->sections = array(
+					array(
+						'id' => 'd1_admin_index',
+						'title' => 'Configurações Gerais',
+						'callback' => array( $this, 'd1AdminConfGeral' ),
+						'page' => 'd1_plugin'
+					),
+				);
+				break;
         }
 	}
 
 	public function setFields(){
-        /*
-		$this->fields = $this->admin_fields->getFields('d1_admin_index');
-		$d1_admin_secao1_data = $this->admin_fields->getFields('d1_admin_secao1');
-        $this->fields = array_merge($d1_admin_data,$d1_admin_secao1_data);
-        */
         switch($this->active_tab){
             case 'config_geral': 
                 $this->fields =  $this->admin_fields->getFields('d1_admin_index');
                 break;
             case 'secao1': 
                 $this->fields =  $this->admin_fields->getFields('d1_admin_secao1');
+				break;
+			case 'secao2': 
+                $this->fields =  $this->admin_fields->getFields('d1_admin_secao2');
                 break;
             default:
                 $this->fields =  $this->admin_fields->getFields('d1_admin_index');
@@ -150,4 +154,5 @@ class Admin{
 
 	public function d1AdminConfGeral(){ echo 'Opções de Navegação';}
 	public function d1Section1Hero(){ echo 'Seção 1 - Hero';}
+	public function d1Section2Cases(){ echo 'Seção 2 - Cases de Sucesso';}
 }
