@@ -11,14 +11,18 @@
 
 //TODO LIST
 /*
-
-1 - CRIAR E TESTAR SCRIPT DE CREATE NO BD
-2 - TESTAR SCRIPT DE DESINSTALAÇÃO DO PLUGIN QUE APAGA DADOS NO BD
+1 - CRIAR E TESTAR SCRIPT DE CREATE OPTIONS NO BD - PRONTO!
+2 - TESTAR SCRIPT DE INSTALAÇÃO/DESINSTALAÇÃO DO PLUGIN QUE APAGA DADOS NO BD(VERIFICAR NECESSIDADE)
 3 - VERIFICAR ANEXOS DE JS E CSS PARA PAINEL DE ADM E TELA PRINCIPAL
-4 - UTILIZAR BIBLIOTECA PARA LINGUAGES
-5 - CRIAR SHORTCODES PARA COMPONENTES DA VIEW
-6 - MOTIVO PARA CRIAR PROPRIA API DE CONFIGURAÇÕES E NÃO USAR DA WORDPRESS: https://wpshout.com/wordpress-options-page/
+4 - UTILIZAR BIBLIOTECA PARA LINGUAGENS
+5 - CRIAR SHORTCODES PARA COMPONENTES DA VIEW(VERIFICAR VIABILIDADE)
+6 - MOTIVO PARA CRIAR PROPRIA API DE CONFIGURAÇÕES E NÃO USAR DA WORDPRESS: https://wpshout.com/wordpress-options-page/ - (VERIFICAR VIABILIDADE)
+7 - TROCAR NOME DA CLASSE ADMIN PARA HOME OU PAGINA PRINCIPAL
+8 - ESPERAR INFORMAÇÕES SOBRE AS LOGOS UTILIZADAS NAS PAGINAS
+9 - MELHORAR JSON DE CAMPOS
+10 - CRIAR FUNÇÃO DE DELETAR IMAGENS(EXISTE O BOTÃO MAS AINDA NÃO EXISTE AÇÃO)
 */
+
 defined('ABSPATH') or die('Access Denied!');
 require_once plugin_dir_path( __FILE__ ) . 'includes/pages/admin.php';
 
@@ -30,7 +34,7 @@ class D1Plugin{
     function __construct() {
         $this->plugin = plugin_basename( __FILE__ );
         $this->autoload();
-        $this->whitelist_plugin = array('d1_plugin','d1_plugin_solucoes','d1_plugin_conteudo','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista');
+        $this->whitelist_plugin = array('d1_plugin','d1_plugin_solucoes','d1_plugin_conteudo','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','upload.php');
         require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
 		$this->admin_fields = new Admin_Fields();
     }
@@ -108,7 +112,7 @@ class D1Plugin{
     public function plataforma_admin() {
         
     }
-    
+
 	function activate(){
 		require_once plugin_dir_path( __FILE__ ) . 'includes/base/d1_plugin_activate.php';
 		D1PluginActivate::activate();
@@ -120,9 +124,12 @@ class D1Plugin{
     
     function admin_enqueue(){
 		// enqueue all our scripts
-        //wp_enqueue_style( 'mypluginstyle', plugins_url( '/resources/mystyle.css', __FILE__ ) );
-        //wp_register_script('index',plugins_url('/resources/index.js',__FILE__,array('jquery')));
-		//wp_enqueue_script( 'index', plugins_url( '/resources/index.js', __FILE__ ));
+        wp_register_script('d1_upload',plugins_url('resources/d1_upload.js',__FILE__),array('jquery','media-upload','thickbox'));
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('thickbox');
+        wp_enqueue_style('thickbox');
+        wp_enqueue_script('media-upload');
+        wp_enqueue_script('d1_upload');
     }
     
     function main_enqueue(){
@@ -130,7 +137,6 @@ class D1Plugin{
         //empilhando os scripts necessários para a página principal
         //wp_enqueue_script( 'jquery', home_url() . '/wp-content/themes/d1_theme/js/home.js');
         //wp_enqueue_script('home');
-
     }
     
     function custom_menu_page_removing(){
@@ -139,7 +145,6 @@ class D1Plugin{
         global $submenu, $menu;
         $menu_item = array_values($menu);
         $post_types = get_post_types();
-        //pre(get_post_types());die;
         foreach($menu_item as $key=>$m){
             if(!empty($m[2]) && !in_array($m[2],$this->whitelist_plugin)){
                 remove_menu_page($m[2]);

@@ -16,9 +16,10 @@
 		<a href="?page=d1_plugin&tab=secao7" class="nav-tab <?php echo $active_tab == 'secao7' ? 'nav-tab-active' : ''; ?>">Seção7</a>
 		<a href="?page=d1_plugin&tab=secao8" class="nav-tab <?php echo $active_tab == 'secao8' ? 'nav-tab-active' : ''; ?>">Seção8</a>
 		<a href="?page=d1_plugin&tab=secao9" class="nav-tab <?php echo $active_tab == 'secao9' ? 'nav-tab-active' : ''; ?>">Seção9</a>
+		<input type="hidden" id="destination_field">
 	</h2>
 	
-	<form method="post" action="options.php">
+	<form method="post" action="options.php" enctype="multipart/form-data">
 		<?php 
 		switch($active_tab){
 			case 'config_geral':

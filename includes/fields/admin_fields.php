@@ -14,6 +14,8 @@ class Admin_Fields {
 	private $active_tab;
 
 	public function __construct(){
+		require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/base/d1_upload.php';
+		$this->d1_upload = new D1_Upload();
 		$this->path_data_fields = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/fields.json';
 		$this->path_data_settings = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/settings.json';
 		$this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'config_geral';
@@ -78,7 +80,7 @@ class Admin_Fields {
 	*/ 
 	//Campos de entrada da página de configurações gerais
     public function d1_main_logo(){ echo '<input type="file" class="regular-text" name="'.__FUNCTION__.'" value="' . esc_attr(get_option(__FUNCTION__)) . '">';}
-    public function d1_favicon(){echo '<input type="file" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__) . '">';}
+	public function d1_favicon(){echo $this->d1_upload->get_image_options(__FUNCTION__);}
     public function d1_web_title(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Título da Página">';}
 
 	//Campos de entrada da página seção 1 - Hero
@@ -99,19 +101,19 @@ class Admin_Fields {
 	public function secao2_subtitle_card_case1(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="SubTitulo do Card 1">';}
 	public function secao2_text_footer_card_case1(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Texto Card Footer 1">';}
 	public function secao2_subtext_footer_card_case1(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="SubTexto Card Footer 1">';}
-	public function secao2_img_bg_case1(){ echo '<input type="file" class="regular-text" name="'.__FUNCTION__.'" value="' . esc_attr(get_option(__FUNCTION__)) . '">';}
+	public function secao2_img_bg_case1(){ echo $this->d1_upload->get_image_options(__FUNCTION__);}
 	//Case 2
 	public function secao2_title_card_case2(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Titulo do Card 2">';}
 	public function secao2_subtitle_card_case2(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="SubTitulo do Card 2">';}
 	public function secao2_text_footer_card_case2(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Texto Card Footer 2">';}
 	public function secao2_subtext_footer_card_case2(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="SubTexto Card Footer 2">';}
-	public function secao2_img_bg_case2(){ echo '<input type="file" class="regular-text" name="'.__FUNCTION__.'" value="' . esc_attr(get_option(__FUNCTION__)) . '">';}
+	public function secao2_img_bg_case2(){echo $this->d1_upload->get_image_options(__FUNCTION__);}
 	//Case 3
 	public function secao2_title_card_case3(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Titulo do Card 3">';}
 	public function secao2_subtitle_card_case3(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="SubTitulo do Card 3">';}
 	public function secao2_text_footer_card_case3(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Texto Card Footer 3">';}
 	public function secao2_subtext_footer_card_case3(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="SubTexto Card Footer 3">';}
-	public function secao2_img_bg_case3(){ echo '<input type="file" class="regular-text" name="'.__FUNCTION__.'" value="' . esc_attr(get_option(__FUNCTION__)) . '">';}
+	public function secao2_img_bg_case3(){echo $this->d1_upload->get_image_options(__FUNCTION__);}
 
 	//Titulo Seção Parte 2
 	public function secao2_section_title_part2(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Titulo da Seção Parte 2">';}
@@ -122,14 +124,14 @@ class Admin_Fields {
 	//Case 1
 	public function secao2_title_card2_case1(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Titulo Card 2 Case 1">';}
 	public function secao2_subtitle_card2_case1(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="SubTitulo Card 2 Case 1">';}
-	public function secao2_img_bg_card2_case1(){ echo '<input type="file" class="regular-text" name="'.__FUNCTION__.'" value="' . esc_attr(get_option(__FUNCTION__)) . '">';}
+	public function secao2_img_bg_card2_case1(){echo $this->d1_upload->get_image_options(__FUNCTION__);}
 	//Case 2
 	public function secao2_title_card2_case2(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Titulo Card 2 Case 2">';}
 	public function secao2_subtitle_card2_case2(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="SubTitulo Card 2 Case 2">';}
-	public function secao2_img_bg_card2_case2(){ echo '<input type="file" class="regular-text" name="'.__FUNCTION__.'" value="' . esc_attr(get_option(__FUNCTION__)) . '">';}
+	public function secao2_img_bg_card2_case2(){echo $this->d1_upload->get_image_options(__FUNCTION__);}
 	//Case 3
 	public function secao2_title_card2_case3(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Titulo Card 2 Case 3">';}
 	public function secao2_subtitle_card2_case3(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="SubTitulo Card 2 Case 3">';}
-	public function secao2_img_bg_card2_case3(){ echo '<input type="file" class="regular-text" name="'.__FUNCTION__.'" value="' . esc_attr(get_option(__FUNCTION__)) . '">';}
+	public function secao2_img_bg_card2_case3(){echo $this->d1_upload->get_image_options(__FUNCTION__);}
 	//-----------------------------Fim Campos de entrada da página seção 2 - Cases de Sucesso---------------------------------------------
 }
