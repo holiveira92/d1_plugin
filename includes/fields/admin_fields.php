@@ -79,7 +79,7 @@ class Admin_Fields {
 		----------------------------------------------------------------------------------------------------------------------------
 	*/ 
 	//Campos de entrada da página de configurações gerais
-    public function d1_main_logo(){ echo '<input type="file" class="regular-text" name="'.__FUNCTION__.'" value="' . esc_attr(get_option(__FUNCTION__)) . '">';}
+    public function d1_main_logo(){ echo $this->d1_upload->get_image_options(__FUNCTION__);}
 	public function d1_favicon(){echo $this->d1_upload->get_image_options(__FUNCTION__);}
     public function d1_web_title(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Título da Página">';}
 
@@ -91,6 +91,7 @@ class Admin_Fields {
     public function secao1_descricao_primaria(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Descrição Primária">';}
 	public function secao1_descricao_secundaria(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="Descrição Secundária">';}
 	public function secao1_conheca_um_minuto(){echo '<input type="text" class="regular-text" name="'.__FUNCTION__.'" value="' . get_option(__FUNCTION__)  . '" placeholder="URL do Video Conheça em 1 Minuto">';}
+	public function secao1_hero_img_bg(){echo $this->d1_upload->get_image_options(__FUNCTION__);}
 
 	//-----------------------------Início Campos de entrada da página seção 2 - Cases de Sucesso---------------------------------------------
 	//Titulo Seção Parte 1

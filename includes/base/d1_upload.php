@@ -10,7 +10,7 @@ class D1_Upload {
 		$name_button = $name_field . '_d1_upload_btn';
 		$name_del_button = $name_field . '_d1_btn_del';
 		$name_img_preview = $name_field . '_d1_img_preview';
-		$img_component = "<input type='text' id=$name_field name=$name_field value=$img_options >";
+		$img_component = "<input type='text' id=$name_field name=$name_field value='$img_options' readonly='readonly'>";
 		$img_component = $img_component . "<input dest=$name_field name=$name_button type='button' class='button' value='Upload Image'/>";
 		if(!empty($img_options)){
 			$img_component = $img_component . "<input dest=$name_field name=$name_del_button type='button' class='button' value='Delete Image' />";
