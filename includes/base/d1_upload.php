@@ -1,8 +1,10 @@
 <?php
 
 class D1_Upload {
+
 	public function __construct(){
-		$this->setup();
+        $this->img_default = get_template_directory_uri() . "/images/img_default.jpg";
+        $this->setup();
 	}
 
 	function get_image_options($name_field){
@@ -18,7 +20,7 @@ class D1_Upload {
 		}
 		//inserir imagem padrão para preview
 		else{
-
+            $img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;'> <img style='max-width:100%;' src=$this->img_default  /> </div>";
 		}
 		return $img_component;
 	}
