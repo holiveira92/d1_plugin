@@ -21,6 +21,13 @@
 8 - ESPERAR INFORMAÇÕES SOBRE AS LOGOS UTILIZADAS NAS PAGINAS
 9 - MELHORAR JSON DE CAMPOS
 10 - CRIAR FUNÇÃO DE DELETAR IMAGENS(EXISTE O BOTÃO MAS AINDA NÃO EXISTE AÇÃO)
+
+TODO - reunião 22/09
+inserir seo e meta key words nos nomes das páginas - instalar https://yoast.com/wordpress/plugins/seo/ para fazer isso - OK
+migração para hubspot - OK
+espaço nos nomes da seções
+cadastro de cases para criar cards
+links dos cards na home - criar opção
 */
 
 defined('ABSPATH') or die('Access Denied!');
@@ -34,7 +41,7 @@ class D1Plugin{
     function __construct() {
         $this->plugin = plugin_basename( __FILE__ );
         $this->autoload();
-        $this->whitelist_plugin = array('d1_plugin','d1_plugin_solucoes','d1_plugin_conteudo','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','upload.php');
+        $this->whitelist_plugin = array('d1_plugin','d1_plugin_solucoes','d1_plugin_conteudo','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','upload.php','wpseo_dashboard');
         require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
 		$this->admin_fields = new Admin_Fields();
     }
