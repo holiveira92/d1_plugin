@@ -1,5 +1,5 @@
 <?php
-class Admin_Fields {
+class Cases_Fields {
 	private $path_data_fields;
 	private $path_data_settings;
 	private $active_tab;
@@ -7,19 +7,15 @@ class Admin_Fields {
 	public function __construct(){
 		require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/base/d1_upload.php';
 		$this->d1_upload = new D1_Upload();
-		$this->path_data_fields = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/home_fields.json';
-		$this->path_data_settings = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/home_settings.json';
+		$this->path_data_fields = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/cases_fields.json';
+		$this->path_data_settings = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/cases_settings.json';
 		$this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'config_geral';
     }
 
-    public function getSettings($opt_group=false,$page='d1_plugin'){
+    public function getSettings($opt_group,$page='d1_plugin'){
 		$settings = array();
 		$config_data_settings = $this->getConfigDataSettings($this->path_data_settings);
-		if($opt_group){
-			$settings = $config_data_settings[$opt_group];
-		}else{
-			$settings = $config_data_settings;
-		}
+        $settings = $config_data_settings[$opt_group];
 		return $settings;
 	}
 
@@ -74,7 +70,5 @@ class Admin_Fields {
 		Funções callbacks devem ter o nome do grupo de opções correspondente
 		----------------------------------------------------------------------------------------------------------------------------
 	*/ 
-	public function d1_options_group($input){return $input;}
-	public function secao1_options_group($input){return $input;}
-	public function secao2_options_group($input){return $input;}
+	public function d1_cases_group($input){return $input;}
 }

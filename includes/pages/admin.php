@@ -1,10 +1,4 @@
 <?php 
-function pre($data) {
-	echo "<pre>";
-	   print_r($data);
-	echo "</pre>";
-}
-
 class Admin{
 	public $settings;
 	public $callbacks;
@@ -61,6 +55,7 @@ class Admin{
 	}
 
 	public function setPages(){
+		/*
 		$this->pages = array(
 			array(
 				'page_title' => 'D1 Plugin', 
@@ -72,7 +67,7 @@ class Admin{
 				'position' => 110
 			)
 		);
-
+		*/
 	}
 
 	public function setSettings(){
@@ -154,7 +149,7 @@ class Admin{
         }
 	}
 
-	public function d1AdminConfGeral(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home_secao0.php';}
-	public function d1Section1Hero(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home_secao1.php';}
-	public function d1Section2Cases(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home_secao2.php';}
+	public function d1AdminConfGeral(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao0.php';}
+	public function d1Section1Hero(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao1.php';}
+	public function d1Section2Cases(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao2.php';}
 }

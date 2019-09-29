@@ -114,7 +114,7 @@
 <!-- ------------------------------------- Início Seção Config. Seção -  Cases de Sucesso --------------------------------------->
 <!-- Titulo Seção Parte 1 -->
 
-<button type="button" class="collapsible">+ Seção - Cases de Sucesso</button>
+<button type="button" class="collapsible">+ Cases de Sucesso</button>
 <div id='secao2_content1' class="content">
 <fieldset style='display: inline;margin-right:4%;width:97%;'>
 <label for="secao2_section_title" style='display:inline;'>Título Seção:</label> <input type="text" name="secao2_section_title" value="<?php echo get_option('secao2_section_title')?>" placeholder="Titulo da Seção Parte 1" style='width:38%;'>
@@ -244,30 +244,28 @@
 <!-- Card 1 -->
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">1</span>Card 1</legend>
-<input type="text" name="secao2_title_card2_case1'" value="<?php echo get_option('secao2_title_card2_case1')?>" placeholder="Titulo Card 2 Case 1">
-<input type="text" name="secao2_subtitle_card2_case1" value="<?php echo get_option('secao2_subtitle_card2_case1')?>" placeholder="SubTitulo Card 2 Case 1">
-<legend>Imagem de Fundo</legend>
-<?php echo $this->d1_upload->get_image_options('secao2_img_bg_card2_case1'); ?>
+<label for="secao2_title_card2_case1">Titulo Card 2 Case 1:</label> <input type="text" name="secao2_title_card2_case1'" value="<?php echo get_option('secao2_title_card2_case1')?>" placeholder="Titulo Card 2 Case 1">
+<label for="secao2_subtitle_card2_case1">SubTitulo Card 2 Case 1:</label>  <input type="text" name="secao2_subtitle_card2_case1" value="<?php echo get_option('secao2_subtitle_card2_case1')?>" placeholder="SubTitulo Card 2 Case 1">
+<legend>Imagem de Fundo</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_bg_card2_case1'); ?>
 </fieldset>
 
 <!-- Card 2 -->
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">1</span>Card 2</legend>
-<input type="text" name="secao2_title_card2_case2'" value="<?php echo get_option('secao2_title_card2_case2')?>" placeholder="Titulo Card 2 Case 1">
-<input type="text" name="secao2_subtitle_card2_case2" value="<?php echo get_option('secao2_subtitle_card2_case2')?>" placeholder="SubTitulo Card 2 Case 1">
-<legend>Imagem de Fundo</legend>
-<?php echo $this->d1_upload->get_image_options('secao2_img_bg_card2_case2'); ?>
+<label for="secao2_title_card2_case2">Titulo Card 2 Case 2:</label> <input type="text" name="secao2_title_card2_case2'" value="<?php echo get_option('secao2_title_card2_case2')?>" placeholder="Titulo Card 2 Case 2">
+<label for="secao2_subtitle_card2_case2">SubTitulo Card 2 Case 2:</label> <input type="text" name="secao2_subtitle_card2_case2" value="<?php echo get_option('secao2_subtitle_card2_case2')?>" placeholder="SubTitulo Card 2 Case 2">
+<legend>Imagem de Fundo</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_bg_card2_case2'); ?>
 </fieldset>
 
 <!-- Card 3 -->
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">1</span>Card 2</legend>
-<input type="text" name="secao2_title_card2_case3'" value="<?php echo get_option('secao2_title_card2_case3')?>" placeholder="Titulo Card 2 Case 1">
-<input type="text" name="secao2_subtitle_card2_case3" value="<?php echo get_option('secao2_subtitle_card2_case3')?>" placeholder="SubTitulo Card 2 Case 1">
-<legend>Imagem de Fundo</legend>
-<?php echo $this->d1_upload->get_image_options('secao2_img_bg_card2_case3'); ?>
+<label for="secao2_title_card2_case3">Titulo Card 2 Case 3:</label> <input type="text" name="secao2_title_card2_case3'" value="<?php echo get_option('secao2_title_card2_case3')?>" placeholder="Titulo Card 2 Case 3">
+<label for="secao2_subtitle_card2_case3">SubTitulo Card 2 Case 3:</label> <input type="text" name="secao2_subtitle_card2_case3" value="<?php echo get_option('secao2_subtitle_card2_case3')?>" placeholder="SubTitulo Card 2 Case 3">
+<legend>Imagem de Fundo</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_bg_card2_case3'); ?>
 </fieldset>
 </div>
+<!-- ------------------------------------- Início Seção Config. Seção - Desafios ----------------------------------------------->
 
 </div>
 </body>
