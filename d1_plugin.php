@@ -25,7 +25,7 @@
 TODO - reunião 22/09
 inserir seo e meta key words nos nomes das páginas - instalar https://yoast.com/wordpress/plugins/seo/ para fazer isso - OK
 migração para hubspot - OK
-espaço nos nomes da seções
+espaço nos nomes da seções - OK
 cadastro de cases para criar cards
 links dos cards na home - criar opção
 */
@@ -132,11 +132,13 @@ class D1Plugin{
     function admin_enqueue(){
 		// enqueue all our scripts
         wp_register_script('d1_upload',plugins_url('resources/d1_upload.js',__FILE__),array('jquery','media-upload','thickbox'));
+        wp_register_script('d1_admin',plugins_url('resources/d1_admin.js',__FILE__),array('jquery'));
         wp_enqueue_script('jquery');
         wp_enqueue_script('thickbox');
         wp_enqueue_style('thickbox');
         wp_enqueue_script('media-upload');
         wp_enqueue_script('d1_upload');
+        wp_enqueue_script('d1_admin');
     }
     
     function main_enqueue(){
@@ -175,11 +177,10 @@ class D1Plugin{
     $d1 = new D1Plugin();
     $d1->register();
     
-    // activation
+    //activation
     register_activation_hook( __FILE__, array( $d1,'activate'));
     
-    // deactivation
+    //deactivation
     require_once plugin_dir_path( __FILE__ ) . 'includes/base/d1_plugin_deactivate.php';
     register_deactivation_hook( __FILE__,array('D1PluginDeactivate','deactivate'));
-    
 }

@@ -12,15 +12,16 @@ class D1_Upload {
 		$name_button = $name_field . '_d1_upload_btn';
 		$name_del_button = $name_field . '_d1_btn_del';
 		$name_img_preview = $name_field . '_d1_img_preview';
-		$img_component = "<input type='text' id=$name_field name=$name_field value='$img_options' readonly='readonly'>";
-		$img_component = $img_component . "<input dest=$name_field name=$name_button type='button' class='button' value='Upload Image'/>";
+		$img_component = "<input type='hidden' id=$name_field name=$name_field value='$img_options' readonly='readonly'>";
 		if(!empty($img_options)){
-			$img_component = $img_component . "<input dest=$name_field name=$name_del_button type='button' class='button' value='Delete Image' />";
-			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;'> <img style='max-width:100%;' src=$img_options /> </div>";
+			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;margin-top: 10px;'> <img id=$name_img_preview style='max-width:100%;' src=$img_options /> </div>";
+			$img_component = $img_component . "<input dest=$name_field name=$name_button type='button' class='button' value='Upload Image'/>";
+			$img_component = $img_component . "<input dest=$name_field name=$name_del_button type='button' class='button' value='Deletar Imagem' />";
 		}
 		//inserir imagem padrão para preview
 		else{
-            $img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;'> <img style='max-width:100%;' src=$this->img_default  /> </div>";
+			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;margin-top: 10px;'> <img id=$name_img_preview style='max-width:100%;' src=$this->img_default  /> </div>";
+			$img_component = $img_component . "<input dest=$name_field name=$name_button type='button' class='button' value='Upload Imagem'/>";
 		}
 		return $img_component;
 	}

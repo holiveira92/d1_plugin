@@ -14,6 +14,8 @@ class Admin{
 
 	function __construct(){
 		require_once  dirname(__FILE__).'/../fields/admin_fields.php';
+		require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/base/d1_upload.php';
+		$this->d1_upload = new D1_Upload();
         $this->admin_fields = new Admin_Fields();
         $this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'config_geral';
 	}
@@ -50,7 +52,7 @@ class Admin{
 		// add settings field
 		foreach ( $this->fields as $field ) {
 			//add_settings_field( $field["id"], $field["title"], ( isset( $field["callback"] ) ? $field["callback"] : '' ), $field["page"], $field["section"], ( isset( $field["args"] ) ? $field["args"] : '' ) );
-			$this->add_settings_section( $field["id"], $field["title"], ( isset( $field["callback"] ) ? $field["callback"] : '' ), $field["page"], $field["section"], ( isset( $field["args"] ) ? $field["args"] : '' ) );
+			$this->add_settings_section( $field["id"], '','', $field["page"], $field["section"], '' );
 		}
 
 		if ( !empty($this->settings) ) {
@@ -76,16 +78,16 @@ class Admin{
 	public function setSettings(){
         switch($this->active_tab){
             case 'config_geral': 
-                $this->settings =  $this->admin_fields->getSettings('d1_options_group');
+                $this->settings =  $this->admin_fields->getSettings('d1_options_group','d1_plugin');
                 break;
             case 'secao1': 
-                $this->settings =  $this->admin_fields->getSettings('secao1_options_group');
+                $this->settings =  $this->admin_fields->getSettings('secao1_options_group','d1_plugin');
 				break;
 			case 'secao2': 
-                $this->settings =  $this->admin_fields->getSettings('secao2_options_group');
+                $this->settings =  $this->admin_fields->getSettings('secao2_options_group','d1_plugin');
                 break;
             default:
-                $this->settings =  $this->admin_fields->getSettings('d1_options_group');
+                $this->settings =  $this->admin_fields->getSettings('d1_options_group','d1_plugin');
                 break;
         }
 	}
@@ -138,21 +140,21 @@ class Admin{
 	public function setFields(){
         switch($this->active_tab){
             case 'config_geral': 
-                $this->fields =  $this->admin_fields->getFields('d1_admin_index');
+                $this->fields =  $this->admin_fields->getFields('d1_admin_index','d1_plugin');
                 break;
             case 'secao1': 
-                $this->fields =  $this->admin_fields->getFields('d1_admin_secao1');
+                $this->fields =  $this->admin_fields->getFields('d1_admin_secao1','d1_plugin');
 				break;
 			case 'secao2': 
-                $this->fields =  $this->admin_fields->getFields('d1_admin_secao2');
+                $this->fields =  $this->admin_fields->getFields('d1_admin_secao2','d1_plugin');
                 break;
             default:
-                $this->fields =  $this->admin_fields->getFields('d1_admin_index');
+                $this->fields =  $this->admin_fields->getFields('d1_admin_index','d1_plugin');
                 break;
         }
 	}
 
-	public function d1AdminConfGeral(){ echo 'Opções de Navegação';}
-	public function d1Section1Hero(){ echo 'Seção 1 - Hero';}
-	public function d1Section2Cases(){ echo 'Seção 2 - Cases de Sucesso';}
+	public function d1AdminConfGeral(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home_secao0.php';}
+	public function d1Section1Hero(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home_secao1.php';}
+	public function d1Section2Cases(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home_secao2.php';}
 }
