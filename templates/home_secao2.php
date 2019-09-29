@@ -84,22 +84,51 @@
 	text-shadow: 0 1px 0 rgba(255,255,255,0.2);
 	border-radius: 15px 15px 15px 0px;
 }
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
 </style>
 </head>
 <body>
 <div class="form-style-5">
+<!-- ------------------------------------- Início Seção Config. Seção -  Cases de Sucesso --------------------------------------->
 <!-- Titulo Seção Parte 1 -->
-<legend>Config. Seção Primeira Parte -  Cases de Sucesso</legend>
+
+<button type="button" class="collapsible">+ Seção - Cases de Sucesso</button>
+<div id='secao2_content1' class="content">
 <fieldset style='display: inline;margin-right:4%;width:97%;'>
-<label for="secao1_hero_name" style='display:inline;'>Título Seção:</label> <input type="text" name="secao2_section_title" value="<?php echo get_option('secao2_section_title')?>" placeholder="Titulo da Seção Parte 1" style='width:38%;'>
-<label for="secao1_call_action_cases" style='display:inline;'>Chamada para Ação - Cases:</label> <input type="text" name="secao1_call_action_cases" value="<?php echo get_option('secao1_call_action_cases')?>" placeholder="Chamada para Ação - Cases" style='width:38%;'>
+<label for="secao2_section_title" style='display:inline;'>Título Seção:</label> <input type="text" name="secao2_section_title" value="<?php echo get_option('secao2_section_title')?>" placeholder="Titulo da Seção Parte 1" style='width:38%;'>
+<label for="secao2_call_action_cases" style='display:inline;'>Chamada para Ação - Cases:</label> <input type="text" name="secao2_call_action_cases" value="<?php echo get_option('secao2_call_action_cases')?>" placeholder="Chamada para Ação - Cases" style='width:38%;'>
 </fieldset>
+</div>
 <br>
+<!-- ------------------------------------- Fim Seção Config. Seção -  Cases de Sucesso ------------------------------------------>
 
+<!-- ------------------------------------- Início Seção Cards Cases de Sucesso ----------------------------------------------->
 <!-- Card Primeira Parte -->
-<legend>Cases de Sucesso</legend>
-
+<button type="button" class="collapsible">+ Cases de Sucesso - Cards</button>
 <!-- Case 1 -->
+<div id='secao2_content2' class="content">
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">1</span>Card 1</legend>
 <label for="secao2_title_card_case1">Título:</label><input type="text" name="secao2_title_card_case1" value="<?php echo get_option('secao2_title_card_case1')?>" placeholder="Titulo do Card 1">
@@ -118,7 +147,7 @@
 <label for="secao2_subtitle_card_case2">Objetivo:</label><input type="text" name="secao2_subtitle_card_case2" value="<?php echo get_option('secao2_subtitle_card_case2')?>" placeholder="SubTitulo do Card 2">
 <label for="secao2_text_footer_card_case2">Número Impacto:</label><input type="text" name="secao2_text_footer_card_case2" value="<?php echo get_option('secao2_text_footer_card_case2')?>" placeholder="Texto Card Footer 2">
 <label for="secao2_subtext_footer_card_case2">Descrição:</label><input type="text" name="secao2_subtext_footer_card_case2" value="<?php echo get_option('secao2_subtext_footer_card_case2')?>" placeholder="SubTexto Card Footer 2">
-<label for="secao1_card2_link">Link:</label><input type="text" name="secao2_card2_link" value="<?php echo get_option('secao2_card2_link')?>" placeholder="Link">
+<label for="secao2_card2_link">Link:</label> <input type="text" name="secao2_card2_link" value="<?php echo get_option('secao2_card2_link')?>" placeholder="Link">
 <legend>Imagem de Fundo</legend>
 <?php echo $this->d1_upload->get_image_options('secao2_img_bg_case2'); ?>
 </fieldset>
@@ -134,10 +163,70 @@
 <legend>Imagem de Fundo</legend>
 <?php echo $this->d1_upload->get_image_options('secao2_img_bg_case3'); ?>
 </fieldset>
+</div>
+<!-- ------------------------------------- Fim Seção Cards Cases de Sucesso ----------------------------------------------->
 
-<!-- Titulo Seção Parte 2 -->
+<!-- ------------------------------------- Início Seção Clientes de Sucesso ----------------------------------------------->
+<!-- Card Primeira Parte -->
+<button type="button" class="collapsible">+ Clientes de Sucesso</button>
+<div id='secao2_content3' class="content">
+<label for="secao2_empresas_title">Titulo da Seção Empresas de Sucesso:</label><input type="text" name="secao2_empresas_title" value="<?php echo get_option('secao2_empresas_title')?>" placeholder="Titulo da Seção Empresas de Sucesso">
+
+<!-- Empresa 1 -->
+<fieldset style='display: inline;margin-right:4%;width:20%;'>
+<legend><span class="number">1</span>Empresa 1</legend>
+<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa1'); ?>
+</fieldset>
+
+<!-- Empresa 2 -->
+<fieldset style='display: inline;margin-right:4%;width:20%;'>
+<legend><span class="number">2</span>Empresa 2</legend>
+<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa2'); ?>
+</fieldset>
+
+<!-- Empresa 3 -->
+<fieldset style='display: inline;margin-right:4%;width:20%;'>
+<legend><span class="number">3</span>Empresa 3</legend>
+<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa3'); ?>
+</fieldset>
+
+<!-- Empresa 4 -->
+<fieldset style='display: inline;margin-right:4%;width:20%;'>
+<legend><span class="number">4</span>Empresa 4</legend>
+<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa4'); ?>
+</fieldset>
 <br><br>
-<legend>Config. Seção Segunda Parte</legend>
+<br><br>
+<!-- Empresa 5 -->
+<fieldset style='display: inline;margin-right:4%;width:20%;'>
+<legend><span class="number">5</span>Empresa 5</legend>
+<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa5'); ?>
+</fieldset>
+
+<!-- Empresa 6 -->
+<fieldset style='display: inline;margin-right:4%;width:20%;'>
+<legend><span class="number">6</span>Empresa 6</legend>
+<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa6'); ?>
+</fieldset>
+
+<!-- Empresa 7 -->
+<fieldset style='display: inline;margin-right:4%;width:20%;'>
+<legend><span class="number">7</span>Empresa 7</legend>
+<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa7'); ?>
+</fieldset>
+
+<!-- Empresa 8 -->
+<fieldset style='display: inline;margin-right:4%;width:20%;'>
+<legend><span class="number">8</span>Empresa 8</legend>
+<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa8'); ?>
+</fieldset>
+</div>
+<!-- ------------------------------------- Fim Seção Clientes de Sucesso ----------------------------------------------->
+
+<!-- ------------------------------------- Início Seção Config. Seção - Desafios --------------------------------------->
+<!-- Titulo Seção Parte 2 -->
+<button type="button" class="collapsible">+ Desafios</button>
+<div id='secao2_content4' class="content">
 <fieldset style='display: inline;margin-right:4%;width:97%;'>
 <label for="secao2_section_title_part2">Titulo da Seção Parte 2:</label> <input type="text" name="secao2_section_title_part2" value="<?php echo get_option('secao2_section_title_part2')?>" placeholder="Titulo da Seção Parte 2">
 </fieldset>
@@ -145,7 +234,7 @@
 
 <!-- Titulo Seção Parte 3 -->
 <br><br>
-<legend>Config. Seção Terceira Parte - Desafio</legend>
+<h1>Seção - Desafio</h1>
 <fieldset style='display: inline;margin-right:4%;width:97%;'>
 <label for="secao2_section_title_part3">Titulo da Seção Parte 3:</label> <input type="text" name="secao2_section_title_part3" value="<?php echo get_option('secao2_section_title_part3')?>" placeholder="Titulo da Seção Parte 2">
 </fieldset>
@@ -178,7 +267,25 @@
 <legend>Imagem de Fundo</legend>
 <?php echo $this->d1_upload->get_image_options('secao2_img_bg_card2_case3'); ?>
 </fieldset>
+</div>
 
 </div>
 </body>
 </html>
+
+<script>
+//JS para expandir e reduzir conteudo
+var coll = document.getElementsByClassName("collapsible");
+var i;
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>

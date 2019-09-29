@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
         $("input[id=" + dest + "]").val(image_url);
         tb_remove();
         $('#destination_field').val('');
-        $("input[id=" + dest + "_d1_img_preview]").attr('src',image_url);
-        $('#submit').trigger('click');
+        $("img[id=" + dest + "_d1_img_preview]").removeAttr("src").attr('src',image_url);
+        //$('#submit').trigger('click');
     }
 });

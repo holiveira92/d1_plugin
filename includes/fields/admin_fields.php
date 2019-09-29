@@ -23,13 +23,26 @@ class Admin_Fields {
 
     public function getSettings($opt_group=false,$page='d1_plugin'){
 		$settings = array();
-		$config_data_settings = $this->getConfigDataFields($this->path_data_settings,$page,$opt_group);
+		$config_data_settings = $this->getConfigDataSettings($this->path_data_settings);
 		if($opt_group){
 			$settings = $config_data_settings[$opt_group];
 		}else{
 			$settings = $config_data_settings;
 		}
 		return $settings;
+	}
+
+	private function getConfigDataSettings($path){
+		//No arquivo JSON estarão as configurações sobre as seções e respectivos options_groups de campos
+		$json = file_get_contents($path); 
+		$config_data = json_decode($json,true);
+		$config_data = !empty($config_data) ? $config_data : array();
+		foreach($config_data as $k=>&$config){
+			foreach($config as $key=>&$v){
+				$v['option_group'] = $k;
+			}
+		}
+		return $config_data;
 	}
 	
     public function getFields($section=false,$page='d1_plugin'){

@@ -93,10 +93,11 @@
 <legend><span class="number">1</span>Configurações Gerais</legend>
 <legend>Logo Principal</legend>
 <?php echo $this->d1_upload->get_image_options('d1_main_logo'); ?>
+<br><br>
 <legend>Favicon</legend>
 <?php echo $this->d1_upload->get_image_options('d1_favicon'); ?>
-<label for="d1_web_title">Nome Hero:</label> <input type="text" name="d1_web_title" value="<?php echo get_option('d1_web_title')?>" placeholder="Título da Página">
-
+<br><br>
+<label for="d1_web_title">Título do Página:</label> <input type="text" name="d1_web_title" value="<?php echo get_option('d1_web_title')?>" placeholder="Título da Página">
 </fieldset>
 </div>
 </body>
