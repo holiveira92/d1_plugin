@@ -115,7 +115,7 @@
 <!-- Card Primeira Parte -->
 <button type="button" class="collapsible">+ Cases de Sucesso - Cards</button>
 <!-- Case 1 -->
-<div id='secao2_content2' class="content">
+<div id='secao1_content1' class="content">
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">1</span>Card 1</legend>
 <label for="secao2_title_card_case1">Título:</label><input type="text" name="secao2_title_card_case1" value="<?php echo get_option('secao2_title_card_case1')?>" placeholder="Titulo do Card 1">
@@ -153,81 +153,50 @@
 </div>
 <!-- ------------------------------------- Fim Seção Cards Cases de Sucesso ----------------------------------------------->
 
-<!-- ------------------------------------- Início Seção Clientes de Sucesso ----------------------------------------------->
+<!-- ------------------------------------- Início Falar com Especialista ----------------------------------------------->
 <!-- Card Primeira Parte -->
 <button type="button" class="collapsible">+ Falar Com Especialista?</button>
-<div id='secao2_content3' class="content">
-<label for="secao2_empresas_title">Titulo da Seção Empresas de Sucesso:</label><input type="text" name="secao2_empresas_title" value="<?php echo get_option('secao2_empresas_title')?>" placeholder="Titulo da Seção Empresas de Sucesso">
+<div id='secao2_content1' class="content">
+<label for="secao2_title">Titulo Falar Com Especialista:</label><input type="text" name="secao2_title" value="<?php echo get_option('secao2_title')?>" placeholder="Titulo da Seção Falar Com Especialista">
+<label for="secao2_link_botao">Link Botão:</label><input type="text" name="secao2_link_botao" value="<?php echo get_option('secao2_link_botao')?>" placeholder="Link Botão">
 
-<!-- Empresa 1 -->
-<fieldset style='display: inline;margin-right:4%;width:20%;'>
-<legend><span class="number">1</span>Empresa 1</legend>
-<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa1'); ?>
+<!-- Especialista 1 -->
+<fieldset style='display: inline;margin-right:4%;width:45%;'>
+<legend><span class="number">1</span>Processo</legend>
+<label for="secao2_minicard1_title">Titulo MiniCard 1:</label> <textarea name="secao2_minicard1_title" placeholder="Titulo MiniCard 1"><?php echo get_option('secao2_minicard1_title')?></textarea>
+<label for="secao2_minicard1_descricao">Descrição MiniCard 1:</label> <textarea name="secao2_minicard1_descricao" placeholder="Descrição MiniCard 1"><?php echo get_option('secao2_minicard1_descricao')?></textarea>
 </fieldset>
 
-<!-- Empresa 2 -->
-<fieldset style='display: inline;margin-right:4%;width:20%;'>
-<legend><span class="number">2</span>Empresa 2</legend>
-<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa2'); ?>
+<!-- Especialista 2 -->
+<fieldset style='display: inline;margin-right:4%;width:45%;'>
+<legend><span class="number">2</span>Processo</legend>
+<label for="secao2_minicard2_title">Titulo MiniCard 2:</label> <textarea name="secao2_minicard2_title" placeholder="Titulo MiniCard 2"><?php echo get_option('secao2_minicard2_title')?></textarea>
+<label for="secao2_minicard2_descricao">Descrição MiniCard 2:</label> <textarea name="secao2_minicard2_descricao" placeholder="Descrição MiniCard 2"><?php echo get_option('secao2_minicard2_descricao')?></textarea>
 </fieldset>
 
-<!-- Empresa 3 -->
-<fieldset style='display: inline;margin-right:4%;width:20%;'>
-<legend><span class="number">3</span>Empresa 3</legend>
-<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa3'); ?>
+<!-- Especialista 3 -->
+<fieldset style='display: inline;margin-right:4%;width:45%;'>
+<legend><span class="number">3</span>Processo</legend>
+<label for="secao2_minicard3_title">Titulo MiniCard 3:</label> <textarea name="secao2_minicard3_title" placeholder="Titulo MiniCard 3"><?php echo get_option('secao2_minicard3_title')?></textarea>
+<label for="secao2_minicard3_descricao">Descrição MiniCard 3:</label> <textarea name="secao2_minicard3_descricao" placeholder="Descrição MiniCard 3"><?php echo get_option('secao2_minicard3_descricao')?></textarea>
 </fieldset>
 
-<!-- Empresa 4 -->
-<fieldset style='display: inline;margin-right:4%;width:20%;'>
-<legend><span class="number">4</span>Empresa 4</legend>
-<legend>Logo do Empresa</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_empresa4'); ?>
+<!-- Especialista 4 -->
+<fieldset style='display: inline;margin-right:4%;width:45%;'>
+<legend><span class="number">4</span>Processo</legend>
+<label for="secao2_minicard4_title">Titulo MiniCard 4:</label> <textarea name="secao2_minicard4_title" placeholder="Titulo MiniCard 4"><?php echo get_option('secao2_minicard4_title')?></textarea>
+<label for="secao2_minicard4_descricao">Descrição MiniCard 4:</label> <textarea name="secao2_minicard4_descricao" placeholder="Descrição MiniCard 4"><?php echo get_option('secao2_minicard4_descricao')?></textarea>
 </fieldset>
 </div>
-<!-------------------------------------- Fim Seção Clientes de Sucesso ----------------------------------------------->
+<!-------------------------------------- Fim Falar com Especialista ----------------------------------------------->
 
-<!-- ------------------------------------- Início Seção Config. Seção - Desafios --------------------------------------->
+<!-- ------------------------------------- Início Seção Conteúdo Expert --------------------------------------->
 <!-- Titulo Seção Parte 2 -->
-<button type="button" class="collapsible">+ Expert</button>
-<div id='secao2_content4' class="content">
-<fieldset style='display: inline;margin-right:4%;width:97%;'>
-<label for="secao2_section_title_part2">Titulo da Seção Parte 2:</label> <input type="text" name="secao2_section_title_part2" value="<?php echo get_option('secao2_section_title_part2')?>" placeholder="Titulo da Seção Parte 2">
-</fieldset>
-<br>
+<button type="button" class="collapsible">+ Conteúdo Expert</button>
+<div id='secao3_content1' class="content">
 
-<!-- Titulo Seção Parte 3 -->
-<br><br>
-<h1>Seção - Desafio</h1>
-<fieldset style='display: inline;margin-right:4%;width:97%;'>
-<label for="secao2_section_title_part3">Titulo da Seção Parte 3:</label> <input type="text" name="secao2_section_title_part3" value="<?php echo get_option('secao2_section_title_part3')?>" placeholder="Titulo da Seção Parte 2">
-</fieldset>
-<br>
-
-<!-- Card Terceira Parte -->
-<!-- Card 1 -->
-<fieldset style='display: inline;margin-right:4%;width:29%;'>
-<legend><span class="number">1</span>Card 1</legend>
-<label for="secao2_title_card2_case1">Titulo Card 2 Case 1:</label> <input type="text" name="secao2_title_card2_case1'" value="<?php echo get_option('secao2_title_card2_case1')?>" placeholder="Titulo Card 2 Case 1">
-<label for="secao2_subtitle_card2_case1">SubTitulo Card 2 Case 1:</label>  <input type="text" name="secao2_subtitle_card2_case1" value="<?php echo get_option('secao2_subtitle_card2_case1')?>" placeholder="SubTitulo Card 2 Case 1">
-<legend>Imagem de Fundo</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_bg_card2_case1'); ?>
-</fieldset>
-
-<!-- Card 2 -->
-<fieldset style='display: inline;margin-right:4%;width:29%;'>
-<legend><span class="number">1</span>Card 2</legend>
-<label for="secao2_title_card2_case2">Titulo Card 2 Case 2:</label> <input type="text" name="secao2_title_card2_case2'" value="<?php echo get_option('secao2_title_card2_case2')?>" placeholder="Titulo Card 2 Case 2">
-<label for="secao2_subtitle_card2_case2">SubTitulo Card 2 Case 2:</label> <input type="text" name="secao2_subtitle_card2_case2" value="<?php echo get_option('secao2_subtitle_card2_case2')?>" placeholder="SubTitulo Card 2 Case 2">
-<legend>Imagem de Fundo</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_bg_card2_case2'); ?>
-</fieldset>
-
-<!-- Card 3 -->
-<fieldset style='display: inline;margin-right:4%;width:29%;'>
-<legend><span class="number">1</span>Card 2</legend>
-<label for="secao2_title_card2_case3">Titulo Card 2 Case 3:</label> <input type="text" name="secao2_title_card2_case3'" value="<?php echo get_option('secao2_title_card2_case3')?>" placeholder="Titulo Card 2 Case 3">
-<label for="secao2_subtitle_card2_case3">SubTitulo Card 2 Case 3:</label> <input type="text" name="secao2_subtitle_card2_case3" value="<?php echo get_option('secao2_subtitle_card2_case3')?>" placeholder="SubTitulo Card 2 Case 3">
-<legend>Imagem de Fundo</legend> <?php echo $this->d1_upload->get_image_options('secao2_img_bg_card2_case3'); ?>
-</fieldset>
 </div>
-<!-- ------------------------------------- Início Seção Config. Seção - Desafios ----------------------------------------------->
+<!-- ------------------------------------- Início Seção Conteúdo Expert ----------------------------------------------->
 
 </div>
 </body>
