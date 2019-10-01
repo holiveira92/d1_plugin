@@ -52,21 +52,34 @@ class Cases{
 
 	public function setSettings(){
         switch($this->active_tab){
-            case 'config_geral': 
-                $this->settings =  $this->cases_fields->getSettings('d1_cases_group',$this->page);
+            case 'config_cards': 
+                $this->settings =  $this->cases_fields->getSettings('d1_card_cases_group',$this->page);
+                break;
+            case 'secao1': 
+                $this->settings =  $this->cases_fields->getSettings('secao1_options_group',$this->page);
                 break;
             default:
-                $this->settings =  $this->cases_fields->getSettings('d1_options_group',$this->page);
+                $this->settings =  $this->cases_fields->getSettings('secao1_options_group',$this->page);
                 break;
         }
 	}
 
 	public function setSections(){
         switch($this->active_tab){
-            case 'config_geral': 
+            case 'config_cards': 
 				$this->sections = array(
 					array(
-						'id' => 'd1_cases_index',
+						'id' => 'd1_cases_cards',
+						'title' => 'Configurações Cards Cases',
+						'callback' => array( $this, 'd1CardsCasesConf' ),
+						'page' => $this->page
+					),
+				);
+                break;
+            case 'secao1': 
+				$this->sections = array(
+					array(
+						'id' => 'd1_cases_config_geral',
 						'title' => 'Configurações Gerais',
 						'callback' => array( $this, 'd1CasesConfGeral' ),
 						'page' => $this->page
@@ -76,7 +89,7 @@ class Cases{
             default:
 				$this->sections = array(
 					array(
-						'id' => 'd1_cases_index',
+						'id' => 'd1_cases_config_geral',
 						'title' => 'Configurações Gerais',
 						'callback' => array( $this, 'd1CasesConfGeral' ),
 						'page' => $this->page
@@ -88,14 +101,18 @@ class Cases{
 
 	public function setFields(){
         switch($this->active_tab){
-            case 'config_geral': 
-                $this->fields =  $this->cases_fields->getFields('d1_cases_index','d1_plugin');
+            case 'config_cards': 
+                $this->fields =  $this->cases_fields->getFields('d1_cases_cards','d1_plugin_cases');
+                break;
+            case 'secao1': 
+                $this->fields =  $this->cases_fields->getFields('d1_cases_config_geral','d1_plugin_cases');
                 break;
             default:
-                $this->fields =  $this->cases_fields->getFields('d1_cases_index','d1_plugin');
+                $this->fields =  $this->cases_fields->getFields('d1_cases_config_geral','d1_plugin_cases');
                 break;
         }
 	}
 
-    public function d1CasesConfGeral(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao0.php';}
+    public function d1CardsCasesConf(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao0.php';}
+    public function d1CasesConfGeral(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao1.php';}
 }

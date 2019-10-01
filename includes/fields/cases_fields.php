@@ -9,10 +9,10 @@ class Cases_Fields {
 		$this->d1_upload = new D1_Upload();
 		$this->path_data_fields = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/cases_fields.json';
 		$this->path_data_settings = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/cases_settings.json';
-		$this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'config_geral';
+		$this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'secao1';
     }
 
-    public function getSettings($opt_group,$page='d1_plugin'){
+    public function getSettings($opt_group,$page='d1_plugin_cases'){
 		$settings = array();
 		$config_data_settings = $this->getConfigDataSettings($this->path_data_settings);
         $settings = $config_data_settings[$opt_group];
@@ -32,7 +32,7 @@ class Cases_Fields {
 		return $config_data;
 	}
 	
-    public function getFields($section=false,$page='d1_plugin'){
+    public function getFields($section=false,$page='d1_plugin_cases'){
 		$fields = array();
 		$config_data_fields = $this->getConfigDataFields($this->path_data_fields,$page,$section);
 		if($section){
@@ -70,5 +70,6 @@ class Cases_Fields {
 		Funções callbacks devem ter o nome do grupo de opções correspondente
 		----------------------------------------------------------------------------------------------------------------------------
 	*/ 
-	public function d1_cases_group($input){return $input;}
+    public function d1_card_cases_group($input){return $input;}
+    public function d1_cases_config_geral($input){return $input;}
 }

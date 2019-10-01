@@ -7,6 +7,28 @@ class D1_Upload {
         $this->setup();
 	}
 
+    function get_image_options_cases($name_field,$id_field=0){
+        global $wpdb;
+        $id_element_field = str_replace("[]","",$name_field) . "_" . $id_field;
+        $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases WHERE id_card=$id_field LIMIT 1")),true);
+        $img_options = !empty($result[0]['img_bg_url']) ? $result[0]['img_bg_url'] : "";
+		$name_button = $id_element_field . '_d1_upload_btn';
+		$name_del_button = $id_element_field . '_d1_btn_del';
+		$name_img_preview = $id_element_field . '_d1_img_preview';
+		$img_component = "<input type='hidden' id=$id_element_field name=$name_field value='$img_options' readonly='readonly'>";
+		if(!empty($img_options)){
+			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;margin-top: 10px;'> <img id=$name_img_preview style='max-width:100%;' src=$img_options /> </div>";
+			$img_component = $img_component . "<input dest=$id_element_field name=$name_button type='button' class='button' value='Upload Image'/>";
+			$img_component = $img_component . "<input dest=$id_element_field name=$name_del_button type='button' class='button' value='Deletar Imagem' />";
+		}
+		//inserir imagem padrão para preview
+		else{
+			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;margin-top: 10px;'> <img id=$name_img_preview style='max-width:100%;' src=$this->img_default  /> </div>";
+			$img_component = $img_component . "<input dest=$id_element_field name=$name_button type='button' class='button' value='Upload Imagem'/>";
+		}
+		return $img_component;
+    }
+    
 	function get_image_options($name_field){
 		$img_options = esc_url(get_option($name_field));
 		$name_button = $name_field . '_d1_upload_btn';

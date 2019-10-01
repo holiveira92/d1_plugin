@@ -17,4 +17,5 @@ jQuery(document).ready(function($) {
         $("img[id=" + dest + "_d1_img_preview]").removeAttr("src").attr('src',image_url);
         //$('#submit').trigger('click');
     }
+
 });

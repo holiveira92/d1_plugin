@@ -31,7 +31,6 @@ links dos cards na home - criar opção - OK
 */
 
 defined('ABSPATH') or die('Access Denied!');
-//require_once plugin_dir_path( __FILE__ ) . 'includes/pages/admin.php';
 
 if(!class_exists('D1Plugin')){
 
@@ -49,15 +48,15 @@ function dirname_safe($path, $level = 0){
     array_splice($dir, $level);
     return implode($dir, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 }
+
 class D1Plugin{  
     public $plugin;
-
     function __construct() {
         $this->plugin = plugin_basename( __FILE__ );
         $this->whitelist_plugin = array('d1_plugin','d1_plugin_solucoes','d1_plugin_conteudo','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','upload.php','wpseo_dashboard',
         'd1_plugin_header_menu','d1_plugin_footer','d1_plugin_cta');
         require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
-		$this->admin_fields = new Admin_Fields();
+        $this->admin_fields = new Admin_Fields();
     }
 
     function add_custom_options_page(){

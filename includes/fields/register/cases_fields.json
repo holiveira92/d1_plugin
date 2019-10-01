@@ -1,3 +1,4 @@
-{
-    "d1_cases_index" : [{"id":"d1_main_logo"},{"id":"d1_favicon"},{"id":"d1_web_title"}]
+{   
+    "d1_cases_cards" : [{"option_name":"d1_teste"}],
+    "d1_cases_config_geral" : [{"id":"secao2_title"},{"id":"secao2_link_botao"},{"id":"secao2_minicard1_title"},{"id":"secao2_minicard1_descricao"}]
 }
