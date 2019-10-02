@@ -8,7 +8,7 @@ $ids_delete         = !empty($_REQUEST["json_delete"]) ? explode(',',$_REQUEST["
 $table_data         = array();
 
 if(empty($_REQUEST["title_card"])){
-    header("location: " . $_REQUEST["url_location"]);
+    header("location: " . urldecode($_REQUEST["url_location"]));
 }
 
 for($i=0; $i<$number; $i++){
@@ -19,7 +19,7 @@ for($i=0; $i<$number; $i++){
         'text_footer_card'      => !empty($_REQUEST["text_footer_card"][$i]) ? $_REQUEST["text_footer_card"][$i] : '',
         'subtext_footer_card'   => !empty($_REQUEST["subtext_footer_card"][$i]) ? $_REQUEST["subtext_footer_card"][$i] : '',
         'card_link'             => !empty($_REQUEST["card_link"][$i]) ? $_REQUEST["card_link"][$i] : '',
-        'img_bg_url'            => !empty($_REQUEST["img_bg_url"][$i]) ? $_REQUEST["img_bg_url"][$i] : '',
+        'img_bg_url'            => !empty($_REQUEST["img_bg_url"][$i]) ? urldecode($_REQUEST["img_bg_url"][$i]) : '',
     );
 }
 foreach($table_data as $key=>&$value){
