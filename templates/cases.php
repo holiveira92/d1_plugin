@@ -2,13 +2,13 @@
 	<h1>D1 - Editor de Conteúdos</h1>
 	<?php
 		settings_errors(); 
-		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'secao1';
+		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'config_cards';
 	?>
 
     <h2 class="nav-tab-wrapper">
-        <a href="?page=d1_plugin_cases&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Config Geral</a>
         <a href="?page=d1_plugin_cases&tab=config_cards" class="nav-tab <?php echo $active_tab == 'config_cards' ? 'nav-tab-active' : ''; ?>">Cards</a>
-        <a href="?page=d1_plugin_cases&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Seção 3</a>
+        <a href="?page=d1_plugin_cases&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Fale Com Especialista</a>
+        <a href="?page=d1_plugin_cases&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Seja um Expert</a>
         <input type="hidden" id="destination_field">
     </h2>
 
@@ -26,9 +26,14 @@
                 echo '</form>';
 				break;
             case 'secao2':
+                echo '<form method="post" action="options.php" enctype="multipart/form-data">';
+				settings_fields('secao2_options_group');
+                do_settings_sections('d1_plugin_cases');
+                submit_button();
+                echo '</form>';
 				break;
 			default:
-				settings_fields('secao1_options_group');
+				settings_fields('config_cards');
 				do_settings_sections('d1_plugin_cases');
 				break;
         }

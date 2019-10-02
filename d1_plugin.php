@@ -26,8 +26,11 @@ TODO - reunião 22/09
 inserir seo e meta key words nos nomes das páginas - instalar https://yoast.com/wordpress/plugins/seo/ para fazer isso - OK
 migração para hubspot - OK
 espaço nos nomes da seções - OK
-cadastro de cases para criar cards - NOT OK
+cadastro de cases para criar cards - 98% OK
 links dos cards na home - criar opção - OK
+header , footer e cta salvos em lugares unicos - NOT OK
+bug inserir card não consegue inserir imagem sem salvar primeiro - NOT OK
+nas configs da home inserir select para buscar cadastro de cases
 */
 
 defined('ABSPATH') or die('Access Denied!');
@@ -56,7 +59,9 @@ class D1Plugin{
         $this->whitelist_plugin = array('d1_plugin','d1_plugin_solucoes','d1_plugin_conteudo','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','upload.php','wpseo_dashboard',
         'd1_plugin_header_menu','d1_plugin_footer','d1_plugin_cta');
         require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
+        require_once  dirname(__FILE__).'/includes/fields/cases_fields.php';
         $this->admin_fields = new Admin_Fields();
+        $this->cases_fields = new Cases_Fields();
     }
 
     function add_custom_options_page(){
@@ -64,7 +69,9 @@ class D1Plugin{
     }
     
     function setWhitelistOptions($whitelist_options){
-        $all_options_settings = $this->admin_fields->getSettings();
+        $home_options_settings = $this->admin_fields->getSettings();
+        $cases_options_settings = $this->cases_fields->getSettings();
+        $all_options_settings = array_merge($home_options_settings,$cases_options_settings);
         foreach($all_options_settings as $option){
             foreach($option as $key=>$setting){
                 $whitelist_options[$setting['option_group']][] = $setting['option_name'];

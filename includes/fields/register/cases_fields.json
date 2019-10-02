@@ -1,4 +1,5 @@
 {   
-    "d1_cases_cards" : [{"option_name":"d1_teste"}],
-    "d1_cases_config_geral" : [{"id":"secao2_title"},{"id":"secao2_link_botao"},{"id":"secao2_minicard1_title"},{"id":"secao2_minicard1_descricao"}]
+    "d1_cases_cards" : [{"id":"d1_teste"}],
+    "d1_cases_config_geral" : [{"id":"secao2_title"},{"id":"secao2_link_botao"},{"id":"secao2_minicard1_title"},{"id":"secao2_minicard1_descricao"},{"id":"secao2_minicard2_title"},{"id":"secao2_minicard2_descricao"},{"id":"secao2_minicard3_title"},{"id":"secao2_minicard3_descricao"},{"id":"secao2_minicard4_title"},{"id":"secao2_minicard4_descricao"}],
+    "d1_cases_secao_expert" : [{"id":"secao3_title"},{"id":"secao3_descricao"},{"id":"secao3_minicard1_img_bg"},{"id":"secao3_minicard1_descricao"},{"id":"secao3_minicard2_img_bg"},{"id":"secao3_minicard2_descricao"},{"id":"secao3_minicard3_img_bg"},{"id":"secao3_minicard3_descricao"}]
 }

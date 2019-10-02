@@ -12,10 +12,14 @@ class Cases_Fields {
 		$this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'secao1';
     }
 
-    public function getSettings($opt_group,$page='d1_plugin_cases'){
+    public function getSettings($opt_group=false,$page='d1_plugin_cases'){
 		$settings = array();
 		$config_data_settings = $this->getConfigDataSettings($this->path_data_settings);
-        $settings = $config_data_settings[$opt_group];
+		if($opt_group){
+			$settings = $config_data_settings[$opt_group];
+		}else{
+			$settings = $config_data_settings;
+		}
 		return $settings;
 	}
 
@@ -71,5 +75,6 @@ class Cases_Fields {
 		----------------------------------------------------------------------------------------------------------------------------
 	*/ 
     public function d1_card_cases_group($input){return $input;}
-    public function d1_cases_config_geral($input){return $input;}
+	public function d1_cases_config_geral($input){return $input;}
+	public function d1_cases_secao_expert($input){return $input;}
 }

@@ -28,7 +28,7 @@ foreach($table_data as $key=>&$value){
         unset($value['id_card']);
         //insert
         $fields                 = implode("','",$value);
-        $sql                    = "INSERT INTO " . $wpdb->prefix . "wp_d1_cases(title_card,subtitle_card,text_footer_card,subtext_footer_card,card_link,img_bg_url) VALUES('$fields')";
+        $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_cases(title_card,subtitle_card,text_footer_card,subtext_footer_card,card_link,img_bg_url) VALUES('$fields')";
         //$wpdb->insert($wpdb->prefix . "d1_cases", $value);
         $wpdb->query($wpdb->prepare($sql,array()));
     }else{
@@ -50,7 +50,7 @@ foreach($table_data as $key=>&$value){
 
 if(!empty($ids_delete[0])){
     foreach($ids_delete as $id){
-        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_cases WHERE id_card=$id;"));
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_cases WHERE id_card=$id;",array()));
     }
 }
 
