@@ -74,7 +74,7 @@ class Admin_Fields {
 		Funções callbacks devem ter o nome do grupo de opções correspondente
 		----------------------------------------------------------------------------------------------------------------------------
 	*/ 
-	public function d1_options_group($input){return $input;}
-	public function secao1_options_group($input){return $input;}
-	public function secao2_options_group($input){return $input;}
+	public function home_d1_options_group($input){return $input;}
+	public function home_secao1_options_group($input){return $input;}
+	public function home_secao2_options_group($input){return $input;}
 }

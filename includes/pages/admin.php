@@ -73,16 +73,16 @@ class Admin{
 	public function setSettings(){
         switch($this->active_tab){
             case 'config_geral': 
-                $this->settings =  $this->admin_fields->getSettings('d1_options_group','d1_plugin');
+                $this->settings =  $this->admin_fields->getSettings('home_d1_options_group','d1_plugin');
                 break;
             case 'secao1': 
-                $this->settings =  $this->admin_fields->getSettings('secao1_options_group','d1_plugin');
+                $this->settings =  $this->admin_fields->getSettings('home_secao1_options_group','d1_plugin');
 				break;
 			case 'secao2': 
-                $this->settings =  $this->admin_fields->getSettings('secao2_options_group','d1_plugin');
+                $this->settings =  $this->admin_fields->getSettings('home_secao2_options_group','d1_plugin');
                 break;
             default:
-                $this->settings =  $this->admin_fields->getSettings('d1_options_group','d1_plugin');
+                $this->settings =  $this->admin_fields->getSettings('home_d1_options_group','d1_plugin');
                 break;
         }
 	}
@@ -92,7 +92,7 @@ class Admin{
             case 'config_geral': 
 				$this->sections = array(
 					array(
-						'id' => 'd1_admin_index',
+						'id' => 'home_d1_admin_index',
 						'title' => 'Configurações Gerais',
 						'callback' => array( $this, 'd1AdminConfGeral' ),
 						'page' => 'd1_plugin'
@@ -102,7 +102,7 @@ class Admin{
             case 'secao1': 
 				$this->sections = array(
 					array(
-						'id' => 'd1_admin_secao1',
+						'id' => 'home_d1_admin_secao1',
 						'title' => 'Configurações Seção 1 - Hero',
 						'callback' => array( $this, 'd1Section1Hero' ),
 						'page' => 'd1_plugin'
@@ -112,7 +112,7 @@ class Admin{
 			case 'secao2': 
 				$this->sections = array(
 					array(
-						'id' => 'd1_admin_secao2',
+						'id' => 'home_d1_admin_secao2',
 						'title' => 'Configurações Seção 2 - Cases de Sucesso',
 						'callback' => array( $this, 'd1Section2Cases' ),
 						'page' => 'd1_plugin'
@@ -122,7 +122,7 @@ class Admin{
             default:
 				$this->sections = array(
 					array(
-						'id' => 'd1_admin_index',
+						'id' => 'home_d1_admin_index',
 						'title' => 'Configurações Gerais',
 						'callback' => array( $this, 'd1AdminConfGeral' ),
 						'page' => 'd1_plugin'
@@ -135,16 +135,16 @@ class Admin{
 	public function setFields(){
         switch($this->active_tab){
             case 'config_geral': 
-                $this->fields =  $this->admin_fields->getFields('d1_admin_index','d1_plugin');
+                $this->fields =  $this->admin_fields->getFields('home_d1_admin_index','d1_plugin');
                 break;
             case 'secao1': 
-                $this->fields =  $this->admin_fields->getFields('d1_admin_secao1','d1_plugin');
+                $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao1','d1_plugin');
 				break;
 			case 'secao2': 
-                $this->fields =  $this->admin_fields->getFields('d1_admin_secao2','d1_plugin');
+                $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao2','d1_plugin');
                 break;
             default:
-                $this->fields =  $this->admin_fields->getFields('d1_admin_index','d1_plugin');
+                $this->fields =  $this->admin_fields->getFields('home_d1_admin_index','d1_plugin');
                 break;
         }
 	}

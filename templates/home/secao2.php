@@ -125,43 +125,70 @@
 <!-- ------------------------------------- Fim Seção Config. Seção -  Cases de Sucesso ------------------------------------------>
 
 <!-- ------------------------------------- Início Seção Cards Cases de Sucesso ----------------------------------------------->
+<?php
+//obtendo opções salvas no BD
+global $wpdb;
+$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')),true);
+?>
+
 <!-- Card Primeira Parte -->
 <button type="button" class="collapsible">+ Cases de Sucesso - Cards</button>
-<!-- Case 1 -->
+<!-- Lista de Cards Disponíveis -->
 <div id='secao2_content2' class="content">
-<fieldset style='display: inline;margin-right:4%;width:29%;'>
-<legend><span class="number">1</span>Card 1</legend>
-<label for="secao2_title_card_case1">Título:</label><input type="text" name="secao2_title_card_case1" value="<?php echo get_option('secao2_title_card_case1')?>" placeholder="Titulo do Card 1">
-<label for="secao2_subtitle_card_case1">Objetivo:</label><input type="text" name="secao2_subtitle_card_case1" value="<?php echo get_option('secao2_subtitle_card_case1')?>" placeholder="SubTitulo do Card 1">
-<label for="secao2_text_footer_card_case1">Número Impacto:</label><input type="text" name="secao2_text_footer_card_case1" value="<?php echo get_option('secao2_text_footer_card_case1')?>" placeholder="Texto Card Footer 1">
-<label for="secao2_subtext_footer_card_case1">Descrição:</label><input type="text" name="secao2_subtext_footer_card_case1" value="<?php echo get_option('secao2_subtext_footer_card_case1')?>" placeholder="SubTexto Card Footer 1">
-<label for="secao2_card1_link">Link:</label><input type="text" name="secao2_card1_link" value="<?php echo get_option('secao2_card1_link')?>" placeholder="Link">
-<legend>Imagem de Fundo</legend>
-<?php echo $this->d1_upload->get_image_options('secao2_img_bg_case1'); ?>
-</fieldset>
+<fieldset style='display: inline;margin-right:4%;width:50%;'>
+<legend><span class="number">1</span>Selecione os Cases que Serão Mostrados Na HomePage</legend>
 
-<!-- Case 2 -->
-<fieldset style='display: inline;margin-right:4%;width:29%;'>
-<legend><span class="number">2</span>Card 2</legend>
-<label for="secao2_title_card_case2">Título:</label><input type="text" name="secao2_title_card_case2" value="<?php echo get_option('secao2_title_card_case2')?>" placeholder="Titulo do Card 2">
-<label for="secao2_subtitle_card_case2">Objetivo:</label><input type="text" name="secao2_subtitle_card_case2" value="<?php echo get_option('secao2_subtitle_card_case2')?>" placeholder="SubTitulo do Card 2">
-<label for="secao2_text_footer_card_case2">Número Impacto:</label><input type="text" name="secao2_text_footer_card_case2" value="<?php echo get_option('secao2_text_footer_card_case2')?>" placeholder="Texto Card Footer 2">
-<label for="secao2_subtext_footer_card_case2">Descrição:</label><input type="text" name="secao2_subtext_footer_card_case2" value="<?php echo get_option('secao2_subtext_footer_card_case2')?>" placeholder="SubTexto Card Footer 2">
-<label for="secao2_card2_link">Link:</label> <input type="text" name="secao2_card2_link" value="<?php echo get_option('secao2_card2_link')?>" placeholder="Link">
-<legend>Imagem de Fundo</legend>
-<?php echo $this->d1_upload->get_image_options('secao2_img_bg_case2'); ?>
-</fieldset>
+<!-- Início de Select para Card 1 -->
+<label for="secao2_select_card_cases1">Selecione Opção 1:</label> <select name="secao2_select_card_cases1">
+<option value="0"> Selecione </option>
+<?php 
+foreach($result as $key=>&$value):
+	$id_selected = get_option('secao2_select_card_cases1');
+	if($value['id_card'] == $id_selected){
+		$value['selected'] = 'selected';
+	}else{
+		$value['selected'] = '';
+	}
+?>
+<option value="<?php echo $value['id_card'];?>" <?php echo $value['selected'];?> > <?php echo $value['title_card'];?> </option>
+<?php endforeach; ?>
+</select>
+<!-- Fim de Select para Card 1 -->
 
-<!-- Case 3 -->
-<fieldset style='display: inline;margin-right:4%;width:29%;'>
-<legend><span class="number">3</span>Card 3</legend>
-<label for="secao2_title_card_case3">Título:</label><input type="text" name="secao2_title_card_case3" value="<?php echo get_option('secao2_title_card_case3')?>" placeholder="Titulo do Card 3">
-<label for="secao2_subtitle_card_case3">Objetivo:</label><input type="text" name="secao2_subtitle_card_case3" value="<?php echo get_option('secao2_subtitle_card_case3')?>" placeholder="SubTitulo do Card 3">
-<label for="secao2_text_footer_card_case3">Número Impacto:</label><input type="text" name="secao2_text_footer_card_case3" value="<?php echo get_option('secao2_text_footer_card_case3')?>" placeholder="Texto Card Footer 3">
-<label for="secao2_subtext_footer_card_case3">Descrição:</label><input type="text" name="secao2_subtext_footer_card_case3" value="<?php echo get_option('secao2_subtext_footer_card_case3')?>" placeholder="SubTexto Card Footer 3">
-<label for="secao2_card3_link">Link:</label><input type="text" name="secao2_card3_link" value="<?php echo get_option('secao2_card3_link')?>" placeholder="Link">
-<legend>Imagem de Fundo</legend>
-<?php echo $this->d1_upload->get_image_options('secao2_img_bg_case3'); ?>
+<!-- Início de Select para Card 2 -->
+<label for="secao2_select_card_cases2">Selecione Opção 2:</label> <select name="secao2_select_card_cases2">
+<option value="0"> Selecione </option>
+<?php 
+foreach($result as $key=>&$value):
+	$id_selected = get_option('secao2_select_card_cases2');
+	if($value['id_card'] == $id_selected){
+		$value['selected'] = 'selected';
+	}else{
+		$value['selected'] = '';
+	}
+?>
+<option value="<?php echo $value['id_card'];?>" <?php echo $value['selected'];?> > <?php echo $value['title_card'];?> </option>
+<?php endforeach; ?>
+</select>
+<!-- Fim de Select para Card 2 -->
+
+<!-- Início de Select para Card 3 -->
+<label for="secao2_select_card_cases3">Selecione Opção 3:</label> <select name="secao2_select_card_cases3">
+<option value="0"> Selecione </option>
+<?php 
+foreach($result as $key=>&$value):
+	$id_selected = get_option('secao2_select_card_cases3');
+	if($value['id_card'] == $id_selected){
+		$value['selected'] = 'selected';
+	}else{
+		$value['selected'] = '';
+	}
+?>
+<option value="<?php echo $value['id_card'];?>" <?php echo $value['selected'];?> > <?php echo $value['title_card'];?> </option>
+<?php endforeach; ?>
+</select>
+<!-- Fim de Select para Card 3 -->
+
 </fieldset>
 </div>
 <!-- ------------------------------------- Fim Seção Cards Cases de Sucesso ----------------------------------------------->

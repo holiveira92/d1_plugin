@@ -23,14 +23,12 @@
 10 - CRIAR FUNÇÃO DE DELETAR IMAGENS(EXISTE O BOTÃO MAS AINDA NÃO EXISTE AÇÃO)
 
 TODO - reunião 22/09
-inserir seo e meta key words nos nomes das páginas - instalar https://yoast.com/wordpress/plugins/seo/ para fazer isso - OK
-migração para hubspot - OK
-espaço nos nomes da seções - OK
-cadastro de cases para criar cards - 98% OK
-links dos cards na home - criar opção - OK
 header , footer e cta salvos em lugares unicos - NOT OK
 bug inserir card não consegue inserir imagem sem salvar primeiro - NOT OK
-nas configs da home inserir select para buscar cadastro de cases
+nas configs da home inserir select para buscar cadastro de cases - NOT OK
+
+DUVIDAS - REUNIÃO 13/10
+1-
 */
 
 defined('ABSPATH') or die('Access Denied!');

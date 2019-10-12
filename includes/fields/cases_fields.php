@@ -74,7 +74,7 @@ class Cases_Fields {
 		Funções callbacks devem ter o nome do grupo de opções correspondente
 		----------------------------------------------------------------------------------------------------------------------------
 	*/ 
-    public function d1_card_cases_group($input){return $input;}
+    public function cases_d1_card_group($input){return $input;}
 	public function d1_cases_config_geral($input){return $input;}
 	public function d1_cases_secao_expert($input){return $input;}
 }

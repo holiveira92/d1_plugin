@@ -21,19 +21,19 @@
 		<?php 
 		switch($active_tab){
 			case 'config_geral':
-				settings_fields('d1_options_group');
+				settings_fields('home_d1_options_group');
 				do_settings_sections('d1_plugin');
 				break;
 			case 'secao1':
-				settings_fields('secao1_options_group');
+				settings_fields('home_secao1_options_group');
 				do_settings_sections('d1_plugin');
 				break;
 			case 'secao2':
-				settings_fields('secao2_options_group');
+				settings_fields('home_secao2_options_group');
 				do_settings_sections('d1_plugin');
 				break;
 			default:
-				settings_fields('d1_options_group');
+				settings_fields('home_d1_options_group');
 				do_settings_sections('d1_plugin');
 				break;
             

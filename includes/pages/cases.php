@@ -53,16 +53,16 @@ class Cases{
 	public function setSettings(){
         switch($this->active_tab){
             case 'config_cards': 
-                $this->settings =  $this->cases_fields->getSettings('d1_card_cases_group',$this->page);
+                $this->settings =  $this->cases_fields->getSettings('cases_d1_card_group',$this->page);
                 break;
             case 'secao1': 
-                $this->settings =  $this->cases_fields->getSettings('secao1_options_group',$this->page);
+                $this->settings =  $this->cases_fields->getSettings('cases_secao1_options_group',$this->page);
 				break;
 			case 'secao2': 
-                $this->settings =  $this->cases_fields->getSettings('secao2_options_group',$this->page);
+                $this->settings =  $this->cases_fields->getSettings('cases_secao2_options_group',$this->page);
                 break;
             default:
-                $this->settings =  $this->cases_fields->getSettings('d1_card_cases_group',$this->page);
+                $this->settings =  $this->cases_fields->getSettings('cases_d1_card_group',$this->page);
                 break;
         }
 	}
