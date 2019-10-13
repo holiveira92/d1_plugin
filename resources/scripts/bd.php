@@ -37,11 +37,11 @@ CREATE TABLE `wp_d1_cases` (
 	`subtext_footer_card` VARCHAR(250) NULL DEFAULT NULL,
 	`card_link` VARCHAR(250) NULL DEFAULT NULL,
 	`img_bg_url` VARCHAR(250) NULL DEFAULT NULL,
+	`detach_card` INT(1) NOT NULL DEFAULT 0,
 	PRIMARY KEY (`id_card`)
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=MyISAM
-AUTO_INCREMENT=6
 ;
 */
 ?>

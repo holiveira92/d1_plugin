@@ -21,12 +21,17 @@
 global $wpdb;
 $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')),true);
 $cont = 0;
-foreach($result as $key=>$value): 
+foreach($result as $key=>&$value): 
+    $value['destaque'] = ($value['detach_card'] == 1) ? 'checked' : '';
     $cont++;
 ?>
 <fieldset id="card_row<?php echo $cont;?>" style='display: inline;margin-right:4%;width:29%;'>
 <input type="hidden" name="id_card[]" value="<?php echo $value['id_card'];?>">
 <legend><span class="number"><?php echo $cont;?></span>Card</legend>
+
+Destaque: <input type="checkbox" name="detach_card[]" <?php echo $value['destaque'];?> value="<?php echo $value['detach_card'];?>" style='margin-top:-2px;'>
+<input type="hidden" name="detach_card_hidden[]" value="<?php echo $value['detach_card'];?>"/>
+
 <label>Título:</label><input type="text" name="title_card[]" placeholder="Titulo do Card " value="<?php echo $value['title_card'];?>">
 <label>Objetivo:</label><input type="text" name="subtitle_card[]" placeholder="SubTitulo do Card" value="<?php echo $value['subtitle_card'];?>">
 <label>Número Impacto:</label><input type="text" name="text_footer_card[]" placeholder="Texto Card Footer" value="<?php echo $value['text_footer_card'];?>">
@@ -68,17 +73,18 @@ $(document).ready(function(){
             var img_default = $('#img_default').val();
             $('#secao1_content1').append('<fieldset id="card_row'+i+'" style="display:inline;margin-right:4%;width:29%;"> <input type="hidden" name="id_card[]" value="">'
                    + '<legend><span class="number">'+i+'</span>Card</legend>'
+                   //+ 'Destaque: <input type="checkbox" name="detach_card[]" value="0" style="margin-top:-2px;">'
+                   //+ '<input type="hidden" name="detach_card_hidden[]" value="0"/>'
                    + '<label>Título:</label><input type="text" name="title_card[]" placeholder="Titulo do Card ">'
                    + '<label>Objetivo:</label><input type="text" name="subtitle_card[]" placeholder="SubTitulo do Card">'
                    + '<label>Número Impacto:</label><input type="text" name="text_footer_card[]" placeholder="Texto Card Footer">'
                    + '<label>Descrição:</label><input type="text" name="subtext_footer_card[]" placeholder="SubTexto Card Footer">'
 				   + '<label>Link:</label><input type="text" name="card_link[]" placeholder="Link">'
                    + '<legend>Imagem de Fundo</legend>'
-
                    + "<input type='hidden' id='" + hash + "' name=img_bg_url[] value='' readonly='readonly'>"
                    + "<div id='"+hash+"_d1_img_preview' style='min-height: 100px;margin-top: 10px;'> <img id='"+hash+"_d1_img_preview' style='max-width:100%;' src='"+img_default +"'  /> </div>"
-                   + "<input dest='"+hash+"' name='"+hash+"_d1_upload_btn' type='button' class='button' value='Upload Imagem'/>"
-
+                   + '<span> Após salvar o novo card, será liberado o upload de imagem </span><br>'
+                   //+ "<input dest='"+hash+"' name='"+hash+"_d1_upload_btn' type='button' class='button' value='Upload Imagem'/>"
                    + '<button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">Remover Item</button>');
        }
 	});
@@ -124,6 +130,16 @@ $(document).ready(function(){
         $('#url_location').val( window.location.href);
         var action = $('#cases_fields').attr('action');
         $('#cases_fields').attr('action',action + "?" + $('#cases_fields').serialize());
+    });
+    
+    $('[name*=detach_card').click(function(){
+        $(this).val($(this).is(":checked"));
+        if($(this).is(":checked") == true){
+            $(this).val(1);
+        }else{
+            $(this).val(0);
+        }
+        $(this).siblings('[name*=detach_card_hidden]').val($(this).val());
 	});
 
 });

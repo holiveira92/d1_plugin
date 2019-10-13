@@ -20,6 +20,8 @@ for($i=0; $i<$number; $i++){
         'subtext_footer_card'   => !empty($_REQUEST["subtext_footer_card"][$i]) ? $_REQUEST["subtext_footer_card"][$i] : '',
         'card_link'             => !empty($_REQUEST["card_link"][$i]) ? $_REQUEST["card_link"][$i] : '',
         'img_bg_url'            => !empty($_REQUEST["img_bg_url"][$i]) ? urldecode($_REQUEST["img_bg_url"][$i]) : '',
+        //'detach_card_val'       => !empty($_REQUEST["detach_card"][$i]) ? $_REQUEST["detach_card"][$i] : 0,
+        'detach_card'           => !empty($_REQUEST["detach_card_hidden"][$i]) ? $_REQUEST["detach_card_hidden"][$i] : 0,
     );
 }
 foreach($table_data as $key=>&$value){
@@ -28,8 +30,7 @@ foreach($table_data as $key=>&$value){
         unset($value['id_card']);
         //insert
         $fields                 = implode("','",$value);
-        $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_cases(title_card,subtitle_card,text_footer_card,subtext_footer_card,card_link,img_bg_url) VALUES('$fields')";
-        //$wpdb->insert($wpdb->prefix . "d1_cases", $value);
+        $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_cases(title_card,subtitle_card,text_footer_card,subtext_footer_card,card_link,img_bg_url,detach_card) VALUES('$fields')";
         $wpdb->query($wpdb->prepare($sql,array()));
     }else{
         //update
@@ -40,10 +41,9 @@ foreach($table_data as $key=>&$value){
         $subtext_footer_card    = $value['subtext_footer_card'];
         $card_link              = $value['card_link'];
         $img_bg_url             = $value['img_bg_url'];
+        $detach_card            = $value['detach_card'];
         $sql                    = "UPDATE " . $wpdb->prefix ."d1_cases SET title_card='$title_card', subtitle_card='$subtitle_card', text_footer_card='$text_footer_card',
-         subtext_footer_card='$subtext_footer_card', card_link='$card_link', img_bg_url='$img_bg_url' WHERE id_card = '$id_card';";
-         	
-        //$wpdb->update($wpdb->prefix . "d1_cases", $value, "id_card = $id_card");
+         subtext_footer_card='$subtext_footer_card', card_link='$card_link', img_bg_url='$img_bg_url' , detach_card='$detach_card' WHERE id_card = '$id_card';";
         $wpdb->query($wpdb->prepare($sql,array()));
     }
 }

@@ -137,7 +137,8 @@ $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->p
 <div id='secao2_content2' class="content">
 <fieldset style='display: inline;margin-right:4%;width:50%;'>
 <legend><span class="number">1</span>Selecione os Cases que Serão Mostrados Na HomePage</legend>
-
+<span> Verifique o cadastro de cases de sucesso <a href="?page=d1_plugin_cases&tab=config_cards">clicando aqui</a></span>
+<br><br>
 <!-- Início de Select para Card 1 -->
 <label for="secao2_select_card_cases1">Selecione Opção 1:</label> <select name="secao2_select_card_cases1">
 <option value="0"> Selecione </option>
