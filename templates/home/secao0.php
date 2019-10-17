@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 .form-style-5{
-	max-width: 500px;
+	max-width: 97%;
 	padding: 10px 20px;
 	background: #f4f7f8;
 	margin: 10px auto;
@@ -89,16 +89,21 @@
 <body>
 <div class="form-style-5">
 <fieldset>
-
-<legend><span class="number">1</span>Configurações Gerais</legend>
+<legend><span class="number">1</span>Conteúdo</legend>
 <label for="d1_web_title">Título do Página:</label> <input type="text" name="d1_web_title" value="<?php echo get_option('d1_web_title')?>" placeholder="Título da Página">
-<legend>Logo Principal</legend>
-<?php echo $this->d1_upload->get_image_options('d1_main_logo'); ?>
-<br><br>
-<legend>Favicon</legend>
-<?php echo $this->d1_upload->get_image_options('d1_favicon'); ?>
 <br><br>
 </fieldset>
+
+<fieldset style='display: inline;margin-right:4%;width:45%;'>
+<legend><span class="number">2</span>Logo Principal</legend>
+<legend>Logo Principal</legend> <?php echo $this->d1_upload->get_image_options('d1_main_logo'); ?>
+</fieldset>
+
+<fieldset style='display: inline;margin-right:4%;width:45%;'>
+<legend><span class="number">2</span>Favicon</legend>
+<legend>Favicon</legend> <?php echo $this->d1_upload->get_image_options('d1_favicon'); ?>
+</fieldset>
+
 </div>
 </body>
 </html>
