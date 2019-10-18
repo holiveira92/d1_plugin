@@ -45,8 +45,8 @@ class D1Plugin{
     public $plugin;
     function __construct() {
         $this->plugin = plugin_basename( __FILE__ );
-        $this->whitelist_plugin = array('d1_plugin','d1_plugin_solucoes','d1_plugin_conteudo','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','upload.php','wpseo_dashboard',
-        'd1_plugin_header_menu','d1_plugin_footer','d1_plugin_cta');
+        $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard');
+        //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_footer','d1_plugin_cta'
         require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/cases_fields.php';
         $this->admin_fields = new Admin_Fields();

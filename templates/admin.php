@@ -31,12 +31,19 @@
 			case 'secao2':
 				settings_fields('home_secao2_options_group');
 				do_settings_sections('d1_plugin');
+                break;
+            case 'secao3':
+				settings_fields('home_secao3_options_group');
+				do_settings_sections('d1_plugin');
+                break;
+            case 'secao4':
+				settings_fields('home_secao4_options_group');
+				do_settings_sections('d1_plugin');
 				break;
 			default:
 				settings_fields('home_d1_options_group');
 				do_settings_sections('d1_plugin');
 				break;
-            
         }
         submit_button();
 		?>

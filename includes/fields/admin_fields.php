@@ -76,5 +76,7 @@ class Admin_Fields {
 	*/ 
 	public function home_d1_options_group($input){return $input;}
 	public function home_secao1_options_group($input){return $input;}
-	public function home_secao2_options_group($input){return $input;}
+    public function home_secao2_options_group($input){return $input;}
+    public function home_secao3_options_group($input){return $input;}
+    public function home_secao4_options_group($input){return $input;}
 }
