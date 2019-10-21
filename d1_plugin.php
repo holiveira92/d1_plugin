@@ -45,12 +45,14 @@ class D1Plugin{
     public $plugin;
     function __construct() {
         $this->plugin = plugin_basename( __FILE__ );
-        $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard');
-        //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_footer','d1_plugin_cta'
+        $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer');
+        //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
         require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/cases_fields.php';
+        require_once  dirname(__FILE__).'/includes/fields/footer_fields.php';
         $this->admin_fields = new Admin_Fields();
         $this->cases_fields = new Cases_Fields();
+        $this->footer_fields = new Footer_Fields();
     }
 
     function add_custom_options_page(){
@@ -60,7 +62,8 @@ class D1Plugin{
     function setWhitelistOptions($whitelist_options){
         $home_options_settings = $this->admin_fields->getSettings();
         $cases_options_settings = $this->cases_fields->getSettings();
-        $all_options_settings = array_merge($home_options_settings,$cases_options_settings);
+        $footer_options_settings = $this->footer_fields->getSettings();
+        $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings );
         foreach($all_options_settings as $option){
             foreach($option as $key=>$setting){
                 $whitelist_options[$setting['option_group']][] = $setting['option_name'];
@@ -89,7 +92,7 @@ class D1Plugin{
     public function add_admin_pages() {
         /* HOME PAGE */
         add_menu_page('Página Inicial','Página Inicial','manage_options','d1_plugin',array($this,'admin_index'), get_template_directory_uri()."/images/d1_logo_admin.ico",110);
-        add_submenu_page('d1_plugin','Plataforma','Plataforma','manage_options','d1_plugin_plataforma',array($this,'plataforma_admin')); 
+        //add_submenu_page('d1_plugin','Plataforma','Plataforma','manage_options','d1_plugin_plataforma',array($this,'plataforma_admin')); 
 
         /* SOLUÇÕES */
         add_menu_page('Soluções','Soluções','manage_options','d1_plugin_solucoes',array($this,'admin_index'),'dashicons-admin-site-alt3',111);
@@ -115,8 +118,8 @@ class D1Plugin{
 
         /* HEADER MENU, FOOTER, CTA */
         add_menu_page('Header Menu','Header Menu','manage_options','d1_plugin_header_menu','','',116);
-        add_menu_page('Footer','Footer','manage_options','d1_plugin_footer','','',117);
-        add_menu_page('Call To Action','Call To Action','manage_options','d1_plugin_cta','','',118);    
+        add_menu_page('Footer','Footer','manage_options','d1_plugin_footer',array($this,'footer_admin'),'',117);
+        add_menu_page('Call To Action','Call To Action','manage_options','d1_plugin_cta','','',118);
     }
 
     public function admin_index(){
@@ -135,6 +138,13 @@ class D1Plugin{
         $cases = new Cases();
         $cases->register();
         require_once plugin_dir_path( __FILE__ ) . 'templates/cases.php';
+    }
+
+    public function footer_admin() {
+        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/footer.php';
+        $footer = new Footer();
+        $footer->register();
+        require_once plugin_dir_path( __FILE__ ) . 'templates/footer.php';
     }
 
 	function activate(){

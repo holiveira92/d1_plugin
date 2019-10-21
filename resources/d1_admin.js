@@ -1,6 +1,5 @@
 
 jQuery(document).ready(function($) {
-    //alert('chegou aqui');
     $('[name*=_degrade').click(function(){
         var field_name = $(this).attr('name');
         field_name = field_name.replace('_degrade','');
