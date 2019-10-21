@@ -9,15 +9,17 @@
 <body>
 <div class="form-style-5">
 
-<!-- ------------------------------------- Início Seção Config. Seção - Lead Generator --------------------------------------->
-<div id='secao5_content1' class="content" style='display:block;'>
+<!-- ------------------------------------- Início Seção Config. Seção - Diferencial --------------------------------------->
+<!-- Titulo Seção Parte 2 -->
+<div id='secao7_content1' class="content" style='display:block;'>
 <fieldset style='display: inline;margin-right:4%;width:97%;'>
-<label for="secao5_section_title">Titulo :</label> <input type="checkbox" name="secao5_section_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br> <input type="text" name="secao5_section_title" value="<?php echo get_option('secao5_section_title')?>" placeholder="Titulo da Seção">
-<label for="secao5_section_descricao">Descrição :</label> <input type="checkbox" name="secao5_section_descricao_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br><textarea name="secao5_section_descricao" placeholder="Descrição" rows=5><?php echo get_option('secao5_section_descricao')?></textarea>
-<label for="secao5_link_calcular">URL Link Calcular :</label> <input type="text" name="secao5_link_calcular" value="<?php echo get_option('secao5_link_calcular')?>" placeholder="URL Calcular CX">
+<label for="secao7_section_title">Titulo :</label> <input type="checkbox" name="secao7_section_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br> <input type="text" name="secao7_section_title" value="<?php echo get_option('secao7_section_title')?>" placeholder="Titulo da Seção">
+<label for="secao7_section_descricao">Descrição :</label> <input type="checkbox" name="secao7_section_descricao_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br><textarea name="secao7_section_descricao" placeholder="Descrição" rows=6><?php echo get_option('secao7_section_descricao')?></textarea>
+<label for="secao7_link_cta_webinario">URL Link CTA Webinário :</label> <input type="text" name="secao7_link_cta_webinario" value="<?php echo get_option('secao7_link_cta_webinario')?>" placeholder="URL Link CTA Webinário">
+<label for="secao7_img">UImagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao7_img'); ?>
 </fieldset>
 </div>
-<!-- ------------------------------------- Início Seção Config. Seção - Lead Generator ----------------------------------------------->
+<!-- ------------------------------------- Início Seção Config. Seção - Diferencial ----------------------------------------------->
 
 </div>
 </body>
