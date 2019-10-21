@@ -44,6 +44,10 @@
 				settings_fields('home_secao5_options_group');
 				do_settings_sections('d1_plugin');
                 break;
+            case 'secao6':
+				settings_fields('home_secao6_options_group');
+				do_settings_sections('d1_plugin');
+                break;
             case 'secao7':
 				settings_fields('home_secao7_options_group');
 				do_settings_sections('d1_plugin');

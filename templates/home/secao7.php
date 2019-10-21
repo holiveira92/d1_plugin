@@ -16,7 +16,7 @@
 <label for="secao7_section_title">Titulo :</label> <input type="checkbox" name="secao7_section_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br> <input type="text" name="secao7_section_title" value="<?php echo get_option('secao7_section_title')?>" placeholder="Titulo da Seção">
 <label for="secao7_section_descricao">Descrição :</label> <input type="checkbox" name="secao7_section_descricao_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br><textarea name="secao7_section_descricao" placeholder="Descrição" rows=6><?php echo get_option('secao7_section_descricao')?></textarea>
 <label for="secao7_link_cta_webinario">URL Link CTA Webinário :</label> <input type="text" name="secao7_link_cta_webinario" value="<?php echo get_option('secao7_link_cta_webinario')?>" placeholder="URL Link CTA Webinário">
-<label for="secao7_img">UImagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao7_img'); ?>
+<label for="secao7_img">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao7_img'); ?>
 </fieldset>
 </div>
 <!-- ------------------------------------- Início Seção Config. Seção - Diferencial ----------------------------------------------->

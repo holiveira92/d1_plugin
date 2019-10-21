@@ -90,6 +90,9 @@ class Admin{
             case 'secao5': 
                 $this->settings =  $this->admin_fields->getSettings('home_secao5_options_group','d1_plugin');
                 break;
+            case 'secao6':
+                $this->settings =  $this->admin_fields->getSettings('home_secao6_options_group','d1_plugin');
+                break;
             case 'secao7': 
                 $this->settings =  $this->admin_fields->getSettings('home_secao7_options_group','d1_plugin');
                 break;
@@ -161,6 +164,16 @@ class Admin{
 					),
 				);
                 break;
+            case 'secao6': 
+				$this->sections = array(
+					array(
+						'id' => 'home_d1_admin_secao6',
+						'title' => 'Configurações Seção 6 - Conheça Nossa Solução',
+						'callback' => array( $this, 'd1Section6Solucao' ),
+						'page' => 'd1_plugin'
+					),
+				);
+                break;
             case 'secao7': 
 				$this->sections = array(
 					array(
@@ -204,6 +217,9 @@ class Admin{
             case 'secao5':
                 $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao5','d1_plugin');
                 break;
+            case 'secao6':
+                $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao6','d1_plugin');
+                break;
             case 'secao7':
                 $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao7','d1_plugin');
                 break;
@@ -219,5 +235,6 @@ class Admin{
     public function d1Section3Clientes(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao3.php';}
     public function d1Section4Desafios(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao4.php';}
     public function d1Section5LeadGenerator(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao5.php';}
+    public function d1Section6Solucao(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao6.php';}
     public function d1Section7Diferencial(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao7.php';}
 }
