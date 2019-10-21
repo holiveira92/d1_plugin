@@ -87,6 +87,9 @@ class Admin{
             case 'secao4': 
                 $this->settings =  $this->admin_fields->getSettings('home_secao4_options_group','d1_plugin');
                 break;
+            case 'secao5': 
+                $this->settings =  $this->admin_fields->getSettings('home_secao5_options_group','d1_plugin');
+                break;
             default:
                 $this->settings =  $this->admin_fields->getSettings('home_d1_options_group','d1_plugin');
                 break;
@@ -144,6 +147,16 @@ class Admin{
 						'page' => 'd1_plugin'
 					),
 				);
+                break;
+            case 'secao5': 
+				$this->sections = array(
+					array(
+						'id' => 'home_d1_admin_secao4',
+						'title' => 'Configurações Seção 5 - Lead Generator',
+						'callback' => array( $this, 'd1Section5LeadGenerator' ),
+						'page' => 'd1_plugin'
+					),
+				);
 				break;
             default:
 				$this->sections = array(
@@ -175,6 +188,9 @@ class Admin{
             case 'secao4':
                 $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao4','d1_plugin');
                 break;
+            case 'secao5':
+                $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao5','d1_plugin');
+                break;
             default:
                 $this->fields =  $this->admin_fields->getFields('home_d1_admin_index','d1_plugin');
                 break;
@@ -186,4 +202,5 @@ class Admin{
     public function d1Section2Cases(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao2.php';}
     public function d1Section3Clientes(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao3.php';}
     public function d1Section4Desafios(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao4.php';}
+    public function d1Section5LeadGenerator(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao5.php';}
 }

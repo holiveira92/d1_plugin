@@ -39,6 +39,10 @@
             case 'secao4':
 				settings_fields('home_secao4_options_group');
 				do_settings_sections('d1_plugin');
+                break;
+            case 'secao5':
+				settings_fields('home_secao5_options_group');
+				do_settings_sections('d1_plugin');
 				break;
 			default:
 				settings_fields('home_d1_options_group');
