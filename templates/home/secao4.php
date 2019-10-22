@@ -10,18 +10,11 @@
 <div class="form-style-5">
 
 <!-- ------------------------------------- Início Seção Config. Seção - Desafios --------------------------------------->
-<!-- Titulo Seção Parte 2 -->
-<div id='secao4_content4' class="content" style='display:block;'>
-<fieldset style='display: inline;margin-right:4%;width:97%;'>
-<label for="secao4_section_title_part2">Titulo da Seção Parte 2:</label> <input type="text" name="secao4_section_title_part2" value="<?php echo get_option('secao4_section_title_part2')?>" placeholder="Titulo da Seção Parte 2">
-</fieldset>
-<br>
-
 <!-- Titulo Seção Parte 3 -->
 <br><br>
 <h1>Seção - Desafio</h1>
 <fieldset style='display: inline;margin-right:4%;width:97%;'>
-<label for="secao4_section_title_part3">Titulo da Seção Parte 3:</label> <input type="text" name="secao4_section_title_part3" value="<?php echo get_option('secao4_section_title_part3')?>" placeholder="Titulo da Seção Parte 2">
+<label for="secao4_section_title_part3">Titulo da Seção Parte 3:</label> <input type="text" name="secao4_section_title_part3" value="<?php echo get_option_esc('secao4_section_title_part3')?>" placeholder="Titulo da Seção Parte 2">
 </fieldset>
 <br>
 
@@ -29,25 +22,25 @@
 <!-- Card 1 -->
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">1</span>Desafio 1</legend>
-<label for="secao4_title_card2_case1">Titulo Card Desafio 1:</label> <input type="text" name="secao4_title_card2_case1" value="<?php echo get_option('secao4_title_card2_case1')?>" placeholder="Titulo Card Desafio 1">
-<label for="secao4_subtitle_card2_case1">SubTitulo Card Desafio 1:</label>  <input type="text" name="secao4_subtitle_card2_case1" value="<?php echo get_option('secao4_subtitle_card2_case1')?>" placeholder="SubTitulo Card Desafio 1">
-<label for="secao4_link_card2_case1">Link Desafio 1:</label>  <input type="text" name="secao4_link_card2_case1" value="<?php echo get_option('secao4_link_card2_case1')?>" placeholder="Link Desafio 1">
+<label for="secao4_title_card2_case1">Titulo Card Desafio 1:</label> <textarea name="secao4_title_card2_case1"><?php echo get_option_esc('secao4_title_card2_case1')?> </textarea>
+<label for="secao4_subtitle_card2_case1">SubTitulo Card Desafio 1:</label>  <textarea name="secao4_subtitle_card2_case1"> <?php echo get_option_esc('secao4_subtitle_card2_case1')?> </textarea>
+<label for="secao4_link_card2_case1">Link Desafio 1:</label>  <input type="text" name="secao4_link_card2_case1" value="<?php echo get_option_esc('secao4_link_card2_case1')?>" placeholder="Link Desafio 1">
 </fieldset>
 
 <!-- Card 2 -->
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">2</span>Desafio 2</legend>
-<label for="secao4_title_card2_case2">Titulo Card Desafio 2:</label> <input type="text" name="secao4_title_card2_case2" value="<?php echo get_option('secao4_title_card2_case2')?>" placeholder="Titulo Card Desafio 2">
-<label for="secao4_subtitle_card2_case2">SubTitulo Card Desafio 2:</label> <input type="text" name="secao4_subtitle_card2_case2" value="<?php echo get_option('secao4_subtitle_card2_case2')?>" placeholder="SubTitulo Card Desafio">
-<label for="secao4_link_card2_case2">Link Desafio 2:</label>  <input type="text" name="secao4_link_card2_case2" value="<?php echo get_option('secao4_link_card2_case2')?>" placeholder="Link Desafio 2">
+<label for="secao4_title_card2_case2">Titulo Card Desafio 2:</label> <textarea name="secao4_title_card2_case2"><?php echo get_option_esc('secao4_title_card2_case2')?> </textarea>
+<label for="secao4_subtitle_card2_case2">SubTitulo Card Desafio 2:</label>  <textarea name="secao4_subtitle_card2_case2"> <?php echo get_option_esc('secao4_subtitle_card2_case2')?> </textarea>
+<label for="secao4_link_card2_case2">Link Desafio 2:</label>  <input type="text" name="secao4_link_card2_case2" value="<?php echo get_option_esc('secao4_link_card2_case2')?>" placeholder="Link Desafio 2">
 </fieldset>
 
 <!-- Card 3 -->
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">3</span>Desafio 2</legend>
-<label for="secao4_title_card2_case3">Titulo Card Desafio 3:</label> <input type="text" name="secao4_title_card2_case3" value="<?php echo get_option('secao4_title_card2_case3')?>" placeholder="Titulo Card Desafio 3">
-<label for="secao4_subtitle_card2_case3">SubTitulo Card Desafio 3:</label> <input type="text" name="secao4_subtitle_card2_case3" value="<?php echo get_option('secao4_subtitle_card2_case3')?>" placeholder="SubTitulo Card Desafio 3">
-<label for="secao4_link_card2_case3">Link Desafio 3:</label>  <input type="text" name="secao4_link_card2_case3" value="<?php echo get_option('secao4_link_card2_case3')?>" placeholder="Link Desafio 3">
+<label for="secao4_title_card2_case3">Titulo Card Desafio 2:</label> <textarea name="secao4_title_card2_case3"><?php echo get_option_esc('secao4_title_card2_case3')?> </textarea>
+<label for="secao4_subtitle_card2_case3">SubTitulo Card Desafio 2:</label>  <textarea name="secao4_subtitle_card2_case3"> <?php echo get_option_esc('secao4_subtitle_card2_case3')?> </textarea>
+<label for="secao4_link_card2_case3">Link Desafio 3:</label>  <input type="text" name="secao4_link_card2_case3" value="<?php echo get_option_esc('secao4_link_card2_case3')?>" placeholder="Link Desafio 3">
 </fieldset>
 </div>
 <!-- ------------------------------------- Início Seção Config. Seção - Desafios ----------------------------------------------->

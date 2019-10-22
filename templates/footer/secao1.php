@@ -10,38 +10,39 @@
 <!-- ------------------------------------- Início Pré-Footer - Etapas de Contratação  ----------------------------------------------->
 <!-- Card Primeira Parte -->
 <div id='secao1_content1' class="content" style='display:block;'>
-<label for="secao1_title">Titulo Etapas de Contratação:</label><input type="text" name="secao1_title" value="<?php echo get_option('secao1_title')?>" placeholder="Titulo Etapas de Contratação">
+<label for="secao1_title">Titulo Etapas de Contratação:</label><input type="text" name="secao1_title" value="<?php echo get_option_esc('secao1_title')?>" placeholder="Titulo Etapas de Contratação">
 
 <!-- Passo 1 -->
 <fieldset style='display: inline;margin-right:4%;width:45%;'>
 <legend><span class="number">1</span>Passo 1</legend>
-<label for="secao1_passo1_title">Titulo:</label> <textarea name="secao1_passo1_title" placeholder="Titulo"><?php echo get_option('secao1_passo1_title')?></textarea>
-<label for="secao1_passo1_descricao">Descrição:</label> <textarea name="secao1_passo1_descricao" placeholder="Descrição passo 1"><?php echo get_option('secao1_passo1_descricao')?></textarea>
+<label for="secao1_passo1_title">Titulo:</label> <textarea name="secao1_passo1_title" placeholder="Titulo"><?php echo get_option_esc('secao1_passo1_title')?></textarea>
+<label for="secao1_passo1_descricao">Descrição:</label> <textarea name="secao1_passo1_descricao" placeholder="Descrição passo 1"><?php echo get_option_esc('secao1_passo1_descricao')?></textarea>
 </fieldset>
 
 <!-- Passo 2 -->
 <fieldset style='display: inline;margin-right:4%;width:45%;'>
 <legend><span class="number">2</span>Passo 2</legend>
-<label for="secao1_passo2_title">Titulo:</label> <textarea name="secao1_passo2_title" placeholder="Titulo"><?php echo get_option('secao1_passo2_title')?></textarea>
-<label for="secao1_passo2_descricao">Descrição:</label> <textarea name="secao1_passo2_descricao" placeholder="Descrição passo 2"><?php echo get_option('secao1_passo2_descricao')?></textarea>
+<label for="secao1_passo2_title">Titulo:</label> <textarea name="secao1_passo2_title" placeholder="Titulo"><?php echo get_option_esc('secao1_passo2_title')?></textarea>
+<label for="secao1_passo2_descricao">Descrição:</label> <textarea name="secao1_passo2_descricao" placeholder="Descrição passo 2"><?php echo get_option_esc('secao1_passo2_descricao')?></textarea>
 </fieldset>
 
 <!-- Passo 3 -->
 <fieldset style='display: inline;margin-right:4%;width:45%;'>
 <legend><span class="number">3</span>Passo 3</legend>
-<label for="secao1_passo3_title">Titulo:</label> <textarea name="secao1_passo3_title" placeholder="Titulo"><?php echo get_option('secao1_passo3_title')?></textarea>
-<label for="secao1_passo3_descricao">Descrição:</label> <textarea name="secao1_passo3_descricao" placeholder="Descrição passo 3"><?php echo get_option('secao1_passo3_descricao')?></textarea>
+<label for="secao1_passo3_title">Titulo:</label> <textarea name="secao1_passo3_title" placeholder="Titulo"><?php echo get_option_esc('secao1_passo3_title')?></textarea>
+<label for="secao1_passo3_descricao">Descrição:</label> <textarea name="secao1_passo3_descricao" placeholder="Descrição passo 3"><?php echo get_option_esc('secao1_passo3_descricao')?></textarea>
 </fieldset>
 
 <!-- Passo 4 -->
 <fieldset style='display: inline;margin-right:4%;width:45%;'>
 <legend><span class="number">4</span>Passo 4</legend>
-<label for="secao1_passo4_title">Titulo:</label> <textarea name="secao1_passo4_title" placeholder="Titulo"><?php echo get_option('secao1_passo4_title')?></textarea>
-<label for="secao1_passo4_descricao">Descrição:</label> <textarea name="secao1_passo4_descricao" placeholder="Descrição passo 4"><?php echo get_option('secao1_passo4_descricao')?></textarea>
+<label for="secao1_passo4_title">Titulo:</label> <textarea name="secao1_passo4_title" placeholder="Titulo"><?php echo get_option_esc('secao1_passo4_title')?></textarea>
+<label for="secao1_passo4_descricao">Descrição:</label> <textarea name="secao1_passo4_descricao" placeholder="Descrição passo 4"><?php echo get_option_esc('secao1_passo4_descricao')?></textarea>
 </fieldset>
 </div>
 
-<label for="secao1_link_cta">Link CTA Falar Com Especialista:</label><input type="text" name="secao1_link_cta" value="<?php echo get_option('secao1_link_cta')?>" placeholder="Link CTA Falar Com Especialista">
+<label for="secao1_desc_pre_cta">Descrição Pré CTA:</label><input type="text" name="secao1_desc_pre_cta" value="<?php echo get_option_esc('secao1_desc_pre_cta')?>" placeholder="Descrição Pré CTA">
+<label for="secao1_link_cta">Link CTA Falar Com Especialista:</label><input type="text" name="secao1_link_cta" value="<?php echo get_option_esc('secao1_link_cta')?>" placeholder="Link CTA Falar Com Especialista">
 <!-------------------------------------- Fim Pré-Footer - Etapas de Contratação ----------------------------------------------->
 
 </div>

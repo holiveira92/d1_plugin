@@ -13,8 +13,8 @@
 
 <div id='secao2_content1' class="content" style='display:block;'>
 <fieldset style='display: inline;margin-right:4%;width:97%;'>
-<label for="secao2_section_title" style='display:inline;'>Título Seção:</label> <input type="text" name="secao2_section_title" value="<?php echo get_option('secao2_section_title')?>" placeholder="Titulo da Seção Parte 1" style='width:38%;'>
-<label for="secao2_call_action_cases" style='display:inline;'>Chamada para Ação - Cases:</label> <input type="text" name="secao2_call_action_cases" value="<?php echo get_option('secao2_call_action_cases')?>" placeholder="Chamada para Ação - Cases" style='width:38%;'>
+<label for="secao2_section_title" >Título Seção:</label> <input type="text" name="secao2_section_title" value="<?php echo get_option_esc('secao2_section_title')?>" placeholder="Titulo da Seção Parte 1">
+<label for="secao2_call_action_cases" >Chamada para Ação - Cases:</label> <input type="text" name="secao2_call_action_cases" value="<?php echo get_option_esc('secao2_call_action_cases')?>" placeholder="Chamada para Ação - Cases">
 </fieldset>
 </div>
 <br>
@@ -39,7 +39,7 @@ $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->p
 <option value="0"> Selecione </option>
 <?php 
 foreach($result as $key=>&$value):
-	$id_selected = get_option('secao2_select_card_cases1');
+	$id_selected = get_option_esc('secao2_select_card_cases1');
 	if($value['id_card'] == $id_selected){
 		$value['selected'] = 'selected';
 	}else{
@@ -56,7 +56,7 @@ foreach($result as $key=>&$value):
 <option value="0"> Selecione </option>
 <?php 
 foreach($result as $key=>&$value):
-	$id_selected = get_option('secao2_select_card_cases2');
+	$id_selected = get_option_esc('secao2_select_card_cases2');
 	if($value['id_card'] == $id_selected){
 		$value['selected'] = 'selected';
 	}else{
@@ -73,7 +73,7 @@ foreach($result as $key=>&$value):
 <option value="0"> Selecione </option>
 <?php 
 foreach($result as $key=>&$value):
-	$id_selected = get_option('secao2_select_card_cases3');
+	$id_selected = get_option_esc('secao2_select_card_cases3');
 	if($value['id_card'] == $id_selected){
 		$value['selected'] = 'selected';
 	}else{

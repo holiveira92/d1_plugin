@@ -12,17 +12,17 @@
 <!----------------------------------------------------------------------- Seção 3 - Inicio Seção Pré-CTA ----------------------------------------------------------------------->
 <button type="button" class="collapsible">+ Pré-CTA</button>
 <div id='secao1_content1' class="content">
-<label for="secao3_title">Titulo :</label> <input type="checkbox" name="secao3_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br> <input type="text" name="secao3_title" value="<?php echo get_option('secao3_title')?>" placeholder="Titulo da Seção">
-<label for="secao3_url_cta1">URL CTA 1 :</label> <input type="text" name="secao3_url_cta1" value="<?php echo get_option('secao3_url_cta1')?>" placeholder="URL CTA 1">
-<label for="secao3_url_cta2">URL CTA 2 :</label> <input type="text" name="secao3_url_cta2" value="<?php echo get_option('secao3_url_cta2')?>" placeholder="URL CTA 2">
-<label for="secao3_url_cta3">URL CTA 3 :</label> <input type="text" name="secao3_url_cta3" value="<?php echo get_option('secao3_url_cta3')?>" placeholder="URL CTA 3">
+<label for="secao3_title">Titulo :</label> <input type="checkbox" name="secao3_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br> <input type="text" name="secao3_title" value="<?php echo get_option_esc('secao3_title')?>" placeholder="Titulo da Seção">
+<label for="secao3_url_cta1">URL CTA 1 :</label> <input type="text" name="secao3_url_cta1" value="<?php echo get_option_esc('secao3_url_cta1')?>" placeholder="URL CTA 1">
+<label for="secao3_url_cta2">URL CTA 2 :</label> <input type="text" name="secao3_url_cta2" value="<?php echo get_option_esc('secao3_url_cta2')?>" placeholder="URL CTA 2">
+<label for="secao3_url_cta3">URL CTA 3 :</label> <input type="text" name="secao3_url_cta3" value="<?php echo get_option_esc('secao3_url_cta3')?>" placeholder="URL CTA 3">
 </div>
 <!----------------------------------------------------------------------- Seção 3 - Fim Seção Pré-CTA -------------------------------------------------------------------------->
 
 <!----------------------------------------------------------------------- Seção 3 - Inicio Info D1 ----------------------------------------------------------------------->
 <button type="button" class="collapsible">+ Informações D1</button>
 <div id='secao1_content2' class="content">
-<label for="secao3_info_d1">Info D1:</label> <textarea name="secao3_info_d1" placeholder="Info D1" rows=10><?php echo get_option('secao3_info_d1')?></textarea>
+<label for="secao3_info_d1">Info D1:</label> <textarea name="secao3_info_d1" placeholder="Info D1" rows=10><?php echo get_option_esc('secao3_info_d1')?></textarea>
 <legend>Imagem Logo</legend><?php echo $this->d1_upload->get_image_options('secao3_info_d1_logo'); ?>
 </div>
 <!----------------------------------------------------------------------- Seção 3 - Fim Info D1 -------------------------------------------------------------------------->
@@ -35,12 +35,13 @@
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">1</span>Grupo 1</legend>
 <div style='float:left;'>
-<label for="secao3_title">Item 1 - Nome -> Link :</label> <input type="text" name="secao3_grupo1_item1_nome" value="<?php echo get_option('secao3_grupo1_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item1_link" value="<?php echo get_option('secao3_grupo1_item1_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 2 - Nome -> Link :</label> <input type="text" name="secao3_grupo1_item2_nome" value="<?php echo get_option('secao3_grupo1_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item2_link" value="<?php echo get_option('secao3_grupo1_item2_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 3 - Nome -> Link :</label> <input type="text" name="secao3_grupo1_item3_nome" value="<?php echo get_option('secao3_grupo1_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item3_link" value="<?php echo get_option('secao3_grupo1_item3_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 4 - Nome -> Link :</label> <input type="text" name="secao3_grupo1_item4_nome" value="<?php echo get_option('secao3_grupo1_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item4_link" value="<?php echo get_option('secao3_grupo1_item4_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 5 - Nome -> Link :</label> <input type="text" name="secao3_grupo1_item5_nome" value="<?php echo get_option('secao3_grupo1_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item5_link" value="<?php echo get_option('secao3_grupo1_item5_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 6 - Nome -> Link :</label> <input type="text" name="secao3_grupo1_item6_nome" value="<?php echo get_option('secao3_grupo1_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item6_link" value="<?php echo get_option('secao3_grupo1_item6_link')?>" placeholder="Link" style='width:48%;'>
+<label for="secao3_grupo1_item1_title">Item i - Nome -> Link :</label> <input type="text" name="secao3_grupo1_item1_title" value="<?php echo get_option_esc('secao3_grupo1_item1_title')?>" placeholder="Nome">
+<input type="text" name="secao3_grupo1_item1_nome" value="<?php echo get_option_esc('secao3_grupo1_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item1_link" value="<?php echo get_option_esc('secao3_grupo1_item1_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo1_item2_nome" value="<?php echo get_option_esc('secao3_grupo1_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item2_link" value="<?php echo get_option_esc('secao3_grupo1_item2_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo1_item3_nome" value="<?php echo get_option_esc('secao3_grupo1_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item3_link" value="<?php echo get_option_esc('secao3_grupo1_item3_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo1_item4_nome" value="<?php echo get_option_esc('secao3_grupo1_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item4_link" value="<?php echo get_option_esc('secao3_grupo1_item4_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo1_item5_nome" value="<?php echo get_option_esc('secao3_grupo1_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item5_link" value="<?php echo get_option_esc('secao3_grupo1_item5_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo1_item6_nome" value="<?php echo get_option_esc('secao3_grupo1_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo1_item6_link" value="<?php echo get_option_esc('secao3_grupo1_item6_link')?>" placeholder="Link" style='width:48%;'>
 </div>
 </fieldset>
 
@@ -48,12 +49,13 @@
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">2</span>Grupo 2</legend>
 <div style='float:left;'>
-<label for="secao3_title">Item 1 - Nome -> Link :</label> <input type="text" name="secao3_grupo2_item1_nome" value="<?php echo get_option('secao3_grupo2_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item1_link" value="<?php echo get_option('secao3_grupo2_item1_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 2 - Nome -> Link :</label> <input type="text" name="secao3_grupo2_item2_nome" value="<?php echo get_option('secao3_grupo2_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item2_link" value="<?php echo get_option('secao3_grupo2_item2_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 3 - Nome -> Link :</label> <input type="text" name="secao3_grupo2_item3_nome" value="<?php echo get_option('secao3_grupo2_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item3_link" value="<?php echo get_option('secao3_grupo2_item3_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 4 - Nome -> Link :</label> <input type="text" name="secao3_grupo2_item4_nome" value="<?php echo get_option('secao3_grupo2_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item4_link" value="<?php echo get_option('secao3_grupo2_item4_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 5 - Nome -> Link :</label> <input type="text" name="secao3_grupo2_item5_nome" value="<?php echo get_option('secao3_grupo2_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item5_link" value="<?php echo get_option('secao3_grupo2_item5_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 6 - Nome -> Link :</label> <input type="text" name="secao3_grupo2_item6_nome" value="<?php echo get_option('secao3_grupo2_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item6_link" value="<?php echo get_option('secao3_grupo2_item6_link')?>" placeholder="Link" style='width:48%;'>
+<label for="secao3_grupo2_item1_title">Item i - Nome -> Link :</label> <input type="text" name="secao3_grupo2_item1_title" value="<?php echo get_option_esc('secao3_grupo2_item1_title')?>" placeholder="Nome">
+<input type="text" name="secao3_grupo2_item1_nome" value="<?php echo get_option_esc('secao3_grupo2_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item1_link" value="<?php echo get_option_esc('secao3_grupo2_item1_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo2_item2_nome" value="<?php echo get_option_esc('secao3_grupo2_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item2_link" value="<?php echo get_option_esc('secao3_grupo2_item2_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo2_item3_nome" value="<?php echo get_option_esc('secao3_grupo2_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item3_link" value="<?php echo get_option_esc('secao3_grupo2_item3_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo2_item4_nome" value="<?php echo get_option_esc('secao3_grupo2_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item4_link" value="<?php echo get_option_esc('secao3_grupo2_item4_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo2_item5_nome" value="<?php echo get_option_esc('secao3_grupo2_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item5_link" value="<?php echo get_option_esc('secao3_grupo2_item5_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo2_item6_nome" value="<?php echo get_option_esc('secao3_grupo2_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo2_item6_link" value="<?php echo get_option_esc('secao3_grupo2_item6_link')?>" placeholder="Link" style='width:48%;'>
 </div>
 </fieldset>
 
@@ -61,12 +63,13 @@
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">3</span>Grupo 3</legend>
 <div style='float:left;'>
-<label for="secao3_title">Item 1 - Nome -> Link :</label> <input type="text" name="secao3_grupo3_item1_nome" value="<?php echo get_option('secao3_grupo3_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item1_link" value="<?php echo get_option('secao3_grupo3_item1_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 2 - Nome -> Link :</label> <input type="text" name="secao3_grupo3_item2_nome" value="<?php echo get_option('secao3_grupo3_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item2_link" value="<?php echo get_option('secao3_grupo3_item2_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 3 - Nome -> Link :</label> <input type="text" name="secao3_grupo3_item3_nome" value="<?php echo get_option('secao3_grupo3_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item3_link" value="<?php echo get_option('secao3_grupo3_item3_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 4 - Nome -> Link :</label> <input type="text" name="secao3_grupo3_item4_nome" value="<?php echo get_option('secao3_grupo3_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item4_link" value="<?php echo get_option('secao3_grupo3_item4_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 5 - Nome -> Link :</label> <input type="text" name="secao3_grupo3_item5_nome" value="<?php echo get_option('secao3_grupo3_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item5_link" value="<?php echo get_option('secao3_grupo3_item5_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 6 - Nome -> Link :</label> <input type="text" name="secao3_grupo3_item6_nome" value="<?php echo get_option('secao3_grupo3_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item6_link" value="<?php echo get_option('secao3_grupo3_item6_link')?>" placeholder="Link" style='width:48%;'>
+<label for="secao3_grupo3_item1_title">Item i - Nome -> Link :</label> <input type="text" name="secao3_grupo3_item1_title" value="<?php echo get_option_esc('secao3_grupo3_item1_title')?>" placeholder="Nome">
+<input type="text" name="secao3_grupo3_item1_nome" value="<?php echo get_option_esc('secao3_grupo3_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item1_link" value="<?php echo get_option_esc('secao3_grupo3_item1_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo3_item2_nome" value="<?php echo get_option_esc('secao3_grupo3_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item2_link" value="<?php echo get_option_esc('secao3_grupo3_item2_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo3_item3_nome" value="<?php echo get_option_esc('secao3_grupo3_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item3_link" value="<?php echo get_option_esc('secao3_grupo3_item3_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo3_item4_nome" value="<?php echo get_option_esc('secao3_grupo3_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item4_link" value="<?php echo get_option_esc('secao3_grupo3_item4_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo3_item5_nome" value="<?php echo get_option_esc('secao3_grupo3_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item5_link" value="<?php echo get_option_esc('secao3_grupo3_item5_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo3_item6_nome" value="<?php echo get_option_esc('secao3_grupo3_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo3_item6_link" value="<?php echo get_option_esc('secao3_grupo3_item6_link')?>" placeholder="Link" style='width:48%;'>
 </div>
 </fieldset>
 
@@ -74,12 +77,13 @@
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">4</span>Grupo 4</legend>
 <div style='float:left;'>
-<label for="secao3_title">Item 1 - Nome -> Link :</label> <input type="text" name="secao3_grupo4_item1_nome" value="<?php echo get_option('secao3_grupo4_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item1_link" value="<?php echo get_option('secao3_grupo4_item1_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 2 - Nome -> Link :</label> <input type="text" name="secao3_grupo4_item2_nome" value="<?php echo get_option('secao3_grupo4_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item2_link" value="<?php echo get_option('secao3_grupo4_item2_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 3 - Nome -> Link :</label> <input type="text" name="secao3_grupo4_item3_nome" value="<?php echo get_option('secao3_grupo4_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item3_link" value="<?php echo get_option('secao3_grupo4_item3_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 4 - Nome -> Link :</label> <input type="text" name="secao3_grupo4_item4_nome" value="<?php echo get_option('secao3_grupo4_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item4_link" value="<?php echo get_option('secao3_grupo4_item4_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 5 - Nome -> Link :</label> <input type="text" name="secao3_grupo4_item5_nome" value="<?php echo get_option('secao3_grupo4_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item5_link" value="<?php echo get_option('secao3_grupo4_item5_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 6 - Nome -> Link :</label> <input type="text" name="secao3_grupo4_item6_nome" value="<?php echo get_option('secao3_grupo4_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item6_link" value="<?php echo get_option('secao3_grupo4_item6_link')?>" placeholder="Link" style='width:48%;'>
+<label for="secao3_grupo4_item1_title">Item i - Nome -> Link :</label> <input type="text" name="secao3_grupo4_item1_title" value="<?php echo get_option_esc('secao3_grupo4_item1_title')?>" placeholder="Nome">
+<input type="text" name="secao3_grupo4_item1_nome" value="<?php echo get_option_esc('secao3_grupo4_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item1_link" value="<?php echo get_option_esc('secao3_grupo4_item1_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo4_item2_nome" value="<?php echo get_option_esc('secao3_grupo4_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item2_link" value="<?php echo get_option_esc('secao3_grupo4_item2_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo4_item3_nome" value="<?php echo get_option_esc('secao3_grupo4_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item3_link" value="<?php echo get_option_esc('secao3_grupo4_item3_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo4_item4_nome" value="<?php echo get_option_esc('secao3_grupo4_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item4_link" value="<?php echo get_option_esc('secao3_grupo4_item4_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo4_item5_nome" value="<?php echo get_option_esc('secao3_grupo4_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item5_link" value="<?php echo get_option_esc('secao3_grupo4_item5_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo4_item6_nome" value="<?php echo get_option_esc('secao3_grupo4_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo4_item6_link" value="<?php echo get_option_esc('secao3_grupo4_item6_link')?>" placeholder="Link" style='width:48%;'>
 </div>
 </fieldset>
 
@@ -87,12 +91,13 @@
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">5</span>Grupo 5</legend>
 <div style='float:left;'>
-<label for="secao3_title">Item 1 - Nome -> Link :</label> <input type="text" name="secao3_grupo5_item1_nome" value="<?php echo get_option('secao3_grupo5_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item1_link" value="<?php echo get_option('secao3_grupo5_item1_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 2 - Nome -> Link :</label> <input type="text" name="secao3_grupo5_item2_nome" value="<?php echo get_option('secao3_grupo5_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item2_link" value="<?php echo get_option('secao3_grupo5_item2_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 3 - Nome -> Link :</label> <input type="text" name="secao3_grupo5_item3_nome" value="<?php echo get_option('secao3_grupo5_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item3_link" value="<?php echo get_option('secao3_grupo5_item3_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 4 - Nome -> Link :</label> <input type="text" name="secao3_grupo5_item4_nome" value="<?php echo get_option('secao3_grupo5_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item4_link" value="<?php echo get_option('secao3_grupo5_item4_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 5 - Nome -> Link :</label> <input type="text" name="secao3_grupo5_item5_nome" value="<?php echo get_option('secao3_grupo5_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item5_link" value="<?php echo get_option('secao3_grupo5_item5_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 6 - Nome -> Link :</label> <input type="text" name="secao3_grupo5_item6_nome" value="<?php echo get_option('secao3_grupo5_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item6_link" value="<?php echo get_option('secao3_grupo5_item6_link')?>" placeholder="Link" style='width:48%;'>
+<label for="secao3_grupo5_item1_title">Item i - Nome -> Link :</label> <input type="text" name="secao3_grupo5_item1_title" value="<?php echo get_option_esc('secao3_grupo5_item1_title')?>" placeholder="Nome">
+<input type="text" name="secao3_grupo5_item1_nome" value="<?php echo get_option_esc('secao3_grupo5_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item1_link" value="<?php echo get_option_esc('secao3_grupo5_item1_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo5_item2_nome" value="<?php echo get_option_esc('secao3_grupo5_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item2_link" value="<?php echo get_option_esc('secao3_grupo5_item2_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo5_item3_nome" value="<?php echo get_option_esc('secao3_grupo5_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item3_link" value="<?php echo get_option_esc('secao3_grupo5_item3_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo5_item4_nome" value="<?php echo get_option_esc('secao3_grupo5_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item4_link" value="<?php echo get_option_esc('secao3_grupo5_item4_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo5_item5_nome" value="<?php echo get_option_esc('secao3_grupo5_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item5_link" value="<?php echo get_option_esc('secao3_grupo5_item5_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo5_item6_nome" value="<?php echo get_option_esc('secao3_grupo5_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo5_item6_link" value="<?php echo get_option_esc('secao3_grupo5_item6_link')?>" placeholder="Link" style='width:48%;'>
 </div>
 </fieldset>
 
@@ -100,12 +105,13 @@
 <fieldset style='display: inline;margin-right:4%;width:29%;'>
 <legend><span class="number">6</span>Grupo 6</legend>
 <div style='float:left;'>
-<label for="secao3_title">Item 1 - Nome -> Link :</label> <input type="text" name="secao3_grupo6_item1_nome" value="<?php echo get_option('secao3_grupo6_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item1_link" value="<?php echo get_option('secao3_grupo6_item1_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 2 - Nome -> Link :</label> <input type="text" name="secao3_grupo6_item2_nome" value="<?php echo get_option('secao3_grupo6_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item2_link" value="<?php echo get_option('secao3_grupo6_item2_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 3 - Nome -> Link :</label> <input type="text" name="secao3_grupo6_item3_nome" value="<?php echo get_option('secao3_grupo6_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item3_link" value="<?php echo get_option('secao3_grupo6_item3_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 4 - Nome -> Link :</label> <input type="text" name="secao3_grupo6_item4_nome" value="<?php echo get_option('secao3_grupo6_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item4_link" value="<?php echo get_option('secao3_grupo6_item4_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 5 - Nome -> Link :</label> <input type="text" name="secao3_grupo6_item5_nome" value="<?php echo get_option('secao3_grupo6_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item5_link" value="<?php echo get_option('secao3_grupo6_item5_link')?>" placeholder="Link" style='width:48%;'>
-<label for="secao3_title">Item 6 - Nome -> Link :</label> <input type="text" name="secao3_grupo6_item6_nome" value="<?php echo get_option('secao3_grupo6_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item6_link" value="<?php echo get_option('secao3_grupo6_item6_link')?>" placeholder="Link" style='width:48%;'>
+<label for="secao3_grupo6_item1_title">Item i - Nome -> Link :</label> <input type="text" name="secao3_grupo6_item1_title" value="<?php echo get_option_esc('secao3_grupo6_item1_title')?>" placeholder="Nome">
+<input type="text" name="secao3_grupo6_item1_nome" value="<?php echo get_option_esc('secao3_grupo6_item1_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item1_link" value="<?php echo get_option_esc('secao3_grupo6_item1_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo6_item2_nome" value="<?php echo get_option_esc('secao3_grupo6_item2_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item2_link" value="<?php echo get_option_esc('secao3_grupo6_item2_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo6_item3_nome" value="<?php echo get_option_esc('secao3_grupo6_item3_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item3_link" value="<?php echo get_option_esc('secao3_grupo6_item3_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo6_item4_nome" value="<?php echo get_option_esc('secao3_grupo6_item4_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item4_link" value="<?php echo get_option_esc('secao3_grupo6_item4_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo6_item5_nome" value="<?php echo get_option_esc('secao3_grupo6_item5_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item5_link" value="<?php echo get_option_esc('secao3_grupo6_item5_link')?>" placeholder="Link" style='width:48%;'>
+<input type="text" name="secao3_grupo6_item6_nome" value="<?php echo get_option_esc('secao3_grupo6_item6_nome')?>" placeholder="Nome" style='width:50%;'> <input type="text" name="secao3_grupo6_item6_link" value="<?php echo get_option_esc('secao3_grupo6_item6_link')?>" placeholder="Link" style='width:48%;'>
 </div>
 </fieldset>
 
@@ -176,7 +182,7 @@
 <!----------------------------------------------------------------------- Seção 3 - Inicio Pitch ----------------------------------------------------------------------->
 <button type="button" class="collapsible">+ Pitch</button>
 <div id='secao1_content2' class="content">
-<label for="secao3_pitch">Pitch Footer:</label> <textarea name="secao3_pitch" placeholder="Pitch Footer" rows=10><?php echo get_option('secao3_pitch')?></textarea>
+<label for="secao3_pitch">Pitch Footer:</label> <textarea name="secao3_pitch" placeholder="Pitch Footer" rows=10><?php echo get_option_esc('secao3_pitch')?></textarea>
 </div>
 <!----------------------------------------------------------------------- Seção 3 - Fim Pitch -------------------------------------------------------------------------->
 

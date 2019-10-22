@@ -11,23 +11,25 @@
 
 <fieldset style='display: inline;margin-right:4%;width:45%;'>
 <legend><span class="number">1</span>Informações Hero</legend>
-<label for="secao1_hero_name">Nome:</label> <input type="text" name="secao1_hero_name" value="<?php echo get_option('secao1_hero_name')?>" placeholder="Nome">
-<label for="secao1_hero_cargo">Cargo:</label> <input type="text" name="secao1_hero_cargo" value="<?php echo get_option('secao1_hero_cargo')?>" placeholder="Cargo">
-<label for="secao1_hero_descricao">Mensagem :</label> <textarea name="secao1_hero_descricao" placeholder="Mensagem"><?php echo get_option('secao1_hero_descricao')?></textarea>
-<div style='border:0px solid black;height: 72px;width:auto;display:inline-block;'></div>
+<label for="secao1_hero_name">Nome:</label> <input type="text" name="secao1_hero_name" value="<?php echo get_option_esc('secao1_hero_name')?>" placeholder="Nome">
+<label for="secao1_hero_cargo">Cargo:</label> <input type="text" name="secao1_hero_cargo" value="<?php echo get_option_esc('secao1_hero_cargo')?>" placeholder="Cargo">
+<label for="secao1_hero_descricao">Mensagem :</label> <textarea name="secao1_hero_descricao" placeholder="Mensagem"><?php echo get_option_esc('secao1_hero_descricao')?></textarea>
+<!-- <div style='border:0px solid black;height: 240px;width:auto;display:inline-block;'></div> -->
+<legend>Empresa Hero</legend><?php echo $this->d1_upload->get_image_options('secao1_hero_company'); ?>
 </fieldset>
 
 <fieldset style='display: inline;margin-right:4%;width:45%;'>
 <legend><span class="number">2</span>Chamada</legend>
-<label for="secao1_hero_title">Chamada Principal:</label> <input type="checkbox" name="secao1_hero_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br><textarea name="secao1_hero_title" placeholder="Chamada Principal"> <?php echo get_option('secao1_hero_title')?> </textarea>
-<label for="secao1_descricao_primaria">Benefícios:</label> <textarea name="secao1_descricao_primaria" placeholder="Benefícios"> <?php echo get_option('secao1_descricao_primaria')?> </textarea>
-<label for="secao1_descricao_secundaria">Chamada Pré CTA:</label> <textarea name="secao1_descricao_secundaria" placeholder="Chamada Pré CTA"> <?php echo get_option('secao1_descricao_secundaria')?> </textarea>
+<label for="secao1_hero_title">Chamada Principal:</label> <input type="checkbox" name="secao1_hero_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br><textarea name="secao1_hero_title" placeholder="Chamada Principal"> <?php echo get_option_esc('secao1_hero_title')?> </textarea>
+<label for="secao1_descricao_primaria">Benefícios:</label> <textarea name="secao1_descricao_primaria" placeholder="Benefícios" rows=10> <?php echo get_option_esc('secao1_descricao_primaria')?> </textarea>
+<label for="secao1_descricao_secundaria">Chamada Pré CTA:</label> <textarea name="secao1_descricao_secundaria" placeholder="Chamada Pré CTA"> <?php echo get_option_esc('secao1_descricao_secundaria')?> </textarea>
+<div style='border:0px solid black;height: 175px;width:auto;display:inline-block;'></div>
 </fieldset>
 <br><br>
 
 <fieldset style='display: inline;margin-right:4%;width:45%;'>
 <legend><span class="number">3</span>CTA + Image</legend>
-<label for="secao1_conheca_um_minuto">URL do Video Conheça em 1 Minuto:</label> <input type="text" name="secao1_conheca_um_minuto" value="<?php echo get_option('secao1_conheca_um_minuto')?>" placeholder="URL do Video Conheça em 1 Minuto">
+<label for="secao1_conheca_um_minuto">URL do Video Conheça em 1 Minuto:</label> <input type="text" name="secao1_conheca_um_minuto" value="<?php echo get_option_esc('secao1_conheca_um_minuto')?>" placeholder="URL do Video Conheça em 1 Minuto">
 <legend>Imagem Hero Background</legend>
 <?php echo $this->d1_upload->get_image_options('secao1_hero_img_bg'); ?>
 </fieldset>

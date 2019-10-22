@@ -41,6 +41,10 @@ function dirname_safe($path, $level = 0){
     return implode($dir, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 }
 
+function get_option_esc($option_name){
+    return esc_attr(get_option($option_name));
+}
+
 class D1Plugin{  
     public $plugin;
     function __construct() {
@@ -103,9 +107,9 @@ class D1Plugin{
         /* CONTEÚDO */
         add_menu_page('Conteúdo','Conteúdo','manage_options','d1_plugin_conteudo',array($this,'admin_index'),'dashicons-welcome-widgets-menus',112);
         add_submenu_page('d1_plugin_conteudo','Cases','Cases','manage_options','d1_plugin_cases',array($this,'cases_admin')); 
-        add_submenu_page('d1_plugin_conteudo','Blog','Blog','manage_options','d1_plugin_blog',''); 
-        add_submenu_page('d1_plugin_conteudo','Whitepapers','Whitepapers','manage_options','d1_plugin_whitepapers',''); 
-        add_submenu_page('d1_plugin_conteudo','Webinários','Webinários','manage_options','d1_plugin_webinarios',''); 
+        //add_submenu_page('d1_plugin_conteudo','Blog','Blog','manage_options','d1_plugin_blog',''); 
+        //add_submenu_page('d1_plugin_conteudo','Whitepapers','Whitepapers','manage_options','d1_plugin_whitepapers',''); 
+        //add_submenu_page('d1_plugin_conteudo','Webinários','Webinários','manage_options','d1_plugin_webinarios',''); 
         
         /* PREÇO */
         add_menu_page('Preço','Preço','manage_options','d1_plugin_preco',array($this,'admin_index'),'dashicons-cart',113);
