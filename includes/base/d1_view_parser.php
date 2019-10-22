@@ -3,9 +3,9 @@
 class D1_View_Parser {
 
 	public function __construct(){
-        require_once  dirname(__FILE__,2).'/fields/admin_fields.php';
-        require_once  dirname(__FILE__,2).'/fields/cases_fields.php';
-        require_once  dirname(__FILE__,2).'/fields/footer_fields.php';
+        require_once  dirname_safe(__FILE__,2).'/fields/admin_fields.php';
+        require_once  dirname_safe(__FILE__,2).'/fields/cases_fields.php';
+        require_once  dirname_safe(__FILE__,2).'/fields/footer_fields.php';
         $this->admin_fields = new Admin_Fields();
         $this->cases_fields = new Cases_Fields();
         $this->footer_fields = new Footer_Fields();

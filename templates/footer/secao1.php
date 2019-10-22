@@ -41,7 +41,7 @@
 </fieldset>
 </div>
 
-<label for="secao1_desc_pre_cta">Descrição Pré CTA:</label><input type="text" name="secao1_desc_pre_cta" value="<?php echo get_option_esc('secao1_desc_pre_cta')?>" placeholder="Descrição Pré CTA">
+<label for="secao1_desc_pre_cta">Descrição Pré CTA:</label> <input type="checkbox" name="secao1_desc_pre_cta_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br> <input type="text" name="secao1_desc_pre_cta" value="<?php echo get_option_esc('secao1_desc_pre_cta')?>" placeholder="Descrição Pré CTA">
 <label for="secao1_link_cta">Link CTA Falar Com Especialista:</label><input type="text" name="secao1_link_cta" value="<?php echo get_option_esc('secao1_link_cta')?>" placeholder="Link CTA Falar Com Especialista">
 <!-------------------------------------- Fim Pré-Footer - Etapas de Contratação ----------------------------------------------->
 
