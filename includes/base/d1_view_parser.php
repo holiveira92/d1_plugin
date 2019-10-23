@@ -25,6 +25,10 @@ class D1_View_Parser {
                 if((empty($option_value)) && (strpos($field_name['id'], 'image') !== false || strpos($field_name['id'], 'img') !== false)) {
                     $option_value = $data_fields['img_default'];
                 }
+
+                if(empty($option_value)){
+                    $option_value = "Insira uma Informação";
+                }
                 $data_fields[$page][$id_option] = !empty($option_value) ? $option_value : "";
             }
         }
