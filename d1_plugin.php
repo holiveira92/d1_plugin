@@ -184,7 +184,7 @@ class D1Plugin{
     }
 
     function replace_admin_menu_icons_css() {
-        ?><style>#adminmenu .wp-menu-image img {padding:0 !important;}</style><?php
+        ?><style>#adminmenu .wp-menu-image img {padding:0 !important;}.wp-core-ui p .button { vertical-align: baseline; float: right; }</style><?php
     }
 }
     //Inicialização do plugin
