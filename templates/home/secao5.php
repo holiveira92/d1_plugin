@@ -15,11 +15,12 @@
 <fieldset style='display: flex; flex-wrap: wrap; padding: 20px; background: #f4f7f8; border-radius: 8px; font-family: Georgia,"Times New Roman",Times,serif;'>
 
 <label for="secao5_section_title">Titulo :</label> <input type="text" name="secao5_section_title" value="<?php echo get_option('secao5_section_title')?>" placeholder="Titulo da Seção">
-<div style='display:flex;align-items:center;margin-bottom:24px;'> <input type="checkbox" name="secao5_section_title_degrade"> <span>Para Inserir Degradê, Selecione o Texto e Marque Esta Opção</span> </div>
+<div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="secao5_section_title_degrade"> <span>Para Inserir Degradê, Selecione o Texto e Marque Esta Opção</span> </div>
 
 <!-- todo - aplicar para os proximos degrades-->
 
-<label for="secao5_section_descricao">Descrição :</label> <input type="checkbox" name="secao5_section_descricao_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção <br><textarea name="secao5_section_descricao" placeholder="Descrição" rows=5><?php echo get_option('secao5_section_descricao')?></textarea>
+<label for="secao5_section_descricao">Descrição :</label> <textarea name="secao5_section_descricao" placeholder="Descrição" rows=5><?php echo get_option('secao5_section_descricao')?></textarea>
+<div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="secao5_section_descricao_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
 </fieldset>
 </div>
 <!-- ------------------------------------- Início Seção Config. Seção - Lead Generator ----------------------------------------------->
