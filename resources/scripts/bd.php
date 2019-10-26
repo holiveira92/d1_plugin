@@ -41,7 +41,17 @@ CREATE TABLE `wp_d1_cases` (
 	PRIMARY KEY (`id_card`)
 )
 COLLATE='latin1_swedish_ci'
-ENGINE=MyISAM
+ENGINE=InnoDB
 ;
+
+CREATE TABLE `wp_d1_footer_links` (
+	`id_link` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(300) NULL DEFAULT NULL,
+	`link` VARCHAR(300) NULL DEFAULT NULL,
+	PRIMARY KEY (`id_link`)
+)
+ENGINE=InnoDB
+;
+
 */
 ?>

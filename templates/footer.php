@@ -15,37 +15,46 @@
         <input type="hidden" id="destination_field">
     </h2>
     
-    <form method="post" action="options.php" enctype="multipart/form-data">
     <?php 
 		switch($active_tab){
             case 'secao1':
+                echo '<form method="post" action="options.php" enctype="multipart/form-data">';
                 settings_fields('footer_secao1_options_group');
                 do_settings_sections('d1_plugin_footer');
                 submit_button();
+                echo '</form>';
 				break;
             case 'secao2':
+                echo '<form method="post" action="options.php" enctype="multipart/form-data">';
                 settings_fields('footer_secao2_options_group');
                 do_settings_sections('d1_plugin_footer');
                 submit_button();
+                echo '</form>';
                 break;
             case 'secao3':
+                echo '<form method="post" action="options.php" enctype="multipart/form-data">';
                 settings_fields('footer_secao3_options_group');
                 do_settings_sections('d1_plugin_footer');
                 submit_button();
+                echo '</form>';
                 break;
             case 'secao4':
                 settings_fields('footer_secao4_options_group');
                 do_settings_sections('d1_plugin_footer');
                 break;
             case 'secao5':
+                echo '<form method="post" action="options.php" enctype="multipart/form-data">';
                 settings_fields('footer_secao5_options_group');
                 do_settings_sections('d1_plugin_footer');
                 submit_button();
+                echo '</form>';
                 break;
             case 'secao6':
+                echo '<form method="post" action="options.php" enctype="multipart/form-data">';
                 settings_fields('footer_secao6_options_group');
                 do_settings_sections('d1_plugin_footer');
                 submit_button();
+                echo '</form>';
 				break;
 			default:
 				settings_fields('footer_secao1_options_group');
@@ -54,5 +63,4 @@
 				break;
         }
 		?>
-    </form>
 </div>

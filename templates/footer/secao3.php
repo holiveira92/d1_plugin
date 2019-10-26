@@ -14,13 +14,6 @@
 <legend><span class="number">1</span>Titulo da Seção</legend>
 <input type="text" name="secao3_title" value="<?php echo get_option_esc('secao3_title')?>" placeholder="Titulo da Seção">
 <div style='display:flex;align-items:center;margin-bottom:25px;'><input type="checkbox" name="secao3_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
-
-<!-- pagina separada para cta
-<label for="secao3_url_cta1">URL CTA 1 :</label> <input type="text" name="secao3_url_cta1" value="" placeholder="URL CTA 1">
-<label for="secao3_url_cta2">URL CTA 2 :</label> <input type="text" name="secao3_url_cta2" value="" placeholder="URL CTA 2">
-<label for="secao3_url_cta3">URL CTA 3 :</label> <input type="text" name="secao3_url_cta3" value="" placeholder="URL CTA 3">
-<fieldset>
--->
 <!----------------------------------------------------------------------- Seção 3 - Fim Seção Pré-CTA -------------------------------------------------------------------------->
 
 <!----------------------------------------------------------------------- Seção 3 - Inicio Info D1 ----------------------------------------------------------------------->
