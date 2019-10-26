@@ -76,5 +76,9 @@ class Footer_Fields {
 	*/ 
     public function d1_footer_secao1($input){return $input;}
     public function d1_footer_secao2($input){return $input;}
-    public function d1_footer_secao3($input){return $input;}
+	public function d1_footer_secao3($input){return $input;}
+	public function d1_footer_secao4($input){return $input;}
+	public function d1_footer_secao5($input){return $input;}
+	public function d1_footer_secao6($input){return $input;}
+	
 }

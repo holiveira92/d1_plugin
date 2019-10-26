@@ -60,6 +60,15 @@ class Footer{
                 break;
             case 'secao3': 
                 $this->settings =  $this->footer_fields->getSettings('footer_secao3_options_group',$this->page);
+				break;
+			case 'secao4': 
+                $this->settings =  $this->footer_fields->getSettings('footer_secao4_options_group',$this->page);
+				break;
+			case 'secao5': 
+                $this->settings =  $this->footer_fields->getSettings('footer_secao5_options_group',$this->page);
+				break;
+			case 'secao6': 
+                $this->settings =  $this->footer_fields->getSettings('footer_secao6_options_group',$this->page);
                 break;
             default:
                 $this->settings =  $this->footer_fields->getSettings('footer_secao1_options_group',$this->page);
@@ -99,6 +108,36 @@ class Footer{
 					),
 				);
 				break;
+			case 'secao4': 
+				$this->sections = array(
+					array(
+						'id' => 'd1_footer_secao4',
+						'title' => 'Configurações Seção Footer',
+						'callback' => array( $this, 'd1FooterSecao4' ),
+						'page' => $this->page
+					),
+				);
+				break;
+			case 'secao5': 
+				$this->sections = array(
+					array(
+						'id' => 'd1_footer_secao5',
+						'title' => 'Configurações Seção Footer',
+						'callback' => array( $this, 'd1FooterSecao5' ),
+						'page' => $this->page
+					),
+				);
+				break;
+			case 'secao6': 
+				$this->sections = array(
+					array(
+						'id' => 'd1_footer_secao6',
+						'title' => 'Configurações Seção Footer',
+						'callback' => array( $this, 'd1FooterSecao6' ),
+						'page' => $this->page
+					),
+				);
+				break;
 			default: 
 				$this->sections = array(
 					array(
@@ -122,6 +161,15 @@ class Footer{
                 break;
             case 'secao3': 
                 $this->fields =  $this->footer_fields->getFields('d1_footer_secao3','d1_plugin_footer');
+				break;
+			case 'secao4': 
+                $this->fields =  $this->footer_fields->getFields('d1_footer_secao4','d1_plugin_footer');
+				break;
+			case 'secao5': 
+                $this->fields =  $this->footer_fields->getFields('d1_footer_secao5','d1_plugin_footer');
+				break;
+			case 'secao6': 
+                $this->fields =  $this->footer_fields->getFields('d1_footer_secao6','d1_plugin_footer');
                 break;
             default:
                 $this->fields =  $this->footer_fields->getFields('d1_footer_secao1','d1_plugin_footer');
@@ -131,5 +179,8 @@ class Footer{
 
     public function d1FooterSecao1(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/footer/secao1.php';}
     public function d1FooterSecao2(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/footer/secao2.php';}
-    public function d1FooterSecao3(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/footer/secao3.php';}
+	public function d1FooterSecao3(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/footer/secao3.php';}
+	public function d1FooterSecao4(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/footer/secao4.php';}
+	public function d1FooterSecao5(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/footer/secao5.php';}
+	public function d1FooterSecao6(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/footer/secao6.php';}
 }
