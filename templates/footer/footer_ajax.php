@@ -1,57 +1,133 @@
 <?php
 define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
-global $wpdb;
 
-$number             = !empty($_REQUEST["title_card"]) ? count($_REQUEST["title_card"]) : false;
+function pre($data) {
+    echo "<pre>";
+        print_r($data);
+    echo "</pre>";
+}
+
+function insert_bd($data){
+    require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+    global $wpdb;
+
+    $name = $data[0];
+    $link = $data[1];
+    $group_id = $data[2];
+    $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_footer_links(name,link,group_id) VALUES(%s,%s,%s)";
+    $wpdb->query($wpdb->prepare($sql,array($name,$link,$group_id)));
+    return $wpdb->insert_id;
+}
+
+function update_bd($data){
+    require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+    global $wpdb;
+
+    $name                   = $data[0];
+    $link                   = $data[1];
+    $group_id               = !empty($data[2]) ? $data[2] : '';
+    $id                     = $data[3];
+    $sql                    = "UPDATE " . $wpdb->prefix ."d1_footer_links SET name=%s, link=%s, group_id=%s WHERE id = %d";
+    $wpdb->query($wpdb->prepare($sql,array($name,$link,$group_id,$id)) );
+}
+
+function delete_pai($ids_delete){
+    global $wpdb;
+    foreach($ids_delete as $id){
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_footer_links WHERE id=%d;",array($id)));
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_footer_links WHERE group_id=%d;",array($id)));
+    }
+}
+
+function delete_items($ids_delete){
+    global $wpdb;
+    foreach($ids_delete as $id){
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_footer_links WHERE id=%d;",array($id)));
+    }
+}
+
+
+$number             = !empty($_REQUEST["name"]) ? count($_REQUEST["name"]) : false;
 $ids_delete         = !empty($_REQUEST["json_delete"]) ? explode(',',$_REQUEST["json_delete"]) : array();
+$ids_delete_items   = !empty($_REQUEST["json_delete_items"]) ? explode(',',$_REQUEST["json_delete_items"]) : array();
 $table_data         = array();
 
-if(empty($_REQUEST["title_card"])){
+if($number == 0){
     header("location: " . urldecode($_REQUEST["url_location"]));
 }
 
+//Montando array com o conteudo vindo via POST
 for($i=0; $i<$number; $i++){
     $table_data[] = array(
-        'id_card'               => !empty($_REQUEST["id_card"][$i]) ? $_REQUEST["id_card"][$i] : '',
-        'title_card'            => !empty($_REQUEST["title_card"][$i]) ? $_REQUEST["title_card"][$i] : '',
-        'subtitle_card'         => !empty($_REQUEST["subtitle_card"][$i]) ? $_REQUEST["subtitle_card"][$i] : '',
-        'text_footer_card'      => !empty($_REQUEST["text_footer_card"][$i]) ? $_REQUEST["text_footer_card"][$i] : '',
-        'subtext_footer_card'   => !empty($_REQUEST["subtext_footer_card"][$i]) ? $_REQUEST["subtext_footer_card"][$i] : '',
-        'card_link'             => !empty($_REQUEST["card_link"][$i]) ? $_REQUEST["card_link"][$i] : '',
-        'img_bg_url'            => !empty($_REQUEST["img_bg_url"][$i]) ? urldecode($_REQUEST["img_bg_url"][$i]) : '',
-        //'detach_card_val'       => !empty($_REQUEST["detach_card"][$i]) ? $_REQUEST["detach_card"][$i] : 0,
-        'detach_card'           => !empty($_REQUEST["detach_card_hidden"][$i]) ? $_REQUEST["detach_card_hidden"][$i] : 0,
+        'id'                => !empty($_REQUEST["id"][$i]) ? $_REQUEST["id"][$i] : '',
+        'name'              => !empty($_REQUEST["name"][$i]) ? $_REQUEST["name"][$i] : '',
+        'link'              => !empty($_REQUEST["link"][$i]) ? $_REQUEST["link"][$i] : '',
+        'group_id'          => !empty($_REQUEST["group_id"][$i]) ? $_REQUEST["group_id"][$i] : '',
     );
 }
+
+//Organiza array pelos grupos pai
+$grupos = array();
 foreach($table_data as $key=>&$value){
-    
-    if(empty($value['id_card'])){
-        unset($value['id_card']);
+    if(empty($value['group_id'])){
+        $grupos[$value["id"]] = array(
+            'id'                => !empty($value["id"]) ? $value["id"] : null,
+            'name'              => !empty($value["name"]) ? $value["name"] : null,
+            'link'              => !empty($value["link"]) ? $value["link"] : null,
+            'group_id'          => !empty($value["group_id"]) ? $value["group_id"] : null,
+        );
+    }
+}
+
+//Encontra e insere filhos no array geral dos pais
+foreach($table_data as $key=>&$value){
+    if(!empty($value['group_id'])){
+        $grupos[$value['group_id']]['filhos'][] = $value;
+    }
+}
+
+//Cria ou atualiza dados do grupo
+foreach($grupos as $key=>&$value){
+    $id_temp = !is_numeric($value['id']) ? $value['id'] : false; 
+    $value['id'] = is_numeric($value['id']) ? $value['id'] : false; 
+    //unset($value['filhos']);
+    if(empty($value['id'])){
         //insert
-        $fields                 = implode("','",$value);
-        $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_cases(title_card,subtitle_card,text_footer_card,subtext_footer_card,card_link,img_bg_url,detach_card) VALUES('$fields')";
-        $wpdb->query($wpdb->prepare($sql,array()));
+        $value['id'] = insert_bd(array($value['name'],$value['link'],$value['group_id']));
+
+        //cria os filhos deste grupo caso existam
+        if(!empty($value['filhos'])){
+            foreach($value['filhos'] as $k=>&$filho){
+                $filho['group_id'] = $value['id'];
+                if(empty($filho['id']))
+                    insert_bd(array($filho['name'],$filho['link'],$filho['group_id']));
+                else
+                    update_bd(array($filho['name'],$filho['link'],$filho['group_id'],$filho['id']));
+            }
+        }
     }else{
         //update
-        $id_card                = $value['id_card'];
-        $title_card             = $value['title_card'];
-        $subtitle_card          = $value['subtitle_card'];
-        $text_footer_card       = $value['text_footer_card'];
-        $subtext_footer_card    = $value['subtext_footer_card'];
-        $card_link              = $value['card_link'];
-        $img_bg_url             = $value['img_bg_url'];
-        $detach_card            = $value['detach_card'];
-        $sql                    = "UPDATE " . $wpdb->prefix ."d1_cases SET title_card='$title_card', subtitle_card='$subtitle_card', text_footer_card='$text_footer_card',
-         subtext_footer_card='$subtext_footer_card', card_link='$card_link', img_bg_url='$img_bg_url' , detach_card='$detach_card' WHERE id_card = '$id_card';";
-        $wpdb->query($wpdb->prepare($sql,array()));
+        update_bd(array($value['name'],$value['link'],$value['group_id'],$value['id']));
+
+        //atualiza os filhos deste grupo caso existam
+        if(!empty($value['filhos'])){
+            foreach($value['filhos'] as $k=>&$filho){
+                if(empty($filho['id']))
+                    insert_bd(array($filho['name'],$filho['link'],$filho['group_id']));
+                else
+                    update_bd(array($filho['name'],$filho['link'],$filho['group_id'],$filho['id']));
+            }
+        }
     }
 }
 
 if(!empty($ids_delete[0])){
-    foreach($ids_delete as $id){
-        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_cases WHERE id_card=$id;",array()));
-    }
+    delete_pai($ids_delete);
+}
+
+if(!empty($ids_delete_items[0])){
+    delete_items($ids_delete_items);
 }
 
 header("location: " . $_REQUEST["url_location"]);
