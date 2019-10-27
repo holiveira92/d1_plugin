@@ -45,13 +45,17 @@ ENGINE=InnoDB
 ;
 
 CREATE TABLE `wp_d1_footer_links` (
-	`id_link` INT(11) NOT NULL AUTO_INCREMENT,
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(300) NULL DEFAULT NULL,
 	`link` VARCHAR(300) NULL DEFAULT NULL,
-	PRIMARY KEY (`id_link`)
+	`group_id` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
 )
+COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
+AUTO_INCREMENT=33
 ;
+
 
 */
 ?>
