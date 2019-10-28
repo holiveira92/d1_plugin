@@ -37,12 +37,22 @@ CREATE TABLE `wp_d1_cases` (
 	`subtext_footer_card` VARCHAR(250) NULL DEFAULT NULL,
 	`card_link` VARCHAR(250) NULL DEFAULT NULL,
 	`img_bg_url` VARCHAR(250) NULL DEFAULT NULL,
-	`detach_card` INT(1) NOT NULL DEFAULT 0,
+	`detach_card` INT(1) NULL DEFAULT NULL,
+	`desc_card` TEXT NULL,
+	`impactos` TEXT NULL,
+	`desc_completa_primaria` TEXT NULL,
+	`desc_completa_secundaria` TEXT NULL,
+	`objetivos_title` VARCHAR(250) NULL DEFAULT NULL,
+	`objetivos_desc_completa` TEXT NULL,
+	`desafios` TEXT NULL,
+	`implantacao` TEXT NULL,
 	PRIMARY KEY (`id_card`)
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
+AUTO_INCREMENT=19
 ;
+
 
 CREATE TABLE `wp_d1_footer_links` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,

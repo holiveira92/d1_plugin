@@ -25,43 +25,59 @@
     <!-- DATA TABLE -->
     <div class="table-data__tool">
         <div class="table-data__tool-right">
-            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                <i class="zmdi zmdi-plus"></i>add card</button>
+            <?php   
+                    $create_url = "?page=d1_plugin_cases&tab=secao1&";
+                    $param = array('path_wp' => ABSPATH, 'id_card' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                    $query_string = http_build_query($param); 
+            ?>
+            <a href="<?php echo $create_url . $query_string ;?>"><button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                <i class="zmdi zmdi-plus"></i>add card</button></a>
         </div>
     </div>
     <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
             <thead>
                 <tr>
-                    <th>name</th>
-                    <th>description</th>
-                    <th>date</th>
-                    <th>status</th>
-                    <th>price</th>
+                    <th>titulo</th>
+                    <th>descricao</th>
+                    <th>num impacto</th>
+                    <th>link</th>
                     <th>Actions</th>
                 </tr>
             </thead>
 
             <tbody>
+                <?php 
+                    global $wpdb;
+                    $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')),true);
+                    $cont = 0;
+                    //$create_edit_url = plugins_url('d1_plugin/templates/cases/create_edit.php?','d1_plugin');
+                    $delete_url = plugins_url('d1_plugin/templates/cases/delete.php?','d1_plugin');
+                    foreach($result as $key=>&$value): 
+                        //$value['destaque'] = ($value['detach_card'] == 1) ? 'checked' : '';
+                        $cont++;
+                        $create_edit_url = "?page=d1_plugin_cases&tab=secao1&";
+                        $param = array('path_wp' => ABSPATH, 'id_card' => $value['id_card'], 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                        $query_string = http_build_query($param);
+                ?>
                 <tr class="tr-shadow">
-                    <td>Lori Lynch</td>
-                    <td class="desc">Samsung S8 Black</td>
-                    <td>2018-09-27 02:12</td>
-                    <td>
-                        <span class="status--process">Processed</span>
-                    </td>
-                    <td>$679.00</td>
+                    <input type="hidden" name="id_card" id="id_card" value="<?php echo $value['id_card'];?>">
+                    <td><?php echo $value['title_card'];?></td>
+                    <td class="desc"><?php echo $value['subtitle_card'];?></td>
+                    <td><?php echo $value['text_footer_card'];?></td>
+                    <td><?php echo $value['card_link'];?></td>
                     <td>
                         <div class="table-data-feature">
-                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
                                 <i class="zmdi zmdi-edit"></i>
-                            </button>
-                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                            </button></a>
+                            <a href="<?php echo $delete_url . $query_string;?>"><button class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
                                 <i class="zmdi zmdi-delete"></i>
-                            </button>
+                            </button></a>
                         </div>
                     </td>
                 </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
@@ -90,6 +106,17 @@
     </script>
     <!-- Main JS-->
     <script src="<?php echo plugins_url('d1_plugin/resources/js/main.js','d1_plugin');?>"></script>
+    <script>
+    $(document).ready(function(){
+
+        //botão deletar
+        $(document).on('click', '.btn_delete', function(){
+            if(!confirm('Tem certeza que deseja apagar este card?')){
+                return false;
+            }
+        });
+    });
+    </script>
 </body>
 
 </html>

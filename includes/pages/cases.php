@@ -83,7 +83,7 @@ class Cases{
 				$this->sections = array(
 					array(
 						'id' => 'd1_cases_config_geral',
-						'title' => 'Configurações Seção Fale com Especialista',
+						'title' => '',
 						'callback' => array( $this, 'd1CasesConfGeral' ),
 						'page' => $this->page
 					),
