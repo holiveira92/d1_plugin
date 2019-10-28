@@ -16,7 +16,7 @@ $data = array(
     'card_link'             => !empty($data_bd[0]["card_link"]) ? $data_bd[0]["card_link"] : '',
     'img_bg_url'            => !empty($data_bd[0]["img_bg_url"]) ? urldecode($data_bd[0]["img_bg_url"]) : '',
     'detach_card'           => !empty($data_bd[0]["detach_card_hidden"]) ? $data_bd[0]["detach_card_hidden"] : 0,
-    'destaque'              => ($value['detach_card'] == 1) ? 'checked' : '',
+    'destaque'              => !empty($data_bd[0]["detach_card_hidden"]) && $data_bd[0]['detach_card'] == 1 ? 'checked' : '',
     'desc_completa_primaria'=> !empty($data_bd[0]["desc_completa_primaria"]) ? $data_bd[0]["desc_completa_primaria"] : '',
     'desc_completa_secundaria'=> !empty($data_bd[0]["desc_completa_secundaria"]) ? $data_bd[0]["desc_completa_secundaria"] : '',
     'objetivos_title'       => !empty($data_bd[0]["objetivos_title"]) ? $data_bd[0]["objetivos_title"] : '',
