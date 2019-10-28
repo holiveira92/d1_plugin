@@ -95,7 +95,7 @@ $implantacao_data = array(
 <div id='secao1_content2' class="content">
 <fieldset style='flex: 0 40%; padding: 0 2%;'>
 <legend><span class="number">2</span>Impacto</legend>
-<label>Titulo:</label><input type="text" name="impacto_title" placeholder="Titulo" value="<?php echo $data['impacto_title'];?>">
+<label>Titulo:</label><input type="text" name="impacto_title" placeholder="Titulo" value="<?php echo $impactos_data['impacto_title'];?>">
 
 <!-- Impacto 1 -->
 <legend>Impacto 1</legend>
