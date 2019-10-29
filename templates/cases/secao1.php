@@ -25,6 +25,7 @@ $data = array(
 
 $impactos              = !empty($data_bd[0]["impactos"]) ? json_decode($data_bd[0]["impactos"],true) : array();
 $impactos_data = array(
+    'impacto_title'     => !empty($impactos['impacto_title']) ? $impactos['impacto_title'] : '',
     'impacto1_title'    => !empty($impactos['impacto1_title']) ? $impactos['impacto1_title'] : '',
     'impacto1_total'    => !empty($impactos['impacto1_total']) ? $impactos['impacto1_total'] : '',
     'impacto1_desc'     => !empty($impactos['impacto1_desc']) ? $impactos['impacto1_desc'] : '',
@@ -38,7 +39,7 @@ $impactos_data = array(
 
 $desafios              = !empty($data_bd[0]["desafios"]) ? json_decode($data_bd[0]["desafios"],true) : array();
 $desafios_data = array(
-    'desafios[0]_title'            => !empty($desafios['desafios[0]_title']) ? $desafios['desafios[0]_title'] : '',
+    'desafios_title'            => !empty($desafios['desafios_title']) ? $desafios['desafios_title'] : '',
     'desafio1_desc_completa'    => !empty($desafios['desafio1_desc_completa']) ? $desafios['desafio1_desc_completa'] : '',
     'desafio2_desc_completa'    => !empty($desafios['desafio2_desc_completa']) ? $desafios['desafio2_desc_completa'] : '',
     'desafio3_desc_completa'    => !empty($desafios['desafio3_desc_completa']) ? $desafios['desafio3_desc_completa'] : '',
@@ -160,8 +161,8 @@ $implantacao_data = array(
 <fieldset style='flex: 0 40%; padding: 0 2%;'>
 <legend><span class="number">6</span>Etapas Implantação</legend>
 <label>Titulo:</label><input type="text" name="implantacao_title" placeholder="Titulo" value="<?php echo $implantacao_data['implantacao_title'];?>">
-<label for="implantacao_desc_primaria">Descrição Primária</label> <textarea name="implantacao_desc_primaria" rows='10'><?php echo $implantacaos_data['implantacao_desc_primaria'];?> </textarea>
-<label for="implantacao_desc_secundaria">Descrição Secundária</label> <textarea name="implantacao_desc_secundaria" rows='10'><?php echo $implantacaos_data['implantacao_desc_secundaria'];?> </textarea>
+<label for="implantacao_desc_primaria">Descrição Primária</label> <textarea name="implantacao_desc_primaria" rows='10'><?php echo $implantacao_data['implantacao_desc_primaria'];?> </textarea>
+<label for="implantacao_desc_secundaria">Descrição Secundária</label> <textarea name="implantacao_desc_secundaria" rows='10'><?php echo $implantacao_data['implantacao_desc_secundaria'];?> </textarea>
 <label>Resultado 1 Titulo:</label><input type="text" name="implantacao_resultado1_title" placeholder="Titulo" value="<?php echo $implantacao_data['implantacao_resultado1_title'];?>">
 <label>Valor:</label><input type="text" name="implantacao_resultado1_valor" placeholder="Titulo" value="<?php echo $implantacao_data['implantacao_resultado1_valor'];?>">
 <label>Descricao:</label><input type="text" name="implantacao_resultado1_desc" placeholder="Titulo" value="<?php echo $implantacao_data['implantacao_resultado1_desc'];?>">
