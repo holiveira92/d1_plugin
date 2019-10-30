@@ -6,7 +6,7 @@
 	?>
 
     <h2 class="nav-tab-wrapper">
-        <a href="?page=d1_plugin_cases&tab=config_cards" class="nav-tab <?php echo $active_tab == 'config_cards' ? 'nav-tab-active' : ''; ?>">Cards</a>
+        <a href="?page=d1_plugin_cases&tab=config_cards" class="nav-tab <?php echo $active_tab == 'config_cards' ? 'nav-tab-active' : ''; ?>">Cases</a>
         <input type="hidden" id="destination_field">
     </h2>
 

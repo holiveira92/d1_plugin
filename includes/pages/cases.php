@@ -73,7 +73,7 @@ class Cases{
 				$this->sections = array(
 					array(
 						'id' => 'd1_cases_cards',
-						'title' => 'Configurações Cards Cases',
+						'title' => 'Cases',
 						'callback' => array( $this, 'd1CardsCasesConf' ),
 						'page' => $this->page
 					),
@@ -103,7 +103,7 @@ class Cases{
 				$this->sections = array(
 					array(
 						'id' => 'd1_cases_cards',
-						'title' => 'Configurações Cards Cases',
+						'title' => 'Cases',
 						'callback' => array( $this, 'd1CardsCasesConf' ),
 						'page' => $this->page
 					),

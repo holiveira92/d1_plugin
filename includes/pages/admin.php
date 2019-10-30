@@ -118,7 +118,7 @@ class Admin{
 				$this->sections = array(
 					array(
 						'id' => 'home_d1_admin_secao1',
-						'title' => 'Configurações Seção 1 - Hero',
+						'title' => 'Seção 1 - Hero',
 						'callback' => array( $this, 'd1Section1Hero' ),
 						'page' => 'd1_plugin'
 					),
@@ -128,7 +128,7 @@ class Admin{
 				$this->sections = array(
 					array(
 						'id' => 'home_d1_admin_secao2',
-						'title' => 'Configurações Seção 2 - Cases de Sucesso',
+						'title' => 'Seção 2 - Cases de Sucesso',
 						'callback' => array( $this, 'd1Section2Cases' ),
 						'page' => 'd1_plugin'
 					),
@@ -138,7 +138,7 @@ class Admin{
 				$this->sections = array(
 					array(
 						'id' => 'home_d1_admin_secao3',
-						'title' => 'Configurações Seção 3 - Clientes de Sucesso',
+						'title' => 'Seção 3 - Clientes de Sucesso',
 						'callback' => array( $this, 'd1Section3Clientes' ),
 						'page' => 'd1_plugin'
 					),
@@ -148,7 +148,7 @@ class Admin{
 				$this->sections = array(
 					array(
 						'id' => 'home_d1_admin_secao4',
-						'title' => 'Configurações Seção 4 - Desafios',
+						'title' => 'Seção 4 - Desafios',
 						'callback' => array( $this, 'd1Section4Desafios' ),
 						'page' => 'd1_plugin'
 					),
@@ -158,7 +158,7 @@ class Admin{
 				$this->sections = array(
 					array(
 						'id' => 'home_d1_admin_secao5',
-						'title' => 'Configurações Seção 5 - Lead Generator',
+						'title' => 'Seção 5 - Lead Generator',
 						'callback' => array( $this, 'd1Section5LeadGenerator' ),
 						'page' => 'd1_plugin'
 					),
@@ -168,7 +168,7 @@ class Admin{
 				$this->sections = array(
 					array(
 						'id' => 'home_d1_admin_secao6',
-						'title' => 'Configurações Seção 6 - Conheça Nossa Solução',
+						'title' => 'Seção 6 - Conheça Nossa Solução',
 						'callback' => array( $this, 'd1Section6Solucao' ),
 						'page' => 'd1_plugin'
 					),
@@ -178,7 +178,7 @@ class Admin{
 				$this->sections = array(
 					array(
 						'id' => 'home_d1_admin_secao7',
-						'title' => 'Configurações Seção 7 - Diferencial',
+						'title' => 'Seção 7 - Diferencial',
 						'callback' => array( $this, 'd1Section7Diferencial' ),
 						'page' => 'd1_plugin'
 					),

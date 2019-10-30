@@ -30,19 +30,19 @@
                     $param = array('path_wp' => ABSPATH, 'id_card' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                     $query_string = http_build_query($param); 
             ?>
-            <a href="<?php echo $create_url . $query_string ;?>"><button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                <i class="zmdi zmdi-plus"></i>add card</button></a>
+            <a href="<?php echo $create_url . $query_string ;?>"><button class="button button-primary">
+                <i class="zmdi zmdi-plus"></i>Adicionar case</button></a>
         </div>
     </div>
     <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
             <thead>
                 <tr>
-                    <th>titulo</th>
-                    <th>descricao</th>
-                    <th>num impacto</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Impacto</th>
                     <th>link</th>
-                    <th>Actions</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
 
@@ -111,7 +111,7 @@
 
         //botão deletar
         $(document).on('click', '.btn_delete', function(){
-            if(!confirm('Tem certeza que deseja apagar este card?')){
+            if(!confirm('Tem certeza que deseja apagar este case?')){
                 return false;
             }
         });

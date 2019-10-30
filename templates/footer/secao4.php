@@ -1,184 +1,211 @@
 <?php
 ?>
-<link rel="stylesheet" href="<?php echo plugins_url('d1_plugin/resources/css/bootstrap.min.css','d1_plugin');?>" />
-<script src="<?php echo plugins_url('d1_plugin/resources/js/bootstrap.min.js','d1_plugin');?>"></script>
-<script src="<?php echo plugins_url('d1_plugin/resources/js/jquery.min.js','d1_plugin');?>"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css"> .form-style-5{display: flex; flex-wrap: wrap; padding: 20px; background: #f4f7f8; border-radius: 8px; font-family: Georgia,"Times New Roman",Times,serif;}.form-style-5 fieldset{border:none;flex: 0 45%; padding: 0 2%;}.form-style-5 legend{font-size:1.4em;margin-bottom:10px}.form-style-5 label{display:block;margin-bottom:8px}.form-style-5 input[type="text"],.form-style-5 input[type="date"],.form-style-5 input[type="datetime"],.form-style-5 input[type="email"],.form-style-5 input[type="number"],.form-style-5 input[type="search"],.form-style-5 input[type="time"],.form-style-5 input[type="url"],.form-style-5 textarea,.form-style-5 select{font-family:Georgia,"Times New Roman",Times,serif;background:rgba(255,255,255,.1);border:none;border-radius:4px;font-size:16px;margin:0;outline:0;padding:7px;width:100%;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;background-color:#e8eeef;color:#8a97a0;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.03) inset;box-shadow:0 1px 0 rgba(0,0,0,.03) inset;}.form-style-5 input[type="text"]:focus,.form-style-5 input[type="date"]:focus,.form-style-5 input[type="datetime"]:focus,.form-style-5 input[type="email"]:focus,.form-style-5 input[type="number"]:focus,.form-style-5 input[type="search"]:focus,.form-style-5 input[type="time"]:focus,.form-style-5 input[type="url"]:focus,.form-style-5 textarea:focus,.form-style-5 select:focus{background:#d2d9dd}.form-style-5 select{-webkit-appearance:menulist-button;height:35px}.form-style-5 .number{background:#1abc9c;color:#fff;height:30px;width:30px;display:inline-block;font-size:.8em;margin-right:4px;line-height:30px;text-align:center;text-shadow:0 1px 0 rgba(255,255,255,.2);border-radius:15px 15px 15px 0} .flex_inline{display:flex;align-items:center;margin-bottom:25px;} </style>
-<?php $url_action = plugins_url('d1_plugin/templates/footer/footer_ajax.php','d1_plugin'); ?>
-<form id="footer_fields" action="<?php echo $url_action;?>">
+<html>
 
-<div class="form-style-5" id='secao_content'>
-<input type="hidden" name="json_delete" id="json_delete" value="">
-<input type="hidden" name="json_delete_items" id="json_delete_items" value="">
-<input type="hidden" name="url_location" id="url_location" value="">
-<input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH;?> ">
-<div class="alert alert-warning" role="alert"> O máximo de grupos de links permitidos será nove! </div>
-<legend>Grupos de Links</legend>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Fontfaces CSS-->
+    <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/mdi-font/css/material-design-iconic-font.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
 
-<!----------------------------------------------------------------------- Seção 4 - Inicio Links ----------------------------------------------------------------------->
-<?php 
-global $wpdb;
-$grupos = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id IS NULL OR group_id = "" ')),true);
-$cont_grupos = 0;
-foreach($grupos as $key=>&$grupo): 
-    $itens = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id = ' . $grupo['id'])),true);
-    $cont_grupos++;
-    
-?>
+    <!-- Bootstrap CSS-->
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-4.1/bootstrap.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
 
-<!-- ----------------------------------- Inicio de Bloco de Definição dos Grupos--------------------------------------------- -->
-<fieldset name="links" id_grupo="<?php echo $grupo['id'];?>">
+    <!-- Vendor CSS-->
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/animsition/animsition.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/wow/animate.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/css-hamburgers/hamburgers.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/slick/slick.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/select2/select2.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/perfect-scrollbar/perfect-scrollbar.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="<?php echo plugins_url('d1_plugin/resources/css/theme.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
 
-<legend><span class="number"><?php echo $cont_grupos;?></span>Grupo <?php echo $cont_grupos;?> </legend>
-<input type="hidden" name="id[]" value="<?php echo $grupo['id'];?>">
-<input type="hidden" name="group_id[]" value="">
-<input type="text" name="name[]" value="<?php echo $grupo['name'];?>" placeholder="Titulo Grupo"><br><br>
-<input type="hidden" name="link[]" value="">
-<label>Nome -> Link</label>
-<div name='items_content'>
+    <script src="<?php echo plugins_url('d1_plugin/resources/js/bootstrap.min.js', 'd1_plugin'); ?>"></script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/js/jquery.min.js', 'd1_plugin'); ?>"></script>
+</head>
 
-    <?php foreach($itens as $key=>&$item):  
-        
-    ?>
-<div name='item' id_item="<?php echo $item['id'];?>">
-<input type="hidden" name="id[]" value="<?php echo $item['id'];?>">
-<input type="hidden" name="group_id[]" value="<?php echo $grupo['id'];?>">
-<input type="text"name="name[]" value="<?php echo $item['name'];?>" placeholder="Nome" style='width:45%;'> <span style='width:20px;'> -> </span> 
-<input type="text" name="link[]" value="<?php echo $item['link'];?>" placeholder="Link" style='width:43%;'>
-<button type="button" id_item="<?php echo $item['id'];?>" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>
-<br><br>
-</div>
-    <?php endforeach; ?>
-</div>
+<body>
+    <form id="footer_fields" action="<?php echo $url_action; ?>">
 
-<button type="button" id_grupo="<?php echo $grupo['id'];?>" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">+ Link</button>
-<button type="button" name="remove_group" id_grupo="<?php echo $grupo['id'];?>" class="btn btn-danger btn_remove_group">Remover Grupo</button>
-</fieldset>
-<?php endforeach; ?>
-<!-- -------------------------------------------- Fim de Bloco de Definição dos Grupos --------------------------------------- -->
+        <div class="form-style-5" id='secao_content'>
+            <input type="hidden" name="json_delete" id="json_delete" value="">
+            <input type="hidden" name="json_delete_items" id="json_delete_items" value="">
+            <input type="hidden" name="url_location" id="url_location" value="">
+            <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
+            <div class="alert alert-warning" role="alert"> O máximo de grupos de links permitidos é nove! </div>
+            <div class="row">
+                <div class="col">
+                    <legend>Grupos de Links</legend>
+                </div>
+                <div class="col">
+                    <button type="button" name="add_group" id="add_group" class="btn btn-success">Adicionar Grupo</button>
+                </div>
+            </div>
+            <!----------------------------------------------------------------------- Seção 4 - Inicio Links ----------------------------------------------------------------------->
+            <?php
+            global $wpdb;
+            $grupos = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id IS NULL OR group_id = "" ')), true);
+            $cont_grupos = 0;
+            foreach ($grupos as $key => &$grupo) :
+                $itens = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id = ' . $grupo['id'])), true);
+                $cont_grupos++;
 
-</div>
-<button type="button" name="add_group" id="add_group" class="btn btn-success">Add Grupo</button>
-<input type="submit" id="cases_submit" class="btn btn-info" value="Salvar Alterações" style='margin-top: 20px;margin-bottom: 20px;float:right;'/>
-</form>
-<!----------------------------------------------------------------------- Seção 4 - Fim Links ----------------------------------------------------------------------->
+                ?>
+
+                <!-- ----------------------------------- Inicio de Bloco de Definição dos Grupos--------------------------------------------- -->
+                <fieldset name="links" id_grupo="<?php echo $grupo['id']; ?>">
+
+                    <legend><span class="number"><?php echo $cont_grupos; ?></span>Grupo <?php echo $cont_grupos; ?> </legend>
+                    <input type="hidden" name="id[]" value="<?php echo $grupo['id']; ?>">
+                    <input type="hidden" name="group_id[]" value="">
+                    <input type="text" name="name[]" value="<?php echo $grupo['name']; ?>" placeholder="Titulo Grupo"><br><br>
+                    <input type="hidden" name="link[]" value="">
+                    <label>Nome e Link</label>
+                    <div name='items_content'>
+
+                        <?php foreach ($itens as $key => &$item) :
+
+                                ?>
+                            <div name='item' id_item="<?php echo $item['id']; ?>">
+                                <input type="hidden" name="id[]" value="<?php echo $item['id']; ?>">
+                                <input type="hidden" name="group_id[]" value="<?php echo $grupo['id']; ?>">
+                                <input type="text" name="name[]" value="<?php echo $item['name']; ?>" placeholder="Nome" style='width:45%;'> <span style='width:20px;'> e </span>
+                                <input type="text" name="link[]" value="<?php echo $item['link']; ?>" placeholder="Link" style='width:43%;'>
+                                <button type="button" id_item="<?php echo $item['id']; ?>" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Link</button>
+                    <button type="button" name="remove_group" id_grupo="<?php echo $grupo['id']; ?>" class="btn btn-danger btn_remove_group">Remover Grupo</button>
+                </fieldset>
+            <?php endforeach; ?>
+            <!-- -------------------------------------------- Fim de Bloco de Definição dos Grupos --------------------------------------- -->
+        </div>
+
+        <input type="submit" id="cases_submit" class="d1-button" value="Salvar Alterações" style='margin-top: 20px;margin-bottom: 20px;float:right;' />
+    </form>
+    <!----------------------------------------------------------------------- Seção 4 - Fim Links ----------------------------------------------------------------------->
 
 
-<script>
-$(document).ready(function(){
-    //inserindo grupos de links dinamicamente 
-	$('#add_group').click(function(){
-        var i = parseInt($('fieldset[name*=links]').length) + 1;
-        var cont = 0;
-        $('fieldset[name*=links]').each(function(index){
-            var title = $(this).find("[name*=grupo_title]").val();
-            if(title == ""){
-                cont++;
-            }
-        });
-    
-       if(cont > 0){
-           alert('Existe um item em branco. Por favor, insira dados para continuar criando');
-           return false;
-       }else if(cont >= 9){
-           alert('Limite de grupos atingido!');
-           return false;
-       }else{
-            var hash = btoa(Math.random());
-            $('#secao_content').append('<fieldset name="links'+i+'" id_grupo="" id_grupo_temp="'+hash+'">'
-                + '<legend><span class="number">'+i+'</span>Grupo '+i+' </legend>'
-                + '<input type="hidden" name="id[]" value="'+hash+'">'
-                + '<input type="hidden" name="group_id[]">'
-                + '<input type="text" name="name[]" placeholder="Titulo Grupo"><br><br>'
-                + '<input type="hidden" name="link[]">'
-                + '<label>Nome -> Link</label>'
-                + '<div name="items_content">'
-                + '</div>'
-                + '<button type="button" id_grupo="" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">+ Link</button>'
-                + '<button type="button" id_grupo="" name="remove_group" id="remove_group" class="btn btn-danger btn_remove_group">Remover Grupo</button>'
-                + '<br><br>'
-                + '</fieldset>'
-                ).end();
-       }
-	});
-	
-    //inserindo itens de links dinamicamente 
-    $(document).on('click', '.btn_add_new_item', function(){
-        //busca a div de itens do respectivo botão adicionar itens
-        var div_item = $(this).siblings('div[name*=items_content]');
-        var name_itens = div_item.find('input[name*=name]');
-        var id_grupo_pai = $(this).closest("fieldset").attr('id_grupo');
-        var id_grupo_temp = $(this).closest("fieldset").attr('id_grupo_temp');
-        id_grupo_pai = (id_grupo_pai != undefined && id_grupo_pai != '') ? id_grupo_pai : id_grupo_temp;
-        var i = parseInt(name_itens.length) + 1;
-        var cont = 0;
-        name_itens.each(function(index){
-            var title = $(this).val();
-            if(title == ""){
-                cont++;
-            }
-        });
-    
-       if(cont > 0){
-           alert('Existe um item em branco. Por favor, insira dados para continuar criando.');
-           return false;
-       }else{
-            var hash = btoa(Math.random());
-            div_item.append('<div name="item">'
-            + '<input type="hidden" name="id[]">'
-            + '<input type="hidden" name="group_id[]" value="'+id_grupo_pai+'">'
-            + '<input type="text"name="name[]" placeholder="Nome" style="width:45%;"> <span style="width:20px;"> -> </span> '
-            + '<input type="text" name="link[]" placeholder="Link" style="width:43%;">'
-            + '<button type="button" id_item="" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>'
-            + '<br><br>'
-            + '</div>'
-            ).end();
-       }
-	});
+    <script>
+        $(document).ready(function() {
+            //inserindo grupos de links dinamicamente 
+            $('#add_group').click(function() {
+                var i = parseInt($('fieldset[name*=links]').length) + 1;
+                var cont = 0;
+                $('fieldset[name*=links]').each(function(index) {
+                    var title = $(this).find("[name*=grupo_title]").val();
+                    if (title == "") {
+                        cont++;
+                    }
+                });
 
-	$(document).on('click', '.btn_remove_group', function(){
-        var id_delete = $(this).attr("id_grupo");
-        if(id_delete != undefined && id_delete != ''){
-            if (confirm('Tem certeza que deseja apagar este grupo?')){
-                var json_delete = $('#json_delete').val();
-                if(json_delete != ""){
-                    json_delete = json_delete + "," + id_delete;
-                }else{
-                    json_delete = id_delete;
+                if (cont > 0) {
+                    alert('Existe um item em branco. Por favor, insira dados para continuar criando');
+                    return false;
+                } else if (cont >= 9) {
+                    alert('Limite de grupos atingido!');
+                    return false;
+                } else {
+                    var hash = btoa(Math.random());
+                    $('#secao_content').append('<fieldset name="links' + i + '" id_grupo="" id_grupo_temp="' + hash + '">' +
+                        '<div class="form-style-5"><legend><span class="number">' + i + '</span>Grupo ' + i + ' </legend>' +
+                        '<input type="hidden" name="id[]" value="' + hash + '">' +
+                        '<input type="hidden" name="group_id[]">' +
+                        '<input type="text" name="name[]" placeholder="Titulo Grupo"><br><br>' +
+                        '<input type="hidden" name="link[]">' +
+                        '<label>Nome -> Link</label>' +
+                        '<div name="items_content">' +
+                        '</div>' +
+                        '<button type="button" id_grupo="" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">+ Link</button>' +
+                        '<button type="button" id_grupo="" name="remove_group" id="remove_group" class="btn btn-danger btn_remove_group">Remover Grupo</button>' +
+                        '</fieldset>'
+                    ).end();
                 }
-                $("#json_delete").val(json_delete);
-                $('fieldset[id_grupo='+id_delete+']').remove();
-            }
-        }else{
-            $(this).closest("fieldset").remove(); 
-        }
-    });
+            });
 
-    $(document).on('click', '.btn_remove', function(){
-        var id_delete = $(this).attr("id_item"); 
-        if(id_delete != undefined && id_delete != ''){
-            if (confirm('Tem certeza que deseja apagar este item?')){
-                var json_delete = $('#json_delete_items').val();
-                if(json_delete != ""){
-                    json_delete = json_delete + "," + id_delete;
-                }else{
-                    json_delete = id_delete;
+            //inserindo itens de links dinamicamente 
+            $(document).on('click', '.btn_add_new_item', function() {
+                //busca a div de itens do respectivo botão adicionar itens
+                var div_item = $(this).siblings('div[name*=items_content]');
+                var name_itens = div_item.find('input[name*=name]');
+                var id_grupo_pai = $(this).closest("fieldset").attr('id_grupo');
+                var id_grupo_temp = $(this).closest("fieldset").attr('id_grupo_temp');
+                id_grupo_pai = (id_grupo_pai != undefined && id_grupo_pai != '') ? id_grupo_pai : id_grupo_temp;
+                var i = parseInt(name_itens.length) + 1;
+                var cont = 0;
+                name_itens.each(function(index) {
+                    var title = $(this).val();
+                    if (title == "") {
+                        cont++;
+                    }
+                });
+
+                if (cont > 0) {
+                    alert('Existe um item em branco. Por favor, insira dados para continuar criando.');
+                    return false;
+                } else {
+                    var hash = btoa(Math.random());
+                    div_item.append('<div name="item">' +
+                        '<input type="hidden" name="id[]">' +
+                        '<input type="hidden" name="group_id[]" value="' + id_grupo_pai + '">' +
+                        '<input type="text"name="name[]" placeholder="Nome" style="width:45%;"> <span style="width:20px;"> e </span> ' +
+                        '<input type="text" name="link[]" placeholder="Link" style="width:43%;">' +
+                        '<button type="button" id_item="" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>' +
+                        '<br><br>' +
+                        '</div>'
+                    ).end();
                 }
-                $("#json_delete_items").val(json_delete);
-                $('div[id_item='+id_delete+']').remove();
-            }
-        }else{
-            $(this).closest("div").remove(); 
-        }
-    });
-    
-    
-    $('#cases_submit').click(function(){
-        $('#url_location').val( window.location.href);
-        var action = $('#cases_fields').attr('action');
-        $('#cases_fields').attr('action',action + "?" + $('#cases_fields').serialize());
-    });
-    
-});
-</script>
+            });
+
+            $(document).on('click', '.btn_remove_group', function() {
+                var id_delete = $(this).attr("id_grupo");
+                if (id_delete != undefined && id_delete != '') {
+                    if (confirm('Tem certeza que deseja apagar este grupo?')) {
+                        var json_delete = $('#json_delete').val();
+                        if (json_delete != "") {
+                            json_delete = json_delete + "," + id_delete;
+                        } else {
+                            json_delete = id_delete;
+                        }
+                        $("#json_delete").val(json_delete);
+                        $('fieldset[id_grupo=' + id_delete + ']').remove();
+                    }
+                } else {
+                    $(this).closest("fieldset").remove();
+                }
+            });
+
+            $(document).on('click', '.btn_remove', function() {
+                var id_delete = $(this).attr("id_item");
+                if (id_delete != undefined && id_delete != '') {
+                    if (confirm('Tem certeza que deseja apagar este item?')) {
+                        var json_delete = $('#json_delete_items').val();
+                        if (json_delete != "") {
+                            json_delete = json_delete + "," + id_delete;
+                        } else {
+                            json_delete = id_delete;
+                        }
+                        $("#json_delete_items").val(json_delete);
+                        $('div[id_item=' + id_delete + ']').remove();
+                    }
+                } else {
+                    $(this).closest("div").remove();
+                }
+            });
+
+
+            $('#cases_submit').click(function() {
+                $('#url_location').val(window.location.href);
+                var action = $('#cases_fields').attr('action');
+                $('#cases_fields').attr('action', action + "?" + $('#cases_fields').serialize());
+            });
+
+        });
+    </script>
+</body>
