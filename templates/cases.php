@@ -6,7 +6,8 @@
 	?>
 
     <h2 class="nav-tab-wrapper">
-        <a href="?page=d1_plugin_cases&tab=config_cards" class="nav-tab <?php echo $active_tab == 'config_cards' ? 'nav-tab-active' : ''; ?>">Cases</a>
+		<a href="?page=d1_plugin_cases&tab=config_cards" class="nav-tab <?php echo $active_tab == 'config_cards' ? 'nav-tab-active' : ''; ?>">Cases</a>
+		<a href="?page=d1_plugin_cases&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Categorias</a>
         <input type="hidden" id="destination_field">
     </h2>
 
@@ -16,7 +17,7 @@
                 settings_fields('cases_d1_card_group');
                 do_settings_sections('d1_plugin_cases');
 				break;
-            case 'secao1':
+            case 'secao2':
 				settings_fields('cases_d1_card_group');
                 do_settings_sections('d1_plugin_cases');
 				break;

@@ -36,7 +36,7 @@
             <input type="hidden" name="json_delete_items" id="json_delete_items" value="">
             <input type="hidden" name="url_location" id="url_location" value="">
             <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
-            <div class="alert alert-warning" role="alert"> O máximo de grupos de links permitidos é nove! </div>
+            <div class="alert alert-warning" role="alert">Número Máximo de Grupos Permitidos : 9 </div>
             <div class="row">
                 <div class="col">
                     <legend>Grupos de Links</legend>
@@ -51,9 +51,8 @@
             $grupos = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id IS NULL OR group_id = "" ')), true);
             $cont_grupos = 0;
             foreach ($grupos as $key => &$grupo) :
-                $itens = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id = ' . $grupo['id'])), true);
+                $itens = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id = ' . $grupo['id'] . ' ORDER BY group_id DESC')), true);
                 $cont_grupos++;
-
                 ?>
 
                 <!-- ----------------------------------- Inicio de Bloco de Definição dos Grupos--------------------------------------------- -->
@@ -68,18 +67,21 @@
                     <div name='items_content'>
 
                         <?php foreach ($itens as $key => &$item) :
-
-                                ?>
+                            $parent_arrow = (!empty($item['parent_id'])) ? "<span> &nbsp &nbsp &nbsp &rarr; </span>" : "";
+                        ?>
                             <div name='item' id_item="<?php echo $item['id']; ?>">
+                                <?php echo $parent_arrow ; ?>
                                 <input type="hidden" name="id[]" value="<?php echo $item['id']; ?>">
                                 <input type="hidden" name="group_id[]" value="<?php echo $grupo['id']; ?>">
+                                <input type="hidden" name="parent_id[]" value="<?php echo $item['parent_id']; ?>">
                                 <input type="text" name="name[]" value="<?php echo $item['name']; ?>" placeholder="Nome" style='width:45%;'> <span style='width:20px;'> e </span>
                                 <input type="text" name="link[]" value="<?php echo $item['link']; ?>" placeholder="Link" style='width:43%;'>
                                 <button type="button" id_item="<?php echo $item['id']; ?>" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>
                             </div>
                         <?php endforeach; ?>
                     </div>
-
+                    
+                    <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_separador" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Separador</button>
                     <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Link</button>
                     <button type="button" name="remove_group" id_grupo="<?php echo $grupo['id']; ?>" class="btn btn-danger btn_remove_group">Remover Grupo</button>
                 </fieldset>
@@ -113,10 +115,12 @@
                     return false;
                 } else {
                     var hash = btoa(Math.random());
+                    var hash_item = btoa(Math.random());
                     $('#secao_content').append('<fieldset name="links' + i + '" id_grupo="" id_grupo_temp="' + hash + '">' +
                         '<div class="form-style-5"><legend><span class="number">' + i + '</span>Grupo ' + i + ' </legend>' +
                         '<input type="hidden" name="id[]" value="' + hash + '">' +
                         '<input type="hidden" name="group_id[]">' +
+                        '<input type="hidden" name="parent_id[]" value="' + hash_item + '">' +
                         '<input type="text" name="name[]" placeholder="Titulo Grupo"><br><br>' +
                         '<input type="hidden" name="link[]">' +
                         '<label>Nome -> Link</label>' +
@@ -132,8 +136,10 @@
             //inserindo itens de links dinamicamente 
             $(document).on('click', '.btn_add_new_item', function() {
                 //busca a div de itens do respectivo botão adicionar itens
+                var action = $(this).attr('name');
                 var div_item = $(this).siblings('div[name*=items_content]');
                 var name_itens = div_item.find('input[name*=name]');
+                var id_item = $(this).siblings('div[name*=item]').find('hidden[name*=parent_id]:last').attr('id_item');
                 var id_grupo_pai = $(this).closest("fieldset").attr('id_grupo');
                 var id_grupo_temp = $(this).closest("fieldset").attr('id_grupo_temp');
                 id_grupo_pai = (id_grupo_pai != undefined && id_grupo_pai != '') ? id_grupo_pai : id_grupo_temp;
@@ -151,9 +157,11 @@
                     return false;
                 } else {
                     var hash = btoa(Math.random());
-                    div_item.append('<div name="item">' +
+                    var separator = (action == "add_item") ? "" : "<span>&nbsp &nbsp &nbsp &rarr; </span>";
+                    div_item.append('<div name="item">' + separator +
                         '<input type="hidden" name="id[]">' +
                         '<input type="hidden" name="group_id[]" value="' + id_grupo_pai + '">' +
+                        '<input type="hidden" name="parent_id[]" value="' + id_item + '">' +
                         '<input type="text"name="name[]" placeholder="Nome" style="width:45%;"> <span style="width:20px;"> e </span> ' +
                         '<input type="text" name="link[]" placeholder="Link" style="width:43%;">' +
                         '<button type="button" id_item="" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>' +

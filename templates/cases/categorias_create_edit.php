@@ -42,11 +42,10 @@ $implantacao_data = array(
 );
 
 $cases_options_data = array(
-    'cases_random'                  => !empty($_REQUEST['cases_random']) ? $_REQUEST['cases_random'] : 0,
-    'list_case1'                    => !empty($_REQUEST['list_case1']) ? $_REQUEST['list_case1'] : 0,
-    'list_case2'                    => !empty($_REQUEST['list_case2']) ? $_REQUEST['list_case2'] : 0,
-    'list_case3'                    => !empty($_REQUEST['list_case3']) ? $_REQUEST['list_case3'] : 0,
-    'categoria_case'                => !empty($_REQUEST['categoria_case']) ? $_REQUEST['categoria_case'] : 0,
+    'cases_random'                  => $_REQUEST['cases_random'],
+    'list_case1'                    => $_REQUEST['list_case1'],
+    'list_case2'                    => $_REQUEST['list_case2'],
+    'list_case3'                    => $_REQUEST['list_case3'],
 );
 
 //consolida as informações

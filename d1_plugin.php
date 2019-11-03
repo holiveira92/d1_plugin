@@ -107,7 +107,7 @@ class D1Plugin{
         /* CONTEÚDO */
         add_menu_page('Conteúdo','Conteúdo','manage_options','d1_plugin_conteudo',array($this,'admin_index'),'dashicons-welcome-widgets-menus',112);
         add_submenu_page('d1_plugin_conteudo','Cases','Cases','manage_options','d1_plugin_cases',array($this,'cases_admin')); 
-        //add_submenu_page('d1_plugin_conteudo','Blog','Blog','manage_options','d1_plugin_blog',''); 
+        //add_submenu_page('d1_plugin_conteudo','Categorias','Categorias','manage_options','d1_plugin_categorias',array($this,'cases_admin')); 
         //add_submenu_page('d1_plugin_conteudo','Whitepapers','Whitepapers','manage_options','d1_plugin_whitepapers',''); 
         //add_submenu_page('d1_plugin_conteudo','Webinários','Webinários','manage_options','d1_plugin_webinarios',''); 
         

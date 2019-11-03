@@ -92,9 +92,19 @@ class Cases{
 			case 'secao2': 
 				$this->sections = array(
 					array(
-						'id' => 'd1_cases_secao_expert',
-						'title' => 'Configurações Seção Expert',
-						'callback' => array( $this, 'd1CasesExpert' ),
+						'id' => 'd1_cases_categorias',
+						'title' => 'Categorias',
+						'callback' => array( $this, 'd1CasesCategorias' ),
+						'page' => $this->page
+					),
+				);
+				break;
+			case 'secao3': 
+				$this->sections = array(
+					array(
+						'id' => 'd1_cases_categorias',
+						'title' => 'Categorias',
+						'callback' => array( $this, 'd1CasesCategoriasConfig' ),
 						'page' => $this->page
 					),
 				);
@@ -121,7 +131,10 @@ class Cases{
                 $this->fields =  $this->cases_fields->getFields('d1_cases_config_geral','d1_plugin_cases');
 				break;
 			case 'secao2': 
-                $this->fields =  $this->cases_fields->getFields('d1_cases_secao_expert','d1_plugin_cases');
+                $this->fields =  $this->cases_fields->getFields('d1_cases_categorias','d1_plugin_cases');
+				break;
+			case 'secao3': 
+                $this->fields =  $this->cases_fields->getFields('d1_cases_categorias_config','d1_plugin_cases');
                 break;
             default:
                 $this->fields =  $this->cases_fields->getFields('d1_cases_cards','d1_plugin_cases');
@@ -131,5 +144,6 @@ class Cases{
 
     public function d1CardsCasesConf(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao0.php';}
 	public function d1CasesConfGeral(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao1.php';}
-	public function d1CasesExpert(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao2.php';}
+	public function d1CasesCategorias(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao2.php';}
+	public function d1CasesCategoriasConfig(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao3.php';}
 }

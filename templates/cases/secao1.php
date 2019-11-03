@@ -1,7 +1,9 @@
 <?php
 global $wpdb;
 $id_card            = !empty($_REQUEST["id_card"]) ? $_REQUEST["id_card"] : false;
-$data_bd            = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases WHERE id_card = $id_card")), true);
+$cases_list         = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases")), true);
+$categorias_list    = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases_categorias")), true);
+$data_bd            = !empty($id_card) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases WHERE id_card = $id_card")), true) : array();
 $param              = array('path_wp' => ABSPATH, 'id_card' => $id_card, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/cases/delete.php?', 'd1_plugin') . $query_string;
@@ -57,6 +59,14 @@ $implantacao_data = array(
     'implantacao_resultado2_valor'  => !empty($implantacao['implantacao_resultado2_valor']) ? $implantacao['implantacao_resultado2_valor'] : '',
     'implantacao_resultado2_desc'   => !empty($implantacao['implantacao_resultado2_desc']) ? $implantacao['implantacao_resultado2_desc'] : '',
 );
+$cases_options                      = !empty($data_bd[0]["cases_options"]) ? json_decode($data_bd[0]["cases_options"], true) : array();
+$cases_options = array(
+    'cases_random' => !empty($cases_options['cases_random']) ? 'checked' : '',
+    'list_case1' => !empty($cases_options['list_case1']) ? $cases_options['list_case1'] : 0,
+    'list_case2' => !empty($cases_options['list_case2']) ? $cases_options['list_case2'] : 0,
+    'list_case3' => !empty($cases_options['list_case3']) ? $cases_options['list_case3'] : 0,
+    'categoria_case' => !empty($cases_options['categoria_case']) ? $cases_options['categoria_case'] : 0,
+);
 ?>
 
 <head>
@@ -106,13 +116,24 @@ $implantacao_data = array(
             <div class="row">
                 <div class="col form-style-5 middle" id='secao1_content1'>
                     <fieldset>
-                        <!-- Destaque: <input type="checkbox" name="detach_card" <?php echo $data['destaque']; ?> style='margin-top:-2px;'> !-->
+                        <!-- Destaque: <input type="checkbox" name="detach_card" style='margin-top:-2px;'> !-->
                         <input type="hidden" name="detach_card_hidden" value="<?php echo $data['detach_card']; ?>" />
                         <label>Título:</label><input type="text" name="title_card" placeholder="Titulo do Case" value="<?php echo $data['title_card']; ?>" required>
-                        <!-- <div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="secao1_hero_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div> -->
-                        <label>Categoria:</label><input type="text" name="desc_card" placeholder="Categoria do Case" value="<?php echo $data['desc_card']; ?>" required>
+                        <label>Descrição:</label><input type="text" name="desc_card" placeholder="Descrição do Case" value="<?php echo $data['desc_card']; ?>" required>
                         <label>Objetivo:</label><input type="text" name="subtitle_card" placeholder="Objetivo do Case" value="<?php echo $data['subtitle_card']; ?>">
                         <label>Nº Impacto:</label><input type="text" name="text_footer_card" placeholder="Nº do Impacto" value="<?php echo $data['text_footer_card']; ?>">
+
+                        <label for="list_case<?php echo $i;?>">Selecione a Categoria:</label> <select name="categoria_case">
+                            <option value="0"> Selecione </option>
+                            <?php $id_selected = $cases_options["categoria_case"];
+                            foreach ($categorias_list as $key => &$value) :
+                                if ($value['id'] == $id_selected) $value['selected'] = 'selected';
+                                else $value['selected'] = '';
+                            ?>
+                            <option value="<?php echo $value['id']; ?>" <?php echo $value['selected']; ?>> <?php echo $value['descricao']; ?> </option>
+                            <?php endforeach; ?>
+                        </select>
+
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle" id='secao1_content1'>
@@ -254,9 +275,6 @@ $implantacao_data = array(
             </div>
             <div class="row">
                 <div class="col-4 form-style-5 middle">
-                    <!-- COLOCAR AQUI CAMPOS DA LISTA !-->
-                </div>
-                <div class="col-4 form-style-5 middle">
                     <fieldset>
                         <label>Resultado 1 - Titulo:</label><input type="text" name="implantacao_resultado1_title" placeholder="Titulo" value="<?php echo $implantacao_data['implantacao_resultado1_title']; ?>">
                         <label>Valor:</label><input type="text" name="implantacao_resultado1_valor" placeholder="Valor" value="<?php echo $implantacao_data['implantacao_resultado1_valor']; ?>">
@@ -269,6 +287,25 @@ $implantacao_data = array(
                         <label>Valor:</label><input type="text" name="implantacao_resultado2_valor" placeholder="Valor" value="<?php echo $implantacao_data['implantacao_resultado2_valor']; ?>">
                         <label>Descrição:</label><input type="text" name="implantacao_resultado2_desc" placeholder="Descrição" value="<?php echo $implantacao_data['implantacao_resultado2_desc']; ?>">
                     </fieldset>
+                </div>
+                <div class="col-4 form-style-5 middle">
+                <input type="checkbox" name="cases_random" <?php echo $cases_options['cases_random'];?>> <span>Marque para Usar Cases Aleatórios: </span>
+                        <?php
+                            for($i=1;$i<=3;$i++):
+                        ?>
+                            <!-- Início de Select para Card -->
+                            <label for="list_case<?php echo $i;?>">Selecione os Cases -  Opção <?php echo $i;?>:</label> <select name="list_case<?php echo $i;?>">
+                                <option value="0"> Selecione </option>
+                                <?php $id_selected = $cases_options["list_case$i"];
+                                foreach ($cases_list as $key => &$value) :
+                                    if ($value['id_card'] == $id_selected) $value['selected'] = 'selected';
+                                    else $value['selected'] = '';
+                                ?>
+                                <option value="<?php echo $value['id_card']; ?>" <?php echo $value['selected']; ?>> <?php echo $value['title_card']; ?> </option>
+                                <?php endforeach; ?>
+                            </select>
+                            <!-- Fim de Select para Card -->
+                        <?php endfor; ?>
                 </div>
             </div>
         </div>
