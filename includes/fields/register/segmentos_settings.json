@@ -1,0 +1,5 @@
+{
+    "segmentos_secao1_options_group" : [{"option_name":"segmentos_secao1_main_title"},{"option_name":"segmentos_secao1_title"},{"option_name":"segmentos_secao1_descricao"},{"option_name":"segmentos_secao1_img"}],
+    "segmentos_secao2_options_group" : [{"option_name":"segmentos_secao2_title"},{"option_name":"segmentos_secao2_card1_title"},{"option_name":"segmentos_secao2_card1_desc"},{"option_name":"segmentos_secao2_card2_title"},{"option_name":"segmentos_secao2_card2_desc"},{"option_name":"segmentos_secao2_card3_title"},{"option_name":"segmentos_secao2_card3_desc"},{"option_name":"segmentos_secao2_clientes_title"},{"option_name":"segmentos_secao2_cliente1_img_logo"},{"option_name":"segmentos_secao2_cliente2_img_logo"}],
+    "segmentos_secao3_options_group" : [{"option_name":"segmentos_secao3_keyp1_title"},{"option_name":"segmentos_secao3_keyp1_desc"},{"option_name":"segmentos_secao3_keyp1_img"},{"option_name":"segmentos_secao3_keyp2_title"},{"option_name":"segmentos_secao3_keyp2_desc"},{"option_name":"segmentos_secao3_keyp2_img"},{"option_name":"segmentos_secao3_card_select"}]
+}

@@ -49,14 +49,16 @@ class D1Plugin{
     public $plugin;
     function __construct() {
         $this->plugin = plugin_basename( __FILE__ );
-        $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer');
+        $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes');
         //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
         require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/cases_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/footer_fields.php';
+        require_once  dirname(__FILE__).'/includes/fields/segmentos_fields.php';
         $this->admin_fields = new Admin_Fields();
         $this->cases_fields = new Cases_Fields();
         $this->footer_fields = new Footer_Fields();
+        $this->segmentos_fields = new Segmentos_Fields();
     }
 
     function add_custom_options_page(){
@@ -67,7 +69,8 @@ class D1Plugin{
         $home_options_settings = $this->admin_fields->getSettings();
         $cases_options_settings = $this->cases_fields->getSettings();
         $footer_options_settings = $this->footer_fields->getSettings();
-        $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings );
+        $segmentos_options_settings = $this->segmentos_fields->getSettings();
+        $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings);
         foreach($all_options_settings as $option){
             foreach($option as $key=>$setting){
                 $whitelist_options[$setting['option_group']][] = $setting['option_name'];
@@ -77,7 +80,6 @@ class D1Plugin{
     }
 
     function register(){
-        add_action('init',array($this,'custom_post_type'));
         add_action('admin_enqueue_scripts', array($this,'admin_enqueue'));//inserindo script para tela admin
         add_action('wp_enqueue_scripts', array($this,'main_enqueue'));//inserindo script para tela principal
         add_action('admin_menu',array($this,'add_admin_pages'));
@@ -99,10 +101,10 @@ class D1Plugin{
         //add_submenu_page('d1_plugin','Plataforma','Plataforma','manage_options','d1_plugin_plataforma',array($this,'plataforma_admin')); 
 
         /* SOLUÇÕES */
-        add_menu_page('Soluções','Soluções','manage_options','d1_plugin_solucoes',array($this,'admin_index'),'dashicons-admin-site-alt3',111);
-        add_submenu_page('d1_plugin_solucoes','Segmentos','Segmentos','manage_options','d1_plugin_segmentos',''); 
-        add_submenu_page('d1_plugin_solucoes','Departamentos','Departamenos','manage_options','d1_plugin_departamentos',''); 
-        add_submenu_page('d1_plugin_solucoes','Objetivos de Negócio','Objetivos de Negócio','manage_options','d1_plugin_obj_negocio',''); 
+        add_menu_page('Soluções','Soluções','manage_options','d1_plugin_solucoes',array($this,'segmentos_index'),'dashicons-admin-site-alt3',111);
+        add_submenu_page('d1_plugin_solucoes','Segmentos','Segmentos','manage_options','d1_plugin_segmentos',array($this,'segmentos_index'));
+        //add_submenu_page('d1_plugin_solucoes','Departamentos','Departamenos','manage_options','d1_plugin_departamentos',''); 
+        //add_submenu_page('d1_plugin_solucoes','Objetivos de Negócio','Objetivos de Negócio','manage_options','d1_plugin_obj_negocio',''); 
 
         /* CONTEÚDO */
         add_menu_page('Conteúdo','Conteúdo','manage_options','d1_plugin_conteudo',array($this,'admin_index'),'dashicons-welcome-widgets-menus',112);
@@ -151,15 +153,18 @@ class D1Plugin{
         require_once plugin_dir_path( __FILE__ ) . 'templates/footer.php';
     }
 
+    public function segmentos_index(){
+        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/segmentos.php';
+        $segmentos = new Segmentos();
+        $segmentos->register();
+        require_once plugin_dir_path( __FILE__ ) . 'templates/segmentos.php';
+    }
+
 	function activate(){
 		require_once plugin_dir_path( __FILE__ ) . 'includes/base/d1_plugin_activate.php';
 		D1PluginActivate::activate();
 	}
 
-    function custom_post_type(){
-		//register_post_type('teste', array('public'=>true,'label'=>'Teste'));
-    }
-    
     function admin_enqueue(){
 		// enqueue all our scripts
         wp_register_script('d1_upload',plugins_url('resources/d1_upload.js',__FILE__),array('jquery','media-upload','thickbox'));
