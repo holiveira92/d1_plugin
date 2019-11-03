@@ -49,18 +49,20 @@ class D1Plugin{
     public $plugin;
     function __construct() {
         $this->plugin = plugin_basename( __FILE__ );
-        $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes','d1_plugin_plataforma');
+        $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes','d1_plugin_plataforma','d1_plugin_jornada');
         //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
         require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/cases_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/footer_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/segmentos_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/plataforma_fields.php';
+        require_once  dirname(__FILE__).'/includes/fields/jornada_fields.php';
         $this->admin_fields = new Admin_Fields();
         $this->cases_fields = new Cases_Fields();
         $this->footer_fields = new Footer_Fields();
         $this->segmentos_fields = new Segmentos_Fields();
         $this->plataforma_fields = new Plataforma_Fields();
+        $this->jornada_fields = new Jornada_Fields();
     }
 
     function add_custom_options_page(){
@@ -73,7 +75,8 @@ class D1Plugin{
         $footer_options_settings = $this->footer_fields->getSettings();
         $segmentos_options_settings = $this->segmentos_fields->getSettings();
         $plataforma_options_settings = $this->plataforma_fields->getSettings();
-        $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings,$plataforma_options_settings);
+        $jornada_options_settings = $this->jornada_fields->getSettings();
+        $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings,$plataforma_options_settings,$jornada_options_settings);
         foreach($all_options_settings as $option){
             foreach($option as $key=>$setting){
                 $whitelist_options[$setting['option_group']][] = $setting['option_name'];
@@ -104,6 +107,9 @@ class D1Plugin{
         
         /* PLATAFORMA */
         add_menu_page('Plataforma','Plataforma','manage_options','d1_plugin_plataforma',array($this,'plataforma_admin'), "",111);
+
+        /* PLATAFORMA */
+        add_menu_page('Nossa Jornada','Nossa Jornada','manage_options','d1_plugin_jornada',array($this,'jornada_admin'), "",111);
 
         /* SOLUÇÕES */
         add_menu_page('Soluções','Soluções','manage_options','d1_plugin_solucoes',array($this,'segmentos_index'),'dashicons-admin-site-alt3',112);
@@ -166,6 +172,13 @@ class D1Plugin{
         $segmentos = new Segmentos();
         $segmentos->register();
         require_once plugin_dir_path( __FILE__ ) . 'templates/segmentos.php';
+    }
+
+    public function jornada_admin(){
+        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/jornada.php';
+        $jornada = new Jornada();
+        $jornada->register();
+        require_once plugin_dir_path( __FILE__ ) . 'templates/jornada.php';
     }
 
 	function activate(){

@@ -32,32 +32,34 @@
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                    <legend><span class="number">1</span>Informações da Seção</legend>
-                    <div class="row">
-                        <div class="col form-style-5 middle">
-                            <label for="plataforma_secao1_title">Titulo:</label><input type="text" name="plataforma_secao1_title" value="<?php echo get_option_esc('plataforma_secao1_title'); ?>" placeholder="Titulo">
-                            <label for="plataforma_secao1_descricao">Descricao:</label> <textarea name="plataforma_secao1_descricao" placeholder="Descrição"><?php echo get_option_esc('plataforma_secao1_descricao'); ?></textarea>
-                        </div>
-                        <div class="col form-style-5 middle">
-                            <label for="plataforma_secao1_img">Imagem Background:</label>
-                            <?php echo $this->d1_upload->get_image_options('plataforma_secao1_img'); ?>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <legend><span class="number">2</span>Desafios Cards</legend>
-                    <div class="row">
-                    <label for="plataforma_secao1_desafio_title">Titulo:</label><input type="text" name="plataforma_secao1_desafio_title" value="<?php echo get_option_esc('plataforma_secao1_desafio_title'); ?>" placeholder="Titulo">
-                <?php
-                    for($i=1;$i<=3;$i++):
-                ?>  
+                <legend><span class="number">1</span>Selecione os cases da página</legend>
+                <div class="row">
+                    <?php
+                        //obtendo opções salvas no BD
+                        global $wpdb;
+                        $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')), true);
+                        for($i=1;$i<=3;$i++):
+                    ?>
                     <div class="col form-style-5 middle">
-                        <label for="plataforma_secao1_card<?php echo $i;?>_title">Titulo:</label><input type="text" name="plataforma_secao1_card<?php echo $i;?>_title" value="<?php echo get_option_esc("plataforma_secao1_card".$i."_title") ?>" placeholder="Titulo">
-                        <label for="plataforma_secao1_card<?php echo $i;?>_desc">Descricao:</label> <textarea name="plataforma_secao1_card<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("plataforma_secao1_card".$i."_desc") ?></textarea>
+                        <!-- Início de Select para Card -->
+						<label for="jornada_secao6_case<?php echo $i;?>">Selecione Opção <?php echo $i;?>:</label> <select name="jornada_secao6_case<?php echo $i;?>">
+							<option value="0"> Selecione </option>
+							<?php
+							foreach ($result as $key => &$value) :
+								$id_selected = get_option_esc("jornada_secao6_case$i");
+								if ($value['id_card'] == $id_selected) {
+									$value['selected'] = 'selected';
+								} else {
+									$value['selected'] = '';
+								}
+								?>
+								<option value="<?php echo $value['id_card']; ?>" <?php echo $value['selected']; ?>> <?php echo $value['title_card']; ?> </option>
+							<?php endforeach; ?>
+						</select>
+						<!-- Fim de Select para Card -->
                     </div>
-                <?php endfor; ?>
-                    </div>
+                    <?php endfor; ?>
+                </div>
                 </fieldset>
 
             </div>

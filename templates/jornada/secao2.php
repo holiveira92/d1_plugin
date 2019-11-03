@@ -32,34 +32,20 @@
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                    <legend><span class="number">1</span>Informações da Seção</legend>
+                    <legend><span class="number">1</span>Plataforma</legend>
                     <div class="row">
                         <div class="col form-style-5 middle">
-                            <label for="plataforma_secao1_title">Titulo:</label><input type="text" name="plataforma_secao1_title" value="<?php echo get_option_esc('plataforma_secao1_title'); ?>" placeholder="Titulo">
-                            <label for="plataforma_secao1_descricao">Descricao:</label> <textarea name="plataforma_secao1_descricao" placeholder="Descrição"><?php echo get_option_esc('plataforma_secao1_descricao'); ?></textarea>
+                            <label for="jornada_secao2_main_title">Titulo:</label><input type="text" name="jornada_secao2_main_title" value="<?php echo get_option_esc('jornada_secao2_main_title'); ?>" placeholder="Titulo Principal">
+                            <label for="jornada_secao2_title">Titulo:</label><input type="text" name="jornada_secao2_title" value="<?php echo get_option_esc('jornada_secao2_title'); ?>" placeholder="Titulo">
+                            <label for="jornada_secao2_plataforma_link">Plataforma Link:</label><input type="text" name="jornada_secao2_plataforma_link" value="<?php echo get_option_esc('jornada_secao2_plataforma_link'); ?>" placeholder="Plataforma Link">
+                            <label for="jornada_secao2_descricao">Descricao:</label> <textarea name="jornada_secao2_descricao" placeholder="Descrição" rows='5'><?php echo get_option_esc('jornada_secao2_descricao'); ?></textarea>
                         </div>
                         <div class="col form-style-5 middle">
-                            <label for="plataforma_secao1_img">Imagem Background:</label>
-                            <?php echo $this->d1_upload->get_image_options('plataforma_secao1_img'); ?>
+                            <label for="jornada_secao2_img">Imagem Background:</label>
+                            <?php echo $this->d1_upload->get_image_options('jornada_secao2_img'); ?>
                         </div>
                     </div>
                 </fieldset>
-
-                <fieldset>
-                    <legend><span class="number">2</span>Desafios Cards</legend>
-                    <div class="row">
-                    <label for="plataforma_secao1_desafio_title">Titulo:</label><input type="text" name="plataforma_secao1_desafio_title" value="<?php echo get_option_esc('plataforma_secao1_desafio_title'); ?>" placeholder="Titulo">
-                <?php
-                    for($i=1;$i<=3;$i++):
-                ?>  
-                    <div class="col form-style-5 middle">
-                        <label for="plataforma_secao1_card<?php echo $i;?>_title">Titulo:</label><input type="text" name="plataforma_secao1_card<?php echo $i;?>_title" value="<?php echo get_option_esc("plataforma_secao1_card".$i."_title") ?>" placeholder="Titulo">
-                        <label for="plataforma_secao1_card<?php echo $i;?>_desc">Descricao:</label> <textarea name="plataforma_secao1_card<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("plataforma_secao1_card".$i."_desc") ?></textarea>
-                    </div>
-                <?php endfor; ?>
-                    </div>
-                </fieldset>
-
             </div>
         </div>
     </div>

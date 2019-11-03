@@ -27,41 +27,27 @@
 </head>
 
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                    <legend><span class="number">1</span>Informações da Seção</legend>
-                    <div class="row">
-                        <div class="col form-style-5 middle">
-                            <label for="plataforma_secao1_title">Titulo:</label><input type="text" name="plataforma_secao1_title" value="<?php echo get_option_esc('plataforma_secao1_title'); ?>" placeholder="Titulo">
-                            <label for="plataforma_secao1_descricao">Descricao:</label> <textarea name="plataforma_secao1_descricao" placeholder="Descrição"><?php echo get_option_esc('plataforma_secao1_descricao'); ?></textarea>
-                        </div>
-                        <div class="col form-style-5 middle">
-                            <label for="plataforma_secao1_img">Imagem Background:</label>
-                            <?php echo $this->d1_upload->get_image_options('plataforma_secao1_img'); ?>
-                        </div>
-                    </div>
+                    <legend><span class="number">1</span>Equipe</legend>
+                    <label for="jornada_secao3_equipe1_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe1_main_title" value="<?php echo get_option_esc('jornada_secao3_equipe1_main_title'); ?>" placeholder="Titulo Principal">
+                    <label for="jornada_secao3_equipe1_title">Titulo:</label><input type="text" name="jornada_secao3_equipe1_title" value="<?php echo get_option_esc('jornada_secao3_equipe1_title'); ?>" placeholder="Titulo">
+                    <label for="jornada_secao3_equipe1_descricao">Descricao:</label> <textarea name="jornada_secao3_equipe1_descricao" placeholder="Descrição" rows='5'><?php echo get_option_esc('jornada_secao3_equipe1_descricao'); ?></textarea>
                 </fieldset>
-
-                <fieldset>
-                    <legend><span class="number">2</span>Desafios Cards</legend>
-                    <div class="row">
-                    <label for="plataforma_secao1_desafio_title">Titulo:</label><input type="text" name="plataforma_secao1_desafio_title" value="<?php echo get_option_esc('plataforma_secao1_desafio_title'); ?>" placeholder="Titulo">
-                <?php
-                    for($i=1;$i<=3;$i++):
-                ?>  
-                    <div class="col form-style-5 middle">
-                        <label for="plataforma_secao1_card<?php echo $i;?>_title">Titulo:</label><input type="text" name="plataforma_secao1_card<?php echo $i;?>_title" value="<?php echo get_option_esc("plataforma_secao1_card".$i."_title") ?>" placeholder="Titulo">
-                        <label for="plataforma_secao1_card<?php echo $i;?>_desc">Descricao:</label> <textarea name="plataforma_secao1_card<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("plataforma_secao1_card".$i."_desc") ?></textarea>
-                    </div>
-                <?php endfor; ?>
-                    </div>
-                </fieldset>
-
             </div>
+
+            <div class="col form-style-5 middle">
+                <fieldset>
+                    <legend><span class="number">2</span>Como Criamos</legend>
+                    <label for="jornada_secao3_equipe2_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe2_main_title" value="<?php echo get_option_esc('jornada_secao3_equipe2_main_title'); ?>" placeholder="Titulo Principal">
+                    <label for="jornada_secao3_equipe2_title">Titulo:</label><input type="text" name="jornada_secao3_equipe2_title" value="<?php echo get_option_esc('jornada_secao3_equipe2_title'); ?>" placeholder="Titulo">
+                    <label for="jornada_secao3_equipe2_link">Link D1 Mídia:</label><input type="text" name="jornada_secao3_equipe2_link" value="<?php echo get_option_esc('jornada_secao3_equipe2_link'); ?>" placeholder="Link Mídia">
+                    <label for="jornada_secao3_equipe2_descricao">Descricao:</label> <textarea name="jornada_secao3_equipe2_descricao" placeholder="Descrição" rows='5'><?php echo get_option_esc('jornada_secao3_equipe2_descricao'); ?></textarea>
+                </fieldset>
+            </div>
+
         </div>
     </div>
-
 </body>

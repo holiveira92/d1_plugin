@@ -1,0 +1,8 @@
+{   
+    "d1_jornada_secao1" : [{"id":"jornada_secao1_main_title"},{"id":"jornada_secao1_title"},{"id":"jornada_secao1_desc"},{"id":"jornada_secao1_img"},{"id":"jornada_secao1_about"},{"id":"jornada_secao1_about_descricao"},{"id":"jornada_secao1_about_text_link"},{"id":"jornada_secao1_about_link"},{"id":"jornada_secao1_about_descricao_secundaria"},{"id":"jornada_secao1_about_descricao_secundaria"},{"id":"jornada_secao1_about_descricao_secundaria"},{"id":"jornada_secao1_about_descricao_secundaria"}],
+    "d1_jornada_secao2" : [{"id":"jornada_secao2_main_title"},{"id":"jornada_secao2_title"},{"id":"jornada_secao2_plataforma_link"},{"id":"jornada_secao2_descricao"},{"id":"jornada_secao2_img"}],
+    "d1_jornada_secao3" : [{"id":"jornada_secao3_equipe1_main_title"},{"id":"jornada_secao3_equipe1_title"},{"id":"jornada_secao3_equipe1_descricao"},{"id":"jornada_secao3_equipe2_main_title"},{"id":"jornada_secao3_equipe2_title"},{"id":"jornada_secao3_equipe2_link"},{"id":"jornada_secao3_equipe2_descricao"}],
+    "d1_jornada_secao4" : [{"id":"jornada_secao4_slide_title"},{"id":"jornada_secao4_slide_link"},{"id":"jornada_secao4_slide_code"},{"id":"jornada_secao4_inovacao_main_title"},{"id":"jornada_secao4_inovacao_title"},{"id":"jornada_secao4_inovacao_desc"},{"id":"jornada_secao4_inovacao_desc_pre_cta"},{"id":"jornada_secao4_inovacao_cta"}],
+    "d1_jornada_secao5" : [],
+    "d1_jornada_secao6" : [{"id":"jornada_secao6_case1"},{"id":"jornada_secao6_case2"},{"id":"jornada_secao6_case3"}]
+}
