@@ -32,18 +32,36 @@
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                    <legend><span class="number">1</span>Informações da Seção</legend>
-                    <div class="row">
-                        <div class="col form-style-5 middle">
-                            <label for="segmentos_secao1_main_title">Titulo Principal:</label><input type="text" name="segmentos_secao1_main_title" value="<?php echo get_option_esc('segmentos_secao1_main_title'); ?>" placeholder="Titulo Principal">
-                            <label for="segmentos_secao1_title">Titulo:</label><input type="text" name="segmentos_secao1_title" value="<?php echo get_option_esc('segmentos_secao1_title'); ?>" placeholder="Titulo">
-                            <label for="segmentos_secao1_descricao">Descricao:</label> <textarea name="segmentos_secao1_descricao" placeholder="Descrição"><?php echo get_option_esc('segmentos_secao1_descricao'); ?></textarea>
-                        </div>
-                        <div class="col form-style-5 middle">
-                            <?php echo $this->d1_upload->get_image_options('segmentos_secao1_img'); ?>
-                        </div>
+                <legend><span class="number">1</span>Selecione os cases da página</legend>
+                <div class="row">
+                    <?php
+                        //obtendo opções salvas no BD
+                        global $wpdb;
+                        $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')), true);
+                        for($i=1;$i<=3;$i++):
+                    ?>
+                    <div class="col form-style-5 middle">
+                        <!-- Início de Select para Card -->
+						<label for="plataforma_secao3_case<?php echo $i;?>">Selecione Opção <?php echo $i;?>:</label> <select name="plataforma_secao3_case<?php echo $i;?>">
+							<option value="0"> Selecione </option>
+							<?php
+							foreach ($result as $key => &$value) :
+								$id_selected = get_option_esc("plataforma_secao3_case$i");
+								if ($value['id_card'] == $id_selected) {
+									$value['selected'] = 'selected';
+								} else {
+									$value['selected'] = '';
+								}
+								?>
+								<option value="<?php echo $value['id_card']; ?>" <?php echo $value['selected']; ?>> <?php echo $value['title_card']; ?> </option>
+							<?php endforeach; ?>
+						</select>
+						<!-- Fim de Select para Card -->
                     </div>
+                    <?php endfor; ?>
+                </div>
                 </fieldset>
+
             </div>
         </div>
     </div>

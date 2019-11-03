@@ -29,6 +29,7 @@
 </head>
 
 <body>
+    <?php $url_action = plugins_url('d1_plugin/templates/footer/footer_ajax.php','d1_plugin'); ?>
     <form id="footer_fields" action="<?php echo $url_action; ?>">
 
         <div class="form-style-5" id='secao_content'>

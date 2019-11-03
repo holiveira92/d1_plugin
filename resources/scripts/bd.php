@@ -54,8 +54,6 @@ ENGINE=InnoDB
 AUTO_INCREMENT=1
 ;
 
-
-
 CREATE TABLE `wp_d1_footer_links` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(300) NULL DEFAULT NULL,
@@ -67,6 +65,15 @@ CREATE TABLE `wp_d1_footer_links` (
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=1
+;
+
+CREATE TABLE `wp_d1_faq` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`question` TEXT NULL DEFAULT NULL,
+	`description` TEXT NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+ENGINE=InnoDB
 ;
 
 

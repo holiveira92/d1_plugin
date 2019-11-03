@@ -49,16 +49,18 @@ class D1Plugin{
     public $plugin;
     function __construct() {
         $this->plugin = plugin_basename( __FILE__ );
-        $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes');
+        $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes','d1_plugin_plataforma');
         //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
         require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/cases_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/footer_fields.php';
         require_once  dirname(__FILE__).'/includes/fields/segmentos_fields.php';
+        require_once  dirname(__FILE__).'/includes/fields/plataforma_fields.php';
         $this->admin_fields = new Admin_Fields();
         $this->cases_fields = new Cases_Fields();
         $this->footer_fields = new Footer_Fields();
         $this->segmentos_fields = new Segmentos_Fields();
+        $this->plataforma_fields = new Plataforma_Fields();
     }
 
     function add_custom_options_page(){
@@ -70,7 +72,8 @@ class D1Plugin{
         $cases_options_settings = $this->cases_fields->getSettings();
         $footer_options_settings = $this->footer_fields->getSettings();
         $segmentos_options_settings = $this->segmentos_fields->getSettings();
-        $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings);
+        $plataforma_options_settings = $this->plataforma_fields->getSettings();
+        $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings,$plataforma_options_settings);
         foreach($all_options_settings as $option){
             foreach($option as $key=>$setting){
                 $whitelist_options[$setting['option_group']][] = $setting['option_name'];
@@ -98,34 +101,36 @@ class D1Plugin{
     public function add_admin_pages() {
         /* HOME PAGE */
         add_menu_page('Página Inicial','Página Inicial','manage_options','d1_plugin',array($this,'admin_index'), get_template_directory_uri()."/images/d1_logo_admin.ico",110);
-        //add_submenu_page('d1_plugin','Plataforma','Plataforma','manage_options','d1_plugin_plataforma',array($this,'plataforma_admin')); 
+        
+        /* PLATAFORMA */
+        add_menu_page('Plataforma','Plataforma','manage_options','d1_plugin_plataforma',array($this,'plataforma_admin'), "",111);
 
         /* SOLUÇÕES */
-        add_menu_page('Soluções','Soluções','manage_options','d1_plugin_solucoes',array($this,'segmentos_index'),'dashicons-admin-site-alt3',111);
+        add_menu_page('Soluções','Soluções','manage_options','d1_plugin_solucoes',array($this,'segmentos_index'),'dashicons-admin-site-alt3',112);
         add_submenu_page('d1_plugin_solucoes','Segmentos','Segmentos','manage_options','d1_plugin_segmentos',array($this,'segmentos_index'));
         //add_submenu_page('d1_plugin_solucoes','Departamentos','Departamenos','manage_options','d1_plugin_departamentos',''); 
         //add_submenu_page('d1_plugin_solucoes','Objetivos de Negócio','Objetivos de Negócio','manage_options','d1_plugin_obj_negocio',''); 
 
         /* CONTEÚDO */
-        add_menu_page('Conteúdo','Conteúdo','manage_options','d1_plugin_conteudo',array($this,'admin_index'),'dashicons-welcome-widgets-menus',112);
+        add_menu_page('Conteúdo','Conteúdo','manage_options','d1_plugin_conteudo',array($this,'admin_index'),'dashicons-welcome-widgets-menus',113);
         add_submenu_page('d1_plugin_conteudo','Cases','Cases','manage_options','d1_plugin_cases',array($this,'cases_admin')); 
         //add_submenu_page('d1_plugin_conteudo','Categorias','Categorias','manage_options','d1_plugin_categorias',array($this,'cases_admin')); 
         //add_submenu_page('d1_plugin_conteudo','Whitepapers','Whitepapers','manage_options','d1_plugin_whitepapers',''); 
         //add_submenu_page('d1_plugin_conteudo','Webinários','Webinários','manage_options','d1_plugin_webinarios',''); 
         
         /* PREÇO */
-        add_menu_page('Preço','Preço','manage_options','d1_plugin_preco',array($this,'admin_index'),'dashicons-cart',113);
+        add_menu_page('Preço','Preço','manage_options','d1_plugin_preco',array($this,'admin_index'),'dashicons-cart',114);
 
         /* SOBRE */
-        add_menu_page('Sobre','Sobre','manage_options','d1_plugin_sobre',array($this,'admin_index'),'dashicons-info',114);
+        add_menu_page('Sobre','Sobre','manage_options','d1_plugin_sobre',array($this,'admin_index'),'dashicons-info',115);
 
         /* FALAR COM ESPECIALISTA */
-        add_menu_page('Falar com Especialista','Falar com Especialista','manage_options','d1_plugin_especialista',array($this,'admin_index'),'dashicons-businessperson',115);
+        add_menu_page('Falar com Especialista','Falar com Especialista','manage_options','d1_plugin_especialista',array($this,'admin_index'),'dashicons-businessperson',116);
 
         /* HEADER MENU, FOOTER, CTA */
-        add_menu_page('Header Menu','Header Menu','manage_options','d1_plugin_header_menu','','',116);
-        add_menu_page('Footer','Footer','manage_options','d1_plugin_footer',array($this,'footer_admin'),'',117);
-        add_menu_page('Call To Action','Call To Action','manage_options','d1_plugin_cta','','',118);
+        add_menu_page('Header Menu','Header Menu','manage_options','d1_plugin_header_menu','','',117);
+        add_menu_page('Footer','Footer','manage_options','d1_plugin_footer',array($this,'footer_admin'),'',118);
+        add_menu_page('Call To Action','Call To Action','manage_options','d1_plugin_cta','','',119);
     }
 
     public function admin_index(){
@@ -136,7 +141,10 @@ class D1Plugin{
     }
 
     public function plataforma_admin() {
-        
+        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/plataforma.php';
+        $plat = new Plataforma();
+        $plat->register();
+        require_once plugin_dir_path( __FILE__ ) . 'templates/plataforma.php';
     }
 
     public function cases_admin() {
