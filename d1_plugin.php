@@ -55,8 +55,8 @@ if (!class_exists('D1Plugin')) {
         {
             $this->plugin = plugin_basename(__FILE__);
             $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes',
-            'd1_plugin_plataforma','d1_plugin_jornada','d1_plugin_seguranca');
-            //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
+            'd1_plugin_plataforma','d1_plugin_jornada','d1_plugin_seguranca','d1_plugin_preco');
+            //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
             require_once  dirname(__FILE__) . '/includes/fields/admin_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/cases_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/footer_fields.php';
@@ -64,6 +64,7 @@ if (!class_exists('D1Plugin')) {
             require_once  dirname(__FILE__) . '/includes/fields/plataforma_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/jornada_fields.php';
             require_once  dirname(__FILE__).'/includes/fields/seguranca_fields.php';
+            require_once  dirname(__FILE__).'/includes/fields/preco_fields.php';
             $this->admin_fields = new Admin_Fields();
             $this->cases_fields = new Cases_Fields();
             $this->footer_fields = new Footer_Fields();
@@ -71,6 +72,7 @@ if (!class_exists('D1Plugin')) {
             $this->plataforma_fields = new Plataforma_Fields();
             $this->jornada_fields = new Jornada_Fields();
             $this->seguranca_fields = new Seguranca_Fields();
+            $this->preco_fields = new Preco_Fields();
         }
 
         function add_custom_options_page()
@@ -87,8 +89,9 @@ if (!class_exists('D1Plugin')) {
             $plataforma_options_settings = $this->plataforma_fields->getSettings();
             $jornada_options_settings = $this->jornada_fields->getSettings();
             $seguranca_options_settings = $this->seguranca_fields->getSettings();
+            $preco_options_settings = $this->preco_fields->getSettings();
             $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings,
-            $plataforma_options_settings,$jornada_options_settings,$seguranca_options_settings);
+            $plataforma_options_settings,$jornada_options_settings,$seguranca_options_settings,$preco_options_settings);
             foreach ($all_options_settings as $option) {
                 foreach ($option as $key => $setting) {
                     $whitelist_options[$setting['option_group']][] = $setting['option_name'];
@@ -142,7 +145,7 @@ if (!class_exists('D1Plugin')) {
             //add_submenu_page('d1_plugin_cases','Webinários','Webinários','manage_options','d1_plugin_webinarios',''); 
 
             /* PREÇO */
-            add_menu_page('Preço', 'Preço', 'manage_options', 'd1_plugin_preco', array($this, 'admin_index'), 'dashicons-cart', 115);
+            add_menu_page('Preço', 'Preço', 'manage_options', 'd1_plugin_preco', array($this, 'preco_admin'), 'dashicons-cart', 115);
 
             /* SOBRE */
             add_menu_page('Sobre', 'Sobre', 'manage_options', 'd1_plugin_sobre', array($this, 'admin_index'), 'dashicons-info', 116);
@@ -209,6 +212,13 @@ if (!class_exists('D1Plugin')) {
             $seguranca = new Seguranca();
             $seguranca->register();
             require_once plugin_dir_path( __FILE__ ) . 'templates/seguranca.php';
+        }
+
+        public function preco_admin(){
+            require_once plugin_dir_path( __FILE__ ) . 'includes/pages/preco.php';
+            $preco = new Preco();
+            $preco->register();
+            require_once plugin_dir_path( __FILE__ ) . 'templates/preco.php';
         }
 
         function activate()
@@ -307,7 +317,7 @@ if (!class_exists('D1Plugin')) {
                             //$admin_bar->remove_node('my-account');
 
                             global $current_user;
-                            get_currentuserinfo();
+                            wp_get_current_user();
                             $redirect = site_url();
 
                             $admin_bar->add_node(

@@ -1,0 +1,6 @@
+{
+    "preco_secao1_options_group" : [{"option_name":"preco_secao1_main_title"},{"option_name":"preco_secao1_title"},{"option_name":"preco_secao1_descricao"},{"option_name":"preco_secao1_descricao_secundaria"}],
+    "preco_secao2_options_group" : [],
+    "preco_secao3_options_group" : [{"option_name":"preco_secao3_case1"},{"option_name":"preco_secao3_case2"},{"option_name":"preco_secao3_case3"}],
+    "preco_secao4_options_group" : []
+}
