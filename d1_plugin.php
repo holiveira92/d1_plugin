@@ -54,7 +54,8 @@ if (!class_exists('D1Plugin')) {
         function __construct()
         {
             $this->plugin = plugin_basename(__FILE__);
-            $this->whitelist_plugin = array('d1_plugin', 'd1_plugin_cases', 'upload.php', 'wpseo_dashboard', 'd1_plugin_footer', 'd1_plugin_solucoes', 'd1_plugin_plataforma', 'd1_plugin_jornada');
+            $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes',
+            'd1_plugin_plataforma','d1_plugin_jornada','d1_plugin_seguranca');
             //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
             require_once  dirname(__FILE__) . '/includes/fields/admin_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/cases_fields.php';
@@ -62,12 +63,14 @@ if (!class_exists('D1Plugin')) {
             require_once  dirname(__FILE__) . '/includes/fields/segmentos_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/plataforma_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/jornada_fields.php';
+            require_once  dirname(__FILE__).'/includes/fields/seguranca_fields.php';
             $this->admin_fields = new Admin_Fields();
             $this->cases_fields = new Cases_Fields();
             $this->footer_fields = new Footer_Fields();
             $this->segmentos_fields = new Segmentos_Fields();
             $this->plataforma_fields = new Plataforma_Fields();
             $this->jornada_fields = new Jornada_Fields();
+            $this->seguranca_fields = new Seguranca_Fields();
         }
 
         function add_custom_options_page()
@@ -83,7 +86,9 @@ if (!class_exists('D1Plugin')) {
             $segmentos_options_settings = $this->segmentos_fields->getSettings();
             $plataforma_options_settings = $this->plataforma_fields->getSettings();
             $jornada_options_settings = $this->jornada_fields->getSettings();
-            $all_options_settings = array_merge($home_options_settings, $cases_options_settings, $footer_options_settings, $segmentos_options_settings, $plataforma_options_settings, $jornada_options_settings);
+            $seguranca_options_settings = $this->seguranca_fields->getSettings();
+            $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings,
+            $plataforma_options_settings,$jornada_options_settings,$seguranca_options_settings);
             foreach ($all_options_settings as $option) {
                 foreach ($option as $key => $setting) {
                     $whitelist_options[$setting['option_group']][] = $setting['option_name'];
@@ -120,6 +125,9 @@ if (!class_exists('D1Plugin')) {
 
             /* NOSSA JORNADA */
             add_menu_page('Nossa Jornada', 'Nossa Jornada', 'manage_options', 'd1_plugin_jornada', array($this, 'jornada_admin'), "", 112);
+
+            /* SEGURANÇA */
+            add_menu_page('Segurança','Segurança','manage_options','d1_plugin_seguranca',array($this,'seguranca_admin'), "",111);
 
             /* SOLUÇÕES */
             add_menu_page('Soluções', 'Soluções', 'manage_options', 'd1_plugin_solucoes', array($this, 'segmentos_index'), 'dashicons-admin-site-alt3', 113);
@@ -194,6 +202,13 @@ if (!class_exists('D1Plugin')) {
             $jornada = new Jornada();
             $jornada->register();
             require_once plugin_dir_path(__FILE__) . 'templates/jornada.php';
+        }
+
+        public function seguranca_admin(){
+            require_once plugin_dir_path( __FILE__ ) . 'includes/pages/seguranca.php';
+            $seguranca = new Seguranca();
+            $seguranca->register();
+            require_once plugin_dir_path( __FILE__ ) . 'templates/seguranca.php';
         }
 
         function activate()
