@@ -108,6 +108,16 @@ class Segmentos{
 						'page' => $this->page
 					),
 				);
+				break;
+			case 'seg': 
+				$this->sections = array(
+					array(
+						'id' => 'd1_segmentos_seg',
+						'title' => 'Configurações de Segmentos ',
+						'callback' => array( $this, 'd1Segmentos' ),
+						'page' => $this->page
+					),
+				);
                 break;
 			default: 
 				$this->sections = array(
@@ -143,4 +153,5 @@ class Segmentos{
 	public function d1SegmentosSecao2(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/segmentos/secao2.php';}
 	public function d1SegmentosSecao3(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/segmentos/secao3.php';}
 	public function d1SegmentosKeyp(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/segmentos/keyp.php';}
+	public function d1Segmentos(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/segmentos/segmentos.php';}
 }
