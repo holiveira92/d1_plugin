@@ -36,8 +36,8 @@
 				<div id='secao2_content1' class="content">
 					<fieldset>
 						<legend><span class="number">1</span>Informações da Seção</legend>
-						<label for="secao2_section_title">Título Seção:</label> <input type="text" name="secao2_section_title" value="<?php echo get_option_esc('secao2_section_title') ?>" placeholder="Titulo da Seção Parte 1">
-						<label for="secao2_call_action_cases">Chamada para Ação - Cases:</label> <input type="text" name="secao2_call_action_cases" value="<?php echo get_option_esc('secao2_call_action_cases') ?>" placeholder="Chamada para Ação - Cases">
+						<label for="secao2_section_title">Título:</label> <input type="text" name="secao2_section_title" value="<?php echo get_option_esc('secao2_section_title') ?>">
+						<label for="secao2_call_action_cases">Chamada para Ação - Cases:</label> <input type="text" name="secao2_call_action_cases" value="<?php echo get_option_esc('secao2_call_action_cases') ?>">
 					</fieldset>
 				</div>
 				<!-- ------------------------------------- Fim Seção Config. Seção -  Cases de Sucesso ------------------------------------------>

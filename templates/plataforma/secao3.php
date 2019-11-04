@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                <legend><span class="number">1</span>Selecione os cases da página</legend>
+                <legend><span class="number">1</span>Cases</legend>
                 <div class="row">
                     <?php
                         //obtendo opções salvas no BD
@@ -42,7 +42,7 @@
                     ?>
                     <div class="col form-style-5 middle">
                         <!-- Início de Select para Card -->
-						<label for="plataforma_secao3_case<?php echo $i;?>">Selecione Opção <?php echo $i;?>:</label> <select name="plataforma_secao3_case<?php echo $i;?>">
+						<label for="plataforma_secao3_case<?php echo $i;?>">Case <?php echo $i;?>:</label> <select name="plataforma_secao3_case<?php echo $i;?>">
 							<option value="0"> Selecione </option>
 							<?php
 							foreach ($result as $key => &$value) :

@@ -24,203 +24,302 @@
 
 defined('ABSPATH') or die('Access Denied!');
 
-if(!class_exists('D1Plugin')){
+if (!class_exists('D1Plugin')) {
 
-function pre($data) {
-    echo "<pre>";
+    function pre($data)
+    {
+        echo "<pre>";
         print_r($data);
-    echo "</pre>";
-}
-
-//Utilizar essa função apenas para modo compatibilidade com PHP menor que 7
-function dirname_safe($path, $level = 0){
-    $dir = explode(DIRECTORY_SEPARATOR, $path);
-    $level = $level * -1;
-    if($level == 0) $level = count($dir);
-    array_splice($dir, $level);
-    return implode($dir, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
-}
-
-function get_option_esc($option_name){
-    return esc_attr(get_option($option_name));
-}
-
-class D1Plugin{  
-    public $plugin;
-    function __construct() {
-        $this->plugin = plugin_basename( __FILE__ );
-        $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes','d1_plugin_plataforma','d1_plugin_jornada');
-        //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
-        require_once  dirname(__FILE__).'/includes/fields/admin_fields.php';
-        require_once  dirname(__FILE__).'/includes/fields/cases_fields.php';
-        require_once  dirname(__FILE__).'/includes/fields/footer_fields.php';
-        require_once  dirname(__FILE__).'/includes/fields/segmentos_fields.php';
-        require_once  dirname(__FILE__).'/includes/fields/plataforma_fields.php';
-        require_once  dirname(__FILE__).'/includes/fields/jornada_fields.php';
-        $this->admin_fields = new Admin_Fields();
-        $this->cases_fields = new Cases_Fields();
-        $this->footer_fields = new Footer_Fields();
-        $this->segmentos_fields = new Segmentos_Fields();
-        $this->plataforma_fields = new Plataforma_Fields();
-        $this->jornada_fields = new Jornada_Fields();
+        echo "</pre>";
     }
 
-    function add_custom_options_page(){
-        add_filter('whitelist_options',array($this,'setWhitelistOptions'));
+    //Utilizar essa função apenas para modo compatibilidade com PHP menor que 7
+    function dirname_safe($path, $level = 0)
+    {
+        $dir = explode(DIRECTORY_SEPARATOR, $path);
+        $level = $level * -1;
+        if ($level == 0) $level = count($dir);
+        array_splice($dir, $level);
+        return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
     }
-    
-    function setWhitelistOptions($whitelist_options){
-        $home_options_settings = $this->admin_fields->getSettings();
-        $cases_options_settings = $this->cases_fields->getSettings();
-        $footer_options_settings = $this->footer_fields->getSettings();
-        $segmentos_options_settings = $this->segmentos_fields->getSettings();
-        $plataforma_options_settings = $this->plataforma_fields->getSettings();
-        $jornada_options_settings = $this->jornada_fields->getSettings();
-        $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings,$plataforma_options_settings,$jornada_options_settings);
-        foreach($all_options_settings as $option){
-            foreach($option as $key=>$setting){
-                $whitelist_options[$setting['option_group']][] = $setting['option_name'];
+
+    function get_option_esc($option_name)
+    {
+        return esc_attr(get_option($option_name));
+    }
+
+    class D1Plugin
+    {
+        public $plugin;
+        function __construct()
+        {
+            $this->plugin = plugin_basename(__FILE__);
+            $this->whitelist_plugin = array('d1_plugin', 'd1_plugin_cases', 'upload.php', 'wpseo_dashboard', 'd1_plugin_footer', 'd1_plugin_solucoes', 'd1_plugin_plataforma', 'd1_plugin_jornada');
+            //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_preco','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
+            require_once  dirname(__FILE__) . '/includes/fields/admin_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/cases_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/footer_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/segmentos_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/plataforma_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/jornada_fields.php';
+            $this->admin_fields = new Admin_Fields();
+            $this->cases_fields = new Cases_Fields();
+            $this->footer_fields = new Footer_Fields();
+            $this->segmentos_fields = new Segmentos_Fields();
+            $this->plataforma_fields = new Plataforma_Fields();
+            $this->jornada_fields = new Jornada_Fields();
+        }
+
+        function add_custom_options_page()
+        {
+            add_filter('whitelist_options', array($this, 'setWhitelistOptions'));
+        }
+
+        function setWhitelistOptions($whitelist_options)
+        {
+            $home_options_settings = $this->admin_fields->getSettings();
+            $cases_options_settings = $this->cases_fields->getSettings();
+            $footer_options_settings = $this->footer_fields->getSettings();
+            $segmentos_options_settings = $this->segmentos_fields->getSettings();
+            $plataforma_options_settings = $this->plataforma_fields->getSettings();
+            $jornada_options_settings = $this->jornada_fields->getSettings();
+            $all_options_settings = array_merge($home_options_settings, $cases_options_settings, $footer_options_settings, $segmentos_options_settings, $plataforma_options_settings, $jornada_options_settings);
+            foreach ($all_options_settings as $option) {
+                foreach ($option as $key => $setting) {
+                    $whitelist_options[$setting['option_group']][] = $setting['option_name'];
+                }
+            }
+            return $whitelist_options;
+        }
+
+        function register()
+        {
+            add_action('admin_enqueue_scripts', array($this, 'admin_enqueue')); //inserindo script para tela admin
+            add_action('wp_enqueue_scripts', array($this, 'main_enqueue')); //inserindo script para tela principal
+            add_action('admin_menu', array($this, 'add_admin_pages'));
+            add_filter("plugin_action_links_$this->plugin", array($this, 'settings_link'));
+            add_action('admin_menu', array($this, 'custom_menu_page_removing'));
+            add_action('admin_head', array($this, 'replace_admin_menu_icons_css'));
+            $this->add_custom_options_page();
+        }
+
+        public function settings_link($links)
+        {
+            $settings_link = '<a href="admin.php?page=d1_plugin">Configurações</a>';
+            array_push($links, $settings_link);
+            return $links;
+        }
+
+        public function add_admin_pages()
+        {
+            /* HOME PAGE */
+            add_menu_page('Página Inicial', 'Página Inicial', 'manage_options', 'd1_plugin', array($this, 'admin_index'), get_template_directory_uri() . "/images/d1_logo_admin.ico", 110);
+
+            /* PLATAFORMA */
+            add_menu_page('Plataforma', 'Plataforma', 'manage_options', 'd1_plugin_plataforma', array($this, 'plataforma_admin'), "", 111);
+
+            /* NOSSA JORNADA */
+            add_menu_page('Nossa Jornada', 'Nossa Jornada', 'manage_options', 'd1_plugin_jornada', array($this, 'jornada_admin'), "", 112);
+
+            /* SOLUÇÕES */
+            add_menu_page('Soluções', 'Soluções', 'manage_options', 'd1_plugin_solucoes', array($this, 'segmentos_index'), 'dashicons-admin-site-alt3', 113);
+            add_submenu_page('d1_plugin_solucoes', 'Segmentos', 'Segmentos', 'manage_options', 'd1_plugin_segmentos', array($this, 'segmentos_index'));
+            //add_submenu_page('d1_plugin_solucoes','Departamentos','Departamenos','manage_options','d1_plugin_departamentos',''); 
+            //add_submenu_page('d1_plugin_solucoes','Objetivos de Negócio','Objetivos de Negócio','manage_options','d1_plugin_obj_negocio',''); 
+
+            /* CONTEÚDO */
+            add_menu_page('Cases', 'Cases', 'manage_options', 'd1_plugin_cases', array($this, 'cases_admin'), 'dashicons-welcome-widgets-menus', 114);
+            add_submenu_page('d1_plugin_cases','Categorias','Categorias','manage_options','d1_plugin_cases&tab=secao2',array($this,'cases_admin')); 
+            //add_submenu_page('d1_plugin_cases','Whitepapers','Whitepapers','manage_options','d1_plugin_whitepapers',''); 
+            //add_submenu_page('d1_plugin_cases','Webinários','Webinários','manage_options','d1_plugin_webinarios',''); 
+
+            /* PREÇO */
+            add_menu_page('Preço', 'Preço', 'manage_options', 'd1_plugin_preco', array($this, 'admin_index'), 'dashicons-cart', 115);
+
+            /* SOBRE */
+            add_menu_page('Sobre', 'Sobre', 'manage_options', 'd1_plugin_sobre', array($this, 'admin_index'), 'dashicons-info', 116);
+
+            /* FALAR COM ESPECIALISTA */
+            add_menu_page('Falar com Especialista', 'Falar com Especialista', 'manage_options', 'd1_plugin_especialista', array($this, 'admin_index'), 'dashicons-businessperson', 117);
+
+            /* HEADER MENU, FOOTER, CTA */
+            add_menu_page('Header Menu', 'Header Menu', 'manage_options', 'd1_plugin_header_menu', '', '', 118);
+            add_menu_page('Footer', 'Footer', 'manage_options', 'd1_plugin_footer', array($this, 'footer_admin'), '', 119);
+            add_menu_page('Call To Action', 'Call To Action', 'manage_options', 'd1_plugin_cta', '', '', 120);
+        }
+
+        public function admin_index()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/admin.php';
+            $adm = new Admin();
+            $adm->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/admin.php';
+        }
+
+        public function plataforma_admin()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/plataforma.php';
+            $plat = new Plataforma();
+            $plat->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/plataforma.php';
+        }
+
+        public function cases_admin()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/cases.php';
+            $cases = new Cases();
+            $cases->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/cases.php';
+        }
+
+        public function footer_admin()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/footer.php';
+            $footer = new Footer();
+            $footer->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/footer.php';
+        }
+
+        public function segmentos_index()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/segmentos.php';
+            $segmentos = new Segmentos();
+            $segmentos->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/segmentos.php';
+        }
+
+        public function jornada_admin()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/jornada.php';
+            $jornada = new Jornada();
+            $jornada->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/jornada.php';
+        }
+
+        function activate()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/base/d1_plugin_activate.php';
+            D1PluginActivate::activate();
+        }
+
+        function admin_enqueue()
+        {
+            // enqueue all our scripts
+            wp_register_script('d1_upload', plugins_url('resources/d1_upload.js', __FILE__), array('jquery', 'media-upload', 'thickbox'));
+            wp_register_script('d1_admin', plugins_url('resources/d1_admin.js', __FILE__), array('jquery'));
+            wp_enqueue_script('jquery');
+            wp_enqueue_script('thickbox');
+            wp_enqueue_style('thickbox');
+            wp_enqueue_script('media-upload');
+            wp_enqueue_script('d1_upload');
+            wp_enqueue_script('d1_admin');
+        }
+
+        function custom_menu_page_removing()
+        {
+            global $submenu, $menu;
+            $menu_item = array_values($menu);
+            $post_types = get_post_types();
+            foreach ($menu_item as $key => $m) {
+                if (!empty($m[2]) && !in_array($m[2], $this->whitelist_plugin)) {
+                    remove_menu_page($m[2]);
+                }
             }
         }
-        return $whitelist_options;
-    }
 
-    function register(){
-        add_action('admin_enqueue_scripts', array($this,'admin_enqueue'));//inserindo script para tela admin
-        add_action('wp_enqueue_scripts', array($this,'main_enqueue'));//inserindo script para tela principal
-        add_action('admin_menu',array($this,'add_admin_pages'));
-        add_filter("plugin_action_links_$this->plugin",array($this,'settings_link'));
-        add_action('admin_menu',array($this,'custom_menu_page_removing'));
-        add_action('admin_head',array($this,'replace_admin_menu_icons_css'));
-        $this->add_custom_options_page();
-    }
-    
-    public function settings_link( $links ) {
-        $settings_link = '<a href="admin.php?page=d1_plugin">Configurações</a>';
-        array_push( $links, $settings_link );
-        return $links;
-    }
+        function replace_admin_menu_icons_css()
+        {
+            ?><style>
+                #adminmenu .wp-menu-image img {
+                    padding: 0 !important;
+                }
 
-    public function add_admin_pages() {
-        /* HOME PAGE */
-        add_menu_page('Página Inicial','Página Inicial','manage_options','d1_plugin',array($this,'admin_index'), get_template_directory_uri()."/images/d1_logo_admin.ico",110);
-        
-        /* PLATAFORMA */
-        add_menu_page('Plataforma','Plataforma','manage_options','d1_plugin_plataforma',array($this,'plataforma_admin'), "",111);
+                .wp-core-ui p .button {
+                    vertical-align: baseline;
+                    float: right;
+                }
+            </style><?php
+                            }
+                        }
+                        //Inicialização do plugin
+                        $d1 = new D1Plugin();
+                        $d1->register();
 
-        /* PLATAFORMA */
-        add_menu_page('Nossa Jornada','Nossa Jornada','manage_options','d1_plugin_jornada',array($this,'jornada_admin'), "",111);
+                        //activation
+                        register_activation_hook(__FILE__, array($d1, 'activate'));
 
-        /* SOLUÇÕES */
-        add_menu_page('Soluções','Soluções','manage_options','d1_plugin_solucoes',array($this,'segmentos_index'),'dashicons-admin-site-alt3',112);
-        add_submenu_page('d1_plugin_solucoes','Segmentos','Segmentos','manage_options','d1_plugin_segmentos',array($this,'segmentos_index'));
-        //add_submenu_page('d1_plugin_solucoes','Departamentos','Departamenos','manage_options','d1_plugin_departamentos',''); 
-        //add_submenu_page('d1_plugin_solucoes','Objetivos de Negócio','Objetivos de Negócio','manage_options','d1_plugin_obj_negocio',''); 
+                        //deactivation
+                        require_once plugin_dir_path(__FILE__) . 'includes/base/d1_plugin_deactivate.php';
+                        register_deactivation_hook(__FILE__, array('D1PluginDeactivate', 'deactivate'));
+                        //Remove a notificação de atualização
+                        add_action('admin_head', 'hide_update_notice_to_all', 1);
+                        function hide_update_notice_to_all()
+                        {
+                            remove_action('admin_notices', 'update_nag', 3);
+                        }
 
-        /* CONTEÚDO */
-        add_menu_page('Conteúdo','Conteúdo','manage_options','d1_plugin_conteudo',array($this,'admin_index'),'dashicons-welcome-widgets-menus',113);
-        add_submenu_page('d1_plugin_conteudo','Cases','Cases','manage_options','d1_plugin_cases',array($this,'cases_admin')); 
-        //add_submenu_page('d1_plugin_conteudo','Categorias','Categorias','manage_options','d1_plugin_categorias',array($this,'cases_admin')); 
-        //add_submenu_page('d1_plugin_conteudo','Whitepapers','Whitepapers','manage_options','d1_plugin_whitepapers',''); 
-        //add_submenu_page('d1_plugin_conteudo','Webinários','Webinários','manage_options','d1_plugin_webinarios',''); 
-        
-        /* PREÇO */
-        add_menu_page('Preço','Preço','manage_options','d1_plugin_preco',array($this,'admin_index'),'dashicons-cart',114);
+                        add_action('admin_bar_menu', 'remove_wp_logo', 999);
+                        function remove_wp_logo($wp_admin_bar)
+                        {
+                            $wp_admin_bar->remove_node('updates'); //update informação
+                        }
 
-        /* SOBRE */
-        add_menu_page('Sobre','Sobre','manage_options','d1_plugin_sobre',array($this,'admin_index'),'dashicons-info',115);
+                        function alterar_admin_bar($admin_bar)
+                        {
 
-        /* FALAR COM ESPECIALISTA */
-        add_menu_page('Falar com Especialista','Falar com Especialista','manage_options','d1_plugin_especialista',array($this,'admin_index'),'dashicons-businessperson',116);
+                            // Remove o logotipo
+                            //$admin_bar->remove_menu('wp-logo');
 
-        /* HEADER MENU, FOOTER, CTA */
-        add_menu_page('Header Menu','Header Menu','manage_options','d1_plugin_header_menu','','',117);
-        add_menu_page('Footer','Footer','manage_options','d1_plugin_footer',array($this,'footer_admin'),'',118);
-        add_menu_page('Call To Action','Call To Action','manage_options','d1_plugin_cta','','',119);
-    }
+                            // Remove o menu suspenso de adição de novo conteúdo
+                            $admin_bar->remove_node('new-content');
 
-    public function admin_index(){
-        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/admin.php';
-        $adm = new Admin();
-        $adm->register();
-        require_once plugin_dir_path( __FILE__ ) . 'templates/admin.php';
-    }
+                            // Remove o link para editar a página atual
+                            $admin_bar->remove_menu('edit');
 
-    public function plataforma_admin() {
-        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/plataforma.php';
-        $plat = new Plataforma();
-        $plat->register();
-        require_once plugin_dir_path( __FILE__ ) . 'templates/plataforma.php';
-    }
+                            // Remove o notificador de atualizações
+                            $admin_bar->remove_menu('updates');
 
-    public function cases_admin() {
-        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/cases.php';
-        $cases = new Cases();
-        $cases->register();
-        require_once plugin_dir_path( __FILE__ ) . 'templates/cases.php';
-    }
+                            // Remove o menu de pesquisa
+                            $admin_bar->remove_menu('search');
 
-    public function footer_admin() {
-        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/footer.php';
-        $footer = new Footer();
-        $footer->register();
-        require_once plugin_dir_path( __FILE__ ) . 'templates/footer.php';
-    }
+                            // Remove o balão de comentários
+                            $admin_bar->remove_menu('comments');
 
-    public function segmentos_index(){
-        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/segmentos.php';
-        $segmentos = new Segmentos();
-        $segmentos->register();
-        require_once plugin_dir_path( __FILE__ ) . 'templates/segmentos.php';
-    }
+                            // Remove o menu suspenso com o nome do site
+                            $admin_bar->remove_node('site-name');
 
-    public function jornada_admin(){
-        require_once plugin_dir_path( __FILE__ ) . 'includes/pages/jornada.php';
-        $jornada = new Jornada();
-        $jornada->register();
-        require_once plugin_dir_path( __FILE__ ) . 'templates/jornada.php';
-    }
+                            // Remove o menu suspenso da conta do usuário
+                            //$admin_bar->remove_node('my-account');
 
-	function activate(){
-		require_once plugin_dir_path( __FILE__ ) . 'includes/base/d1_plugin_activate.php';
-		D1PluginActivate::activate();
-	}
+                            global $current_user;
+                            get_currentuserinfo();
+                            $redirect = site_url();
 
-    function admin_enqueue(){
-		// enqueue all our scripts
-        wp_register_script('d1_upload',plugins_url('resources/d1_upload.js',__FILE__),array('jquery','media-upload','thickbox'));
-        wp_register_script('d1_admin',plugins_url('resources/d1_admin.js',__FILE__),array('jquery'));
-        wp_enqueue_script('jquery');
-        wp_enqueue_script('thickbox');
-        wp_enqueue_style('thickbox');
-        wp_enqueue_script('media-upload');
-        wp_enqueue_script('d1_upload');
-        wp_enqueue_script('d1_admin');
-    }
-    
-    function custom_menu_page_removing(){
-        global $submenu, $menu;
-        $menu_item = array_values($menu);
-        $post_types = get_post_types();
-        foreach($menu_item as $key=>$m){
-            if(!empty($m[2]) && !in_array($m[2],$this->whitelist_plugin)){
-                remove_menu_page($m[2]);
-            }
-        }
-    }
+                            $admin_bar->add_node(
+                                array(
+                                    'id'    => 'description',
+                                    'title' => ('Painel de Controle - D1'),
+                                    'href'     => site_url()
+                                )
+                            );
 
-    function replace_admin_menu_icons_css() {
-        ?><style>#adminmenu .wp-menu-image img {padding:0 !important;}.wp-core-ui p .button { vertical-align: baseline; float: right; }</style><?php
-    }
-}
-    //Inicialização do plugin
-    $d1 = new D1Plugin();
-    $d1->register();
-    
-    //activation
-    register_activation_hook( __FILE__, array( $d1,'activate'));
-    
-    //deactivation
-    require_once plugin_dir_path( __FILE__ ) . 'includes/base/d1_plugin_deactivate.php';
-    register_deactivation_hook( __FILE__,array('D1PluginDeactivate','deactivate'));
-}
+                            return $admin_bar;
+                        }
+                        add_action('admin_bar_menu', 'alterar_admin_bar', 99);
+
+                        // Customizar o Footer do WordPress
+                        function remove_footer_admin()
+                        {
+                            echo '© Desenvolvido por <a href="https://dinius.design/">Dinius</a> - Design & Inovação';
+                        }
+                        add_filter('admin_footer_text', 'remove_footer_admin');
+
+                        // Adicionar Tema ao Wordpress
+                        add_action( 'admin_enqueue_scripts', 'load_admin_style' );
+      function load_admin_style() {
+        wp_register_style( 'admin_css', '/wp-content/plugins/d1_plugin/resources/css/theme.css', false, '1.0.0' );
+//OR
+        wp_enqueue_style( 'admin_css', '/wp-content/plugins/d1_plugin/resources/css/theme.css', false, '1.0.0' );
+       }
+
+                    }

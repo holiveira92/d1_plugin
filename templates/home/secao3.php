@@ -34,7 +34,7 @@
                 <!-- ------------------------------------- Início Seção Clientes de Sucesso ----------------------------------------------->
                 <!-- Card Primeira Parte -->
                 <legend><span class="number">1</span>Informações da Seção</legend>
-                <label for="secao3_empresas_title">Titulo da Seção Empresas de Sucesso:</label><input type="text" name="secao3_empresas_title" value="<?php echo get_option('secao3_empresas_title') ?>" placeholder="Titulo da Seção Empresas de Sucesso">
+                <label for="secao3_empresas_title">Titulo:</label><input type="text" name="secao3_empresas_title" value="<?php echo get_option('secao3_empresas_title') ?>">
 
             </div>
         </div>
@@ -42,28 +42,28 @@
             <div class="col form-style-5">
                 <!-- Empresa 1 -->
                 <fieldset>
-                    <legend><span class="number">1</span>Cliente 1</legend>
+                    <legend><span class="number">1</span>Logo do Cliente 1</legend>
                     <?php echo $this->d1_upload->get_image_options('secao3_img_empresa1'); ?>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <!-- Empresa 2 -->
                 <fieldset>
-                    <legend><span class="number">2</span>Cliente 2</legend>
+                    <legend><span class="number">2</span>Logo do Cliente 2</legend>
                     <?php echo $this->d1_upload->get_image_options('secao3_img_empresa2'); ?>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <!-- Empresa 3 -->
                 <fieldset>
-                    <legend><span class="number">3</span>Cliente 3</legend>
+                    <legend><span class="number">3</span>Logo do Cliente 3</legend>
                     <?php echo $this->d1_upload->get_image_options('secao3_img_empresa3'); ?>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <!-- Empresa 4 -->
                 <fieldset>
-                    <legend><span class="number">4</span>Cliente 4</legend>
+                    <legend><span class="number">4</span>Logo do Cliente 4</legend>
                     <?php echo $this->d1_upload->get_image_options('secao3_img_empresa4'); ?>
                 </fieldset>
             </div>
@@ -72,28 +72,28 @@
             <div class="col form-style-5">
                 <!-- Empresa 5 -->
                 <fieldset>
-                    <legend><span class="number">5</span>Cliente 5</legend>
+                    <legend><span class="number">5</span>Logo do Cliente 5</legend>
                     <?php echo $this->d1_upload->get_image_options('secao3_img_empresa5'); ?>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <!-- Empresa 6 -->
                 <fieldset>
-                    <legend><span class="number">6</span>Cliente 6</legend>
+                    <legend><span class="number">6</span>Logo do Cliente 6</legend>
                     <?php echo $this->d1_upload->get_image_options('secao3_img_empresa6'); ?>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <!-- Empresa 7 -->
                 <fieldset>
-                    <legend><span class="number">7</span>Cliente 7</legend>
+                    <legend><span class="number">7</span>Logo do Cliente 7</legend>
                     <?php echo $this->d1_upload->get_image_options('secao3_img_empresa7'); ?>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <!-- Empresa 8 -->
                 <fieldset>
-                    <legend><span class="number">8</span>Cliente 8</legend>
+                    <legend><span class="number">8</span>Logo do Cliente 8</legend>
                     <?php echo $this->d1_upload->get_image_options('secao3_img_empresa8'); ?>
                 </fieldset>
             </div>

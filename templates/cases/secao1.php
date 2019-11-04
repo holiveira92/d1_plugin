@@ -118,10 +118,10 @@ $cases_options = array(
                     <fieldset>
                         <!-- Destaque: <input type="checkbox" name="detach_card" style='margin-top:-2px;'> !-->
                         <input type="hidden" name="detach_card_hidden" value="<?php echo $data['detach_card']; ?>" />
-                        <label>Título:</label><input type="text" name="title_card" placeholder="Titulo do Case" value="<?php echo $data['title_card']; ?>" required>
-                        <label>Descrição:</label><input type="text" name="desc_card" placeholder="Descrição do Case" value="<?php echo $data['desc_card']; ?>" required>
-                        <label>Objetivo:</label><input type="text" name="subtitle_card" placeholder="Objetivo do Case" value="<?php echo $data['subtitle_card']; ?>">
-                        <label>Nº Impacto:</label><input type="text" name="text_footer_card" placeholder="Nº do Impacto" value="<?php echo $data['text_footer_card']; ?>">
+                        <label>Título:</label><input type="text" name="title_card" value="<?php echo $data['title_card']; ?>" required>
+                        <label>Descrição:</label><input type="text" name="desc_card" value="<?php echo $data['desc_card']; ?>" required>
+                        <label>Objetivo:</label><input type="text" name="subtitle_card" value="<?php echo $data['subtitle_card']; ?>">
+                        <label>Nº Impacto:</label><input type="text" name="text_footer_card" value="<?php echo $data['text_footer_card']; ?>">
 
                         <label for="list_case<?php echo $i;?>">Selecione a Categoria:</label> <select name="categoria_case">
                             <option value="0"> Selecione </option>
@@ -138,8 +138,8 @@ $cases_options = array(
                 </div>
                 <div class="col form-style-5 middle" id='secao1_content1'>
                     <fieldset>
-                        <label>Descrição Secundária:</label><input type="text" name="subtext_footer_card" placeholder="Descrição do Impacto" value="<?php echo $data['subtext_footer_card']; ?>">
-                        <!--<label>Link:</label><input type="text" name="card_link" placeholder="Link" value="<?php echo $data['card_link']; ?>"> !-->
+                        <label>Descrição Secundária:</label><input type="text" name="subtext_footer_card" value="<?php echo $data['subtext_footer_card']; ?>">
+                        <!--<label>Link:</label><input type="text" name="card_link" value="<?php echo $data['card_link']; ?>"> !-->
                         <label>Imagem de Fundo</label><?php echo $this->d1_upload->get_image_options_cases("img_bg_url", $data['id_card']); ?>
                     </fieldset>
                 </div>
@@ -149,7 +149,7 @@ $cases_options = array(
                 <div class="col form-style-5 middle" id='secao1_content2'>
                     <fieldset>
                         <legend><span class="number">2</span>Impacto</legend>
-                        <label>Titulo:</label><input type="text" name="impacto_title" placeholder="Titulo" value="<?php echo $impactos_data['impacto_title']; ?>">
+                        <label>Titulo:</label><input type="text" name="impacto_title" value="<?php echo $impactos_data['impacto_title']; ?>">
                     </fieldset>
                 </div>
             </div>
@@ -158,27 +158,27 @@ $cases_options = array(
                     <!-- Impacto 1 -->
                     <fieldset>
                         <legend>Impacto 1</legend>
-                        <label>Impacto Titulo:</label><input type="text" name="impacto1_title" placeholder="Impacto Titulo" value="<?php echo $impactos_data['impacto1_title']; ?>">
-                        <label>Impacto Total:</label><input type="text" name="impacto1_total" placeholder="Impacto Total" value="<?php echo $impactos_data['impacto1_total']; ?>">
-                        <label>Impacto Descrição:</label><input type="text" name="impacto1_desc" placeholder="Impacto Descrição" value="<?php echo $impactos_data['impacto1_desc']; ?>">
+                        <label>Titulo:</label><input type="text" name="impacto1_title" value="<?php echo $impactos_data['impacto1_title']; ?>">
+                        <label>Total:</label><input type="text" name="impacto1_total" value="<?php echo $impactos_data['impacto1_total']; ?>">
+                        <label>Descrição:</label><input type="text" name="impacto1_desc" value="<?php echo $impactos_data['impacto1_desc']; ?>">
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle">
                     <!-- Impacto 2 -->
                     <fieldset>
                         <legend>Impacto 2</legend>
-                        <label>Impacto Titulo:</label><input type="text" name="impacto2_title" placeholder="Impacto Titulo" value="<?php echo $impactos_data['impacto2_title']; ?>">
-                        <label>Impacto Total:</label><input type="text" name="impacto2_total" placeholder="Impacto Total" value="<?php echo $impactos_data['impacto2_total']; ?>">
-                        <label>Impacto Descrição:</label><input type="text" name="impacto2_desc" placeholder="Impacto Descrição" value="<?php echo $impactos_data['impacto2_desc']; ?>">
+                        <label>Titulo:</label><input type="text" name="impacto2_title" value="<?php echo $impactos_data['impacto2_title']; ?>">
+                        <label>Total:</label><input type="text" name="impacto2_total" value="<?php echo $impactos_data['impacto2_total']; ?>">
+                        <label>Descrição:</label><input type="text" name="impacto2_desc" value="<?php echo $impactos_data['impacto2_desc']; ?>">
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle">
                     <!-- Impacto 3 -->
                     <fieldset>
                         <legend>Impacto 3</legend>
-                        <label>Impacto Titulo:</label><input type="text" name="impacto3_title" placeholder="Impacto Titulo" value="<?php echo $impactos_data['impacto3_title']; ?>">
-                        <label>Impacto Total:</label><input type="text" name="impacto3_total" placeholder="Impacto Total" value="<?php echo $impactos_data['impacto3_total']; ?>">
-                        <label>Impacto Descrição:</label><input type="text" name="impacto3_desc" placeholder="Impacto Descrição" value="<?php echo $impactos_data['impacto3_desc']; ?>">
+                        <label>Titulo:</label><input type="text" name="impacto3_title" value="<?php echo $impactos_data['impacto3_title']; ?>">
+                        <label>Total:</label><input type="text" name="impacto3_total" value="<?php echo $impactos_data['impacto3_total']; ?>">
+                        <label>Descrição:</label><input type="text" name="impacto3_desc" value="<?php echo $impactos_data['impacto3_desc']; ?>">
                     </fieldset>
                 </div>
             </div>
@@ -186,7 +186,7 @@ $cases_options = array(
                 <!-- Seção 3 -->
                 <div class="col form-style-5 middle" id='secao1_content3'>
                     <fieldset>
-                        <legend><span class="number">3</span>Descrição Completa</legend>
+                        <legend><span class="number">3</span>Descrição</legend>
                     </fieldset>
                 </div>
             </div>
@@ -213,12 +213,12 @@ $cases_options = array(
             <div class="row">
                 <div class="col-4 form-style-5 middle">
                     <fieldset>
-                        <label>Titulo:</label><input type="text" name="objetivos_title" placeholder="Titulo" value="<?php echo $data['objetivos_title']; ?>">
+                        <label>Titulo:</label><input type="text" name="objetivos_title" value="<?php echo $data['objetivos_title']; ?>">
                     </fieldset>
                 </div>
                 <div class="col-8 form-style-5 middle">
                     <fieldset>
-                        <label for="objetivos_desc_completa">Descrição Completa</label> <textarea name="objetivos_desc_completa" rows='10'><?php echo $data['objetivos_desc_completa']; ?> </textarea>
+                        <label for="objetivos_desc_completa">Descrição</label> <textarea name="objetivos_desc_completa" rows='10'><?php echo $data['objetivos_desc_completa']; ?> </textarea>
                     </fieldset>
                 </div>
             </div>
@@ -227,7 +227,7 @@ $cases_options = array(
                 <div class="col form-style-5 middle" id='secao1_content5'>
                     <fieldset>
                         <legend><span class="number">5</span>Desafios</legend>
-                        <label>Titulo:</label><input type="text" name="desafios_title" placeholder="Titulo" value="<?php echo $desafios_data['desafios_title']; ?>">
+                        <label>Titulo:</label><input type="text" name="desafios_title" value="<?php echo $desafios_data['desafios_title']; ?>">
                     </fieldset>
                 </div>
             </div>
@@ -235,19 +235,19 @@ $cases_options = array(
                 <div class="col form-style-5 middle">
                     <!-- Desafio 1 -->
                     <fieldset>
-                        <label for="desafio1_desc_completa">Desafio 1 Descrição</label> <textarea name="desafio1_desc_completa" rows='10'><?php echo $desafios_data['desafio1_desc_completa']; ?> </textarea>
+                        <label for="desafio1_desc_completa">Descrição do Desafio 1</label> <textarea name="desafio1_desc_completa" rows='10'><?php echo $desafios_data['desafio1_desc_completa']; ?> </textarea>
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle">
                     <!-- Desafio 2 -->
                     <fieldset>
-                        <label for="desafio2_desc_completa">Desafio 2 Descrição</label> <textarea name="desafio2_desc_completa" rows='10'><?php echo $desafios_data['desafio2_desc_completa']; ?> </textarea>
+                        <label for="desafio2_desc_completa">Descrição do Desafio 2</label> <textarea name="desafio2_desc_completa" rows='10'><?php echo $desafios_data['desafio2_desc_completa']; ?> </textarea>
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle">
                     <!-- Desafio 3 -->
                     <fieldset>
-                        <label for="desafio3_desc_completa">Desafio 3 Descrição</label> <textarea name="desafio3_desc_completa" rows='10'><?php echo $desafios_data['desafio3_desc_completa']; ?> </textarea>
+                        <label for="desafio3_desc_completa">Descrição do Desafio 3</label> <textarea name="desafio3_desc_completa" rows='10'><?php echo $desafios_data['desafio3_desc_completa']; ?> </textarea>
                     </fieldset>
                 </div>
             </div>
@@ -256,8 +256,8 @@ $cases_options = array(
                 <!-- Seção 5 -->
                 <div class="col form-style-5 middle" id='secao1_content6'>
                     <fieldset>
-                        <legend><span class="number">6</span>Etapas Implantação</legend>
-                        <label>Titulo:</label><input type="text" name="implantacao_title" placeholder="Titulo" value="<?php echo $implantacao_data['implantacao_title']; ?>">
+                        <legend><span class="number">6</span>Etapas de Implantação</legend>
+                        <label>Titulo:</label><input type="text" name="implantacao_title" value="<?php echo $implantacao_data['implantacao_title']; ?>">
                     </fieldset>
                 </div>
             </div>
@@ -276,20 +276,20 @@ $cases_options = array(
             <div class="row">
                 <div class="col-4 form-style-5 middle">
                     <fieldset>
-                        <label>Resultado 1 - Titulo:</label><input type="text" name="implantacao_resultado1_title" placeholder="Titulo" value="<?php echo $implantacao_data['implantacao_resultado1_title']; ?>">
-                        <label>Valor:</label><input type="text" name="implantacao_resultado1_valor" placeholder="Valor" value="<?php echo $implantacao_data['implantacao_resultado1_valor']; ?>">
-                        <label>Descrição:</label><input type="text" name="implantacao_resultado1_desc" placeholder="Descrição" value="<?php echo $implantacao_data['implantacao_resultado1_desc']; ?>">
+                        <label>Resultado 1:</label><input type="text" name="implantacao_resultado1_title" value="<?php echo $implantacao_data['implantacao_resultado1_title']; ?>">
+                        <label>Valor:</label><input type="text" name="implantacao_resultado1_valor" value="<?php echo $implantacao_data['implantacao_resultado1_valor']; ?>">
+                        <label>Descrição:</label><input type="text" name="implantacao_resultado1_desc" value="<?php echo $implantacao_data['implantacao_resultado1_desc']; ?>">
                     </fieldset>
                 </div>
                 <div class="col-4 form-style-5 middle">
                     <fieldset>
-                        <label>Resultado 2:</label><input type="text" name="implantacao_resultado2_title" placeholder="Titulo" value="<?php echo $implantacao_data['implantacao_resultado2_title']; ?>">
-                        <label>Valor:</label><input type="text" name="implantacao_resultado2_valor" placeholder="Valor" value="<?php echo $implantacao_data['implantacao_resultado2_valor']; ?>">
-                        <label>Descrição:</label><input type="text" name="implantacao_resultado2_desc" placeholder="Descrição" value="<?php echo $implantacao_data['implantacao_resultado2_desc']; ?>">
+                        <label>Resultado 2:</label><input type="text" name="implantacao_resultado2_title" value="<?php echo $implantacao_data['implantacao_resultado2_title']; ?>">
+                        <label>Valor:</label><input type="text" name="implantacao_resultado2_valor" value="<?php echo $implantacao_data['implantacao_resultado2_valor']; ?>">
+                        <label>Descrição:</label><input type="text" name="implantacao_resultado2_desc" value="<?php echo $implantacao_data['implantacao_resultado2_desc']; ?>">
                     </fieldset>
                 </div>
                 <div class="col-4 form-style-5 middle">
-                <input type="checkbox" name="cases_random" <?php echo $cases_options['cases_random'];?>> <span>Marque para Usar Cases Aleatórios: </span>
+                <input type="checkbox" name="cases_random" <?php echo $cases_options['cases_random'];?>> <span style="margin-bottom:10px">Marque para Usar Cases Aleatórios</span><br><br>
                         <?php
                             for($i=1;$i<=3;$i++):
                         ?>
@@ -318,7 +318,7 @@ $cases_options = array(
         $(document).ready(function() {
             //botão deletar
             $(document).on('click', '.btn_remove', function() {
-                if (!confirm('Tem certeza que deseja apagar este card?')) {
+                if (!confirm('Tem certeza que deseja apagar este case?')) {
                     return false;
                 }
             });

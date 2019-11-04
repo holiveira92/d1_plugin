@@ -56,9 +56,9 @@
                     <legend><span class="number"><?php echo $cont_faq; ?></span>FAQ <?php echo $cont_faq; ?> </legend>
                     <input type="hidden" name="id[]" value="<?php echo $faq['id']; ?>">
                     <input type="hidden" name="page[]" value="jornada">
-                    <label for="pergunta">Pergunta:</label> <textarea name="question[]" placeholder="Pergunta"><?php echo $faq['question']; ?></textarea>
-                    <label for="pergunta">Resposta:</label> <textarea name="answer[]" placeholder="Resposta"><?php echo $faq['answer']; ?></textarea>
-                    <button type="button" name="remove_faq" id_faq="<?php echo $faq['id']; ?>" class="btn btn-danger btn_remove_group">Remover</button>
+                    <label for="pergunta">Pergunta:</label> <textarea name="question[]"><?php echo $faq['question']; ?></textarea>
+                    <label for="pergunta">Resposta:</label> <textarea name="answer[]"><?php echo $faq['answer']; ?></textarea>
+                    <button id="remove" type="button" name="remove_faq" id_faq="<?php echo $faq['id']; ?>" class="btn btn-danger btn_remove_group">Remover</button>
                 </fieldset>
                 </div>
             <?php endforeach; ?>
@@ -95,9 +95,9 @@
                     '<legend><span class="number">' + i + '  </span>FAQ ' + i + ' </legend>' +
                     '<input type="hidden" name="id[]">' +
                     '<input type="hidden" name="page[]" value="jornada">' + 
-                    '<label for="pergunta">Pergunta:</label> <textarea name="question[]" placeholder="Pergunta"></textarea>' +
-                    '<label for="pergunta">Resposta:</label> <textarea name="answer[]" placeholder="Resposta"></textarea>' +
-                    '<button type="button" name="remove_faq" id_faq="" class="btn btn-danger btn_remove_group">Remover</button>' +
+                    '<label for="pergunta">Pergunta:</label> <textarea name="question[]"></textarea>' +
+                    '<label for="pergunta">Resposta:</label> <textarea name="answer[]"></textarea>' +
+                    '<button id="remove" type="button" name="remove_faq" id_faq="" class="btn btn-danger btn_remove_group">Remover</button>' +
                     '</fieldset> </div>'
                     ).end();
                 }

@@ -62,7 +62,7 @@
                     <legend><span class="number"><?php echo $cont_grupos; ?></span>Grupo <?php echo $cont_grupos; ?> </legend>
                     <input type="hidden" name="id[]" value="<?php echo $grupo['id']; ?>">
                     <input type="hidden" name="group_id[]" value="">
-                    <input type="text" name="name[]" value="<?php echo $grupo['name']; ?>" placeholder="Titulo Grupo"><br><br>
+                    <input type="text" name="name[]" value="<?php echo $grupo['name']; ?>"><br><br>
                     <input type="hidden" name="link[]" value="">
                     <label>Nome e Link</label>
                     <div name='items_content'>
@@ -75,8 +75,8 @@
                                 <input type="hidden" name="id[]" value="<?php echo $item['id']; ?>">
                                 <input type="hidden" name="group_id[]" value="<?php echo $grupo['id']; ?>">
                                 <input type="hidden" name="parent_id[]" value="<?php echo $item['parent_id']; ?>">
-                                <input type="text" name="name[]" value="<?php echo $item['name']; ?>" placeholder="Nome" style='width:45%;'> <span style='width:20px;'> e </span>
-                                <input type="text" name="link[]" value="<?php echo $item['link']; ?>" placeholder="Link" style='width:43%;'>
+                                <input type="text" name="name[]" value="<?php echo $item['name']; ?>" style='width:45%;'> <span style='width:20px;'> e </span>
+                                <input type="text" name="link[]" value="<?php echo $item['link']; ?>" style='width:43%;'>
                                 <button type="button" id_item="<?php echo $item['id']; ?>" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>
                             </div>
                         <?php endforeach; ?>
@@ -122,7 +122,7 @@
                         '<input type="hidden" name="id[]" value="' + hash + '">' +
                         '<input type="hidden" name="group_id[]">' +
                         '<input type="hidden" name="parent_id[]" value="' + hash_item + '">' +
-                        '<input type="text" name="name[]" placeholder="Titulo Grupo"><br><br>' +
+                        '<input type="text" name="name[]"><br><br>' +
                         '<input type="hidden" name="link[]">' +
                         '<label>Nome -> Link</label>' +
                         '<div name="items_content">' +
@@ -163,8 +163,8 @@
                         '<input type="hidden" name="id[]">' +
                         '<input type="hidden" name="group_id[]" value="' + id_grupo_pai + '">' +
                         '<input type="hidden" name="parent_id[]" value="' + id_item + '">' +
-                        '<input type="text"name="name[]" placeholder="Nome" style="width:45%;"> <span style="width:20px;"> e </span> ' +
-                        '<input type="text" name="link[]" placeholder="Link" style="width:43%;">' +
+                        '<input type="text"name="name[]" style="width:45%;"> <span style="width:20px;"> e </span> ' +
+                        '<input type="text" name="link[]" style="width:43%;">' +
                         '<button type="button" id_item="" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>' +
                         '<br><br>' +
                         '</div>'

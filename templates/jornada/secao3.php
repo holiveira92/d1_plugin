@@ -32,19 +32,19 @@
             <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">1</span>Equipe</legend>
-                    <label for="jornada_secao3_equipe1_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe1_main_title" value="<?php echo get_option_esc('jornada_secao3_equipe1_main_title'); ?>" placeholder="Titulo Principal">
-                    <label for="jornada_secao3_equipe1_title">Titulo:</label><input type="text" name="jornada_secao3_equipe1_title" value="<?php echo get_option_esc('jornada_secao3_equipe1_title'); ?>" placeholder="Titulo">
-                    <label for="jornada_secao3_equipe1_descricao">Descricao:</label> <textarea name="jornada_secao3_equipe1_descricao" placeholder="Descrição" rows='5'><?php echo get_option_esc('jornada_secao3_equipe1_descricao'); ?></textarea>
+                    <label for="jornada_secao3_equipe1_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe1_main_title" value="<?php echo get_option_esc('jornada_secao3_equipe1_main_title'); ?>">
+                    <label for="jornada_secao3_equipe1_title">Destaque:</label><input type="text" name="jornada_secao3_equipe1_title" value="<?php echo get_option_esc('jornada_secao3_equipe1_title'); ?>">
+                    <label for="jornada_secao3_equipe1_descricao">Descrição:</label> <textarea name="jornada_secao3_equipe1_descricao" rows='5'><?php echo get_option_esc('jornada_secao3_equipe1_descricao'); ?></textarea>
                 </fieldset>
             </div>
 
-            <div class="col form-style-5 middle">
+            <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">2</span>Como Criamos</legend>
-                    <label for="jornada_secao3_equipe2_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe2_main_title" value="<?php echo get_option_esc('jornada_secao3_equipe2_main_title'); ?>" placeholder="Titulo Principal">
-                    <label for="jornada_secao3_equipe2_title">Titulo:</label><input type="text" name="jornada_secao3_equipe2_title" value="<?php echo get_option_esc('jornada_secao3_equipe2_title'); ?>" placeholder="Titulo">
-                    <label for="jornada_secao3_equipe2_link">Link D1 Mídia:</label><input type="text" name="jornada_secao3_equipe2_link" value="<?php echo get_option_esc('jornada_secao3_equipe2_link'); ?>" placeholder="Link Mídia">
-                    <label for="jornada_secao3_equipe2_descricao">Descricao:</label> <textarea name="jornada_secao3_equipe2_descricao" placeholder="Descrição" rows='5'><?php echo get_option_esc('jornada_secao3_equipe2_descricao'); ?></textarea>
+                    <label for="jornada_secao3_equipe2_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe2_main_title" value="<?php echo get_option_esc('jornada_secao3_equipe2_main_title'); ?>">
+                    <label for="jornada_secao3_equipe2_title">Destaque:</label><input type="text" name="jornada_secao3_equipe2_title" value="<?php echo get_option_esc('jornada_secao3_equipe2_title'); ?>">
+                    <label for="jornada_secao3_equipe2_link">Link de redirecionamento:</label><input type="text" name="jornada_secao3_equipe2_link" value="<?php echo get_option_esc('jornada_secao3_equipe2_link'); ?>">
+                    <label for="jornada_secao3_equipe2_descricao">Descrição:</label> <textarea name="jornada_secao3_equipe2_descricao" rows='5'><?php echo get_option_esc('jornada_secao3_equipe2_descricao'); ?></textarea>
                 </fieldset>
             </div>
 

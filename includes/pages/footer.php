@@ -82,7 +82,7 @@ class Footer{
 				$this->sections = array(
 					array(
 						'id' => 'd1_footer_secao1',
-						'title' => 'Configurações Seção Pré-Footer',
+						'title' => 'Seção 1 - Pré-Footer',
 						'callback' => array( $this, 'd1FooterSecao1' ),
 						'page' => $this->page
 					),
@@ -92,7 +92,7 @@ class Footer{
 				$this->sections = array(
 					array(
 						'id' => 'd1_footer_secao2',
-						'title' => 'Configurações Seção Blog',
+						'title' => 'Seção 2 - Blog',
 						'callback' => array( $this, 'd1FooterSecao2' ),
 						'page' => $this->page
 					),
@@ -102,7 +102,7 @@ class Footer{
 				$this->sections = array(
 					array(
 						'id' => 'd1_footer_secao3',
-						'title' => 'Configurações Seção Footer',
+						'title' => 'Seção 3 - Info D1',
 						'callback' => array( $this, 'd1FooterSecao3' ),
 						'page' => $this->page
 					),
@@ -112,7 +112,7 @@ class Footer{
 				$this->sections = array(
 					array(
 						'id' => 'd1_footer_secao4',
-						'title' => 'Configurações Seção Footer',
+						'title' => 'Seção 4 - Links',
 						'callback' => array( $this, 'd1FooterSecao4' ),
 						'page' => $this->page
 					),
@@ -122,7 +122,7 @@ class Footer{
 				$this->sections = array(
 					array(
 						'id' => 'd1_footer_secao5',
-						'title' => 'Configurações Seção Footer',
+						'title' => 'Seção 5 - Regulamentações, Parceiros e Prêmios',
 						'callback' => array( $this, 'd1FooterSecao5' ),
 						'page' => $this->page
 					),
@@ -132,7 +132,7 @@ class Footer{
 				$this->sections = array(
 					array(
 						'id' => 'd1_footer_secao6',
-						'title' => 'Configurações Seção Footer',
+						'title' => 'Seção 6 - Pitch',
 						'callback' => array( $this, 'd1FooterSecao6' ),
 						'page' => $this->page
 					),
@@ -142,7 +142,7 @@ class Footer{
 				$this->sections = array(
 					array(
 						'id' => 'd1_footer_secao1',
-						'title' => 'Configurações Seção Pré-Footer',
+						'title' => 'Seção 1 - Pré-Footer',
 						'callback' => array( $this, 'd1FooterSecao1' ),
 						'page' => $this->page
 					),

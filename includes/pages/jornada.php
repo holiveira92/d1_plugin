@@ -73,7 +73,7 @@ class Jornada{
 				$this->sections = array(
 					array(
 						'id' => 'd1_jornada_secao1',
-						'title' => 'Configurações Seção ',
+						'title' => 'Seção 1 - Hero',
 						'callback' => array( $this, 'd1JornadaSecao1' ),
 						'page' => $this->page
 					),
@@ -83,7 +83,7 @@ class Jornada{
 				$this->sections = array(
 					array(
 						'id' => 'd1_jornada_secao2',
-						'title' => 'Configurações Seção ',
+						'title' => 'Seção 2 - Plataforma',
 						'callback' => array( $this, 'd1JornadaSecao2' ),
 						'page' => $this->page
 					),
@@ -93,7 +93,7 @@ class Jornada{
 				$this->sections = array(
 					array(
 						'id' => 'd1_jornada_secao3',
-						'title' => 'Configurações Seção ',
+						'title' => 'Seção 3 - Equipe',
 						'callback' => array( $this, 'd1JornadaSecao3' ),
 						'page' => $this->page
 					),
@@ -103,7 +103,7 @@ class Jornada{
 				$this->sections = array(
 					array(
 						'id' => 'd1_jornada_secao4',
-						'title' => 'Configurações Seção ',
+						'title' => 'Seção 4 - Slide & Inovação',
 						'callback' => array( $this, 'd1JornadaSecao4' ),
 						'page' => $this->page
 					),
@@ -113,7 +113,7 @@ class Jornada{
 				$this->sections = array(
 					array(
 						'id' => 'd1_jornada_secao5',
-						'title' => 'Configurações Seção ',
+						'title' => 'Seção 5 - FAQ',
 						'callback' => array( $this, 'd1JornadaSecao5' ),
 						'page' => $this->page
 					),
@@ -123,7 +123,7 @@ class Jornada{
 				$this->sections = array(
 					array(
 						'id' => 'd1_jornada_secao6',
-						'title' => 'Configurações Seção ',
+						'title' => 'Seção 6 - Cases',
 						'callback' => array( $this, 'd1JornadaSecao6' ),
 						'page' => $this->page
 					),
@@ -133,7 +133,7 @@ class Jornada{
 				$this->sections = array(
 					array(
 						'id' => 'd1_jornada_secao1',
-						'title' => 'Configurações Seção',
+						'title' => 'Seção 1 - Hero',
 						'callback' => array( $this, 'd1JornadaSecao1' ),
 						'page' => $this->page
 					),

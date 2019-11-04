@@ -54,23 +54,23 @@ $data = array(
                     <input type="hidden" name="id_categoria_principal" id="id_categoria_principal" value="<?php echo $data['id']; ?>">
                     <input type="hidden" name="id_pai" value="<?php echo $data['id']; ?>">
                     <input type="hidden" name="id_pai_categoria" value="<?php echo $data['id_categoria']; ?>">
-                    <label>Descrição:</label><input type="text" name="descricao_pai" placeholder="Descrição" value="<?php echo $data['descricao']; ?>">
+                    <label>Descrição:</label><input type="text" name="descricao_pai" value="<?php echo $data['descricao']; ?>">
                     
                     <fieldset>
                     <div name='items_content'>
-                    <legend><span class="number">1</span>Subcategorias</legend>
+                        <legend><span class="number">1</span>Subcategorias</legend>
                         <?php foreach ($itens as $key => &$item) :
                             
                         ?>
                             <div name='item' id_item="<?php echo $item['id']; ?>">
                                 <input type="hidden" name="id[]" value="<?php echo $item['id']; ?>">
-                                <label>Descrição:</label><input type="text" name="descricao[]" placeholder="Descrição" value="<?php echo $item['descricao']; ?>" style='width:75%'>
+                                <label>Descrição:</label><input type="text" name="descricao[]" value="<?php echo $item['descricao']; ?>" style='width:75%'>
                                 <input type="hidden" name="id_categoria[]" value="<?php echo $item['id_categoria']; ?>" >
                                 <button type="button" id_item="<?php echo $item['id']; ?>" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <button type="button" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Categoria</button>
+                    <button type="button" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Categoria</button><br><br>
                     </fieldset>
                 </div>
             </div>
@@ -105,7 +105,7 @@ $data = array(
                 id_categoria_principal = (id_categoria_principal != '' || id_categoria_principal != undefined) ? id_categoria_principal : "";
                 div_item.append('<div name="item">' +
                 '<input type="hidden" name="id[]">' +
-                '<label>Descrição:</label><input type="text" name="descricao[]" placeholder="Descrição" style="width:75%">' +
+                '<label>Descrição:</label><input type="text" name="descricao[]" style="width:75%">' +
                 '<input type="hidden" name="id_categoria[]" value="' + id_categoria_principal + '">' +
                 '<button type="button" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>' +
                 '<br><br>' +

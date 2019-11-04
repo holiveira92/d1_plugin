@@ -76,7 +76,7 @@ class Plataforma{
 				$this->sections = array(
 					array(
 						'id' => 'd1_plataforma_secao1',
-						'title' => 'Configurações Seção ',
+						'title' => 'Seção 1 - Hero',
 						'callback' => array( $this, 'd1PlataformaSecao1' ),
 						'page' => $this->page
 					),
@@ -86,7 +86,7 @@ class Plataforma{
 				$this->sections = array(
 					array(
 						'id' => 'd1_plataforma_secao2',
-						'title' => 'Configurações Seção ',
+						'title' => 'Seção 2 - Módulos',
 						'callback' => array( $this, 'd1PlataformaSecao2' ),
 						'page' => $this->page
 					),
@@ -96,7 +96,7 @@ class Plataforma{
 				$this->sections = array(
 					array(
 						'id' => 'd1_plataforma_secao3',
-						'title' => 'Configurações Seção ',
+						'title' => 'Seção 3 - Cases',
 						'callback' => array( $this, 'd1PlataformaSecao3' ),
 						'page' => $this->page
 					),
@@ -106,7 +106,7 @@ class Plataforma{
 				$this->sections = array(
 					array(
 						'id' => 'd1_plataforma_secao4',
-						'title' => 'Configurações Seção ',
+						'title' => 'Seção 4 - FAQ',
 						'callback' => array( $this, 'd1PlataformaSecao4' ),
 						'page' => $this->page
 					),
@@ -115,8 +115,8 @@ class Plataforma{
 			default: 
 				$this->sections = array(
 					array(
-						'id' => 'd1_plataforma_secao2',
-						'title' => 'Configurações Seção',
+						'id' => 'd1_plataforma_secao1',
+						'title' => 'Seção 1 - Hero',
 						'callback' => array( $this, 'd1PlataformaSecao1' ),
 						'page' => $this->page
 					),

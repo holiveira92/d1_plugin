@@ -37,7 +37,7 @@
                 <!----------------------------------------------------------------------- Seção 3 - Inicio Seção Pré-CTA ----------------------------------------------------------------------->
                 <fieldset>
                     <legend><span class="number">1</span>Titulo da Seção</legend>
-                    <input type="text" name="secao3_title" value="<?php echo get_option_esc('secao3_title') ?>" placeholder="Titulo da Seção">
+                    <input type="text" name="secao3_title" value="<?php echo get_option_esc('secao3_title') ?>">
                     <div style='display:flex;align-items:center;margin-bottom:25px;'><input type="checkbox" name="secao3_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                     <!----------------------------------------------------------------------- Seção 3 - Fim Seção Pré-CTA -------------------------------------------------------------------------->
             </div>
@@ -47,7 +47,7 @@
                 <!----------------------------------------------------------------------- Seção 3 - Inicio Info D1 ----------------------------------------------------------------------->
                 <fieldset>
                     <legend><span class="number">2</span>Info D1</legend>
-                    <textarea name="secao3_info_d1" placeholder="Info D1" rows=10><?php echo get_option_esc('secao3_info_d1') ?></textarea>
+                    <textarea name="secao3_info_d1" rows=10><?php echo get_option_esc('secao3_info_d1') ?></textarea>
                 </fieldset>
             </div>
         </div>

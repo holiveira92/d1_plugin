@@ -30,22 +30,21 @@
     <div class="container">
         <div class="row">
             <div class="col form-style-5">
-
                 <fieldset>
-                    <legend><span class="number">1</span>Informações Hero</legend>
-                    <label for="secao1_hero_name">Nome:</label> <input type="text" name="secao1_hero_name" value="<?php echo get_option_esc('secao1_hero_name') ?>" placeholder="Nome">
-                    <label for="secao1_hero_cargo">Cargo:</label> <input type="text" name="secao1_hero_cargo" value="<?php echo get_option_esc('secao1_hero_cargo') ?>" placeholder="Cargo">
-                    <label for="secao1_hero_descricao">Mensagem :</label> <textarea name="secao1_hero_descricao" placeholder="Mensagem"><?php echo get_option_esc('secao1_hero_descricao') ?></textarea>
-                    <legend>Empresa Hero</legend><?php echo $this->d1_upload->get_image_options('secao1_hero_company'); ?>
+                    <legend><span class="number">1</span>Hero</legend>
+                    <label for="secao1_hero_title">Chamada Principal:</label> <textarea name="secao1_hero_title"> <?php echo get_option_esc('secao1_hero_title') ?> </textarea>
+                    <div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="secao1_hero_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                    <label for="secao1_descricao_primaria">Benefícios:</label> <textarea name="secao1_descricao_primaria" rows=6> <?php echo get_option_esc('secao1_descricao_primaria') ?> </textarea>
+                    <label for="secao1_descricao_secundaria">Chamada Pré CTA:</label> <textarea name="secao1_descricao_secundaria"> <?php echo get_option_esc('secao1_descricao_secundaria') ?> </textarea>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <fieldset>
-                    <legend><span class="number">2</span>Chamada</legend>
-                    <label for="secao1_hero_title">Chamada Principal:</label> <textarea name="secao1_hero_title" placeholder="Chamada Principal"> <?php echo get_option_esc('secao1_hero_title') ?> </textarea>
-                    <div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="secao1_hero_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
-                    <label for="secao1_descricao_primaria">Benefícios:</label> <textarea name="secao1_descricao_primaria" placeholder="Benefícios" rows=10> <?php echo get_option_esc('secao1_descricao_primaria') ?> </textarea>
-                    <label for="secao1_descricao_secundaria">Chamada Pré CTA:</label> <textarea name="secao1_descricao_secundaria" placeholder="Chamada Pré CTA"> <?php echo get_option_esc('secao1_descricao_secundaria') ?> </textarea>
+                    <legend><span class="number">2</span>Depoimento</legend>
+                    <label for="secao1_hero_name">Nome:</label> <input type="text" name="secao1_hero_name" value="<?php echo get_option_esc('secao1_hero_name') ?>">
+                    <label for="secao1_hero_cargo">Cargo:</label> <input type="text" name="secao1_hero_cargo" value="<?php echo get_option_esc('secao1_hero_cargo') ?>">
+                    <label for="secao1_hero_descricao">Mensagem:</label> <textarea name="secao1_hero_descricao"><?php echo get_option_esc('secao1_hero_descricao') ?></textarea>
+                    <legend>Logotipo da empresa</legend><?php echo $this->d1_upload->get_image_options('secao1_hero_company'); ?>
                 </fieldset>
             </div>
         </div>
@@ -53,8 +52,8 @@
             <div class="col form-style-5">
                 <fieldset>
                     <!-- CTA SERÁ EM UMA PAGINA SEPARADA - CRIAR PAGE -->
-                    <legend><span class="number">3</span>Image</legend>
-                    <legend>Imagem Hero Background</legend>
+                    <legend><span class="number">3</span>Imagem</legend>
+                    <legend>Imagem de Fundo</legend>
                     <?php echo $this->d1_upload->get_image_options('secao1_hero_img_bg'); ?>
                 </fieldset>
 

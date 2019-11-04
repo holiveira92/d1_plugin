@@ -32,22 +32,22 @@
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                    <legend><span class="number">0</span>Informações da Seção</legend>
-                    <label for="plataforma_secao2_title">Titulo:</label><input type="text" name="plataforma_secao2_title" value="<?php echo get_option_esc('plataforma_secao2_title'); ?>" placeholder="Titulo">
+                    <legend><span class="number">1</span>Informações da Seção</legend>
+                    <label for="plataforma_secao2_title">Titulo:</label><input type="text" name="plataforma_secao2_title" value="<?php echo get_option_esc('plataforma_secao2_title'); ?>">
                 </fieldset>
 
                     <div class="row">
                     <?php
                         for($i=1;$i<=5;$i++):
                     ?>  
-                        <div class="col form-style-5 middle">
+                        <div class="col-4 form-style-5">
                         <fieldset>
-                        <legend><span class="number"><?php echo $i;?></span>Módulo</legend>
-                            <label for="plataforma_secao2_modulo<?php echo $i;?>_title">Titulo:</label><input type="text" name="plataforma_secao2_modulo<?php echo $i;?>_title" value="<?php echo get_option_esc("plataforma_secao2_modulo".$i."_title") ?>" placeholder="Titulo">
-                            <label for="plataforma_secao2_modulo<?php echo $i;?>_desc">Descrição:</label> <textarea name="plataforma_secao2_modulo<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("plataforma_secao2_modulo".$i."_desc") ?></textarea>
-                            <label for="plataforma_secao2_modulo<?php echo $i;?>_link">Link:</label><input type="text" name="plataforma_secao2_modulo<?php echo $i;?>_link" value="<?php echo get_option_esc("plataforma_secao2_modulo".$i."_link") ?>" placeholder="Link">
-                            <label for="plataforma_secao2_modulo<?php echo $i;?>_img_icon">Ícone:</label> <?php echo $this->d1_upload->get_image_options("plataforma_secao2_modulo".$i."_img_icon"); ?>
-                            <label for="plataforma_secao2_modulo<?php echo $i;?>_img">Imagem Plataforma:</label> <?php echo $this->d1_upload->get_image_options("plataforma_secao2_modulo".$i."_img"); ?>
+                        <legend><span class="number"><?php echo $i+1;?></span>Módulo</legend>
+                            <label for="plataforma_secao2_modulo<?php echo $i;?>_title">Titulo:</label><input type="text" name="plataforma_secao2_modulo<?php echo $i;?>_title" value="<?php echo get_option_esc("plataforma_secao2_modulo".$i."_title") ?>">
+                            <label for="plataforma_secao2_modulo<?php echo $i;?>_desc">Descrição:</label> <textarea name="plataforma_secao2_modulo<?php echo $i;?>_desc"><?php echo get_option_esc("plataforma_secao2_modulo".$i."_desc") ?></textarea>
+                            <label for="plataforma_secao2_modulo<?php echo $i;?>_link">Link de redirecionamento:</label><input type="text" name="plataforma_secao2_modulo<?php echo $i;?>_link" value="<?php echo get_option_esc("plataforma_secao2_modulo".$i."_link") ?>">
+                            <label for="plataforma_secao2_modulo<?php echo $i;?>_img_icon">Ícone:</label> <?php echo $this->d1_upload->get_image_options("plataforma_secao2_modulo".$i."_img_icon"); ?><br><br>
+                            <label for="plataforma_secao2_modulo<?php echo $i;?>_img">Imagem da Plataforma:</label> <?php echo $this->d1_upload->get_image_options("plataforma_secao2_modulo".$i."_img"); ?>
                         </fieldset>
                         </div>
                     <?php endfor; ?>

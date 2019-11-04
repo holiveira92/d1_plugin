@@ -35,17 +35,17 @@
                 <!-- Titulo Seção Parte 2 -->
                 <legend><span class="number">1</span>Informações da Seção</legend>
                 <fieldset>
-                    <label for="secao7_section_title">Titulo :</label> <input type="text" name="secao7_section_title" value="<?php echo get_option_esc('secao7_section_title') ?>" placeholder="Titulo da Seção">
+                    <label for="secao7_section_title">Titulo:</label> <input type="text" name="secao7_section_title" value="<?php echo get_option_esc('secao7_section_title') ?>">
                     <div class="checkbox-degrade"><input type="checkbox" name="secao7_section_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
-                    <label for="secao7_section_descricao">Descrição :</label> <textarea name="secao7_section_descricao" placeholder="Descrição" rows=6><?php echo get_option_esc('secao7_section_descricao') ?></textarea>
+                    <label for="secao7_section_descricao">Descrição:</label> <textarea name="secao7_section_descricao" rows=6><?php echo get_option_esc('secao7_section_descricao') ?></textarea>
                     <div class="checkbox-degrade"> <input type="checkbox" name="secao7_section_descricao_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                 </fieldset>
             </div>
 
             <div class="col form-style-5">
-                <legend><span class="number">2</span>Informações da Seção</legend>
+                <legend><span class="number">2</span>Imagem</legend>
                 <fieldset>
-                    <label for="secao7_img">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao7_img'); ?>
+                    <label for="secao7_img">Imagem do Fundo:</label> <?php echo $this->d1_upload->get_image_options('secao7_img'); ?>
                 </fieldset>
             </div>
         </div>

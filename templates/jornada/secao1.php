@@ -34,14 +34,14 @@
                 <fieldset>
                     <legend><span class="number">1</span>Missão</legend>
                     <div class="row">
-                        <div class="col form-style-5 middle">
-                            <label for="jornada_secao1_main_title">Titulo Principal:</label><input type="text" name="jornada_secao1_main_title" value="<?php echo get_option_esc('jornada_secao1_main_title'); ?>" placeholder="Titulo Principal">
-                            <label for="jornada_secao1_title">Titulo:</label><input type="text" name="jornada_secao1_title" value="<?php echo get_option_esc('jornada_secao1_title'); ?>" placeholder="Titulo">
+                        <div class="col form-style-5">
+                            <label for="jornada_secao1_main_title">Titulo:</label><input type="text" name="jornada_secao1_main_title" value="<?php echo get_option_esc('jornada_secao1_main_title'); ?>">
+                            <label for="jornada_secao1_title">Missão:</label><input type="text" name="jornada_secao1_title" value="<?php echo get_option_esc('jornada_secao1_title'); ?>">
                             <div class="checkbox-degrade"> <input type="checkbox" name="jornada_secao1_title_degrade"> <span>Para Inserir Degradê, Selecione o Texto e Marque Esta Opção</span> </div>
-                            <label for="jornada_secao1_desc">Descrição:</label><input type="text" name="jornada_secao1_desc" value="<?php echo get_option_esc('jornada_secao1_desc'); ?>" placeholder="Descrição">
+                            <label for="jornada_secao1_desc">Pergunta:</label><input type="text" name="jornada_secao1_desc" value="<?php echo get_option_esc('jornada_secao1_desc'); ?>">
                         </div>
-                        <div class="col form-style-5 middle">
-                            <?php echo $this->d1_upload->get_image_options('jornada_secao1_img'); ?>
+                        <div class="col form-style-5">
+                        <legend>Imagem de fundo</legend><?php echo $this->d1_upload->get_image_options('jornada_secao1_img'); ?>
                         </div>
                     </div>
                 </fieldset>
@@ -51,15 +51,14 @@
                     <div class="row">
                     
                     <div class="col form-style-5 middle">
-                        <label for="jornada_secao1_about">Sobre Nós:</label><input type="text" name="jornada_secao1_about" value="<?php echo get_option_esc('jornada_secao1_about'); ?>" placeholder="Sobre nós">
-                        <label for="jornada_secao1_about_descricao">Descrição:</label> <textarea name="jornada_secao1_about_descricao" placeholder="Descrição" rows='9'><?php echo get_option_esc("jornada_secao1_about_descricao") ?></textarea>
+                        <label for="jornada_secao1_about">Título:</label><input type="text" name="jornada_secao1_about" value="<?php echo get_option_esc('jornada_secao1_about'); ?>">
+                        <label for="jornada_secao1_about_descricao">Descrição:</label> <textarea name="jornada_secao1_about_descricao" rows='5'><?php echo get_option_esc("jornada_secao1_about_descricao") ?></textarea>
+                        <label for="jornada_secao1_about_text_link">Texto do Link:</label><input type="text" name="jornada_secao1_about_text_link" value="<?php echo get_option_esc('jornada_secao1_about_text_link'); ?>">
+                        <label for="jornada_secao1_about_link">Link de redirecionamento:</label><input type="text" name="jornada_secao1_about_link" value="<?php echo get_option_esc('jornada_secao1_about_link'); ?>">
                     </div>
 
                     <div class="col form-style-5 middle">
-                        <label for="jornada_secao1_about_link">Link:</label>
-                        <input type="text" name="jornada_secao1_about_text_link" value="<?php echo get_option_esc('jornada_secao1_about_text_link'); ?>" placeholder="Texto Link">
-                        <input type="text" name="jornada_secao1_about_link" value="<?php echo get_option_esc('jornada_secao1_about_link'); ?>" placeholder="Link">
-                        <label for="jornada_secao1_about_descricao_secundaria">Descrição Secundária:</label> <textarea name="jornada_secao1_about_descricao_secundaria" placeholder="Descrição Secundária" rows='7'><?php echo get_option_esc("jornada_secao1_about_descricao_secundaria") ?></textarea>
+                        <label for="jornada_secao1_about_descricao_secundaria">Destaque:</label> <textarea name="jornada_secao1_about_descricao_secundaria" rows='10'><?php echo get_option_esc("jornada_secao1_about_descricao_secundaria") ?></textarea>
                     </div>
                     
                     </div>

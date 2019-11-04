@@ -73,7 +73,7 @@ class Segmentos{
 				$this->sections = array(
 					array(
 						'id' => 'd1_segmentos_secao1',
-						'title' => 'Configurações Seção ',
+						'title' => 'Segmentos',
 						'callback' => array( $this, 'd1SegmentosSecao1' ),
 						'page' => $this->page
 					),

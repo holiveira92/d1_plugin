@@ -34,12 +34,12 @@
                 <legend><span class="number">1</span>Informações da Seção</legend>
                 <fieldset>
 
-                    <label for="secao5_section_title">Titulo :</label> <input type="text" name="secao5_section_title" value="<?php echo get_option('secao5_section_title') ?>" placeholder="Titulo da Seção">
+                    <label for="secao5_section_title">Titulo:</label> <input type="text" name="secao5_section_title" value="<?php echo get_option('secao5_section_title') ?>">
                     <div class="checkbox-degrade"> <input type="checkbox" name="secao5_section_title_degrade"> <span>Para Inserir Degradê, Selecione o Texto e Marque Esta Opção</span> </div>
 
                     <!-- todo - aplicar para os proximos degrades-->
 
-                    <label for="secao5_section_descricao">Descrição :</label> <textarea name="secao5_section_descricao" placeholder="Descrição" rows=5><?php echo get_option('secao5_section_descricao') ?></textarea>
+                    <label for="secao5_section_descricao">Descrição:</label> <textarea name="secao5_section_descricao" rows=5><?php echo get_option('secao5_section_descricao') ?></textarea>
                     <div class="checkbox-degrade"> <input type="checkbox" name="secao5_section_descricao_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                 </fieldset>
                 <!-- ------------------------------------- Início Seção Config. Seção - Lead Generator ----------------------------------------------->

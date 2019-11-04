@@ -34,8 +34,8 @@
                 <!-- ------------------------------------- Início Pré-Footer - Etapas de Contratação  ----------------------------------------------->
                 <!-- Card Primeira Parte -->
                 <fieldset>
-                    <legend><span class="number">0</span>Informações da Seção</legend>
-                    <label for="secao1_title">Titulo:</label><input type="text" name="secao1_title" value="<?php echo get_option_esc('secao1_title') ?>" placeholder="Titulo:">
+                    <legend><span class="number">1</span>Informações da Seção</legend>
+                    <label for="secao1_title">Titulo:</label><input type="text" name="secao1_title" value="<?php echo get_option_esc('secao1_title') ?>">
                 </fieldset>
             </div>
         </div>
@@ -44,17 +44,17 @@
 
                 <!-- Passo 1 -->
                 <fieldset>
-                    <legend><span class="number">1</span>Passo 1</legend>
-                    <label for="secao1_passo1_title">Titulo:</label> <textarea name="secao1_passo1_title" placeholder="Titulo"><?php echo get_option_esc('secao1_passo1_title') ?></textarea>
-                    <label for="secao1_passo1_descricao">Descrição:</label> <textarea name="secao1_passo1_descricao" placeholder="Descrição passo 1"><?php echo get_option_esc('secao1_passo1_descricao') ?></textarea>
+                    <legend><span class="number">2</span>Passo 1</legend>
+                    <label for="secao1_passo1_title">Titulo:</label> <textarea name="secao1_passo1_title"><?php echo get_option_esc('secao1_passo1_title') ?></textarea>
+                    <label for="secao1_passo1_descricao">Descrição:</label> <textarea name="secao1_passo1_descricao"><?php echo get_option_esc('secao1_passo1_descricao') ?></textarea>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <!-- Passo 2 -->
                 <fieldset>
-                    <legend><span class="number">2</span>Passo 2</legend>
-                    <label for="secao1_passo2_title">Titulo:</label> <textarea name="secao1_passo2_title" placeholder="Titulo"><?php echo get_option_esc('secao1_passo2_title') ?></textarea>
-                    <label for="secao1_passo2_descricao">Descrição:</label> <textarea name="secao1_passo2_descricao" placeholder="Descrição passo 2"><?php echo get_option_esc('secao1_passo2_descricao') ?></textarea>
+                    <legend><span class="number">3</span>Passo 2</legend>
+                    <label for="secao1_passo2_title">Titulo:</label> <textarea name="secao1_passo2_title"><?php echo get_option_esc('secao1_passo2_title') ?></textarea>
+                    <label for="secao1_passo2_descricao">Descrição:</label> <textarea name="secao1_passo2_descricao"><?php echo get_option_esc('secao1_passo2_descricao') ?></textarea>
                 </fieldset>
             </div>
         </div>
@@ -62,24 +62,24 @@
             <div class="col form-style-5">
                 <!-- Passo 3 -->
                 <fieldset>
-                    <legend><span class="number">3</span>Passo 3</legend>
-                    <label for="secao1_passo3_title">Titulo:</label> <textarea name="secao1_passo3_title" placeholder="Titulo"><?php echo get_option_esc('secao1_passo3_title') ?></textarea>
-                    <label for="secao1_passo3_descricao">Descrição:</label> <textarea name="secao1_passo3_descricao" placeholder="Descrição passo 3"><?php echo get_option_esc('secao1_passo3_descricao') ?></textarea>
+                    <legend><span class="number">4</span>Passo 3</legend>
+                    <label for="secao1_passo3_title">Titulo:</label> <textarea name="secao1_passo3_title"><?php echo get_option_esc('secao1_passo3_title') ?></textarea>
+                    <label for="secao1_passo3_descricao">Descrição:</label> <textarea name="secao1_passo3_descricao"><?php echo get_option_esc('secao1_passo3_descricao') ?></textarea>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <!-- Passo 4 -->
                 <fieldset>
-                    <legend><span class="number">4</span>Passo 4</legend>
-                    <label for="secao1_passo4_title">Titulo:</label> <textarea name="secao1_passo4_title" placeholder="Titulo"><?php echo get_option_esc('secao1_passo4_title') ?></textarea>
-                    <label for="secao1_passo4_descricao">Descrição:</label> <textarea name="secao1_passo4_descricao" placeholder="Descrição passo 4"><?php echo get_option_esc('secao1_passo4_descricao') ?></textarea>
+                    <legend><span class="number">5</span>Passo 4</legend>
+                    <label for="secao1_passo4_title">Titulo:</label> <textarea name="secao1_passo4_title"><?php echo get_option_esc('secao1_passo4_title') ?></textarea>
+                    <label for="secao1_passo4_descricao">Descrição:</label> <textarea name="secao1_passo4_descricao"><?php echo get_option_esc('secao1_passo4_descricao') ?></textarea>
                 </fieldset>
             </div>
         </div>
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                    <label for="secao1_desc_pre_cta">Descrição Pré CTA:</label> <input type="text" name="secao1_desc_pre_cta" value="<?php echo get_option_esc('secao1_desc_pre_cta') ?>" placeholder="Descrição Pré CTA">
+                    <label for="secao1_desc_pre_cta">Descrição Pré CTA:</label> <input type="text" name="secao1_desc_pre_cta" value="<?php echo get_option_esc('secao1_desc_pre_cta') ?>">
                     <div style='display:flex;align-items:center;margin-bottom:25px;'><input type="checkbox" name="secao1_desc_pre_cta_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                 </fieldset>
 

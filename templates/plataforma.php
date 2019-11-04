@@ -6,7 +6,7 @@
 	?>
 
     <h2 class="nav-tab-wrapper">
-        <a href="?page=d1_plugin_plataforma&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Principal</a>
+        <a href="?page=d1_plugin_plataforma&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Hero</a>
         <a href="?page=d1_plugin_plataforma&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Módulos</a>
         <a href="?page=d1_plugin_plataforma&tab=secao3" class="nav-tab <?php echo $active_tab == 'secao3' ? 'nav-tab-active' : ''; ?>">Cases</a>
         <a href="?page=d1_plugin_plataforma&tab=secao4" class="nav-tab <?php echo $active_tab == 'secao4' ? 'nav-tab-active' : ''; ?>">FAQ</a>

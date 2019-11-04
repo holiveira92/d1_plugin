@@ -32,7 +32,7 @@
             <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">1</span>Conteúdo</legend>
-                    <label for="d1_web_title">Título do Página:</label> <input type="text" name="d1_web_title" value="<?php echo get_option('d1_web_title') ?>" placeholder="Título da Página">
+                    <label for="d1_web_title">Título da Página:</label> <input type="text" name="d1_web_title" value="<?php echo get_option('d1_web_title') ?>">
                 </fieldset>
             </div>
         </div>
