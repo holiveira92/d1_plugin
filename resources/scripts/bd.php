@@ -128,6 +128,19 @@ CREATE TABLE `wp_d1_segmentos` (
 ENGINE=InnoDB
 ;
 
+CREATE TABLE `wp_d1_seguranca` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(250) NULL DEFAULT NULL,
+	`description` TEXT NULL,
+	`description_alternative` TEXT NULL,
+	`url_img` TEXT NULL,
+	`tipo` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+
 
 */
 ?>

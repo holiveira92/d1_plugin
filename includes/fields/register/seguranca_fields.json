@@ -1,0 +1,6 @@
+{   
+    "d1_seguranca_secao1" : [{"id":"seguranca_secao1_title"},{"id":"seguranca_secao1_descricao"},{"id":"seguranca_secao1_img"},{"id":"seguranca_secao1_item1_title"},{"id":"seguranca_secao1_item1_subtitle"},{"id":"seguranca_secao1_item1_desc"},{"id":"seguranca_secao1_item2_title"},{"id":"seguranca_secao1_item2_subtitle"},{"id":"seguranca_secao1_item2_desc"},{"id":"seguranca_secao1_item3_title"},{"id":"seguranca_secao1_item3_subtitle"},{"id":"seguranca_secao1_item3_desc"}],
+    "d1_seguranca_secao2" : [],
+    "d1_seguranca_secao3" : [],
+    "d1_seguranca_secao4" : [{"id":"seguranca_secao4_title"},{"id":"seguranca_secao4_descricao"},{"id":"seguranca_secao4_item1_title"},{"id":"seguranca_secao4_item2_title"},{"id":"seguranca_secao4_item3_title"},{"id":"seguranca_secao4_item4_title"},{"id":"seguranca_secao4_item5_title"},{"id":"seguranca_secao4_item6_title"}]
+}
