@@ -76,6 +76,40 @@ CREATE TABLE `wp_d1_faq` (
 ENGINE=InnoDB
 ;
 
+CREATE TABLE `wp_d1_call_to_action` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(250) NULL DEFAULT NULL,
+	`link` VARCHAR(250) NULL DEFAULT NULL,
+	`target` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+
+CREATE TABLE `wp_d1_cases_categorias` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`descricao` VARCHAR(250) NULL DEFAULT NULL,
+	`id_categoria` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+
+CREATE TABLE `wp_d1_key_points` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(250) NULL DEFAULT NULL,
+	`description` TEXT NULL DEFAULT NULL,
+	`url_img` TEXT NULL DEFAULT NULL,
+	`page` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+ENGINE=InnoDB
+;
+
 
 */
 ?>

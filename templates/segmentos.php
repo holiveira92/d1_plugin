@@ -7,12 +7,11 @@
 
     <h2 class="nav-tab-wrapper">
         <a href="?page=d1_plugin_segmentos&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Principal</a>
-        <a href="?page=d1_plugin_segmentos&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Desafios</a>
-        <a href="?page=d1_plugin_segmentos&tab=secao3" class="nav-tab <?php echo $active_tab == 'secao3' ? 'nav-tab-active' : ''; ?>">Key Points</a>
+        <a href="?page=d1_plugin_segmentos&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Key Points</a>
+        <a href="?page=d1_plugin_segmentos&tab=secao3" class="nav-tab <?php echo $active_tab == 'secao3' ? 'nav-tab-active' : ''; ?>">Cases</a>
         <input type="hidden" id="destination_field">
     </h2>
     
-    <form method="post" action="options.php" enctype="multipart/form-data">
     <?php 
 		switch($active_tab){
             case 'secao1':
@@ -24,15 +23,16 @@
                 do_settings_sections('d1_plugin_segmentos');
                 break;
             case 'secao3':
+                echo '<form method="post" action="options.php" enctype="multipart/form-data">';
                 settings_fields('segmentos_secao3_options_group');
                 do_settings_sections('d1_plugin_segmentos');
+                submit_button();
+                echo '</form>';
                 break;
 			default:
 				settings_fields('segmentos_secao1_options_group');
                 do_settings_sections('d1_plugin_segmentos');
                 break;
         }
-        submit_button();
 		?>
-    </form>
 </div>

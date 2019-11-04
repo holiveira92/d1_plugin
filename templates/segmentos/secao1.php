@@ -44,6 +44,42 @@
                         </div>
                     </div>
                 </fieldset>
+
+                <fieldset>
+                    <legend><span class="number">1</span>Informações da Seção</legend>
+                    <div id='secao2_content1' class="content">
+                        <label for="segmentos_secao2_title">Titulo :</label><input type="text" name="segmentos_secao2_title" value="<?php echo get_option_esc('segmentos_secao2_title') ?>" placeholder="Titulo">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><span class="number">2</span>Desafios Cards</legend>
+                    <div class="row">
+                <?php
+                    for($i=1;$i<=3;$i++):
+                ?>  
+                    <div class="col form-style-5 middle">
+                        <label for="segmentos_secao2_card<?php echo $i;?>_title">Titulo:</label><input type="text" name="segmentos_secao2_card<?php echo $i;?>_title" value="<?php echo get_option_esc("segmentos_secao2_card".$i."_title") ?>" placeholder="Titulo">
+                        <label for="segmentos_secao2_card<?php echo $i;?>_desc">Descricao:</label> <textarea name="segmentos_secao2_card<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("segmentos_secao2_card".$i."_desc") ?></textarea>
+                    </div>
+                <?php endfor; ?>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend><span class="number">3</span>Clientes</legend>
+                        <label for="segmentos_secao2_clientes_title">Titulo:</label><input type="text" name="segmentos_secao2_clientes_title" value="<?php echo get_option_esc('segmentos_secao2_clientes_title') ?>" placeholder="Titulo">
+                        <div class="row">
+                            <div class="col form-style-5 middle">
+                                <?php echo $this->d1_upload->get_image_options('segmentos_secao2_cliente1_img_logo'); ?>
+                            </div>
+
+                            <div class="col form-style-5 middle">
+                                <?php echo $this->d1_upload->get_image_options('segmentos_secao2_cliente2_img_logo'); ?>
+                            </div>
+                        </div>
+                </fieldset>
+                
             </div>
         </div>
     </div>

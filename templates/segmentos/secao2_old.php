@@ -32,32 +32,18 @@
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                    <legend><span class="number">1</span>Cases</legend>
+                    <legend><span class="number">1</span>Key Points</legend>
                     <div class="row">
-                        <div class="col form-style-5 middle">
-                            <?php
-                                //obtendo opções salvas no BD
-                                global $wpdb;
-                                $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')), true);
-                            ?>
-                            <!-- Início de Select para Card -->
-                            <span class="margin-bottom"> Verifique o cadastro de cases de sucesso <a href="?page=d1_plugin_cases&tab=config_cards">clicando aqui</a></span>
-                            <label for="segmentos_secao3_card_select">Selecione Opção:</label> <select name="segmentos_secao3_card_select">
-                                <option value="0"> Selecione </option>
-                                <?php
-                                foreach ($result as $key => &$value) :
-                                    $id_selected = get_option_esc('segmentos_secao3_card_select');
-                                    if ($value['id_card'] == $id_selected) {
-                                        $value['selected'] = 'selected';
-                                    } else {
-                                        $value['selected'] = '';
-                                    }
-                                    ?>
-                                    <option value="<?php echo $value['id_card']; ?>" <?php echo $value['selected']; ?>> <?php echo $value['title_card']; ?> </option>
-                                <?php endforeach; ?>
-                            </select>
-                            <!-- Fim de Select para Card -->
-                        <div>
+                <?php
+                    for($i=1;$i<=2;$i++):
+                ?>  
+                    <div class="col form-style-5 middle">
+                        <label for="segmentos_secao3_keyp<?php echo $i;?>_title">Titulo:</label><input type="text" name="segmentos_secao3_keyp<?php echo $i;?>_title" value="<?php echo get_option_esc("segmentos_secao3_keyp".$i."_title") ?>" placeholder="Titulo">
+                        <label for="segmentos_secao3_keyp<?php echo $i;?>_desc">Descricao:</label> <textarea name="segmentos_secao3_keyp<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("segmentos_secao3_keyp".$i."_desc") ?></textarea>
+                        <?php echo $this->d1_upload->get_image_options("segmentos_secao3_keyp".$i."_img"); ?>
+                    </div>
+
+                <?php endfor; ?>
                     </div>
                 </fieldset>
 

@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <?php $url_action = plugins_url('d1_plugin/templates/faq/faq_ajax.php','d1_plugin'); ?>
+    <?php $url_action = plugins_url('d1_plugin/templates/jornada/faq_ajax.php','d1_plugin'); ?>
     <form id="faq_fields" action="<?php echo $url_action; ?>">
         <div class="form-style-5" id='secao_content'>
             <div class="row">
