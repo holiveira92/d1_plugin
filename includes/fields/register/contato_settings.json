@@ -1,0 +1,6 @@
+{
+    "contato_secao1_options_group" : [{"option_name":"contato_secao1_main_title"},{"option_name":"contato_secao1_title"},{"option_name":"contato_secao1_desc_rodape"},{"option_name":"contato_secao1_item1_desc"},{"option_name":"contato_secao1_item1_button_title"},{"option_name":"contato_secao1_item1_link"},{"option_name":"contato_secao1_img_icon1"},{"option_name":"contato_secao1_item2_desc"},{"option_name":"contato_secao1_item2_button_title"},{"option_name":"contato_secao1_item2_link"},{"option_name":"contato_secao1_img_icon2"},{"option_name":"contato_secao1_item3_desc"},{"option_name":"contato_secao1_item3_button_title"},{"option_name":"contato_secao1_item3_link"},{"option_name":"contato_secao1_img_icon3"}],
+    "contato_secao2_options_group" : [],
+    "contato_secao3_options_group" : [],
+    "contato_secao4_options_group" : []
+}

@@ -55,7 +55,7 @@ if (!class_exists('D1Plugin')) {
         {
             $this->plugin = plugin_basename(__FILE__);
             $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes',
-            'd1_plugin_plataforma','d1_plugin_jornada','d1_plugin_seguranca','d1_plugin_preco');
+            'd1_plugin_plataforma','d1_plugin_jornada','d1_plugin_seguranca','d1_plugin_preco','d1_plugin_contato');
             //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
             require_once  dirname(__FILE__) . '/includes/fields/admin_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/cases_fields.php';
@@ -65,6 +65,8 @@ if (!class_exists('D1Plugin')) {
             require_once  dirname(__FILE__) . '/includes/fields/jornada_fields.php';
             require_once  dirname(__FILE__).'/includes/fields/seguranca_fields.php';
             require_once  dirname(__FILE__).'/includes/fields/preco_fields.php';
+            require_once  dirname(__FILE__).'/includes/fields/contato_fields.php';
+
             $this->admin_fields = new Admin_Fields();
             $this->cases_fields = new Cases_Fields();
             $this->footer_fields = new Footer_Fields();
@@ -73,6 +75,7 @@ if (!class_exists('D1Plugin')) {
             $this->jornada_fields = new Jornada_Fields();
             $this->seguranca_fields = new Seguranca_Fields();
             $this->preco_fields = new Preco_Fields();
+            $this->contato_fields = new Contato_Fields();
         }
 
         function add_custom_options_page()
@@ -90,8 +93,9 @@ if (!class_exists('D1Plugin')) {
             $jornada_options_settings = $this->jornada_fields->getSettings();
             $seguranca_options_settings = $this->seguranca_fields->getSettings();
             $preco_options_settings = $this->preco_fields->getSettings();
+            $contato_options_settings = $this->contato_fields->getSettings();
             $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings,
-            $plataforma_options_settings,$jornada_options_settings,$seguranca_options_settings,$preco_options_settings);
+            $plataforma_options_settings,$jornada_options_settings,$seguranca_options_settings,$preco_options_settings,$contato_options_settings);
             foreach ($all_options_settings as $option) {
                 foreach ($option as $key => $setting) {
                     $whitelist_options[$setting['option_group']][] = $setting['option_name'];
@@ -146,6 +150,9 @@ if (!class_exists('D1Plugin')) {
 
             /* PREÇO */
             add_menu_page('Preço', 'Preço', 'manage_options', 'd1_plugin_preco', array($this, 'preco_admin'), 'dashicons-cart', 115);
+
+            /* CONTATO */
+            add_menu_page('Contato', 'Contato', 'manage_options', 'd1_plugin_contato', array($this, 'contato_admin'), '', 115);
 
             /* SOBRE */
             add_menu_page('Sobre', 'Sobre', 'manage_options', 'd1_plugin_sobre', array($this, 'admin_index'), 'dashicons-info', 116);
@@ -219,6 +226,13 @@ if (!class_exists('D1Plugin')) {
             $preco = new Preco();
             $preco->register();
             require_once plugin_dir_path( __FILE__ ) . 'templates/preco.php';
+        }
+
+        public function contato_admin(){
+            require_once plugin_dir_path( __FILE__ ) . 'includes/pages/contato.php';
+            $contato = new Contato();
+            $contato->register();
+            require_once plugin_dir_path( __FILE__ ) . 'templates/contato.php';
         }
 
         function activate()
