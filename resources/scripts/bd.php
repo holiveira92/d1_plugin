@@ -142,6 +142,21 @@ COLLATE='utf_8_general_ci'
 ENGINE=InnoDB
 ;
 
+CREATE TABLE `wp_d1_modulos` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(250) NULL DEFAULT NULL,
+	`id_modulo` INT(11) NULL DEFAULT NULL,
+	`subtitle` VARCHAR(250) NULL DEFAULT NULL,
+	`description` TEXT NULL DEFAULT NULL,
+	`text_link` VARCHAR(250) NULL DEFAULT NULL,
+	`url_link` VARCHAR(250) NULL DEFAULT NULL,
+	`url_img` VARCHAR(250) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf_8_general_ci'
+ENGINE=InnoDB
+;
+
 
 */
 ?>

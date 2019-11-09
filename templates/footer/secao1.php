@@ -87,6 +87,28 @@
 
             </div>
         </div>
+
+        <div class="row">
+            <div class="col form-style-5">
+            <!-- Início de Select para CTA -->
+            <label for="secao1_footer_cta">Selecione CTA:</label><span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
+            <select name="secao1_footer_cta">
+                <option value="0"> Selecione </option>
+                <?php
+                //obtendo opções salvas no BD
+				global $wpdb;
+				$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_call_to_action')), true);
+                foreach ($result as $key => &$value) :
+                    $id_selected = get_option_esc('secao1_footer_cta');
+                    if ($value['id'] == $id_selected) $value['selected'] = 'selected';
+                    else $value['selected'] = '';
+                ?>
+                    <option value="<?php echo $value['id']; ?>" <?php echo $value['selected']; ?>> <?php echo $value['title']; ?> </option>
+                <?php endforeach; ?>
+            </select>
+            <!-- Fim de Select para CTA -->
+            </div>
+        </div>
     </div>
     <script>
         var coll = document.getElementsByClassName("collapsible");
