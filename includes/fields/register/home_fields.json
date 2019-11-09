@@ -1,5 +1,5 @@
 {
-    "home_d1_admin_index" : [{"id":"d1_main_logo"},{"id":"d1_favicon"},{"id":"d1_web_title"}],
+    "home_d1_admin_index" : [{"id":"d1_main_logo"},{"id":"d1_favicon"},{"id":"d1_web_title"},{"id":"d1_menu_cta"}],
     "home_d1_admin_secao1": [{"id":"secao1_hero_name"},{"id":"secao1_hero_cargo"},{"id":"secao1_hero_descricao"},{"id":"secao1_hero_title"},{"id":"secao1_descricao_primaria"},{"id":"secao1_descricao_secundaria"},{"id":"secao1_conheca_um_minuto"},{"id":"secao1_hero_img_bg"},{"id":"secao1_hero_company"},{"id":"secao1_cta"}],
     "home_d1_admin_secao2": [{"id":"secao2_section_title"},{"id":"secao2_call_action_cases"},{"id":"secao2_select_card_cases1"},{"id":"secao2_select_card_cases2"},{"id":"secao2_select_card_cases3"}],
     "home_d1_admin_secao3": [{"id":"secao2_empresas_title"},{"id":"secao2_img_empresa1"},{"id":"secao2_img_empresa2"},{"id":"secao2_img_empresa3"},{"id":"secao2_img_empresa4"},{"id":"secao2_img_empresa5"},{"id":"secao2_img_empresa6"},{"id":"secao2_img_empresa7"},{"id":"secao2_img_empresa8"}],
