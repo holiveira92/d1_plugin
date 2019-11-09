@@ -75,9 +75,10 @@ class D1_Upload {
 		}
 	}
 
-	function get_image_options_common($name_field,$img_options=''){
-        global $wpdb;
-        $id_element_field = str_replace("[]","",$name_field) . "_" . $name_field;
+	function get_image_options_common($name_field,$img_options='',$id_field=''){
+		global $wpdb;
+		$name_temp = str_replace("[]","",$name_field);
+		$id_element_field = $name_temp . "_" . $id_field;
 		$name_button = $id_element_field . '_d1_upload_btn';
 		$name_del_button = $id_element_field . '_d1_btn_del';
 		$name_img_preview = $id_element_field . '_d1_img_preview';

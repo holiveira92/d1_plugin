@@ -184,6 +184,16 @@ class Admin{
 					),
 				);
 				break;
+			case 'modulos': 
+				$this->sections = array(
+					array(
+						'id' => 'home_d1_admin_modulos',
+						'title' => 'Módulos',
+						'callback' => array( $this, 'd1Modulos' ),
+						'page' => 'd1_plugin'
+					),
+				);
+				break;
             default:
 				$this->sections = array(
 					array(
@@ -236,5 +246,6 @@ class Admin{
     public function d1Section4Desafios(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao4.php';}
     public function d1Section5LeadGenerator(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao5.php';}
     public function d1Section6Solucao(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao6.php';}
-    public function d1Section7Diferencial(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao7.php';}
+	public function d1Section7Diferencial(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao7.php';}
+	public function d1Modulos(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/modulos.php';}
 }

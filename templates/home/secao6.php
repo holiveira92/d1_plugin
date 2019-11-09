@@ -1,307 +1,140 @@
-<?php
-?>
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- Fontfaces CSS-->
-    <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/mdi-font/css/material-design-iconic-font.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css','d1_plugin');?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css','d1_plugin');?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css','d1_plugin');?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/mdi-font/css/material-design-iconic-font.min.css','d1_plugin');?>" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-4.1/bootstrap.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-4.1/bootstrap.min.css','d1_plugin');?>" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/animsition/animsition.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/wow/animate.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/css-hamburgers/hamburgers.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/slick/slick.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/select2/select2.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
-    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/perfect-scrollbar/perfect-scrollbar.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/animsition/animsition.min.css','d1_plugin');?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css','d1_plugin');?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/wow/animate.css','d1_plugin');?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/css-hamburgers/hamburgers.min.css','d1_plugin');?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/slick/slick.css','d1_plugin');?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/select2/select2.min.css','d1_plugin');?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/vendor/perfect-scrollbar/perfect-scrollbar.css','d1_plugin');?>" rel="stylesheet" media="all">
     <!-- Main CSS-->
-    <link href="<?php echo plugins_url('d1_plugin/resources/css/theme.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
+    <link href="<?php echo plugins_url('d1_plugin/resources/css/theme.css','d1_plugin');?>" rel="stylesheet" media="all">
 </head>
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col form-style-5">
-
-                <!-- Seção 1 - Configs Gerais -->
-
-                <fieldset>
-                    <legend><span class="number">1</span>Título da Seção</legend>
-                    <label for="secao6_title">Nome:</label> <input type="text" name="secao6_title" value="<?php echo get_option_esc('secao6_title') ?>" placeholder="Titulo">
-                </fieldset>
-            </div>
+<body class="animsition">
+<div class="alert alert-warning" role="alert">Número Máximo de Módulos Permitidos : 6 </div>
+    <div class="row">
+        <div class="col form-style-5">
+            <!-- Seção 1 - Configs Gerais -->
+            <fieldset>
+                <legend><span class="number">1</span>Título da Seção</legend>
+                <label for="secao6_title">Nome:</label> <input type="text" name="secao6_title" value="<?php echo get_option_esc('secao6_title') ?>" placeholder="Titulo">
+            </fieldset>
         </div>
-
-        <!-------------------------------------------------------------------------- Seção 2 - Inicio Modulo 1 --------------------------------------------------------------------->
-        <div class="row">
-            <div class="col form-style-5">
-                <legend><span class="number">2</span><a class="" data-toggle="collapse" href="#modulo-1" role="button" aria-expanded="true" aria-controls="collapseExample">Módulo 1</a></legend>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col form-style-5">
-                <div class="collapse multi-collapse show" id="modulo-1">
-                    <div class="row">
-                        <div class="col form-style-5">
-                            <label for="secao6_modulo1_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo1_nome" value="<?php echo get_option_esc('secao6_modulo1_nome') ?>" placeholder="Nome do Módulo">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 1 - Subitem 1 -->
-                            <fieldset>
-                                <legend><span class="number">1</span>Subitem 1</legend>
-                                <label for="secao6_modulo1_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo1_subitem1" value="<?php echo get_option_esc('secao6_modulo1_subitem1') ?>" placeholder="Nome do SubItem 1:">
-                                <label for="secao6_modulo1_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo1_subitem1_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo1_subitem1_descricao') ?></textarea>
-                                <label for="secao6_modulo1_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo1_subitem1_link" value="<?php echo get_option_esc('secao6_modulo1_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
-                                <label for="secao6_modulo1_subitem1_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo1_subitem1_image'); ?>
-                            </fieldset>
-                        </div>
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 1 - Subitem 2 -->
-                            <fieldset>
-                                <legend><span class="number">2</span>Subitem 2</legend>
-                                <label for="secao6_modulo1_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo1_subitem2" value="<?php echo get_option_esc('secao6_modulo1_subitem2') ?>" placeholder="Nome do SubItem 2:">
-                                <label for="secao6_modulo1_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo1_subitem2_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo1_subitem2_descricao') ?></textarea>
-                                <label for="secao6_modulo1_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo1_subitem2_link" value="<?php echo get_option_esc('secao6_modulo1_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
-                                <label for="secao6_modulo1_subitem2_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo1_subitem2_image'); ?>
-                            </fieldset>
-                        </div>
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 1 - Subitem 3 -->
-                            <fieldset>
-                                <legend><span class="number">3</span>Subitem 3</legend>
-                                <label for="secao6_modulo1_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo1_subitem3" value="<?php echo get_option_esc('secao6_modulo1_subitem3') ?>" placeholder="Nome do SubItem 3:">
-                                <label for="secao6_modulo1_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo1_subitem3_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo1_subitem3_descricao') ?></textarea>
-                                <label for="secao6_modulo1_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo1_subitem3_link" value="<?php echo get_option_esc('secao6_modulo1_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
-                                <label for="secao6_modulo1_subitem3_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo1_subitem3_image'); ?>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!---------------------------------------------------------------------- Seção 2 - Fim Modulo 1 ----------------------------------------------------------------------------------->
-
-        <!----------------------------------------------------------------------- Seção 2 - Inicio Modulo 2 ----------------------------------------------------------------------------->
-        <div class="row">
-            <div class="col form-style-5">
-                <legend><span class="number">3</span><a class="" data-toggle="collapse" href="#modulo-2" role="button" aria-expanded="true" aria-controls="modulo-2">Módulo 2</a></legend>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col form-style-5">
-                <div class="collapse multi-collapse show" id="modulo-2">
-                    <div class="row">
-                        <div class="col form-style-5">
-                            <label for="secao6_modulo2_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo2_nome" value="<?php echo get_option_esc('secao6_modulo2_nome') ?>" placeholder="Nome do Módulo">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 2 - Subitem 1 -->
-                            <fieldset>
-                                <legend><span class="number">1</span>Subitem 1</legend>
-                                <label for="secao6_modulo2_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo2_subitem1" value="<?php echo get_option_esc('secao6_modulo2_subitem1') ?>" placeholder="Nome do SubItem 1:">
-                                <label for="secao6_modulo2_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo2_subitem1_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo2_subitem1_descricao') ?></textarea>
-                                <label for="secao6_modulo2_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo2_subitem1_link" value="<?php echo get_option_esc('secao6_modulo2_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
-                                <label for="secao6_modulo2_subitem1_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo2_subitem1_image'); ?>
-                            </fieldset>
-                        </div>
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 2 - Subitem 2 -->
-                            <fieldset>
-                                <legend><span class="number">2</span>Subitem 2</legend>
-                                <label for="secao6_modulo2_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo2_subitem2" value="<?php echo get_option_esc('secao6_modulo2_subitem2') ?>" placeholder="Nome do SubItem 2:">
-                                <label for="secao6_modulo2_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo2_subitem2_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo2_subitem2_descricao') ?></textarea>
-                                <label for="secao6_modulo2_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo2_subitem2_link" value="<?php echo get_option_esc('secao6_modulo2_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
-                                <label for="secao6_modulo2_subitem2_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo2_subitem2_image'); ?>
-                            </fieldset>
-                        </div>
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 2 - Subitem 3 -->
-                            <fieldset>
-                                <legend><span class="number">3</span>Subitem 3</legend>
-                                <label for="secao6_modulo2_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo2_subitem3" value="<?php echo get_option_esc('secao6_modulo2_subitem3') ?>" placeholder="Nome do SubItem 3:">
-                                <label for="secao6_modulo2_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo2_subitem3_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo2_subitem3_descricao') ?></textarea>
-                                <label for="secao6_modulo2_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo2_subitem3_link" value="<?php echo get_option_esc('secao6_modulo2_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
-                                <label for="secao6_modulo2_subitem3_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo2_subitem3_image'); ?>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-------------------------------------------------------------------------- Seção 2 - Fim Modulo 2 ------------------------------------------------------------------------------->
-
-        <!----------------------------------------------------------------------- Seção 2 - Inicio Modulo 3 ----------------------------------------------------------------------------->
-        <div class="row">
-            <div class="col form-style-5">
-                <legend><span class="number">4</span><a class="" data-toggle="collapse" href="#modulo-3" role="button" aria-expanded="true" aria-controls="modulo-3">Módulo 3</a></legend>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col form-style-5">
-                <div class="collapse multi-collapse show" id="modulo-3">
-                    <div class="row">
-                        <div class="col form-style-5">
-                            <label for="secao6_modulo3_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo3_nome" value="<?php echo get_option_esc('secao6_modulo3_nome') ?>" placeholder="Nome do Módulo">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 3 - Subitem 1 -->
-                            <fieldset>
-                                <legend><span class="number">1</span>Subitem 1</legend>
-                                <label for="secao6_modulo3_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo3_subitem1" value="<?php echo get_option_esc('secao6_modulo3_subitem1') ?>" placeholder="Nome do SubItem 1:">
-                                <label for="secao6_modulo3_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo3_subitem1_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo3_subitem1_descricao') ?></textarea>
-                                <label for="secao6_modulo3_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo3_subitem1_link" value="<?php echo get_option_esc('secao6_modulo3_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
-                                <label for="secao6_modulo3_subitem1_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo3_subitem1_image'); ?>
-                            </fieldset>
-                        </div>
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 3 - Subitem 2 -->
-                            <fieldset>
-                                <legend><span class="number">2</span>Subitem 2</legend>
-                                <label for="secao6_modulo3_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo3_subitem2" value="<?php echo get_option_esc('secao6_modulo3_subitem2') ?>" placeholder="Nome do SubItem 2:">
-                                <label for="secao6_modulo3_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo3_subitem2_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo3_subitem2_descricao') ?></textarea>
-                                <label for="secao6_modulo3_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo3_subitem2_link" value="<?php echo get_option_esc('secao6_modulo3_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
-                                <label for="secao6_modulo3_subitem2_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo3_subitem2_image'); ?>
-                            </fieldset>
-                        </div>
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 3 - Subitem 3 -->
-                            <fieldset>
-                                <legend><span class="number">3</span>Subitem 3</legend>
-                                <label for="secao6_modulo3_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo3_subitem3" value="<?php echo get_option_esc('secao6_modulo3_subitem3') ?>" placeholder="Nome do SubItem 3:">
-                                <label for="secao6_modulo3_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo3_subitem3_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo3_subitem3_descricao') ?></textarea>
-                                <label for="secao6_modulo3_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo3_subitem3_link" value="<?php echo get_option_esc('secao6_modulo3_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
-                                <label for="secao6_modulo3_subitem3_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo3_subitem3_image'); ?>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-------------------------------------------------------------------------- Seção 2 - Fim Modulo 3 ------------------------------------------------------------------------------->
-
-        <!----------------------------------------------------------------------- Seção 2 - Inicio Modulo 4 ----------------------------------------------------------------------------->
-        <div class="row">
-            <div class="col form-style-5">
-                <legend><span class="number">5</span><a class="" data-toggle="collapse" href="#modulo-4" role="button" aria-expanded="true" aria-controls="modulo-4">Módulo 4</a></legend>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col form-style-5">
-                <div class="collapse multi-collapse show" id="modulo-4">
-                    <div class="row">
-                        <div class="col form-style-5">
-                            <label for="secao6_modulo4_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo4_nome" value="<?php echo get_option_esc('secao6_modulo4_nome') ?>" placeholder="Nome do Módulo">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 4 - Subitem 1 -->
-                            <fieldset>
-                                <legend><span class="number">1</span>Subitem 1</legend>
-                                <label for="secao6_modulo4_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo4_subitem1" value="<?php echo get_option_esc('secao6_modulo4_subitem1') ?>" placeholder="Nome do SubItem 1:">
-                                <label for="secao6_modulo4_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo4_subitem1_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo4_subitem1_descricao') ?></textarea>
-                                <label for="secao6_modulo4_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo4_subitem1_link" value="<?php echo get_option_esc('secao6_modulo4_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
-                                <label for="secao6_modulo4_subitem1_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo4_subitem1_image'); ?>
-                            </fieldset>
-                        </div>
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 4 - Subitem 2 -->
-                            <fieldset>
-                                <legend><span class="number">2</span>Subitem 2</legend>
-                                <label for="secao6_modulo4_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo4_subitem2" value="<?php echo get_option_esc('secao6_modulo4_subitem2') ?>" placeholder="Nome do SubItem 2:">
-                                <label for="secao6_modulo4_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo4_subitem2_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo4_subitem2_descricao') ?></textarea>
-                                <label for="secao6_modulo4_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo4_subitem2_link" value="<?php echo get_option_esc('secao6_modulo4_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
-                                <label for="secao6_modulo4_subitem2_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo4_subitem2_image'); ?>
-                            </fieldset>
-                        </div>
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 4 - Subitem 3 -->
-                            <fieldset>
-                                <legend><span class="number">3</span>Subitem 3</legend>
-                                <label for="secao6_modulo4_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo4_subitem3" value="<?php echo get_option_esc('secao6_modulo4_subitem3') ?>" placeholder="Nome do SubItem 3:">
-                                <label for="secao6_modulo4_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo4_subitem3_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo4_subitem3_descricao') ?></textarea>
-                                <label for="secao6_modulo4_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo4_subitem3_link" value="<?php echo get_option_esc('secao6_modulo4_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
-                                <label for="secao6_modulo4_subitem3_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo4_subitem3_image'); ?>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-------------------------------------------------------------------------- Seção 2 - Fim Modulo 4 ------------------------------------------------------------------------------->
-
-        <!----------------------------------------------------------------------- Seção 2 - Inicio Modulo 5 ----------------------------------------------------------------------------->
-        <div class="row">
-            <div class="col form-style-5">
-                <legend><span class="number">6</span><a class="" data-toggle="collapse" href="#modulo-5" role="button" aria-expanded="true" aria-controls="modulo-5">Módulo 5</a></legend>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col form-style-5">
-                <div class="collapse multi-collapse show" id="modulo-5">
-                    <div class="row">
-                        <div class="col form-style-5">
-                            <label for="secao6_modulo5_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo5_nome" value="<?php echo get_option_esc('secao6_modulo5_nome') ?>" placeholder="Nome do Módulo">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 5 - Subitem 1 -->
-                            <fieldset>
-                                <legend><span class="number">1</span>Subitem 1</legend>
-                                <label for="secao6_modulo5_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo5_subitem1" value="<?php echo get_option_esc('secao6_modulo5_subitem1') ?>" placeholder="Nome do SubItem 1:">
-                                <label for="secao6_modulo5_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo5_subitem1_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo5_subitem1_descricao') ?></textarea>
-                                <label for="secao6_modulo5_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo5_subitem1_link" value="<?php echo get_option_esc('secao6_modulo5_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
-                                <label for="secao6_modulo5_subitem1_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo5_subitem1_image'); ?>
-                            </fieldset>
-                        </div>
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 5 - Subitem 2 -->
-                            <fieldset>
-                                <legend><span class="number">2</span>Subitem 2</legend>
-                                <label for="secao6_modulo5_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo5_subitem2" value="<?php echo get_option_esc('secao6_modulo5_subitem2') ?>" placeholder="Nome do SubItem 2:">
-                                <label for="secao6_modulo5_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo5_subitem2_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo5_subitem2_descricao') ?></textarea>
-                                <label for="secao6_modulo5_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo5_subitem2_link" value="<?php echo get_option_esc('secao6_modulo5_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
-                                <label for="secao6_modulo5_subitem2_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo5_subitem2_image'); ?>
-                            </fieldset>
-                        </div>
-                        <div class="col form-style-5">
-                            <!-- Seção 2 - Modulo 5 - Subitem 3 -->
-                            <fieldset>
-                                <legend><span class="number">3</span>Subitem 3</legend>
-                                <label for="secao6_modulo5_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo5_subitem3" value="<?php echo get_option_esc('secao6_modulo5_subitem3') ?>" placeholder="Nome do SubItem 3:">
-                                <label for="secao6_modulo5_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo5_subitem3_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo5_subitem3_descricao') ?></textarea>
-                                <label for="secao6_modulo5_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo5_subitem3_link" value="<?php echo get_option_esc('secao6_modulo5_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
-                                <label for="secao6_modulo5_subitem3_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo5_subitem3_image'); ?>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-------------------------------------------------------------------------- Seção 2 - Fim Modulo 5 ------------------------------------------------------------------------------->
-
-
     </div>
+
+    <!-- DATA TABLE -->
+    <div class="col form-style-5">
+    <fieldset>
+    <legend><span class="number">2</span>Lista de Módulos</legend>
+    <div class="table-data__tool">
+        <div class="table-data__tool-right">
+            <?php   
+                    $create_url = "?page=d1_plugin&tab=modulos&";
+                    $param = array('path_wp' => ABSPATH, 'id_modulo' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                    $query_string = http_build_query($param); 
+            ?>
+            <a href="<?php echo $create_url . $query_string ;?>"><button class="button button-primary" id="btn_adicionar">
+                <i class="zmdi zmdi-plus"></i>Adicionar Módulo</button></a>
+        </div>
+    </div>
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-data2">
+            <thead>
+                <tr>
+                    <th width='75%'>Título</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php 
+                    global $wpdb;
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_modulos WHERE id_modulo IS NULL OR id_modulo =''")),true);
+                    $cont = 0;
+                    $delete_url = plugins_url('d1_plugin/templates/home/modulos_delete.php?','d1_plugin');
+                    foreach($result as $key=>&$value): 
+                        $cont++;
+                        $create_edit_url = "?page=d1_plugin&tab=modulos&";
+                        $param = array('path_wp' => ABSPATH, 'id_modulo' => $value['id'], 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                        $query_string = http_build_query($param);
+                ?>
+                <tr class="tr-shadow">
+                    <input type="hidden" name="id_modulo" id="id_modulo" value="<?php echo $value['id'];?>">
+                    <td class="desc"><?php echo $value['title'];?></td>
+                    <td>
+                        <div class="table-data-feature">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button></a>
+                            <a href="<?php echo $delete_url . $query_string;?>"><button class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button></a>
+                        </div>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    </fieldset>
+    </div>
+    <!-- END DATA TABLE -->
+
+
     <!-- Jquery JS-->
-    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/jquery-3.2.1.min.js', 'd1_plugin'); ?>"></script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/jquery-3.2.1.min.js','d1_plugin');?>"></script>
     <!-- Bootstrap JS-->
-    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-4.1/popper.min.js', 'd1_plugin'); ?>"></script>
-    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-4.1/bootstrap.min.js', 'd1_plugin'); ?>"></script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-4.1/popper.min.js','d1_plugin');?>"></script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-4.1/bootstrap.min.js','d1_plugin');?>"></script>
+    <!-- Vendor JS       -->
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/slick/slick.min.js','d1_plugin');?>">
+    </script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/wow/wow.min.js','d1_plugin');?>"></script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/animsition/animsition.min.js','d1_plugin');?>"></script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js','d1_plugin');?>">
+    </script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/counter-up/jquery.waypoints.min.js','d1_plugin');?>"></script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/counter-up/jquery.counterup.min.js','d1_plugin');?>">
+    </script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/circle-progress/circle-progress.min.js','d1_plugin');?>"></script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/perfect-scrollbar/perfect-scrollbar.js','d1_plugin');?>"></script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/chartjs/Chart.bundle.min.js','d1_plugin');?>"></script>
+    <script src="<?php echo plugins_url('d1_plugin/resources/vendor/select2/select2.min.js','d1_plugin');?>">
+    </script>
+    <!-- Main JS-->
+    <script src="<?php echo plugins_url('d1_plugin/resources/js/main.js','d1_plugin');?>"></script>
+    <script>
+    $(document).ready(function(){
+
+        //botão deletar
+        $(document).on('click', '.btn_delete', function(){
+            if(!confirm('Tem certeza que deseja apagar este item?')){
+                return false;
+            }
+        });
+
+        $(document).on('click', '#btn_adicionar', function(){
+            //busca a div de itens do respectivo botão adicionar itens
+            var itens_cont = $('button.btn_edit').length;
+            if(itens_cont >= 2){
+                alert("Número Máximo de Módulos Permitidos Atingido!");
+                return false;
+            }
+        });
+    });
+    </script>
 </body>
 
 </html>
+<!-- end document-->

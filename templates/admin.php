@@ -17,47 +17,75 @@
 		<input type="hidden" id="destination_field">
 	</h2>
 	
-	<form method="post" action="options.php" enctype="multipart/form-data">
 		<?php 
 		switch($active_tab){
 			case 'config_geral':
+				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				settings_fields('home_d1_options_group');
 				do_settings_sections('d1_plugin');
+				submit_button();
+                echo '</form>';
 				break;
 			case 'secao1':
+				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				settings_fields('home_secao1_options_group');
 				do_settings_sections('d1_plugin');
+				submit_button();
+                echo '</form>';
 				break;
 			case 'secao2':
+				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				settings_fields('home_secao2_options_group');
 				do_settings_sections('d1_plugin');
+				submit_button();
+                echo '</form>';
                 break;
-            case 'secao3':
+			case 'secao3':
+				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				settings_fields('home_secao3_options_group');
 				do_settings_sections('d1_plugin');
+				submit_button();
+                echo '</form>';
                 break;
-            case 'secao4':
+			case 'secao4':
+				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				settings_fields('home_secao4_options_group');
 				do_settings_sections('d1_plugin');
+				submit_button();
+                echo '</form>';
                 break;
-            case 'secao5':
+			case 'secao5':
+				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				settings_fields('home_secao5_options_group');
 				do_settings_sections('d1_plugin');
+				submit_button();
+                echo '</form>';
                 break;
-            case 'secao6':
+			case 'secao6':
+				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				settings_fields('home_secao6_options_group');
 				do_settings_sections('d1_plugin');
+				submit_button();
+                echo '</form>';
                 break;
-            case 'secao7':
+			case 'secao7':
+				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
+				settings_fields('home_secao7_options_group');
+				do_settings_sections('d1_plugin');
+				submit_button();
+                echo '</form>';
+				break;
+			case 'modulos':
 				settings_fields('home_secao7_options_group');
 				do_settings_sections('d1_plugin');
 				break;
 			default:
+				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				settings_fields('home_d1_options_group');
 				do_settings_sections('d1_plugin');
+				submit_button();
+                echo '</form>';
 				break;
-        }
-        submit_button();
+		}
 		?>
-	</form>
 </div>

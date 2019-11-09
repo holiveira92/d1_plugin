@@ -94,7 +94,7 @@ $data_clientes = array(
                     </div>
                     <div class="col form-style-5 middle">
                         <label for="title">Imagem Background:</label>
-                        <?php echo $this->d1_upload->get_image_options_common("url_img_bg",$data['url_img_bg']); ?>
+                        <?php echo $this->d1_upload->get_image_options_common("url_img_bg",$data['url_img_bg'],$data['id']); ?>
                     </div>
                     </div>
                 </div>
