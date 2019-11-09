@@ -54,9 +54,8 @@ if (!class_exists('D1Plugin')) {
         function __construct()
         {   
             $this->plugin = plugin_basename(__FILE__);
-            $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes',
-            'd1_plugin_plataforma','d1_plugin_jornada','d1_plugin_seguranca','d1_plugin_preco','d1_plugin_contato','themes.php','d1_plugin_cases');
-            //TODO Não implementados ainda - 'd1_plugin_solucoes','d1_plugin_sobre','d1_plugin_especialista','d1_plugin_header_menu','d1_plugin_cta'
+            $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes','d1_plugin_segmentos',
+            'd1_plugin_plataforma','d1_plugin_jornada','d1_plugin_seguranca','d1_plugin_preco','d1_plugin_contato','themes.php','d1_plugin_cases','d1_plugin_cta');
             require_once  dirname(__FILE__) . '/includes/fields/admin_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/cases_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/footer_fields.php';
@@ -137,16 +136,12 @@ if (!class_exists('D1Plugin')) {
             add_menu_page('Segurança','Segurança','manage_options','d1_plugin_seguranca',array($this,'seguranca_admin'), "",111);
 
             /* SOLUÇÕES */
-            add_menu_page('Soluções', 'Soluções', 'manage_options', 'd1_plugin_solucoes', array($this, 'segmentos_index'), 'dashicons-admin-site-alt3', 113);
-            add_submenu_page('d1_plugin_solucoes', 'Segmentos', 'Segmentos', 'manage_options', 'd1_plugin_segmentos', array($this, 'segmentos_index'));
-            //add_submenu_page('d1_plugin_solucoes','Departamentos','Departamenos','manage_options','d1_plugin_departamentos',''); 
-            //add_submenu_page('d1_plugin_solucoes','Objetivos de Negócio','Objetivos de Negócio','manage_options','d1_plugin_obj_negocio',''); 
+            add_menu_page('Segmentos', 'Segmentos', 'manage_options', 'd1_plugin_segmentos', array($this, 'segmentos_index'), 'dashicons-admin-site-alt3', 113);
+            //add_submenu_page('d1_plugin_solucoes', 'Segmentos', 'Segmentos', 'manage_options', 'd1_plugin_segmentos', array($this, 'segmentos_index'));
 
             /* CONTEÚDO */
             add_menu_page('Cases', 'Cases', 'manage_options', 'd1_plugin_cases', array($this, 'cases_admin'), 'dashicons-welcome-widgets-menus', 114);
             add_submenu_page('d1_plugin_cases','Categorias','Categorias','manage_options','d1_plugin_cases&tab=secao2',array($this,'cases_admin')); 
-            //add_submenu_page('d1_plugin_cases','Whitepapers','Whitepapers','manage_options','d1_plugin_whitepapers',''); 
-            //add_submenu_page('d1_plugin_cases','Webinários','Webinários','manage_options','d1_plugin_webinarios',''); 
 
             /* PREÇO */
             add_menu_page('Preço', 'Preço', 'manage_options', 'd1_plugin_preco', array($this, 'preco_admin'), 'dashicons-cart', 115);
@@ -161,9 +156,9 @@ if (!class_exists('D1Plugin')) {
             add_menu_page('Falar com Especialista', 'Falar com Especialista', 'manage_options', 'd1_plugin_especialista', array($this, 'admin_index'), 'dashicons-businessperson', 117);
 
             /* HEADER MENU, FOOTER, CTA */
-            add_menu_page('Header Menu', 'Header Menu', 'manage_options', 'd1_plugin_header_menu', '', '', 118);
+            //add_menu_page('Header Menu', 'Header Menu', 'manage_options', 'd1_plugin_header_menu', '', '', 118);
             add_menu_page('Footer', 'Footer', 'manage_options', 'd1_plugin_footer', array($this, 'footer_admin'), '', 119);
-            add_menu_page('Call To Action', 'Call To Action', 'manage_options', 'd1_plugin_cta', '', '', 120);
+            add_menu_page('Call To Action', 'Call To Action', 'manage_options', 'd1_plugin_cta', array($this, 'cta_admin'), '', 120);
         }
 
         public function admin_index()
@@ -233,6 +228,13 @@ if (!class_exists('D1Plugin')) {
             $contato = new Contato();
             $contato->register();
             require_once plugin_dir_path( __FILE__ ) . 'templates/contato.php';
+        }
+
+        public function cta_admin(){
+            require_once plugin_dir_path( __FILE__ ) . 'includes/pages/cta.php';
+            $cta = new Cta();
+            $cta->register();
+            require_once plugin_dir_path( __FILE__ ) . 'templates/cta.php';
         }
 
         function activate()
