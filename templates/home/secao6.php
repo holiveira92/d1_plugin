@@ -44,7 +44,7 @@
                     $param = array('path_wp' => ABSPATH, 'id_modulo' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                     $query_string = http_build_query($param); 
             ?>
-            <a href="<?php echo $create_url . $query_string ;?>"><button class="button button-primary" id="btn_adicionar">
+            <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary" id="btn_adicionar">
                 <i class="zmdi zmdi-plus"></i>Adicionar Módulo</button></a>
         </div>
     </div>
@@ -74,10 +74,10 @@
                     <td class="desc"><?php echo $value['title'];?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>
@@ -127,10 +127,14 @@
         $(document).on('click', '#btn_adicionar', function(){
             //busca a div de itens do respectivo botão adicionar itens
             var itens_cont = $('button.btn_edit').length;
-            if(itens_cont >= 2){
+            if(itens_cont >= 6){
                 alert("Número Máximo de Módulos Permitidos Atingido!");
                 return false;
             }
+        });
+
+        $("form").submit(function(e){
+            e.preventDefault();
         });
     });
     </script>

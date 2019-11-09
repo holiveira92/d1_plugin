@@ -6,7 +6,7 @@ $itens              = !empty($id_modulo) ? json_decode(json_encode($wpdb->get_re
 $param              = array('path_wp' => ABSPATH, 'id_modulo' => $id_modulo, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/home/modulos_delete.php?', 'd1_plugin') . $query_string;
-$voltar_url         = "?page=d1_plugin_cases&tab=secao2&" . $query_string;
+$voltar_url         = "?page=d1_plugin&tab=secao6&" . $query_string;
 $data = array(
     'id'            => !empty($data_bd[0]["id"]) ? $data_bd[0]["id"] : '',
     'title'         => !empty($data_bd[0]["title"]) ? $data_bd[0]["title"] : '',
@@ -85,7 +85,7 @@ $data = array(
                         <?php endforeach; ?>
                         </div>
                     </div>
-                    <button type="button" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Módulo</button><br><br>
+                    <button type="button" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Item</button><br><br>
                 </div>
             </div>
         </div>

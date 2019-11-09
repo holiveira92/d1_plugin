@@ -68,7 +68,8 @@
                     <div name='items_content'>
 
                         <?php foreach ($itens as $key => &$item) :
-                            $parent_arrow = (!empty($item['parent_id'])) ? "<span> &nbsp &nbsp &nbsp &rarr; </span>" : "";
+                            //$parent_arrow = (!empty($item['parent_id'])) ? "<span> &nbsp &nbsp &nbsp &rarr; </span>" : "";
+                            $parent_arrow = "";
                         ?>
                             <div name='item' id_item="<?php echo $item['id']; ?>">
                                 <?php echo $parent_arrow ; ?>
@@ -82,7 +83,7 @@
                         <?php endforeach; ?>
                     </div>
                     
-                    <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_separador" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Separador</button>
+                    <!-- <button type="button" id_grupo="" name="add_separador" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Separador</button> -->
                     <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Link</button>
                     <button type="button" name="remove_group" id_grupo="<?php echo $grupo['id']; ?>" class="btn btn-danger btn_remove_group">Remover Grupo</button>
                 </fieldset>
@@ -158,7 +159,8 @@
                     return false;
                 } else {
                     var hash = btoa(Math.random());
-                    var separator = (action == "add_item") ? "" : "<span>&nbsp &nbsp &nbsp &rarr; </span>";
+                    //var separator = (action == "add_item") ? "" : "<span>&nbsp &nbsp &nbsp &rarr; </span>";
+                    var separator = "";
                     div_item.append('<div name="item">' + separator +
                         '<input type="hidden" name="id[]">' +
                         '<input type="hidden" name="group_id[]" value="' + id_grupo_pai + '">' +
