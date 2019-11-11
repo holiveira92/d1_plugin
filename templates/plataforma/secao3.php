@@ -32,7 +32,12 @@
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                <legend><span class="number">1</span>Cases</legend>
+                    <legend><span class="number">1</span>Informações da Seção</legend>
+                    <label for="plataforma_secao3_cases_title">Titulo:</label><input type="text" name="plataforma_secao3_cases_title" value="<?php echo get_option_esc('plataforma_secao3_cases_title'); ?>">
+                </fieldset>
+
+                <fieldset>
+                <legend><span class="number">2</span>Cases</legend>
                 <div class="row">
                     <?php
                         //obtendo opções salvas no BD

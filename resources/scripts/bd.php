@@ -71,7 +71,8 @@ AUTO_INCREMENT=1
 CREATE TABLE `wp_d1_faq` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`question` TEXT NULL DEFAULT NULL,
-	`description` TEXT NULL DEFAULT NULL,
+    `answer` TEXT NULL DEFAULT NULL,
+    `page` VARCHAR(50) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
 )
 ENGINE=InnoDB
@@ -115,15 +116,16 @@ CREATE TABLE `wp_d1_segmentos` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`main_title` VARCHAR(250) NULL DEFAULT NULL,
 	`title` VARCHAR(250) NULL DEFAULT NULL,
-	`description` TEXT NULL DEFAULT NULL,
-	`url_img_bg` TINYTEXT NULL DEFAULT NULL,
+	`description` TEXT NULL,
+	`url_img_bg` TINYTEXT NULL,
 	`challenge_title` VARCHAR(250) NULL DEFAULT NULL,
-	`challenge1` TEXT NULL DEFAULT NULL,
-	`challenge2` TEXT NULL DEFAULT NULL,
-	`challenge3` TEXT NULL DEFAULT NULL,
-	`img_customer1` TEXT NULL DEFAULT NULL,
-	`img_customer2` TEXT NULL DEFAULT NULL,
-	`img_customer3` TEXT NULL DEFAULT NULL,
+	`challenge1` TEXT NULL,
+	`challenge2` TEXT NULL,
+	`challenge3` TEXT NULL,
+	`img_customer1` TEXT NULL,
+	`img_customer2` TEXT NULL,
+	`img_customer3` TEXT NULL,
+	`customers_title` VARCHAR(50) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
 )
 ENGINE=InnoDB

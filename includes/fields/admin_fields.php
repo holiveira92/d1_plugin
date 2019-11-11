@@ -5,11 +5,20 @@ class Admin_Fields {
 	private $active_tab;
 
 	public function __construct(){
-		require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/base/d1_upload.php';
+		require_once plugin_dir_path($this->dirname_safe(__FILE__,2)) . 'includes/base/d1_upload.php';
 		$this->d1_upload = new D1_Upload();
-		$this->path_data_fields = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/home_fields.json';
-		$this->path_data_settings = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/home_settings.json';
+		$this->path_data_fields = plugin_dir_path($this->dirname_safe(__FILE__,2)) . 'includes/fields/register/home_fields.json';
+		$this->path_data_settings = plugin_dir_path($this->dirname_safe(__FILE__,2)) . 'includes/fields/register/home_settings.json';
 		$this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'config_geral';
+    }
+
+    //Utilizar essa função apenas para modo compatibilidade com PHP menor que 7
+    function dirname_safe($path, $level = 0){
+        $dir = explode(DIRECTORY_SEPARATOR, $path);
+        $level = $level * -1;
+        if ($level == 0) $level = count($dir);
+        array_splice($dir, $level);
+        return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
     }
 
     public function getSettings($opt_group=false,$page='d1_plugin'){

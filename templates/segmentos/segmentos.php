@@ -17,6 +17,7 @@ $data = array(
     'img_customer1' => !empty($data_bd[0]["img_customer1"]) ? $data_bd[0]["img_customer1"] : '',
     'img_customer2' => !empty($data_bd[0]["img_customer2"]) ? $data_bd[0]["img_customer2"] : '',
     'img_customer3' => !empty($data_bd[0]["img_customer3"]) ? $data_bd[0]["img_customer3"] : '',
+    'customers_title' => !empty($data_bd[0]["customers_title"]) ? $data_bd[0]["customers_title"] : '',
 );
 
 $data_challenge = array(
@@ -109,7 +110,7 @@ $data_clientes = array(
                         <fieldset>
                             <legend><span class="number"><?php echo $i;?></span>Desafio <?php echo $i;?></legend>
                             <label for="challenge<?php echo $i;?>_title">Titulo:</label><input type="text" name="challenge<?php echo $i;?>_title" value="<?php echo $challenge[$i]["title"]; ?>" placeholder="Titulo">
-                            <label for="challenge<?php echo $i;?>_description">Descricao:</label> <textarea name="challenge<?php echo $i;?>_description" placeholder="Descrição" rows='7'><?php echo $challenge[$i]["title"]; ?></textarea>
+                            <label for="challenge<?php echo $i;?>_description">Descricao:</label> <textarea name="challenge<?php echo $i;?>_description" placeholder="Descrição" rows='7'><?php echo $challenge[$i]["description"]; ?></textarea>
                         </fieldset>
                         </div>
                         <?php endfor; ?>
@@ -120,6 +121,7 @@ $data_clientes = array(
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
                     <div class="row">
+                    <label for="customers_title">Titulo Clientes:</label><input type="text" name="customers_title" value="<?php echo $data["customers_title"]; ?>" placeholder="Titulo Clientes">
                         <?php for($i=1;$i<=3;$i++): ?>
                         <div class="col form-style-5 middle">
                         <fieldset>
