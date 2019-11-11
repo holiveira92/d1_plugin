@@ -28,7 +28,7 @@ function st_create_table() {
 }
 add_action( 'init', 'st_create_table' );
 
-// trocar todos os collate para utf_8_general_ci
+// trocar todos os collate para utf8_general_ci
 /*
 CREATE TABLE `wp_d1_cases` (
 	`id_card` INT(11) NOT NULL AUTO_INCREMENT,
@@ -50,7 +50,7 @@ CREATE TABLE `wp_d1_cases` (
 	`cases_options` TEXT NULL DEFAULT NULL,
 	PRIMARY KEY (`id_card`)
 )
-COLLATE='utf_8_general_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=1
 ;
@@ -63,7 +63,7 @@ CREATE TABLE `wp_d1_footer_links` (
 	`parent_id` VARCHAR(50) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
 )
-COLLATE='utf_8_general_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=1
 ;
@@ -84,7 +84,7 @@ CREATE TABLE `wp_d1_call_to_action` (
 	`target` VARCHAR(50) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
 )
-COLLATE='utf_8_general_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=1
 ;
@@ -95,7 +95,7 @@ CREATE TABLE `wp_d1_cases_categorias` (
 	`id_categoria` VARCHAR(50) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
 )
-COLLATE='utf_8_general_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=1
 ;
@@ -138,7 +138,7 @@ CREATE TABLE `wp_d1_seguranca` (
 	`tipo` VARCHAR(50) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
 )
-COLLATE='utf_8_general_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
@@ -153,7 +153,7 @@ CREATE TABLE `wp_d1_modulos` (
 	`url_img` VARCHAR(250) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
 )
-COLLATE='utf_8_general_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
