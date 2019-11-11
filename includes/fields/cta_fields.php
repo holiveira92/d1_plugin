@@ -7,8 +7,8 @@ class Cta_Fields {
 	public function __construct(){
 		require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/base/d1_upload.php';
 		$this->d1_upload = new D1_Upload();
-		$this->path_data_fields = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/Cta_fields.json';
-		$this->path_data_settings = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/Cta_settings.json';
+		$this->path_data_fields = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/cta_fields.json';
+		$this->path_data_settings = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/cta_settings.json';
 		$this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'secao1';
     }
 
@@ -24,7 +24,7 @@ class Cta_Fields {
 	}
 
 	private function getConfigDataSettings($path){
-		//No arquivo JSON estarão as configurações sobre as seções e respectivos options_groups de campos
+        //No arquivo JSON estarão as configurações sobre as seções e respectivos options_groups de campos
 		$json = file_get_contents($path); 
 		$config_data = json_decode($json,true);
 		$config_data = !empty($config_data) ? $config_data : array();

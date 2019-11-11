@@ -61,10 +61,12 @@
                         <?php echo $cta['target']; 
                             $self = ($cta['target'] == '_self') ? 'selected' : '';
                             $blank = ($cta['target'] == '_blank') ? 'selected' : '';
+                            $modal = ($cta['target'] == 'modal') ? 'selected' : '';
                         ?>
                         <option value="0"> Selecione </option>
                         <option value="_self" <?php echo $self; ?> > Self - Padrão Mesma Página </option>
                         <option value="_blank" <?php echo $blank; ?> > Blank - Nova Página </option>
+                        <option value="modal" <?php echo $modal; ?> > Modal </option>
                     </select>
                     <button id="remove" type="button" name="remove_cta" id_cta="<?php echo $cta['id']; ?>" class="btn btn-danger btn_remove_group">Remover</button>
                 </fieldset>
@@ -108,6 +110,7 @@
                         '<option value="0"> Selecione </option>' +
                         '<option value="_self"> Self - Padrão Mesma Página </option>' +
                         '<option value="_blank"> Blank - Nova Página </option>' +
+                        '<option value="modal"> Modal </option>' +
                     '</select>'+
                     '<button id="remove" type="button" name="remove_cta" id_cta="" class="btn btn-danger btn_remove_group">Remover</button>' +
                     '</fieldset> </div>'

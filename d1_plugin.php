@@ -106,7 +106,7 @@ if (!class_exists('D1Plugin')) {
         function register()
         {
             add_action('admin_enqueue_scripts', array($this, 'admin_enqueue')); //inserindo script para tela admin
-            add_action('wp_enqueue_scripts', array($this, 'main_enqueue')); //inserindo script para tela principal
+            //add_action('wp_enqueue_scripts', array($this, 'main_enqueue')); //inserindo script para tela principal
             add_action('admin_menu', array($this, 'add_admin_pages'));
             add_filter("plugin_action_links_$this->plugin", array($this, 'settings_link'));
             add_action('admin_menu', array($this, 'custom_menu_page_removing'));
