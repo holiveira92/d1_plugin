@@ -263,7 +263,7 @@ if (!class_exists('D1Plugin')) {
             $post_types = get_post_types();
             foreach ($menu_item as $key => $m) {
                 if (!empty($m[2]) && !in_array($m[2], $this->whitelist_plugin)) {
-                    //remove_menu_page($m[2]);
+                    remove_menu_page($m[2]);
                 }
             }
         }

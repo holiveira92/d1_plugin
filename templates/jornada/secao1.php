@@ -38,7 +38,7 @@
                             <label for="jornada_secao1_main_title">Titulo:</label><input type="text" name="jornada_secao1_main_title" value="<?php echo get_option_esc('jornada_secao1_main_title'); ?>">
                             <label for="jornada_secao1_title">Missão:</label><input type="text" name="jornada_secao1_title" value="<?php echo get_option_esc('jornada_secao1_title'); ?>">
                             <div class="checkbox-degrade"> <input type="checkbox" name="jornada_secao1_title_degrade"> <span>Para Inserir Degradê, Selecione o Texto e Marque Esta Opção</span> </div>
-                            <label for="jornada_secao1_desc">Pergunta:</label><input type="text" name="jornada_secao1_desc" value="<?php echo get_option_esc('jornada_secao1_desc'); ?>">
+                            <label for="jornada_secao1_desc">Descrição:</label><input type="text" name="jornada_secao1_desc" value="<?php echo get_option_esc('jornada_secao1_desc'); ?>">
 
                             <!-- Início de Select para CTA -->
                             <label for="jornada_secao1_cta">Selecione CTA:</label><span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
