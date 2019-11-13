@@ -8,8 +8,8 @@ jQuery(document).ready(function($) {
         if(string != ""){
             var find = string.indexOf('[degrade]');
             if (find != -1){
-                alert('Já existe um degradê selecionado, para selecionar novamente remova as tags existentes');
-                return false;
+                //alert('Já existe um degradê selecionado, para selecionar novamente remova as tags existentes');
+                //return false;
             }
         }
 

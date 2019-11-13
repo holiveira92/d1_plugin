@@ -38,7 +38,7 @@ $impactos_data = array(
     'impacto3_total'    => !empty($impactos['impacto3_total']) ? $impactos['impacto3_total'] : '',
     'impacto3_desc'     => !empty($impactos['impacto3_desc']) ? $impactos['impacto3_desc'] : '',
 );
-
+//pre($impactos_data);die;
 $desafios              = !empty($data_bd[0]["desafios"]) ? json_decode($data_bd[0]["desafios"], true) : array();
 $desafios_data = array(
     'desafios_title'            => !empty($desafios['desafios_title']) ? $desafios['desafios_title'] : '',
@@ -120,9 +120,9 @@ $cases_options = array(
                         <input type="hidden" name="detach_card_hidden" value="<?php echo $data['detach_card']; ?>" />
                         <label>Título:</label><input type="text" name="title_card" value="<?php echo $data['title_card']; ?>" required>
                         <label>Descrição:</label><input type="text" name="desc_card" value="<?php echo $data['desc_card']; ?>" required>
+                        <div class="checkbox-degrade"> <input type="checkbox" name="desc_card_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                         <label>Objetivo:</label><input type="text" name="subtitle_card" value="<?php echo $data['subtitle_card']; ?>">
                         <label>Nº Impacto:</label><input type="text" name="text_footer_card" value="<?php echo $data['text_footer_card']; ?>">
-
                         <label for="list_case<?php echo $i;?>">Selecione a Categoria:</label> <select name="categoria_case">
                             <option value="0"> Selecione </option>
                             <?php $id_selected = $cases_options["categoria_case"];
@@ -270,6 +270,7 @@ $cases_options = array(
                 <div class="col-8 form-style-5 middle">
                     <fieldset>
                         <label for="implantacao_desc_secundaria">Descrição Secundária</label> <textarea name="implantacao_desc_secundaria" rows='10'><?php echo $implantacao_data['implantacao_desc_secundaria']; ?> </textarea>
+                        <div class="checkbox-degrade"> <input type="checkbox" name="implantacao_desc_secundaria_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                     </fieldset>
                 </div>
             </div>

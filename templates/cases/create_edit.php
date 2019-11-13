@@ -11,6 +11,7 @@ global $wpdb;
 $id_card                = !empty($_REQUEST["id_card"]) ? $_REQUEST["id_card"]: false;
 
 $impactos_data = array(
+    'impacto_title'     => !empty($_REQUEST['impacto_title']) ? $_REQUEST['impacto_title'] : '',
     'impacto1_title'    => !empty($_REQUEST['impacto1_title']) ? $_REQUEST['impacto1_title'] : '',
     'impacto1_total'    => !empty($_REQUEST['impacto1_total']) ? $_REQUEST['impacto1_total'] : '',
     'impacto1_desc'     => !empty($_REQUEST['impacto1_desc']) ? $_REQUEST['impacto1_desc'] : '',
