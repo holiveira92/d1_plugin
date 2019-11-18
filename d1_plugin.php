@@ -52,19 +52,21 @@ if (!class_exists('D1Plugin')) {
     {
         public $plugin;
         function __construct()
-        {   
+        {
             $this->plugin = plugin_basename(__FILE__);
-            $this->whitelist_plugin = array('d1_plugin','d1_plugin_conteudo','upload.php','wpseo_dashboard','d1_plugin_footer','d1_plugin_solucoes','d1_plugin_segmentos',
-            'd1_plugin_plataforma','d1_plugin_jornada','d1_plugin_seguranca','d1_plugin_preco','d1_plugin_contato','themes.php','d1_plugin_cases','d1_plugin_cta');
+            $this->whitelist_plugin = array(
+                'd1_plugin', 'd1_plugin_conteudo', 'upload.php', 'wpseo_dashboard', 'd1_plugin_footer', 'd1_plugin_solucoes', 'd1_plugin_segmentos',
+                'd1_plugin_plataforma', 'd1_plugin_jornada', 'd1_plugin_seguranca', 'd1_plugin_preco', 'd1_plugin_contato', 'themes.php', 'd1_plugin_cases', 'd1_plugin_cta'
+            );
             require_once  dirname(__FILE__) . '/includes/fields/admin_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/cases_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/footer_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/segmentos_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/plataforma_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/jornada_fields.php';
-            require_once  dirname(__FILE__).'/includes/fields/seguranca_fields.php';
-            require_once  dirname(__FILE__).'/includes/fields/preco_fields.php';
-            require_once  dirname(__FILE__).'/includes/fields/contato_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/seguranca_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/preco_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/contato_fields.php';
 
             $this->admin_fields = new Admin_Fields();
             $this->cases_fields = new Cases_Fields();
@@ -93,8 +95,17 @@ if (!class_exists('D1Plugin')) {
             $seguranca_options_settings = $this->seguranca_fields->getSettings();
             $preco_options_settings = $this->preco_fields->getSettings();
             $contato_options_settings = $this->contato_fields->getSettings();
-            $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings,
-            $plataforma_options_settings,$jornada_options_settings,$seguranca_options_settings,$preco_options_settings,$contato_options_settings);
+            $all_options_settings = array_merge(
+                $home_options_settings,
+                $cases_options_settings,
+                $footer_options_settings,
+                $segmentos_options_settings,
+                $plataforma_options_settings,
+                $jornada_options_settings,
+                $seguranca_options_settings,
+                $preco_options_settings,
+                $contato_options_settings
+            );
             foreach ($all_options_settings as $option) {
                 foreach ($option as $key => $setting) {
                     $whitelist_options[$setting['option_group']][] = $setting['option_name'];
@@ -133,7 +144,7 @@ if (!class_exists('D1Plugin')) {
             add_menu_page('Nossa Jornada', 'Nossa Jornada', 'manage_options', 'd1_plugin_jornada', array($this, 'jornada_admin'), "", 112);
 
             /* SEGURANÇA */
-            add_menu_page('Segurança','Segurança','manage_options','d1_plugin_seguranca',array($this,'seguranca_admin'), "",111);
+            add_menu_page('Segurança', 'Segurança', 'manage_options', 'd1_plugin_seguranca', array($this, 'seguranca_admin'), "", 111);
 
             /* SOLUÇÕES */
             add_menu_page('Segmentos', 'Segmentos', 'manage_options', 'd1_plugin_segmentos', array($this, 'segmentos_index'), 'dashicons-admin-site-alt3', 113);
@@ -141,7 +152,7 @@ if (!class_exists('D1Plugin')) {
 
             /* CONTEÚDO */
             add_menu_page('Cases', 'Cases', 'manage_options', 'd1_plugin_cases', array($this, 'cases_admin'), 'dashicons-welcome-widgets-menus', 114);
-            add_submenu_page('d1_plugin_cases','Categorias','Categorias','manage_options','d1_plugin_cases&tab=secao2',array($this,'cases_admin')); 
+            add_submenu_page('d1_plugin_cases', 'Categorias', 'Categorias', 'manage_options', 'd1_plugin_cases&tab=secao2', array($this, 'cases_admin'));
 
             /* PREÇO */
             add_menu_page('Preço', 'Preço', 'manage_options', 'd1_plugin_preco', array($this, 'preco_admin'), 'dashicons-cart', 115);
@@ -209,32 +220,36 @@ if (!class_exists('D1Plugin')) {
             require_once plugin_dir_path(__FILE__) . 'templates/jornada.php';
         }
 
-        public function seguranca_admin(){
-            require_once plugin_dir_path( __FILE__ ) . 'includes/pages/seguranca.php';
+        public function seguranca_admin()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/seguranca.php';
             $seguranca = new Seguranca();
             $seguranca->register();
-            require_once plugin_dir_path( __FILE__ ) . 'templates/seguranca.php';
+            require_once plugin_dir_path(__FILE__) . 'templates/seguranca.php';
         }
 
-        public function preco_admin(){
-            require_once plugin_dir_path( __FILE__ ) . 'includes/pages/preco.php';
+        public function preco_admin()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/preco.php';
             $preco = new Preco();
             $preco->register();
-            require_once plugin_dir_path( __FILE__ ) . 'templates/preco.php';
+            require_once plugin_dir_path(__FILE__) . 'templates/preco.php';
         }
 
-        public function contato_admin(){
-            require_once plugin_dir_path( __FILE__ ) . 'includes/pages/contato.php';
+        public function contato_admin()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/contato.php';
             $contato = new Contato();
             $contato->register();
-            require_once plugin_dir_path( __FILE__ ) . 'templates/contato.php';
+            require_once plugin_dir_path(__FILE__) . 'templates/contato.php';
         }
 
-        public function cta_admin(){
-            require_once plugin_dir_path( __FILE__ ) . 'includes/pages/cta.php';
+        public function cta_admin()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/cta.php';
             $cta = new Cta();
             $cta->register();
-            require_once plugin_dir_path( __FILE__ ) . 'templates/cta.php';
+            require_once plugin_dir_path(__FILE__) . 'templates/cta.php';
         }
 
         function activate()
@@ -356,11 +371,14 @@ if (!class_exists('D1Plugin')) {
                         add_filter('admin_footer_text', 'remove_footer_admin');
 
                         // Adicionar Tema ao Wordpress
-                        add_action( 'admin_enqueue_scripts', 'load_admin_style' );
-      function load_admin_style() {
-        wp_register_style( 'admin_css', '/wp-content/plugins/d1_plugin/resources/css/theme.css', false, '1.0.0' );
-//OR
-        wp_enqueue_style( 'admin_css', '/wp-content/plugins/d1_plugin/resources/css/theme.css', false, '1.0.0' );
-       }
+                        add_action('admin_enqueue_scripts', 'load_admin_style');
 
+                        function load_admin_style()
+                        {
+                            wp_register_style('admin_css', '/wp-content/plugins/d1_plugin/resources/css/theme.css', false, '1.0.0');
+                            //OR
+                            wp_enqueue_style('admin_css', '/wp-content/plugins/d1_plugin/resources/css/theme.css', false, '1.0.0');
+                        }
+
+                        add_rewrite_rule('^plataforma/?$', )
                     }
