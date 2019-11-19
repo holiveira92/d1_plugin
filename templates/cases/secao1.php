@@ -2,7 +2,7 @@
 global $wpdb;
 $id_card            = !empty($_REQUEST["id_card"]) ? $_REQUEST["id_card"] : false;
 $cases_list         = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases")), true);
-$categorias_list    = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases_categorias")), true);
+$categorias_list    = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases_categorias WHERE id_categoria IS NOT NULL AND id_categoria !='' ")), true);
 $data_bd            = !empty($id_card) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases WHERE id_card = $id_card")), true) : array();
 $param              = array('path_wp' => ABSPATH, 'id_card' => $id_card, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
