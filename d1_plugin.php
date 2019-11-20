@@ -1,25 +1,19 @@
 <?php
 /*
     Plugin name: D1 Plugin
-    Plugin uri: https://www.linkedin.com/in/hiago-oliveira-12715011a/
-    Descriptions: D1 Design - Dinius
+    Plugin uri: https://dinius.design/
+    Descriptions: Dinius - Design & Inovação
     Version: 1.0
-    Author: Hiago Oliveira
-    Author uri: https://www.linkedin.com/in/hiago-oliveira-12715011a/
+    Author: Dinius - Design & Inovação
     License: GPLv2 or later
 */
 
 //TODO LIST - DESENVOLVIMENTO
 /*
-1 - CRIAR E TESTAR SCRIPT DE CREATE OPTIONS NO BD
 2 - TESTAR SCRIPT DE INSTALAÇÃO/DESINSTALAÇÃO DO PLUGIN QUE APAGA DADOS NO BD
-3 - VERIFICAR ANEXOS DE JS E CSS PARA PAINEL DE ADM E TELA PRINCIPAL PARA EVITAR CTRL+C E CTRL+V
 4 - UTILIZAR BIBLIOTECA PARA LINGUAGENS E TRADUÇÃO
-5 - CRIAR SHORTCODES PARA COMPONENTES DA VIEW(SUBSTITUIR CODIGOS PHP NA VIEW)
 7 - TROCAR NOME DA CLASSE ADMIN PARA HOME OU PAGINA PRINCIPAL
-8 - ESPERAR INFORMAÇÕES SOBRE AS LOGOS UTILIZADAS NAS PAGINAS
 10 - CRIAR FUNÇÃO DE DELETAR IMAGENS(EXISTE O BOTÃO MAS AINDA NÃO EXISTE AÇÃO)
-11 - header , footer e cta salvos em lugares unicos - NOT OK
 */
 
 defined('ABSPATH') or die('Access Denied!');
@@ -380,5 +374,5 @@ if (!class_exists('D1Plugin')) {
                             wp_enqueue_style('admin_css', '/wp-content/plugins/d1_plugin/resources/css/theme.css', false, '1.0.0');
                         }
 
-                        add_rewrite_rule('^plataforma/?$', )
+                        //add_rewrite_rule('^plataforma/?$', )
                     }
