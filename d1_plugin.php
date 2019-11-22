@@ -50,7 +50,7 @@ if (!class_exists('D1Plugin')) {
             $this->plugin = plugin_basename(__FILE__);
             $this->whitelist_plugin = array(
                 'd1_plugin', 'd1_plugin_conteudo', 'upload.php', 'wpseo_dashboard', 'd1_plugin_footer', 'd1_plugin_solucoes', 'd1_plugin_segmentos',
-                'd1_plugin_plataforma', 'd1_plugin_jornada', 'd1_plugin_seguranca', 'd1_plugin_preco', 'd1_plugin_contato', 'themes.php', 'd1_plugin_cases', 'd1_plugin_cta'
+                'd1_plugin_plataforma', 'd1_plugin_jornada', 'd1_plugin_seguranca', 'd1_plugin_preco', 'd1_plugin_contato', 'themes.php', 'd1_plugin_cases', 'd1_plugin_cta', 'd1_plugin_d1_midia'
             );
             require_once  dirname(__FILE__) . '/includes/fields/admin_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/cases_fields.php';
@@ -61,6 +61,7 @@ if (!class_exists('D1Plugin')) {
             require_once  dirname(__FILE__) . '/includes/fields/seguranca_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/preco_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/contato_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/d1_midia_fields.php';
 
             $this->admin_fields = new Admin_Fields();
             $this->cases_fields = new Cases_Fields();
@@ -71,6 +72,7 @@ if (!class_exists('D1Plugin')) {
             $this->seguranca_fields = new Seguranca_Fields();
             $this->preco_fields = new Preco_Fields();
             $this->contato_fields = new Contato_Fields();
+            $this->d1_midia_fields = new D1_Midia_Fields();
         }
 
         function add_custom_options_page()
@@ -89,6 +91,7 @@ if (!class_exists('D1Plugin')) {
             $seguranca_options_settings = $this->seguranca_fields->getSettings();
             $preco_options_settings = $this->preco_fields->getSettings();
             $contato_options_settings = $this->contato_fields->getSettings();
+            $d1_midia_options_settings = $this->d1_midia_fields->getSettings();
             $all_options_settings = array_merge(
                 $home_options_settings,
                 $cases_options_settings,
@@ -98,7 +101,8 @@ if (!class_exists('D1Plugin')) {
                 $jornada_options_settings,
                 $seguranca_options_settings,
                 $preco_options_settings,
-                $contato_options_settings
+                $contato_options_settings,
+                $d1_midia_options_settings
             );
             foreach ($all_options_settings as $option) {
                 foreach ($option as $key => $setting) {
@@ -154,16 +158,13 @@ if (!class_exists('D1Plugin')) {
             /* CONTATO */
             add_menu_page('Contato', 'Contato', 'manage_options', 'd1_plugin_contato', array($this, 'contato_admin'), '', 115);
 
-            /* SOBRE */
-            add_menu_page('Sobre', 'Sobre', 'manage_options', 'd1_plugin_sobre', array($this, 'admin_index'), 'dashicons-info', 116);
-
-            /* FALAR COM ESPECIALISTA */
-            add_menu_page('Falar com Especialista', 'Falar com Especialista', 'manage_options', 'd1_plugin_especialista', array($this, 'admin_index'), 'dashicons-businessperson', 117);
-
             /* HEADER MENU, FOOTER, CTA */
             //add_menu_page('Header Menu', 'Header Menu', 'manage_options', 'd1_plugin_header_menu', '', '', 118);
             add_menu_page('Footer', 'Footer', 'manage_options', 'd1_plugin_footer', array($this, 'footer_admin'), '', 119);
             add_menu_page('Call To Action', 'Call To Action', 'manage_options', 'd1_plugin_cta', array($this, 'cta_admin'), '', 120);
+
+            /* D1 NA MÍDIA */
+            add_menu_page('D1 na Mídia', 'D1 na Mídia', 'manage_options', 'd1_plugin_d1_midia', array($this, 'd1_midia_admin'), '', 118);
         }
 
         public function admin_index()
@@ -245,6 +246,15 @@ if (!class_exists('D1Plugin')) {
             $cta->register();
             require_once plugin_dir_path(__FILE__) . 'templates/cta.php';
         }
+
+        public function d1_midia_admin()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/d1_midia.php';
+            $midia = new D1_Midia();
+            $midia->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/d1_midia.php';
+        }
+
 
         function activate()
         {
