@@ -28,7 +28,6 @@ function st_create_table() {
 }
 add_action( 'init', 'st_create_table' );
 
-// trocar todos os collate para utf8_general_ci
 /*
 CREATE TABLE wp_d1_cases (
 	id_card INT(11) NOT NULL AUTO_INCREMENT,
@@ -149,6 +148,20 @@ CREATE TABLE wp_d1_modulos (
 	url_link VARCHAR(250) NULL DEFAULT NULL,
 	url_img VARCHAR(250) NULL DEFAULT NULL,
 	PRIMARY KEY (id)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `d1_midia` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(250) NULL DEFAULT NULL,
+	`content` TEXT NULL DEFAULT NULL,
+	`vehicle` VARCHAR(50) NULL DEFAULT NULL,
+	`publication_date` DATE NULL DEFAULT NULL,
+	`link` TEXT NULL DEFAULT NULL,
+	`url_img_bg` TEXT NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB

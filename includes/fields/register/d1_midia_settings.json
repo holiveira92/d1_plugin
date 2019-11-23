@@ -1,0 +1,6 @@
+{
+    "d1_midia_secao1_options_group" : [{"option_name":"midia_secao1_title"},{"option_name":"midia_secao1_destaque_title"},{"option_name":"midia_secao1_text_link"},{"option_name":"midia_secao1_destaque_select"}],
+    "d1_midia_secao2_options_group" : [{"option_name":"midia_secao2_case1"},{"option_name":"midia_secao2_case2"},{"option_name":"midia_secao2_case3"}],
+    "d1_midia_secao3_options_group" : [],
+    "d1_midia_secao4_options_group" : []
+}
