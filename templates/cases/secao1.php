@@ -123,6 +123,12 @@ $cases_options = array(
                         <div class="checkbox-degrade"> <input type="checkbox" name="desc_card_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                         <label>Objetivo:</label><input type="text" name="subtitle_card" value="<?php echo $data['subtitle_card']; ?>">
                         <label>Nº Impacto:</label><input type="text" name="text_footer_card" value="<?php echo $data['text_footer_card']; ?>">
+                        <label>Descrição Secundária:</label><input type="text" name="subtext_footer_card" value="<?php echo $data['subtext_footer_card']; ?>">
+
+                    </fieldset>
+                </div>
+                <div class="col form-style-5 middle" id='secao1_content1'>
+                    <fieldset>
                         <label for="list_case<?php echo $i;?>">Selecione a Categoria:</label> <select name="categoria_case">
                             <option value="0"> Selecione </option>
                             <?php $id_selected = $cases_options["categoria_case"];
@@ -133,12 +139,6 @@ $cases_options = array(
                             <option value="<?php echo $value['id']; ?>" <?php echo $value['selected']; ?>> <?php echo $value['descricao']; ?> </option>
                             <?php endforeach; ?>
                         </select>
-
-                    </fieldset>
-                </div>
-                <div class="col form-style-5 middle" id='secao1_content1'>
-                    <fieldset>
-                        <label>Descrição Secundária:</label><input type="text" name="subtext_footer_card" value="<?php echo $data['subtext_footer_card']; ?>">
                         <!--<label>Link:</label><input type="text" name="card_link" value="<?php echo $data['card_link']; ?>"> !-->
                         <label>Imagem de Fundo</label><?php echo $this->d1_upload->get_image_options_cases("img_bg_url", $data['id_card']); ?>
                     </fieldset>

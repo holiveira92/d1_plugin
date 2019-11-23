@@ -59,7 +59,7 @@ $data = array(
                     <input type="hidden" name="json_delete_items" id="json_delete_items" value="">
                     <input type="hidden" name="id_modulo_principal" id="id_modulo_principal" value="<?php echo $data['id']; ?>">
                     <input type="hidden" name="id_pai" value="<?php echo $data['id']; ?>">
-                    <label>Descrição:</label><input type="text" name="main_title" value="<?php echo $data['title']; ?>" required>
+                    <label>Título do módulo:</label><input type="text" name="main_title" value="<?php echo $data['title']; ?>" required>
                     
                     <div name='items_content'>
                         <div class="row">

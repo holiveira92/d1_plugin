@@ -36,6 +36,7 @@
                     <div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="secao1_hero_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                     <label for="secao1_descricao_primaria">Benefícios:</label> <textarea name="secao1_descricao_primaria" rows=6> <?php echo get_option_esc('secao1_descricao_primaria') ?> </textarea>
                     <label for="secao1_descricao_secundaria">Chamada Pré CTA:</label> <textarea name="secao1_descricao_secundaria"> <?php echo get_option_esc('secao1_descricao_secundaria') ?> </textarea>
+                    <div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="secao1_descricao_secundaria_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                 </fieldset>
             </div>
             <div class="col form-style-5">
