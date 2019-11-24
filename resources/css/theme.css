@@ -118,7 +118,7 @@ button#add_group, button#add_item, .d1-button, .wp-core-ui .button-primary {
     box-shadow: none;
 }
 
-button#remove_group, button#remove {
+button#remove_group, button#remove, button.btn.btn-danger.btn_remove_group {
     position: static;
     padding: 6px 20px;
     border-radius: 100px;
@@ -141,7 +141,7 @@ button#remove_group, button#remove {
     box-shadow: none;
 }
 
-button#add_group:hover, button#add_item:hover, .d1-button:hover, .wp-core-ui .button-primary:hover, button#remove_group:hover, button#remove:hover, button.btn_remove_group:hover {
+button#add_group:hover, button#add_item:hover, .d1-button:hover, .wp-core-ui .button-primary:hover, button#remove_group:hover, button#remove:hover, button.btn_remove_group:hover, button.btn.btn-danger.btn_remove_group:hover {
     background-color: #000;
     background-image: none;
     border-color: #000;
@@ -155,7 +155,7 @@ button#remove {
     margin-left: 10px;
 }
 
-button#remove_group:focus, button#remove:focus, button.btn_remove_group:focus {
+button#remove_group:focus, button#remove:focus, button.btn_remove_group:focus, button.btn.btn-danger.btn_remove_group:focus {
     box-shadow: none;
 }
 
@@ -498,6 +498,7 @@ section {
 .form-style-5 fieldset {
     border: none;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .form-style-5 legend {
@@ -612,6 +613,10 @@ section {
 
 .main-content--pb30 {
     padding-bottom: 30px;
+}
+
+div#postdivrich {
+    display: none!important;
 }
 
 /*-----------------------------------------------------*/
