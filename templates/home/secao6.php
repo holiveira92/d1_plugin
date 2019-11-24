@@ -133,9 +133,6 @@
             }
         });
 
-        $("form").submit(function(e){
-            e.preventDefault();
-        });
     });
     </script>
 </body>
