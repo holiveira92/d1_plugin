@@ -22,6 +22,16 @@
 </head>
 
 <body class="animsition">
+    <div class="row">
+        <div class="col form-style-5">
+            <!-- Seção 1 - Configs Gerais -->
+            <fieldset>
+                <legend><span class="number">1</span>Título da Seção</legend>
+                <label for="cases_secao0_title">Nome:</label> <input type="text" name="cases_secao0_title" value="<?php echo get_option_esc('cases_secao0_title') ?>" placeholder="Titulo">
+            </fieldset>
+        </div>
+    </div>
+
     <!-- DATA TABLE -->
     <div class="table-data__tool">
         <div class="table-data__tool-right">
@@ -30,7 +40,7 @@
                     $param = array('path_wp' => ABSPATH, 'id_card' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                     $query_string = http_build_query($param); 
             ?>
-            <a href="<?php echo $create_url . $query_string ;?>"><button class="button button-primary">
+            <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
                 <i class="zmdi zmdi-plus"></i>Adicionar case</button></a>
         </div>
     </div>

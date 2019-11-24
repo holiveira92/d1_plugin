@@ -35,6 +35,7 @@
                     <label for="jornada_secao3_equipe1_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe1_main_title" value="<?php echo get_option_esc('jornada_secao3_equipe1_main_title'); ?>">
                     <label for="jornada_secao3_equipe1_title">Destaque:</label><input type="text" name="jornada_secao3_equipe1_title" value="<?php echo get_option_esc('jornada_secao3_equipe1_title'); ?>">
                     <label for="jornada_secao3_equipe1_descricao">Descrição:</label> <textarea name="jornada_secao3_equipe1_descricao" rows='5'><?php echo get_option_esc('jornada_secao3_equipe1_descricao'); ?></textarea>
+                     <label for="jornada_secao2_img">Imagem do fundo:</label><?php echo $this->d1_upload->get_image_options('jornada_secao3_equipe1_img'); ?>
                 </fieldset>
             </div>
 

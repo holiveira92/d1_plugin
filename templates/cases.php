@@ -14,15 +14,18 @@
     <?php 
 		switch($active_tab){
 			case 'config_cards':
-                settings_fields('cases_d1_card_group');
-                do_settings_sections('d1_plugin_cases');
-				break;
+                echo '<form method="post" action="options.php" enctype="multipart/form-data">';
+				settings_fields('cases_d1_card_group');
+				do_settings_sections('d1_plugin_cases');
+				submit_button();
+                echo '</form>';
+                break;
             case 'secao2':
 				settings_fields('cases_d1_card_group');
                 do_settings_sections('d1_plugin_cases');
 				break;
 			default:
-				settings_fields('config_cards');
+				settings_fields('cases_d1_card_group');
 				do_settings_sections('d1_plugin_cases');
 				break;
         }
