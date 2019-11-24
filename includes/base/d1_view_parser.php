@@ -49,9 +49,9 @@ class D1_View_Parser {
                 $page = $field_name['page'];
                 $id_option = $field_name['id'];
                 $option_value = get_option_esc($field_name['id']);
-                if((empty($option_value)) && (strpos($field_name['id'], 'image') !== false 
-                    || strpos($field_name['id'], 'img') !== false) || strpos($field_name['id'], 'favicon') !== false 
-                    || strpos($field_name['id'], 'logo') !== false) {
+                if(empty($option_value) && ( strpos($field_name['id'], 'image') !== false 
+                    || strpos($field_name['id'], 'img') !== false || strpos($field_name['id'], 'favicon') !== false 
+                    || strpos($field_name['id'], 'logo') !== false )){
                     $option_value = $data_fields['img_default'];
                 }
 

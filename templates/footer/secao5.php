@@ -29,7 +29,6 @@
 </head>
 
 <body>
-    <form id="footer_fields" action="<?php echo $url_action; ?>">
         <div class="container">
             <div class="row">
                 <div class="col form-style-5">
@@ -125,5 +124,4 @@
 
 
         </div>
-    </form>
 </body>
