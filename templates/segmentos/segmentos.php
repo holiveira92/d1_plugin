@@ -99,8 +99,8 @@ $id_segmento = !empty($data['id']) ? $data['id'] : 0;
                     <fieldset>
                         <legend><span class="number">1</span>Infos Segmento</legend>
                         <input type="hidden" name="id" id="id" value="<?php echo $data['id']; ?>">
-                        <label for="main_title">Titulo:</label><input type="text" name="main_title" value="<?php echo $data['main_title']; ?>" placeholder="Titulo Principal">
-                        <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo">
+                        <label for="main_title">Titulo:</label><input type="text" name="main_title" value="<?php echo $data['main_title']; ?>" placeholder="Titulo Principal" required>
+                        <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo" required>
                         <label for="description">Descricao:</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
                     </fieldset>
                     </div>

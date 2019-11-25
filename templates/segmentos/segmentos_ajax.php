@@ -54,7 +54,7 @@ $data = array(
 if(empty($id_seg)){
     $sql           = "INSERT INTO " . $wpdb->prefix . "d1_segmentos
     (main_title,title,description,url_img_bg,challenge_title,challenge1,challenge2,challenge3,img_customer1,img_customer2,img_customer3,customers_title,cases_options) 
-    VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
+    VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
     $wpdb->query($wpdb->prepare($sql,array(
         $data['main_title'],$data['title'],$data['description'],$data['url_img_bg'],$data['challenge_title'],
         $data['challenge1'],$data['challenge2'],$data['challenge3'],$data['img_customer1'],$data['img_customer2'],$data['img_customer3'],$data['customers_title'],$data['cases_options']
