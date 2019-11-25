@@ -17,13 +17,14 @@ $data = array(
     'description'   => !empty($_REQUEST["description"]) ? $_REQUEST["description"] : '',
     'url_img'       => !empty($_REQUEST["url_img"]) ? $_REQUEST["url_img"] : '',
     'page'          => !empty($_REQUEST["page"]) ? $_REQUEST["page"] : 'segmentos',
+    'id_segmento'   => !empty($_REQUEST["id_segmento"]) ? $_REQUEST["id_segmento"] : '',
 );
 
 //insert
 if(empty($id_keyp)){
-    $sql           = "INSERT INTO " . $wpdb->prefix . "d1_key_points(title,description,url_img,page) 
-                    VALUES('%s','%s','%s','%s')";
-    $wpdb->query($wpdb->prepare($sql,array($data['title'],$data['description'],$data['url_img'],$data['page'])));
+    $sql           = "INSERT INTO " . $wpdb->prefix . "d1_key_points(title,description,url_img,page,id_segmento) 
+                    VALUES('%s','%s','%s','%s','%s')";
+    $wpdb->query($wpdb->prepare($sql,array($data['title'],$data['description'],$data['url_img'],$data['page'],$data['id_segmento'])));
     $id_keyp = $wpdb->insert_id;
     $param              = array('path_wp' => $_REQUEST["path_wp"], 'id_keyp' => $id_keyp, 'url_location' => $_REQUEST["admin_url"]);
     $query_string       = http_build_query($param);
@@ -34,8 +35,8 @@ else{
     $param              = array('path_wp' => $_REQUEST["path_wp"], 'id_keyp' => $id_keyp, 'url_location' => $_REQUEST["admin_url"]);
     $query_string       = http_build_query($param);
     $location           = urldecode($_REQUEST["admin_url"] . "admin.php?page=d1_plugin_segmentos&tab=keyp&" . $query_string);
-    $sql                = "UPDATE " . $wpdb->prefix ."d1_key_points SET title='%s', description='%s', url_img='%s', page='%s' WHERE id = %d";
-    $wpdb->query($wpdb->prepare($sql,array($data['title'],$data['description'],$data['url_img'],$data['page'],$data['id'])));
+    $sql                = "UPDATE " . $wpdb->prefix ."d1_key_points SET title='%s', description='%s', url_img='%s', page='%s', id_segmento='%s' WHERE id = %d";
+    $wpdb->query($wpdb->prepare($sql,array($data['title'],$data['description'],$data['url_img'],$data['page'],$data['id_segmento'],$data['id'])));
 }
 
 header("location: " . $location);

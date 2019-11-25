@@ -2,6 +2,7 @@
 global $wpdb;
 $id_seg            = !empty($_REQUEST["id_seg"]) ? $_REQUEST["id_seg"] : false;
 $data_bd            = !empty($id_seg) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_segmentos WHERE id = '$id_seg'")), true) : array();
+$cases_list         = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases")), true);
 $param              = array('path_wp' => ABSPATH, 'id_seg' => $id_seg, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/segmentos/segmentos_delete.php?', 'd1_plugin') . $query_string;
@@ -47,6 +48,15 @@ $data_clientes = array(
     'img_customer3' => !empty($data_bd[0]["img_customer3"]) ? $data_bd[0]["img_customer3"] : ""
 );
 
+$cases_options                      = !empty($data_bd[0]["cases_options"]) ? json_decode($data_bd[0]["cases_options"], true) : array();
+$cases_options = array(
+    'cases_title' => !empty($cases_options['cases_title']) ? $cases_options['cases_title'] : '',
+    'list_case1' => !empty($cases_options['list_case1']) ? $cases_options['list_case1'] : 0,
+    'list_case2' => !empty($cases_options['list_case2']) ? $cases_options['list_case2'] : 0,
+    'list_case3' => !empty($cases_options['list_case3']) ? $cases_options['list_case3'] : 0,
+);
+
+$id_segmento = !empty($data['id']) ? $data['id'] : 0;
 ?>
 
 <head>
@@ -77,6 +87,7 @@ $data_clientes = array(
 
 <body class="animsition">
     <form id="keypoints_fields" action="<?php echo $url_action; ?>">
+        <!-- DADOS DO SEGMENTO -->
         <div class="container">
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
@@ -136,6 +147,97 @@ $data_clientes = array(
             </div>
             
         </div>
+
+        <!-- INFOS DOS CASES -->
+        <div class="container">
+        <div class="row">
+            <div class="col form-style-5 middle">
+                <fieldset>
+                    <legend><span class="number">2</span>Cases</legend>
+                    <div class="row">
+                    <div class="col-4 form-style-5 middle">
+                                <!-- Início de Select para Card -->
+                                <label for="list_case<?php echo $i;?>">Selecione os Cases -  Opção:</label> <select name="list_case1">
+                                    <option value="0"> Selecione </option>
+                                    <?php $id_selected = $cases_options["list_case1"];
+                                    foreach ($cases_list as $key => &$value) :
+                                        if ($value['id_card'] == $id_selected) $value['selected'] = 'selected';
+                                        else $value['selected'] = '';
+                                    ?>
+                                    <option value="<?php echo $value['id_card']; ?>" <?php echo $value['selected']; ?>> <?php echo $value['title_card']; ?> </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <!-- Fim de Select para Card -->
+                    </div>
+                    </div>
+                </fieldset>
+        </div></div></div>
+    
+    <!-- INFOS DOS KEY POINTS -->
+    <div class="row">
+                <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
+                    <div class="row">
+    <fieldset id='kps'>
+        <legend><span class="number">3</span>Key Points</legend>
+    <!-- DATA TABLE -->
+    <div class="table-data__tool">
+        <div class="table-data__tool-right">
+            <?php   
+                    $create_url = "?page=d1_plugin_segmentos&tab=keyp&";
+                    $param = array('path_wp' => ABSPATH, 'id_keyp' => false, 'id_segmento' => $id_segmento,
+                    'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                    $query_string = http_build_query($param); 
+            ?>
+            <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
+                <i class="zmdi zmdi-plus"></i>Adicionar Key Point</button></a>
+        </div>
+    </div>
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-data2">
+            <thead>
+                <tr>
+                    <th width='20%'>Título</th>
+                    <th width='75%'>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php 
+                    global $wpdb;
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='segmentos' AND id_segmento=$id_segmento")),true);
+                    $cont = 0;
+                    $delete_url = plugins_url('d1_plugin/templates/segmentos/keyp_delete.php?','d1_plugin');
+                    foreach($result as $key=>&$value): 
+                        $cont++;
+                        $create_edit_url = "?page=d1_plugin_segmentos&tab=keyp&";
+                        $param = array('path_wp' => ABSPATH, 'id_keyp' => $value['id'], 'id_segmento' => $id_segmento, 
+                        'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                        $query_string = http_build_query($param);
+                ?>
+                <tr class="tr-shadow">
+                    <input type="hidden" name="id_keyp" id="id_keyp" value="<?php echo $value['id'];?>">
+                    <td><?php echo $value['title'];?></td>
+                    <td class="desc"><?php echo $value['description'];?></td>
+                    <td>
+                        <div class="table-data-feature">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button></a>
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button></a>
+                        </div>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <!-- END DATA TABLE -->
+    </fieldset>
+    </div></div></div>
+
         <p class="submit">
             <input type="submit" id="keyp_submit" class="button button-primary" value="Salvar Alterações" />
         </p>
@@ -148,6 +250,19 @@ $data_clientes = array(
             var action = $('#keypoints_fields').attr('action');
             $('#keypoints_fields').attr('action', action + "?" + $('#keypoints_fields').serialize());
         });
+
+        //botão deletar
+        $(document).on('click', '.btn_delete', function(){
+            if(!confirm('Tem certeza que deseja apagar este Key Point?')){
+                return false;
+            }
+        });
+
+        var id_segmento = $('#id').val();
+        if(id_segmento == undefined || id_segmento == ''){
+            $('#kps').hide();
+        }
+        
     });
 </script>
 </body>

@@ -78,10 +78,10 @@
                     <td><?php echo $value['card_link'];?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>

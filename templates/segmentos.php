@@ -7,8 +7,6 @@
 
     <h2 class="nav-tab-wrapper">
         <a href="?page=d1_plugin_segmentos&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Segmentos</a>
-        <a href="?page=d1_plugin_segmentos&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Key Points</a>
-        <a href="?page=d1_plugin_segmentos&tab=secao3" class="nav-tab <?php echo $active_tab == 'secao3' ? 'nav-tab-active' : ''; ?>">Cases</a>
         <input type="hidden" id="destination_field">
     </h2>
     

@@ -1,6 +1,7 @@
 <?php
 global $wpdb;
 $id_keyp            = !empty($_REQUEST["id_keyp"]) ? $_REQUEST["id_keyp"] : false;
+$id_segmento        = !empty($_REQUEST["id_segmento"]) ? $_REQUEST["id_segmento"] : '';
 $data_bd            = !empty($id_keyp) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE id = '$id_keyp'")), true) : array();
 $param              = array('path_wp' => ABSPATH, 'id_keyp' => $id_keyp, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
@@ -13,7 +14,9 @@ $data = array(
     'description'   => !empty($data_bd[0]["description"]) ? $data_bd[0]["description"] : '',
     'url_img'       => !empty($data_bd[0]["url_img"]) ? $data_bd[0]["url_img"] : '',
     'page'          => !empty($data_bd[0]["page"]) ? $data_bd[0]["page"] : 'segmentos',
+    'id_segmento'   => !empty($data_bd[0]["id_segmento"]) ? $data_bd[0]["id_segmento"] : $id_segmento,
 );
+$id_segmento        = !empty($data["id_segmento"]) ? $data["id_segmento"] : '';
 ?>
 
 <head>
@@ -44,6 +47,17 @@ $data = array(
 
 <body class="animsition">
     <form id="keypoints_fields" action="<?php echo $url_action; ?>">
+    <div class="table-data__tool">
+        <div class="table-data__tool-right">
+            <?php   
+                    $return_url = "?page=d1_plugin_segmentos&tab=seg&";
+                    $param = array('path_wp' => ABSPATH, 'id_seg' => $id_segmento, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                    $query_string = http_build_query($param);
+            ?>
+            <a href="<?php echo $return_url . $query_string ;?>"><button type="button" class="button button-primary">
+                <-- Voltar para Segmento</button></a>
+        </div>
+    </div>
         <div class="container">
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
@@ -53,6 +67,7 @@ $data = array(
                     <div class="col form-style-5 middle">
                         <input type="hidden" name="id" id="id" value="<?php echo $data['id']; ?>">
                         <input type="hidden" name="page" id="page" value="<?php echo $data['page']; ?>">
+                        <input type="hidden" name="id_segmento" id="id_segmento" value="<?php echo $data['id_segmento']; ?>">
                         <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo">
                         <label for="description">Descricao:</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
                         <?php echo $this->d1_upload->get_image_options_common("url_img",$data['url_img'],$data['id']); ?>
