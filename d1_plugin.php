@@ -50,7 +50,7 @@ if (!class_exists('D1Plugin')) {
             $this->plugin = plugin_basename(__FILE__);
             $this->whitelist_plugin = array(
                 'd1_plugin', 'd1_plugin_conteudo', 'upload.php', 'wpseo_dashboard', 'd1_plugin_footer', 'd1_plugin_solucoes', 'd1_plugin_segmentos',
-                'd1_plugin_plataforma', 'd1_plugin_jornada', 'd1_plugin_seguranca', 'd1_plugin_preco', 'd1_plugin_contato', 'themes.php', 'd1_plugin_cases', 'd1_plugin_cta', 'd1_plugin_d1_midia', 'd1_plugin_modulos'
+                'd1_plugin_plataforma', 'd1_plugin_jornada', 'd1_plugin_seguranca', 'd1_plugin_preco', 'd1_plugin_contato', 'themes.php', 'd1_plugin_cases', 'd1_plugin_cta', 'd1_plugin_d1_midia', 'd1_plugin_modulos', 'd1_plugin_objetivos'
             );
             require_once  dirname(__FILE__) . '/includes/fields/admin_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/cases_fields.php';
@@ -172,6 +172,9 @@ if (!class_exists('D1Plugin')) {
 
             /* MODULOS */
             add_menu_page('Módulos', 'Módulos', 'manage_options', 'd1_plugin_modulos', array($this, 'modulos_index'), '', 113);
+
+            /* OBJETIVOS DE NEGÓCIOS */
+            add_menu_page('Objetivos de Négocio', 'Objetivos de Négocio', 'manage_options', 'd1_plugin_objetivos', array($this, 'objetivos_index'), '', 113);
         }
 
         public function admin_index()
@@ -268,6 +271,14 @@ if (!class_exists('D1Plugin')) {
             $modulos = new Modulos();
             $modulos->register();
             require_once plugin_dir_path(__FILE__) . 'templates/modulos.php';
+        }
+
+        public function objetivos_index()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/objetivos.php';
+            $objetivos = new Objetivos();
+            $objetivos->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/objetivos.php';
         }
 
 
