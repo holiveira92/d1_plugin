@@ -185,5 +185,24 @@ CREATE TABLE wp_d1_modulos (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
+
+CREATE TABLE d1_objetivos (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	title VARCHAR(250) NULL DEFAULT NULL,
+	description TEXT NULL DEFAULT NULL,
+	url_img TEXT NULL DEFAULT NULL,
+	subtitle TEXT NULL DEFAULT NULL,
+	main_subtitle TEXT NULL DEFAULT NULL,
+	subtitle_description TEXT NULL DEFAULT NULL,
+	challenge1 TEXT NULL DEFAULT NULL,
+	challenge2 TEXT NULL DEFAULT NULL,
+	challenge3 TEXT NULL DEFAULT NULL,
+	cases_options TEXT NULL DEFAULT NULL,
+	PRIMARY KEY (id)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+;
+
 */
 ?>
