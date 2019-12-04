@@ -50,7 +50,7 @@ if (!class_exists('D1Plugin')) {
             $this->plugin = plugin_basename(__FILE__);
             $this->whitelist_plugin = array(
                 'd1_plugin', 'd1_plugin_conteudo', 'upload.php', 'wpseo_dashboard', 'd1_plugin_footer', 'd1_plugin_solucoes', 'd1_plugin_segmentos',
-                'd1_plugin_plataforma', 'd1_plugin_jornada', 'd1_plugin_seguranca', 'd1_plugin_preco', 'd1_plugin_contato', 'themes.php', 'd1_plugin_cases', 'd1_plugin_cta', 'd1_plugin_d1_midia', 'd1_plugin_modulos', 'd1_plugin_objetivos'
+                'd1_plugin_plataforma', 'd1_plugin_jornada', 'd1_plugin_seguranca', 'd1_plugin_preco', 'd1_plugin_contato', 'themes.php', 'd1_plugin_cases', 'd1_plugin_cta', 'd1_plugin_d1_midia', 'd1_plugin_modulos', 'd1_plugin_objetivos' , 'd1_plugin_departamentos'
             );
             require_once  dirname(__FILE__) . '/includes/fields/admin_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/cases_fields.php';
@@ -63,6 +63,8 @@ if (!class_exists('D1Plugin')) {
             require_once  dirname(__FILE__) . '/includes/fields/contato_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/d1_midia_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/modulos_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/objetivos_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/departamentos_fields.php';
 
             $this->admin_fields = new Admin_Fields();
             $this->cases_fields = new Cases_Fields();
@@ -75,6 +77,8 @@ if (!class_exists('D1Plugin')) {
             $this->contato_fields = new Contato_Fields();
             $this->d1_midia_fields = new D1_Midia_Fields();
             $this->modulos_fields = new Modulos_Fields();
+            $this->objetivos_fields = new Objetivos_Fields();
+            $this->departamentos_fields = new Departamentos_Fields();
         }
 
         function add_custom_options_page()
@@ -95,6 +99,8 @@ if (!class_exists('D1Plugin')) {
             $contato_options_settings = $this->contato_fields->getSettings();
             $d1_midia_options_settings = $this->d1_midia_fields->getSettings();
             $modulos_options_settings = $this->modulos_fields->getSettings();
+            $objetivos_options_settings = $this->objetivos_fields->getSettings();
+            $departamentos_options_settings = $this->departamentos_fields->getSettings();
             $all_options_settings = array_merge(
                 $home_options_settings,
                 $cases_options_settings,
@@ -106,7 +112,9 @@ if (!class_exists('D1Plugin')) {
                 $preco_options_settings,
                 $contato_options_settings,
                 $d1_midia_options_settings,
-                $modulos_options_settings
+                $modulos_options_settings,
+                $objetivos_options_settings,
+                $departamentos_options_settings
             );
             foreach ($all_options_settings as $option) {
                 foreach ($option as $key => $setting) {
@@ -175,6 +183,9 @@ if (!class_exists('D1Plugin')) {
 
             /* OBJETIVOS DE NEGÓCIOS */
             add_menu_page('Objetivos de Négocio', 'Objetivos de Négocio', 'manage_options', 'd1_plugin_objetivos', array($this, 'objetivos_index'), '', 113);
+
+            /* DEPARTAMENTOS */
+            add_menu_page('Departamentos', 'Departamentos', 'manage_options', 'd1_plugin_departamentos', array($this, 'departamentos_index'), '', 113);
         }
 
         public function admin_index()
@@ -279,6 +290,14 @@ if (!class_exists('D1Plugin')) {
             $objetivos = new Objetivos();
             $objetivos->register();
             require_once plugin_dir_path(__FILE__) . 'templates/objetivos.php';
+        }
+
+        public function departamentos_index()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/departamentos.php';
+            $departamentos = new Departamentos();
+            $departamentos->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/departamentos.php';
         }
 
 

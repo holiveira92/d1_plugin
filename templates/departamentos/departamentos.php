@@ -1,24 +1,21 @@
 <?php
 global $wpdb;
-$id_mod            = !empty($_REQUEST["id_mod"]) ? $_REQUEST["id_mod"] : false;
-$data_bd            = !empty($id_mod) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_modulos WHERE id = '$id_mod'")), true) : array();
+$id_mod             = !empty($_REQUEST["id_mod"]) ? $_REQUEST["id_mod"] : false;
+$data_bd            = !empty($id_mod) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_departamentos WHERE id = '$id_mod'")), true) : array();
 $cases_list         = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases")), true);
+$features_list      = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='modulos' ")), true);
 $param              = array('path_wp' => ABSPATH, 'id_mod' => $id_mod, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
-$delete_url         = plugins_url('d1_plugin/templates/modulos/modulos_delete.php?', 'd1_plugin') . $query_string;
-$voltar_url         = "?page=d1_plugin_modulos&tab=secao1&" . $query_string;
-$url_action         = plugins_url('d1_plugin/templates/modulos/modulos_ajax.php', 'd1_plugin'); 
+$delete_url         = plugins_url('d1_plugin/templates/departamentos/departamentos_delete.php?', 'd1_plugin') . $query_string;
+$voltar_url         = "?page=d1_plugin_departamentos&tab=secao1&" . $query_string;
+$url_action         = plugins_url('d1_plugin/templates/departamentos/departamentos_ajax.php', 'd1_plugin'); 
 $data = array(
     'id'            => !empty($data_bd[0]["id"]) ? $data_bd[0]["id"] : '',
-    'main_title'    => !empty($data_bd[0]["main_title"]) ? $data_bd[0]["main_title"] : '',
+    'main_title'         => !empty($data_bd[0]["main_title"]) ? $data_bd[0]["main_title"] : '',
     'title'         => !empty($data_bd[0]["title"]) ? $data_bd[0]["title"] : '',
     'description'   => !empty($data_bd[0]["description"]) ? $data_bd[0]["description"] : '',
-    'url_img'    => !empty($data_bd[0]["url_img"]) ? $data_bd[0]["url_img"] : '',
-    'challenge_title'=> !empty($data_bd[0]["challenge_title"]) ? $data_bd[0]["challenge_title"] : '',
-    'img_customer1' => !empty($data_bd[0]["img_customer1"]) ? $data_bd[0]["img_customer1"] : '',
-    'img_customer2' => !empty($data_bd[0]["img_customer2"]) ? $data_bd[0]["img_customer2"] : '',
-    'img_customer3' => !empty($data_bd[0]["img_customer3"]) ? $data_bd[0]["img_customer3"] : '',
-    'customers_title' => !empty($data_bd[0]["customers_title"]) ? $data_bd[0]["customers_title"] : '',
+    'url_img'       => !empty($data_bd[0]["url_img"]) ? $data_bd[0]["url_img"] : '',
+    'challenge_title'      => !empty($data_bd[0]["challenge_title"]) ? $data_bd[0]["challenge_title"] : '',
 );
 
 $data_challenge = array(
@@ -42,18 +39,21 @@ $challenge[3] = array(
     'description'   => !empty($data_challenge['challenge3']['description']) ? $data_challenge['challenge3']['description'] : "",
 );
 
-$data_clientes = array(
-    'img_customer1' => !empty($data_bd[0]["img_customer1"]) ? $data_bd[0]["img_customer1"] : "",
-    'img_customer2' => !empty($data_bd[0]["img_customer2"]) ? $data_bd[0]["img_customer2"] : "",
-    'img_customer3' => !empty($data_bd[0]["img_customer3"]) ? $data_bd[0]["img_customer3"] : ""
-);
-
-$cases_options                      = !empty($data_bd[0]["cases_options"]) ? json_decode($data_bd[0]["cases_options"], true) : array();
+$cases_options      = !empty($data_bd[0]["cases_options"]) ? json_decode($data_bd[0]["cases_options"], true) : array();
 $cases_options = array(
     'cases_title' => !empty($cases_options['cases_title']) ? $cases_options['cases_title'] : '',
     'list_case1' => !empty($cases_options['list_case1']) ? $cases_options['list_case1'] : 0,
     'list_case2' => !empty($cases_options['list_case2']) ? $cases_options['list_case2'] : 0,
     'list_case3' => !empty($cases_options['list_case3']) ? $cases_options['list_case3'] : 0,
+);
+
+$modulos_options      = !empty($data_bd[0]["modulos_options"]) ? json_decode($data_bd[0]["modulos_options"], true) : array();
+$modulos_options      = array(
+    'modulos_title' => !empty($modulos_options['modulos_title']) ? $modulos_options['modulos_title'] : '',
+    'modulos_descricao' => !empty($modulos_options['modulos_descricao']) ? $modulos_options['modulos_descricao'] : '',
+    'list_modulos1' => !empty($modulos_options['list_modulos1']) ? $modulos_options['list_modulos1'] : 0,
+    'list_modulos2' => !empty($modulos_options['list_modulos2']) ? $modulos_options['list_modulos2'] : 0,
+    'list_modulos3' => !empty($modulos_options['list_modulos3']) ? $modulos_options['list_modulos3'] : 0,
 );
 
 $id_modulo = !empty($data['id']) ? $data['id'] : 0;
@@ -97,8 +97,9 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                     <div class="row">
                     <div class="col form-style-5 middle">
                     <fieldset>
-                        <legend><span class="number">1</span>Infos Módulo</legend>
+                        <legend><span class="number">1</span>Infos Departamento</legend>
                         <input type="hidden" name="id" id="id" value="<?php echo $data['id']; ?>">
+                        <label for="main_title">Titulo Principal:</label><input type="text" name="main_title" value="<?php echo $data["main_title"]; ?>" placeholder="Titulo Principal">
                         <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo" required>
                         <label for="description">Descricao:</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
                     </fieldset>
@@ -113,29 +114,61 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
             
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
+                <fieldset>
+                        <legend><span class="number">2</span>Desafios</legend>
                     <div class="row">
-                        <label for="challenge_title">Titulo:</label><input type="text" name="challenge_title" value="<?php echo $data["challenge_title"]; ?>" placeholder="Titulo Principal">
+                    <label for="challenge_title">Titulo:</label><input type="text" name="challenge_title" value="<?php echo $data["challenge_title"]; ?>" placeholder="Titulo Principal">
                         <?php for($i=1;$i<=3;$i++): ?>
                         <div class="col form-style-5 middle">
                         <fieldset>
-                            <legend><span class="number"><?php echo $i;?></span>Desafio <?php echo $i;?></legend>
+                            <legend><span class="number">2.<?php echo $i;?></span>Desafio <?php echo $i;?></legend>
                             <label for="challenge<?php echo $i;?>_title">Titulo:</label><input type="text" name="challenge<?php echo $i;?>_title" value="<?php echo $challenge[$i]["title"]; ?>" placeholder="Titulo">
                             <label for="challenge<?php echo $i;?>_description">Descricao:</label> <textarea name="challenge<?php echo $i;?>_description" placeholder="Descrição" rows='7'><?php echo $challenge[$i]["description"]; ?></textarea>
                         </fieldset>
                         </div>
                         <?php endfor; ?>
                     </div>
+                </fieldset>
                 </div>
             </div>
 
         </div>
+
+        <!-- INFOS FEATUERES/MODULOS -->
+        <div class="container">
+        <div class="row">
+            <div class="col form-style-5 middle">
+                <fieldset>
+                    <legend><span class="number">3</span>Features</legend>
+                    <div class="row">
+                    <label for="modulos_title">Titulo Features:</label><input type="text" name="modulos_title" value="<?php echo $modulos_options["modulos_title"]; ?>" placeholder="Titulo">
+                    <label for="modulos_descricao">Descrição Features:</label> <textarea name="modulos_descricao" placeholder="Descrição" rows='7'><?php echo $modulos_options["modulos_descricao"]; ?></textarea>
+                    <?php for($i=1;$i<=3;$i++): ?>
+                    <div class="col-4 form-style-5 middle">
+                                <!-- Início de Select para Card -->
+                                <label for="list_modulos<?php echo $i;?>">Selecione as Features -  Opção <?php echo $i;?>:</label> <select name="list_modulos<?php echo $i;?>">
+                                    <option value="0"> Selecione </option>
+                                    <?php $id_selected = $modulos_options["list_modulos$i"];
+                                    foreach ($features_list as $key => &$value) :
+                                        if ($value['id'] == $id_selected) $value['selected'] = 'selected';
+                                        else $value['selected'] = '';
+                                    ?>
+                                    <option value="<?php echo $value['id']; ?>" <?php echo $value['selected']; ?>> <?php echo $value['title']; ?> </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <!-- Fim de Select para Card -->
+                    </div>
+                    <?php endfor; ?>
+                    </div>
+                </fieldset>
+        </div></div></div>
 
         <!-- INFOS DOS CASES -->
         <div class="container">
         <div class="row">
             <div class="col form-style-5 middle">
                 <fieldset>
-                    <legend><span class="number">2</span>Cases</legend>
+                    <legend><span class="number">4</span>Cases</legend>
                     <div class="row">
                     <label for="cases_title">Titulo Cases:</label><input type="text" name="cases_title" value="<?php echo $cases_options["cases_title"]; ?>" placeholder="Titulo">
                     <?php for($i=1;$i<=3;$i++): ?>
@@ -163,18 +196,18 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
                     <div class="row">
     <fieldset id='kps'>
-        <legend><span class="number">3</span>Features</legend>
+        <legend><span class="number">5</span>Key Points</legend>
     <!-- DATA TABLE -->
     <div class="table-data__tool">
         <div class="table-data__tool-right">
             <?php   
-                    $create_url = "?page=d1_plugin_modulos&tab=keyp&";
+                    $create_url = "?page=d1_plugin_departamentos&tab=keyp&";
                     $param = array('path_wp' => ABSPATH, 'id_keyp' => false, 'id_modulo' => $id_modulo,
                     'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                     $query_string = http_build_query($param); 
             ?>
             <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
-                <i class="zmdi zmdi-plus"></i>Adicionar Feature</button></a>
+                <i class="zmdi zmdi-plus"></i>Adicionar Key Point</button></a>
         </div>
     </div>
     <div class="table-responsive table-responsive-data2">
@@ -190,12 +223,12 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='modulos' AND id_segmento=$id_modulo")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='departamentos' AND id_segmento=$id_modulo")),true);
                     $cont = 0;
-                    $delete_url = plugins_url('d1_plugin/templates/modulos/keyp_delete.php?','d1_plugin');
+                    $delete_url = plugins_url('d1_plugin/templates/departamentos/keyp_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 
                         $cont++;
-                        $create_edit_url = "?page=d1_plugin_modulos&tab=keyp&";
+                        $create_edit_url = "?page=d1_plugin_departamentos&tab=keyp&";
                         $param = array('path_wp' => ABSPATH, 'id_keyp' => $value['id'], 'id_modulo' => $id_modulo, 
                         'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                         $query_string = http_build_query($param);

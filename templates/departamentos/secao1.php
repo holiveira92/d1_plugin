@@ -26,20 +26,20 @@
     <div class="table-data__tool">
         <div class="table-data__tool-right">
             <?php   
-                    $create_url = "?page=d1_plugin_modulos&tab=keyp&";
-                    $param = array('path_wp' => ABSPATH, 'id_keyp' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                    $create_url = "?page=d1_plugin_departamentos&tab=mod&";
+                    $param = array('path_wp' => ABSPATH, 'id_mod' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                     $query_string = http_build_query($param); 
             ?>
             <a href="<?php echo $create_url . $query_string ;?>"><button class="button button-primary">
-                <i class="zmdi zmdi-plus"></i>Adicionar Feature</button></a>
+                <i class="zmdi zmdi-plus"></i>Adicionar Departamento</button></a>
         </div>
     </div>
     <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
             <thead>
                 <tr>
-                    <th width='20%'>Título</th>
-                    <th width='75%'>Descrição</th>
+                    <th width='30%'>Título Principal</th>
+                    <th width='60%'>Descrição</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -47,17 +47,17 @@
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='modulos'")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_departamentos")),true);
                     $cont = 0;
-                    $delete_url = plugins_url('d1_plugin/templates/modulos/keyp_delete.php?','d1_plugin');
+                    $delete_url = plugins_url('d1_plugin/templates/departamentos/departamentos_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 
                         $cont++;
-                        $create_edit_url = "?page=d1_plugin_modulos&tab=keyp&";
-                        $param = array('path_wp' => ABSPATH, 'id_keyp' => $value['id'], 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                        $create_edit_url = "?page=d1_plugin_departamentos&tab=mod&";
+                        $param = array('path_wp' => ABSPATH, 'id_mod' => $value['id'], 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                         $query_string = http_build_query($param);
                 ?>
                 <tr class="tr-shadow">
-                    <input type="hidden" name="id_keyp" id="id_keyp" value="<?php echo $value['id'];?>">
+                    <input type="hidden" name="id_mod" id="id_mod" value="<?php echo $value['id'];?>">
                     <td><?php echo $value['title'];?></td>
                     <td class="desc"><?php echo $value['description'];?></td>
                     <td>
@@ -105,7 +105,7 @@
 
         //botão deletar
         $(document).on('click', '.btn_delete', function(){
-            if(!confirm('Tem certeza que deseja apagar este Key Point?')){
+            if(!confirm('Tem certeza que deseja apagar este Módulo?')){
                 return false;
             }
         });

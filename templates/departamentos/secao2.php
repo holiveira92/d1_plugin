@@ -26,12 +26,12 @@
     <div class="table-data__tool">
         <div class="table-data__tool-right">
             <?php   
-                    $create_url = "?page=d1_plugin_modulos&tab=keyp&";
+                    $create_url = "?page=d1_plugin_departamentos&tab=keyp&";
                     $param = array('path_wp' => ABSPATH, 'id_keyp' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                     $query_string = http_build_query($param); 
             ?>
             <a href="<?php echo $create_url . $query_string ;?>"><button class="button button-primary">
-                <i class="zmdi zmdi-plus"></i>Adicionar Feature</button></a>
+                <i class="zmdi zmdi-plus"></i>Adicionar Key Point</button></a>
         </div>
     </div>
     <div class="table-responsive table-responsive-data2">
@@ -47,12 +47,12 @@
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='modulos'")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='departamentos'")),true);
                     $cont = 0;
-                    $delete_url = plugins_url('d1_plugin/templates/modulos/keyp_delete.php?','d1_plugin');
+                    $delete_url = plugins_url('d1_plugin/templates/departamentos/keyp_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 
                         $cont++;
-                        $create_edit_url = "?page=d1_plugin_modulos&tab=keyp&";
+                        $create_edit_url = "?page=d1_plugin_departamentos&tab=keyp&";
                         $param = array('path_wp' => ABSPATH, 'id_keyp' => $value['id'], 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                         $query_string = http_build_query($param);
                 ?>

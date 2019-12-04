@@ -1,15 +1,15 @@
 <?php 
-class Modulos{
+class Departamentos{
 	public $settings;
 	public $callbacks;
-	public $page = 'd1_plugin_modulos';
+	public $page = 'd1_plugin_departamentos';
     private $active_tab;
 
 	function __construct(){
-		require_once  dirname(__FILE__).'/../fields/modulos_fields.php';
+		require_once  dirname(__FILE__).'/../fields/departamentos_fields.php';
 		require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/base/d1_upload.php';
 		$this->d1_upload = new D1_Upload();
-        $this->modulos_fields = new Modulos_Fields();
+        $this->departamentos_fields = new Departamentos_Fields();
         $this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'secao1';
 	}
 	
@@ -53,16 +53,16 @@ class Modulos{
 	public function setSettings(){
         switch($this->active_tab){
             case 'secao1': 
-                $this->settings =  $this->modulos_fields->getSettings('modulos_secao1_options_group',$this->page);
+                $this->settings =  $this->departamentos_fields->getSettings('departamentos_secao1_options_group',$this->page);
 				break;
 			case 'secao2': 
-                $this->settings =  $this->modulos_fields->getSettings('modulos_secao2_options_group',$this->page);
+                $this->settings =  $this->departamentos_fields->getSettings('departamentos_secao2_options_group',$this->page);
 				break;
 			case 'secao3': 
-                $this->settings =  $this->modulos_fields->getSettings('modulos_secao3_options_group',$this->page);
+                $this->settings =  $this->departamentos_fields->getSettings('departamentos_secao3_options_group',$this->page);
                 break;
             default:
-                $this->settings =  $this->modulos_fields->getSettings('modulos_secao1_options_group',$this->page);
+                $this->settings =  $this->departamentos_fields->getSettings('departamentos_secao1_options_group',$this->page);
                 break;
         }
 	}
@@ -72,9 +72,9 @@ class Modulos{
             case 'secao1': 
 				$this->sections = array(
 					array(
-						'id' => 'd1_modulos_secao1',
-						'title' => 'Modulos',
-						'callback' => array( $this, 'd1ModulosSecao1' ),
+						'id' => 'd1_departamentos_secao1',
+						'title' => 'Departamentos',
+						'callback' => array( $this, 'd1DepartamentosSecao1' ),
 						'page' => $this->page
 					),
 				);
@@ -82,9 +82,9 @@ class Modulos{
 			case 'secao2': 
 				$this->sections = array(
 					array(
-						'id' => 'd1_modulos_secao2',
+						'id' => 'd1_departamentos_secao2',
 						'title' => 'Configurações Seção ',
-						'callback' => array( $this, 'd1ModulosSecao2' ),
+						'callback' => array( $this, 'd1DepartamentosSecao2' ),
 						'page' => $this->page
 					),
 				);
@@ -92,9 +92,9 @@ class Modulos{
 			case 'secao3': 
 				$this->sections = array(
 					array(
-						'id' => 'd1_modulos_secao3',
+						'id' => 'd1_departamentos_secao3',
 						'title' => 'Configurações Seção ',
-						'callback' => array( $this, 'd1ModulosSecao3' ),
+						'callback' => array( $this, 'd1DepartamentosSecao3' ),
 						'page' => $this->page
 					),
 				);
@@ -102,9 +102,9 @@ class Modulos{
 			case 'keyp': 
 				$this->sections = array(
 					array(
-						'id' => 'd1_modulos_keyp',
-						'title' => 'Configurações de Features ',
-						'callback' => array( $this, 'd1ModulosKeyp' ),
+						'id' => 'd1_departamentos_keyp',
+						'title' => 'Configurações de Key Points ',
+						'callback' => array( $this, 'd1DepartamentosKeyp' ),
 						'page' => $this->page
 					),
 				);
@@ -112,9 +112,9 @@ class Modulos{
 			case 'mod': 
 				$this->sections = array(
 					array(
-						'id' => 'd1_modulos_mod',
-						'title' => 'Configurações de Modulos ',
-						'callback' => array( $this, 'd1Modulos' ),
+						'id' => 'd1_departamentos_mod',
+						'title' => 'Configurações de Departamentos ',
+						'callback' => array( $this, 'd1Departamentos' ),
 						'page' => $this->page
 					),
 				);
@@ -122,9 +122,9 @@ class Modulos{
 			default: 
 				$this->sections = array(
 					array(
-						'id' => 'd1_modulos_secao2',
+						'id' => 'd1_departamentos_secao2',
 						'title' => 'Configurações Seção',
-						'callback' => array( $this, 'd1ModulosSecao1' ),
+						'callback' => array( $this, 'd1DepartamentosSecao1' ),
 						'page' => $this->page
 					),
 				);
@@ -135,23 +135,23 @@ class Modulos{
 	public function setFields(){
         switch($this->active_tab){
             case 'secao1': 
-                $this->fields =  $this->modulos_fields->getFields('d1_modulos_secao1','d1_plugin_modulos');
+                $this->fields =  $this->departamentos_fields->getFields('d1_departamentos_secao1','d1_plugin_departamentos');
 				break;
 			case 'secao2': 
-                $this->fields =  $this->modulos_fields->getFields('d1_modulos_secao2','d1_plugin_modulos');
+                $this->fields =  $this->departamentos_fields->getFields('d1_departamentos_secao2','d1_plugin_departamentos');
 				break;
 			case 'secao3': 
-                $this->fields =  $this->modulos_fields->getFields('d1_modulos_secao3','d1_plugin_modulos');
+                $this->fields =  $this->departamentos_fields->getFields('d1_departamentos_secao3','d1_plugin_departamentos');
                 break;
             default:
-                $this->fields =  $this->modulos_fields->getFields('d1_modulos_secao1','d1_plugin_modulos');
+                $this->fields =  $this->departamentos_fields->getFields('d1_departamentos_secao1','d1_plugin_departamentos');
                 break;
         }
 	}
 
-    public function d1ModulosSecao1(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/modulos/secao1.php';}
-	public function d1ModulosSecao2(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/modulos/secao2.php';}
-	public function d1ModulosSecao3(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/modulos/secao3.php';}
-	public function d1ModulosKeyp(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/modulos/keyp.php';}
-	public function d1Modulos(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/modulos/modulos.php';}
+    public function d1DepartamentosSecao1(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/departamentos/secao1.php';}
+	public function d1DepartamentosSecao2(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/departamentos/secao2.php';}
+	public function d1DepartamentosSecao3(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/departamentos/secao3.php';}
+	public function d1DepartamentosKeyp(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/departamentos/keyp.php';}
+	public function d1Departamentos(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/departamentos/departamentos.php';}
 }
