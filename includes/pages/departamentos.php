@@ -118,7 +118,17 @@ class Departamentos{
 						'page' => $this->page
 					),
 				);
-                break;
+				break;
+			case 'cargos': 
+				$this->sections = array(
+					array(
+						'id' => 'd1_departamentos_cargos',
+						'title' => 'Configurações de Cargos ',
+						'callback' => array( $this, 'd1DepartamentosCargos' ),
+						'page' => $this->page
+					),
+				);
+				break;
 			default: 
 				$this->sections = array(
 					array(
@@ -154,4 +164,5 @@ class Departamentos{
 	public function d1DepartamentosSecao3(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/departamentos/secao3.php';}
 	public function d1DepartamentosKeyp(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/departamentos/keyp.php';}
 	public function d1Departamentos(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/departamentos/departamentos.php';}
+	public function d1DepartamentosCargos(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/departamentos/cargos.php';}
 }

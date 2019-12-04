@@ -255,6 +255,74 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
     <!-- END DATA TABLE -->
     </fieldset>
     </div></div></div>
+    <!-- FIM INFOS DOS KEY POINTS -->
+
+    <!-- CARGOS -->
+    <div class="row">
+                <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
+                    <div class="row">
+    <fieldset id='crg'>
+        <legend><span class="number">6</span>Cargos</legend>
+    <!-- DATA TABLE -->
+    <div class="table-data__tool">
+        <div class="table-data__tool-right">
+            <?php   
+                    $create_url = "?page=d1_plugin_departamentos&tab=cargos&";
+                    $param = array('path_wp' => ABSPATH, 'id_cargo' => false, 'id_modulo' => $id_modulo,
+                    'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                    $query_string = http_build_query($param); 
+            ?>
+            <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
+                <i class="zmdi zmdi-plus"></i>Adicionar Cargo</button></a>
+        </div>
+    </div>
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-data2">
+            <thead>
+                <tr>
+                    <th width='20%'>Título</th>
+                    <th width='75%'>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php 
+                    global $wpdb;
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cargos WHERE id_departamento=$id_modulo")),true);
+                    $cont = 0;
+                    $delete_url = plugins_url('d1_plugin/templates/departamentos/cargos_delete.php?','d1_plugin');
+                    foreach($result as $key=>&$value): 
+                        $cont++;
+                        $create_edit_url = "?page=d1_plugin_departamentos&tab=cargos&";
+                        $param = array('path_wp' => ABSPATH, 'id_cargo' => $value['id'], 'id_modulo' => $id_modulo, 
+                        'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                        $query_string = http_build_query($param);
+                ?>
+                <tr class="tr-shadow">
+                    <input type="hidden" name="id_cargo" id="id_cargo" value="<?php echo $value['id'];?>">
+                    <td><?php echo $value['title'];?></td>
+                    <td class="desc"><?php echo $value['description1'];?></td>
+                    <td>
+                        <div class="table-data-feature">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button></a>
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete_cargo" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button></a>
+                        </div>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <!-- END DATA TABLE -->
+    </fieldset>
+    </div></div></div>
+    <!-- FIM CARGOS -->
+
 
         <p class="submit">
             <input type="submit" id="keyp_submit" class="button button-primary" value="Salvar Alterações" />
@@ -276,9 +344,17 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
             }
         });
 
+        //botão deletar cargo
+        $(document).on('click', '.btn_delete_cargo', function(){
+            if(!confirm('Tem certeza que deseja apagar este Cargo?')){
+                return false;
+            }
+        });
+
         var id_modulo = $('#id').val();
         if(id_modulo == undefined || id_modulo == ''){
             $('#kps').hide();
+            $('#crg').hide();
         }
         
     });

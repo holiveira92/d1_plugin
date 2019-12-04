@@ -206,5 +206,18 @@ CREATE TABLE wp_d1_departamentos (
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
+CREATE TABLE d1_cargos (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	title VARCHAR(250) NULL DEFAULT NULL,
+	subtitle VARCHAR(250) NULL DEFAULT NULL,
+	description1 TEXT NULL DEFAULT NULL,
+	description2 TEXT NULL DEFAULT NULL,
+	description3 TEXT NULL DEFAULT NULL,
+	id_departamento INT(11) NULL DEFAULT NULL,
+	PRIMARY KEY (id)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+
 */
 ?>
