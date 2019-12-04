@@ -9,9 +9,13 @@ class D1_View_Parser {
         require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/segmentos_fields.php';
         require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/plataforma_fields.php';
         require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/jornada_fields.php';
-        require_once  $this->dirname_safe_parser(__FILE__,2).'/fields/seguranca_fields.php';
-        require_once  $this->dirname_safe_parser(__FILE__,2).'/fields/preco_fields.php';
-        require_once  $this->dirname_safe_parser(__FILE__,2).'/fields/contato_fields.php';
+        require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/seguranca_fields.php';
+        require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/preco_fields.php';
+        require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/contato_fields.php';
+        require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/d1_midia_fields.php';
+        require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/modulos_fields.php';
+        require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/objetivos_fields.php';
+        require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/departamentos_fields.php';
         $this->admin_fields = new Admin_Fields();
         $this->cases_fields = new Cases_Fields();
         $this->footer_fields = new Footer_Fields();
@@ -21,6 +25,10 @@ class D1_View_Parser {
         $this->seguranca_fields = new Seguranca_Fields();
         $this->preco_fields = new Preco_Fields();
         $this->contato_fields = new Contato_Fields();
+        $this->d1_midia_fields = new D1_Midia_Fields();
+        $this->modulos_fields = new Modulos_Fields();
+        $this->objetivos_fields = new Objetivos_Fields();
+        $this->departamentos_fields = new Departamentos_Fields();
     }
     
     function dirname_safe_parser($path, $level = 0){
@@ -41,8 +49,26 @@ class D1_View_Parser {
         $seguranca_options_settings = $this->seguranca_fields->getFields();
         $preco_options_settings = $this->preco_fields->getFields();
         $contato_options_settings = $this->contato_fields->getFields();
-        $all_options_settings = array_merge($home_options_settings,$cases_options_settings,$footer_options_settings,$segmentos_options_settings,
-        $plataforma_options_settings,$jornada_options_settings,$seguranca_options_settings,$preco_options_settings,$contato_options_settings);
+        $d1_midia_options_settings = $this->d1_midia_fields->getFields();
+        $modulos_options_settings = $this->modulos_fields->getFields();
+        $objetivos_options_settings = $this->objetivos_fields->getFields();
+        $departamentos_options_settings = $this->departamentos_fields->getFields();
+        $all_options_settings = array_merge(
+            $home_options_settings,
+            $cases_options_settings,
+            $footer_options_settings,
+            $segmentos_options_settings,
+            $plataforma_options_settings,
+            $jornada_options_settings,
+            $seguranca_options_settings,
+            $preco_options_settings,
+            $contato_options_settings,
+            $d1_midia_options_settings,
+            $modulos_options_settings,
+            $objetivos_options_settings,
+            $departamentos_options_settings
+        );
+        
         $data_fields['img_default'] = get_template_directory_uri() . "/images/img_default.jpg";
         foreach($all_options_settings as $option){
             foreach($option as $key=>$field_name){
