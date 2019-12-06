@@ -98,6 +98,7 @@ $cases_options = array(
 <?php $url_action = plugins_url('d1_plugin/templates/cases/create_edit.php', 'd1_plugin'); ?>
 
 <body class="animsition">
+<h1> Link Permanente: </h1> <a href="<?php echo site_url() . '/case/?id='.$data['id_card']; ?>" target="_blank"><?php echo site_url() . '/case/?id='.$data['id_card']; ?></a>
     <form id="cases_fields" action="<?php echo $url_action; ?>">
         <div class="container">
             <div class="row">
@@ -109,7 +110,7 @@ $cases_options = array(
                     <!-- Seção 1 -->
                     <fieldset>
                         <input type="hidden" name="id_card" value="<?php echo $data['id_card']; ?>">
-                        <legend><span class="number">1</span>Informações do Card</legend>
+                        <legend><span class="number">1</span>Informações do Case</legend>
                     </fieldset>
                 </div>
             </div>

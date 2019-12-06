@@ -58,7 +58,7 @@
                 ?>
                 <tr class="tr-shadow">
                     <input type="hidden" name="id_mod" id="id_mod" value="<?php echo $value['id'];?>">
-                    <td><?php echo $value['title'];?></td>
+                    <td><?php echo $value['main_title'];?></td>
                     <td class="desc"><?php echo $value['description'];?></td>
                     <td>
                         <div class="table-data-feature">

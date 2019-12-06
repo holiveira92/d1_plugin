@@ -77,6 +77,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
 </head>
 
 <body class="animsition">
+    <h1> Link Permanente: </h1> <a href="<?php echo site_url() . '/objetivos-de-negocio/?id='.$data['id']; ?>" target="_blank"><?php echo site_url() . '/objetivos-de-negocio/?id='.$data['id']; ?></a>
     <form id="keypoints_fields" action="<?php echo $url_action; ?>">
         <!-- DADOS DO SEGMENTO -->
         <div class="container">
