@@ -71,8 +71,11 @@ $id_departamento        = !empty($data["id_departamento"]) ? $data["id_departame
                         <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo">
                         <label for="subtitle">SubTitulo:</label><input type="text" name="subtitle" value="<?php echo $data['subtitle']; ?>" placeholder="Titulo">
                         <label for="description1">Descricao 1:</label> <textarea name="description1" placeholder="Descrição 1" rows='7'><?php echo $data['description1']; ?></textarea>
+                        <div class="checkbox-degrade"><input type="checkbox" name="description1_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                         <label for="description2">Descricao 2:</label> <textarea name="description2" placeholder="Descrição 2" rows='7'><?php echo $data['description2']; ?></textarea>
+                        <div class="checkbox-degrade"><input type="checkbox" name="description2_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                         <label for="description3">Descricao 3:</label> <textarea name="description3" placeholder="Descrição 3" rows='7'><?php echo $data['description3']; ?></textarea>
+                        <div class="checkbox-degrade"><input type="checkbox" name="description3_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                     </div>
                 </div>
             </div>

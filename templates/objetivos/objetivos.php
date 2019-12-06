@@ -109,7 +109,8 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                         <fieldset>
                             <legend><span class="number">2</span>Seção 2</legend>
                             <label for="subtitle">Titulo:</label><input type="text" name="subtitle" value="<?php echo $data["subtitle"]; ?>" placeholder="Titulo">
-                            <label for="main_subtitle">Titulo Principal:</label><input type="text" name="main_subtitle" value="<?php echo $data["main_subtitle"]; ?>" placeholder="Titulo Principal">
+                            <label for="main_subtitle">Titulo Principal:</label><textarea name="main_subtitle" placeholder="Titulo Principal" rows='7'><?php echo $data["main_subtitle"];?></textarea>
+                            <div class="checkbox-degrade"><input type="checkbox" name="main_subtitle_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                             <label for="subtitle_description">Descricao:</label> <textarea name="subtitle_description" placeholder="Descrição" rows='7'><?php echo $data["subtitle_description"]; ?></textarea>
                         </fieldset>
                         </div>
