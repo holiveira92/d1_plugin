@@ -31,4 +31,19 @@ function d1_add_rewrite_rules(){
 	add_rewrite_rule('case/([^/]+)/([0-9]+)',
 	'index.php?pagename=case&slug=$matches[1]&id=$matches[2]',
 	'top');
+
+	//reescrevendo url de departamentos
+	add_rewrite_rule('departamentos/([^/]+)/([0-9]+)',
+	'index.php?pagename=departamentos&slug=$matches[1]&id=$matches[2]',
+	'top');
+
+	//reescrevendo url de modulos
+	add_rewrite_rule('modulos/([^/]+)/([0-9]+)',
+	'index.php?pagename=modulos&slug=$matches[1]&id=$matches[2]',
+	'top');	
+
+	//reescrevendo url de objetivos
+	add_rewrite_rule('objetivos/([^/]+)/([0-9]+)',
+	'index.php?pagename=objetivos&slug=$matches[1]&id=$matches[2]',
+	'top');	
 }
