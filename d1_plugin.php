@@ -421,6 +421,14 @@ if (!class_exists('D1Plugin')) {
 
                         // Adicionar Tema ao Wordpress
                         add_action('admin_enqueue_scripts', 'load_admin_style');
+                        
+                        //adicionando query variaveis para rescrever url de forma amigavel
+                        add_filter('query_vars','d1_rewrite_add_var' );
+                        function d1_rewrite_add_var($vars){
+                            $vars[] = 'slug';
+                            $vars[] = 'id';
+                            return $vars;
+                        }
 
                         function load_admin_style()
                         {
@@ -429,5 +437,4 @@ if (!class_exists('D1Plugin')) {
                             wp_enqueue_style('admin_css', '/wp-content/plugins/d1_plugin/resources/css/theme.css', false, '1.0.0');
                         }
 
-                        //add_rewrite_rule('^plataforma/?$', )
                     }

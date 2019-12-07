@@ -3,6 +3,7 @@ class D1PluginActivate{
 	
 	public function __construct(){}
 	public static function activate() {
+		d1_add_rewrite_rules();
 		flush_rewrite_rules();
 		require_once( ABSPATH . '/wp-admin/includes/upgrade.php' );
 		global $table_prefix, $wpdb;
@@ -18,4 +19,16 @@ class D1PluginActivate{
 			}
 		}
 	}
+}
+
+function d1_add_rewrite_rules(){
+	//reescrevendo url de segmentos
+	add_rewrite_rule('segmentos/([^/]+)/([0-9]+)',
+	'index.php?pagename=segmentos&slug=$matches[1]&id=$matches[2]',
+	'top');
+
+	//reescrevendo url de case individual
+	add_rewrite_rule('case/([^/]+)/([0-9]+)',
+	'index.php?pagename=case&slug=$matches[1]&id=$matches[2]',
+	'top');
 }
