@@ -98,7 +98,7 @@ $cases_options = array(
 <?php $url_action = plugins_url('d1_plugin/templates/cases/create_edit.php', 'd1_plugin'); ?>
 
 <body class="animsition">
-<h1> Link Permanente: </h1> <a href="<?php echo site_url() . '/case/?id='.$data['id_card']; ?>" target="_blank"><?php echo site_url() . '/case/?id='.$data['id_card']; ?></a>
+<h1> Link Permanente: </h1> <a href="<?php echo get_home_url();?>/case/<?php echo sanitize_title($data['title_card']);?>/<?php echo $data['id_card'];?>" target="_blank"><?php echo get_home_url();?>/case/<?php echo sanitize_title($data['title_card']);?>/<?php echo $data['id_card'];?></a>
     <form id="cases_fields" action="<?php echo $url_action; ?>">
         <div class="container">
             <div class="row">
