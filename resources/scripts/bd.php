@@ -219,5 +219,21 @@ CREATE TABLE d1_cargos (
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
+CREATE TABLE wp_d1_home_hero (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	chamada_principal VARCHAR(250) NULL DEFAULT NULL,
+	descricao_primaria VARCHAR(250) NULL DEFAULT NULL,
+	descricao_secundaria VARCHAR(250) NULL DEFAULT NULL,
+	hero_name VARCHAR(250) NULL DEFAULT NULL,
+	hero_cargo VARCHAR(250) NULL DEFAULT NULL,
+	hero_descricao VARCHAR(250) NULL DEFAULT NULL,
+	img_url_logo_hero_company TEXT NULL DEFAULT NULL,
+	img_url_bg_hero TEXT NULL DEFAULT NULL,
+	id_cta INT(11) NULL DEFAULT NULL,
+	PRIMARY KEY (id)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+
 */
 ?>

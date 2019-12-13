@@ -7,7 +7,7 @@
 		
 	<h2 class="nav-tab-wrapper">
 		<a href="?page=d1_plugin&tab=config_geral" class="nav-tab <?php echo $active_tab == 'config_geral' ? 'nav-tab-active' : ''; ?>">Geral</a>
-		<a href="?page=d1_plugin&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Hero</a>
+		<a href="?page=d1_plugin&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Hero - Slider</a>
 		<a href="?page=d1_plugin&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Cases</a>
 		<a href="?page=d1_plugin&tab=secao3" class="nav-tab <?php echo $active_tab == 'secao3' ? 'nav-tab-active' : ''; ?>">Clientes</a>
 		<a href="?page=d1_plugin&tab=secao4" class="nav-tab <?php echo $active_tab == 'secao4' ? 'nav-tab-active' : ''; ?>">Desafios</a>
@@ -27,11 +27,8 @@
                 echo '</form>';
 				break;
 			case 'secao1':
-				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				settings_fields('home_secao1_options_group');
 				do_settings_sections('d1_plugin');
-				submit_button();
-                echo '</form>';
 				break;
 			case 'secao2':
 				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
@@ -76,6 +73,10 @@
                 echo '</form>';
 				break;
 			case 'modulos':
+				settings_fields('home_secao7_options_group');
+				do_settings_sections('d1_plugin');
+				break;
+			case 'hero':
 				settings_fields('home_secao7_options_group');
 				do_settings_sections('d1_plugin');
 				break;

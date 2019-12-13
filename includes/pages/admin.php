@@ -194,6 +194,16 @@ class Admin{
 					),
 				);
 				break;
+			case 'hero': 
+				$this->sections = array(
+					array(
+						'id' => 'home_d1_admin_hero',
+						'title' => 'Hero - Slider',
+						'callback' => array( $this, 'd1Hero' ),
+						'page' => 'd1_plugin'
+					),
+				);
+				break;
             default:
 				$this->sections = array(
 					array(
@@ -248,4 +258,5 @@ class Admin{
     public function d1Section6Solucao(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao6.php';}
 	public function d1Section7Diferencial(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao7.php';}
 	public function d1Modulos(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/modulos.php';}
+	public function d1Hero(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/hero.php';}
 }
