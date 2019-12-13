@@ -73,7 +73,7 @@
                 <tr class="tr-shadow">
                     <input type="hidden" name="id_card" id="id_card" value="<?php echo $value['id_card'];?>">
                     <td><?php echo $value['title_card'];?></td>
-                    <td class="desc"><?php echo $value['subtitle_card'];?></td>
+                    <td class="desc"><?php echo $value['desc_completa_primaria'];?></td>
                     <td><?php echo $value['text_footer_card'];?></td>
                     <td><?php echo $value['card_link'];?></td>
                     <td>
