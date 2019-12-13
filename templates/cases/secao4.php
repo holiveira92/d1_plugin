@@ -22,36 +22,25 @@
 </head>
 
 <body class="animsition">
-    <div class="row">
-        <div class="col form-style-5">
-            <!-- Seção 1 - Configs Gerais -->
-            <fieldset>
-                <legend><span class="number">1</span>Título da Seção</legend>
-                <label for="cases_secao0_title">Nome:</label> <input type="text" name="cases_secao0_title" value="<?php echo get_option_esc('cases_secao0_title') ?>" placeholder="Titulo">
-            </fieldset>
-        </div>
-    </div>
-
     <!-- DATA TABLE -->
     <div class="table-data__tool">
         <div class="table-data__tool-right">
             <?php   
-                    $create_url = "?page=d1_plugin_cases&tab=secao1&";
-                    $param = array('path_wp' => ABSPATH, 'id_card' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                    $create_url = "?page=d1_plugin_cases&tab=whitepaper&";
+                    $param = array('path_wp' => ABSPATH, 'id_wp' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                     $query_string = http_build_query($param); 
             ?>
-            <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
-                <i class="zmdi zmdi-plus"></i>Adicionar case</button></a>
+            <a href="<?php echo $create_url . $query_string ;?>"><button class="button button-primary">
+                <i class="zmdi zmdi-plus"></i>Adicionar Whitepaper</button></a>
         </div>
     </div>
     <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
             <thead>
                 <tr>
-                    <th>Título</th>
-                    <th>Descrição</th>
-                    <th>Impacto</th>
-                    <th>link</th>
+                    <th width='30%'>Título</th>
+                    <th width='40%'>Descrição</th>
+                    <th width='20%'>Link</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -61,30 +50,29 @@
                     global $wpdb;
                     $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')),true);
                     $cont = 0;
-                    //$create_edit_url = plugins_url('d1_plugin/templates/cases/create_edit.php?','d1_plugin');
-                    $delete_url = plugins_url('d1_plugin/templates/cases/delete.php?','d1_plugin');
-                    foreach($result as $key=>&$value): 
+                    $delete_url = plugins_url('d1_plugin/templates/cases/whitepapers_delete.php?','d1_plugin');
+                    foreach($result as $key=>&$value):
                         $whitepaper  = json_decode($value['cases_options'],true);
                         $whitepaper  = !empty($whitepaper['is_whitepaper']) ? true : false;
-                        if($whitepaper)
+                        if(!$whitepaper)
                             continue;
                         $cont++;
-                        $create_edit_url = "?page=d1_plugin_cases&tab=secao1&";
-                        $param = array('path_wp' => ABSPATH, 'id_card' => $value['id_card'], 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                        $create_edit_url = "?page=d1_plugin_cases&tab=whitepaper&";
+                        $param = array('path_wp' => ABSPATH, 'id_wp' => $value['id_card'], 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                         $query_string = http_build_query($param);
                 ?>
                 <tr class="tr-shadow">
+                    <input type="hidden" name="id_wp" id="id_wp" value="<?php echo $value['id_card'];?>">
                     <input type="hidden" name="id_card" id="id_card" value="<?php echo $value['id_card'];?>">
                     <td><?php echo $value['title_card'];?></td>
                     <td class="desc"><?php echo $value['desc_completa_primaria'];?></td>
-                    <td><?php echo $value['text_footer_card'];?></td>
                     <td><?php echo $value['card_link'];?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>
@@ -124,7 +112,7 @@
 
         //botão deletar
         $(document).on('click', '.btn_delete', function(){
-            if(!confirm('Tem certeza que deseja apagar este case?')){
+            if(!confirm('Tem certeza que deseja apagar este Whitepaper?')){
                 return false;
             }
         });

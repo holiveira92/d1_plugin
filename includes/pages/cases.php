@@ -109,6 +109,26 @@ class Cases{
 					),
 				);
 				break;
+			case 'secao4': 
+				$this->sections = array(
+					array(
+						'id' => 'd1_cases_categorias',
+						'title' => 'Whitepapers',
+						'callback' => array( $this, 'd1Whitepapers' ),
+						'page' => $this->page
+					),
+				);
+				break;
+			case 'whitepaper': 
+				$this->sections = array(
+					array(
+						'id' => 'd1_cases_categorias',
+						'title' => 'Whitepapers',
+						'callback' => array( $this, 'd1Whitepaper' ),
+						'page' => $this->page
+					),
+				);
+				break;
 			default: 
 				$this->sections = array(
 					array(
@@ -146,4 +166,6 @@ class Cases{
 	public function d1CasesConfGeral(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao1.php';}
 	public function d1CasesCategorias(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao2.php';}
 	public function d1CasesCategoriasConfig(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao3.php';}
+	public function d1Whitepapers(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/secao4.php';}
+	public function d1Whitepaper(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/cases/whitepapers.php';}
 }
