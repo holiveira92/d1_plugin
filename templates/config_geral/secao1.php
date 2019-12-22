@@ -32,8 +32,8 @@
             <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">1</span>Conteúdo</legend>
-                    <label for="d1_web_title">Título da Página:</label> <input type="text" name="d1_web_title" value="<?php echo get_option('d1_web_title'); ?>">
-                    <?php $lang_option = get_option('d1_lang_option');?>
+                    <label for="d1_web_title">Título da Página:</label> <input type="text" name="d1_web_title" value="<?php echo get_option_esc('d1_web_title'); ?>">
+                    <?php $lang_option = get_option_esc('d1_lang_option');?>
                     <label for="d1_lang_option">Linguagem para Configuração:</label>
                     <select name="d1_lang_option">
                         <option value="PT" <?php echo ($lang_option == "PT") ? "selected" : "";?>>PT</option>
@@ -91,10 +91,10 @@
             <fieldset>
                     <legend><span class="number">5</span>Top Bar</legend>
                         <label for="top_bar_desc">Descricao:</label> <textarea name="top_bar_desc" rows="6"><?php echo get_option_esc('top_bar_desc') ?></textarea>
-                        <label for="top_bar_text_link">Texto Link:</label> <input type="text" name="top_bar_text_link" value="<?php echo get_option('top_bar_text_link') ?>">
-                        <label for="top_bar_link">URL Link:</label> <input type="text" name="top_bar_link" value="<?php echo get_option('top_bar_link') ?>">
-                        <label for="top_bar_text_login_link">Texto Login Link:</label> <input type="text" name="top_bar_text_login_link" value="<?php echo get_option('top_bar_text_login_link') ?>">
-                        <label for="top_bar_login_link">URL Login Link:</label> <input type="text" name="top_bar_login_link" value="<?php echo get_option('top_bar_login_link') ?>">
+                        <label for="top_bar_text_link">Texto Link:</label> <input type="text" name="top_bar_text_link" value="<?php echo get_option_esc('top_bar_text_link') ?>">
+                        <label for="top_bar_link">URL Link:</label> <input type="text" name="top_bar_link" value="<?php echo get_option_esc('top_bar_link') ?>">
+                        <label for="top_bar_text_login_link">Texto Login Link:</label> <input type="text" name="top_bar_text_login_link" value="<?php echo get_option_esc('top_bar_text_login_link') ?>">
+                        <label for="top_bar_login_link">URL Login Link:</label> <input type="text" name="top_bar_login_link" value="<?php echo get_option_esc('top_bar_login_link') ?>">
                 </fieldset>
             </div>
         </div>

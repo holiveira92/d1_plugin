@@ -30,7 +30,7 @@ class D1_Upload {
     }
     
 	function get_image_options($name_field){
-		$img_options = esc_url(get_option($name_field));
+		$img_options = esc_url(get_option_esc($name_field));
 		$name_button = $name_field . '_d1_upload_btn';
 		$name_del_button = $name_field . '_d1_btn_del';
 		$name_img_preview = $name_field . '_d1_img_preview';
