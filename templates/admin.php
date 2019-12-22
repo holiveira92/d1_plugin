@@ -2,11 +2,10 @@
 	<h1>D1 - Editor de Conteúdos</h1>
 	<?php
 		settings_errors(); 
-		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'config_geral';
+		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'secao1';
 	?>
 		
 	<h2 class="nav-tab-wrapper">
-		<a href="?page=d1_plugin&tab=config_geral" class="nav-tab <?php echo $active_tab == 'config_geral' ? 'nav-tab-active' : ''; ?>">Geral</a>
 		<a href="?page=d1_plugin&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Hero - Slider</a>
 		<a href="?page=d1_plugin&tab=secao2" class="nav-tab <?php echo $active_tab == 'secao2' ? 'nav-tab-active' : ''; ?>">Cases</a>
 		<a href="?page=d1_plugin&tab=secao3" class="nav-tab <?php echo $active_tab == 'secao3' ? 'nav-tab-active' : ''; ?>">Clientes</a>
@@ -19,13 +18,6 @@
 	
 		<?php 
 		switch($active_tab){
-			case 'config_geral':
-				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
-				settings_fields('home_d1_options_group');
-				do_settings_sections('d1_plugin');
-				submit_button();
-                echo '</form>';
-				break;
 			case 'secao1':
 				settings_fields('home_secao1_options_group');
 				do_settings_sections('d1_plugin');

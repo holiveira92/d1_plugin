@@ -32,7 +32,14 @@
             <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">1</span>Conteúdo</legend>
-                    <label for="d1_web_title">Título da Página:</label> <input type="text" name="d1_web_title" value="<?php echo get_option('d1_web_title') ?>">
+                    <label for="d1_web_title">Título da Página:</label> <input type="text" name="d1_web_title" value="<?php echo get_option('d1_web_title'); ?>">
+                    <?php $lang_option = get_option('d1_lang_option');?>
+                    <label for="d1_lang_option">Linguagem para Configuração:</label>
+                    <select name="d1_lang_option">
+                        <option value="PT" <?php echo ($lang_option == "PT") ? "selected" : "";?>>PT</option>
+                        <option value="EN" <?php echo ($lang_option == "EN") ? "selected" : "";?>>EN</option>
+                        <option value="ES" <?php echo ($lang_option == "ES") ? "selected" : "";?>>ES</option>
+                    </select>
                 </fieldset>
             </div>
 

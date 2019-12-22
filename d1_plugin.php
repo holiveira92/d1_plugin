@@ -147,6 +147,9 @@ if (!class_exists('D1Plugin')) {
             /* HOME PAGE */
             add_menu_page('Página Inicial', 'Página Inicial', 'manage_options', 'd1_plugin', array($this, 'admin_index'), get_template_directory_uri() . "/images/d1_logo_admin.ico", 110);
 
+            /* CONFIGURAÇÕES GERAIS*/
+            add_menu_page('Configurações Gerais', 'Configurações Gerais', 'manage_options', 'd1_plugin_config_geral', array($this, 'config_geral_index'), "", 110);
+
             /* PLATAFORMA */
             add_menu_page('Plataforma', 'Plataforma', 'manage_options', 'd1_plugin_plataforma', array($this, 'plataforma_admin'), "", 111);
 
@@ -194,6 +197,14 @@ if (!class_exists('D1Plugin')) {
             $adm = new Admin();
             $adm->register();
             require_once plugin_dir_path(__FILE__) . 'templates/admin.php';
+        }
+
+        public function config_geral_index()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/config_geral.php';
+            $adm = new Admin();
+            $adm->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/config_geral.php';
         }
 
         public function plataforma_admin()
