@@ -35,7 +35,7 @@
                 <!-- Card Primeira Parte -->
                 <fieldset>
                     <legend><span class="number">1</span>Informações da Seção</legend>
-                    <label for="secao1_title">Titulo:</label><input type="text" name="secao1_title" value="<?php echo get_option_esc('secao1_title') ?>">
+                    <label for="secao1_title">Titulo:</label><input type="text" name="secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao1_title') ?>">
                 </fieldset>
             </div>
         </div>
@@ -45,16 +45,16 @@
                 <!-- Passo 1 -->
                 <fieldset>
                     <legend><span class="number">2</span>Passo 1</legend>
-                    <label for="secao1_passo1_title">Titulo:</label> <textarea name="secao1_passo1_title"><?php echo get_option_esc('secao1_passo1_title') ?></textarea>
-                    <label for="secao1_passo1_descricao">Descrição:</label> <textarea name="secao1_passo1_descricao"><?php echo get_option_esc('secao1_passo1_descricao') ?></textarea>
+                    <label for="secao1_passo1_title">Titulo:</label> <textarea name="secao1_passo1_title<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('secao1_passo1_title') ?></textarea>
+                    <label for="secao1_passo1_descricao">Descrição:</label> <textarea name="secao1_passo1_descricao<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('secao1_passo1_descricao') ?></textarea>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <!-- Passo 2 -->
                 <fieldset>
                     <legend><span class="number">3</span>Passo 2</legend>
-                    <label for="secao1_passo2_title">Titulo:</label> <textarea name="secao1_passo2_title"><?php echo get_option_esc('secao1_passo2_title') ?></textarea>
-                    <label for="secao1_passo2_descricao">Descrição:</label> <textarea name="secao1_passo2_descricao"><?php echo get_option_esc('secao1_passo2_descricao') ?></textarea>
+                    <label for="secao1_passo2_title">Titulo:</label> <textarea name="secao1_passo2_title<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('secao1_passo2_title') ?></textarea>
+                    <label for="secao1_passo2_descricao">Descrição:</label> <textarea name="secao1_passo2_descricao<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('secao1_passo2_descricao') ?></textarea>
                 </fieldset>
             </div>
         </div>
@@ -63,24 +63,24 @@
                 <!-- Passo 3 -->
                 <fieldset>
                     <legend><span class="number">4</span>Passo 3</legend>
-                    <label for="secao1_passo3_title">Titulo:</label> <textarea name="secao1_passo3_title"><?php echo get_option_esc('secao1_passo3_title') ?></textarea>
-                    <label for="secao1_passo3_descricao">Descrição:</label> <textarea name="secao1_passo3_descricao"><?php echo get_option_esc('secao1_passo3_descricao') ?></textarea>
+                    <label for="secao1_passo3_title">Titulo:</label> <textarea name="secao1_passo3_title<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('secao1_passo3_title') ?></textarea>
+                    <label for="secao1_passo3_descricao">Descrição:</label> <textarea name="secao1_passo3_descricao<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('secao1_passo3_descricao') ?></textarea>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <!-- Passo 4 -->
                 <fieldset>
                     <legend><span class="number">5</span>Passo 4</legend>
-                    <label for="secao1_passo4_title">Titulo:</label> <textarea name="secao1_passo4_title"><?php echo get_option_esc('secao1_passo4_title') ?></textarea>
-                    <label for="secao1_passo4_descricao">Descrição:</label> <textarea name="secao1_passo4_descricao"><?php echo get_option_esc('secao1_passo4_descricao') ?></textarea>
+                    <label for="secao1_passo4_title">Titulo:</label> <textarea name="secao1_passo4_title<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('secao1_passo4_title') ?></textarea>
+                    <label for="secao1_passo4_descricao">Descrição:</label> <textarea name="secao1_passo4_descricao<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('secao1_passo4_descricao') ?></textarea>
                 </fieldset>
             </div>
         </div>
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                    <label for="secao1_desc_pre_cta">Descrição Pré CTA:</label> <input type="text" name="secao1_desc_pre_cta" value="<?php echo get_option_esc('secao1_desc_pre_cta') ?>">
-                    <div style='display:flex;align-items:center;margin-bottom:25px;'><input type="checkbox" name="secao1_desc_pre_cta_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                    <label for="secao1_desc_pre_cta">Descrição Pré CTA:</label> <input type="text" name="secao1_desc_pre_cta<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao1_desc_pre_cta') ?>">
+                    <div style='display:flex;align-items:center;margin-bottom:25px;'><input type="checkbox" name="secao1_desc_pre_cta_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                 </fieldset>
 
                 <!-------------------------------------- Fim Pré-Footer - Etapas de Contratação ----------------------------------------------->
@@ -92,7 +92,7 @@
             <div class="col form-style-5">
             <!-- Início de Select para CTA -->
             <label for="secao1_footer_cta">Selecione CTA:</label><span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
-            <select name="secao1_footer_cta">
+            <select name="secao1_footer_cta<?php echo D1Plugin::$language; ?>">
                 <option value="0"> Selecione </option>
                 <?php
                 //obtendo opções salvas no BD

@@ -74,7 +74,9 @@ class D1_View_Parser {
             foreach($option as $key=>$field_name){
                 $page = $field_name['page'];
                 $id_option = $field_name['id'];
-                $option_value = get_option_esc($field_name['id']);
+                $option_value       = get_option_esc($field_name['id']);
+                $option_value_en    = get_option_esc($field_name['id'] . "_EN");
+                $option_value_es    = get_option_esc($field_name['id'] . "_ES");
                 if(empty($option_value) && ( strpos($field_name['id'], 'image') !== false 
                     || strpos($field_name['id'], 'img') !== false || strpos($field_name['id'], 'favicon') !== false 
                     || strpos($field_name['id'], 'logo') !== false )){
@@ -82,9 +84,12 @@ class D1_View_Parser {
                 }
 
                 if(empty($option_value)){
-                    $option_value = "Insira uma Informação";
+                    $option_value   = "Insira uma Informação";
                 }
+
                 $data_fields[$page][$id_option] = !empty($option_value) ? $option_value : "";
+                $data_fields[$page][$id_option . "_EN"] = !empty($option_value_en) ? $option_value_en : "";
+                $data_fields[$page][$id_option . "_ES"] = !empty($option_value_es) ? $option_value_es : "";
             }
         }
         return $data_fields;

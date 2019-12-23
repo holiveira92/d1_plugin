@@ -11,10 +11,10 @@
 <div class="form-style-5">
 
 <div id='secao1_content1' class="content table-responsive" style='display:block !important;'>
-<input type="hidden" name="json_delete" id="json_delete" value="">
-<input type="hidden" name="url_location" id="url_location" value="">
-<input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH;?> ">
-<input type="hidden" name="img_default" id="img_default" value="<?php echo get_template_directory_uri() . "/images/img_default.jpg";?> ">
+<input type="hidden" name="json_delete<?php echo D1Plugin::$language; ?>" id="json_delete" value="">
+<input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="">
+<input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH;?> ">
+<input type="hidden" name="img_default<?php echo D1Plugin::$language; ?>" id="img_default" value="<?php echo get_template_directory_uri() . "/images/img_default.jpg";?> ">
 
 
 <?php 
@@ -26,26 +26,26 @@ foreach($result as $key=>&$value):
     $cont++;
 ?>
 <fieldset id="card_row<?php echo $cont;?>" style='display: inline;margin-right:4%;width:29%;'>
-<input type="hidden" name="id_card[]" value="<?php echo $value['id_card'];?>">
+<input type="hidden" name="id_card[]<?php echo D1Plugin::$language; ?>" value="<?php echo $value['id_card'];?>">
 <legend><span class="number"><?php echo $cont;?></span>Card</legend>
 
-Destaque: <input type="checkbox" name="detach_card[]" <?php echo $value['destaque'];?> value="<?php echo $value['detach_card'];?>" style='margin-top:-2px;'>
-<input type="hidden" name="detach_card_hidden[]" value="<?php echo $value['detach_card'];?>"/>
+Destaque: <input type="checkbox" name="detach_card[]<?php echo D1Plugin::$language; ?>" <?php echo $value['destaque'];?> value="<?php echo $value['detach_card'];?>" style='margin-top:-2px;'>
+<input type="hidden" name="detach_card_hidden[]<?php echo D1Plugin::$language; ?>" value="<?php echo $value['detach_card'];?>"/>
 
-<label>Título:</label><input type="text" name="title_card[]" placeholder="Titulo do Card " value="<?php echo $value['title_card'];?>">
-<label>Objetivo:</label><input type="text" name="subtitle_card[]" placeholder="SubTitulo do Card" value="<?php echo $value['subtitle_card'];?>">
-<label>Número Impacto:</label><input type="text" name="text_footer_card[]" placeholder="Texto Card Footer" value="<?php echo $value['text_footer_card'];?>">
-<label>Descrição:</label><input type="text" name="subtext_footer_card[]" placeholder="SubTexto Card Footer" value="<?php echo $value['subtext_footer_card'];?>">
-<label>Link:</label><input type="text" name="card_link[]" placeholder="Link" value="<?php echo $value['card_link'];?>">
+<label>Título:</label><input type="text" name="title_card[]<?php echo D1Plugin::$language; ?>" placeholder="Titulo do Card " value="<?php echo $value['title_card'];?>">
+<label>Objetivo:</label><input type="text" name="subtitle_card[]<?php echo D1Plugin::$language; ?>" placeholder="SubTitulo do Card" value="<?php echo $value['subtitle_card'];?>">
+<label>Número Impacto:</label><input type="text" name="text_footer_card[]<?php echo D1Plugin::$language; ?>" placeholder="Texto Card Footer" value="<?php echo $value['text_footer_card'];?>">
+<label>Descrição:</label><input type="text" name="subtext_footer_card[]<?php echo D1Plugin::$language; ?>" placeholder="SubTexto Card Footer" value="<?php echo $value['subtext_footer_card'];?>">
+<label>Link:</label><input type="text" name="card_link[]<?php echo D1Plugin::$language; ?>" placeholder="Link" value="<?php echo $value['card_link'];?>">
 <legend>Imagem de Fundo</legend><?php echo $this->d1_upload->get_image_options_cases("img_bg_url[]",$value['id_card']); ?>
-<button type="button" name="remove" id="<?php echo $cont;?>" class="btn btn-danger btn_remove">Remover Item</button>
+<button type="button" name="remove<?php echo D1Plugin::$language; ?>" id="<?php echo $cont;?>" class="btn btn-danger btn_remove">Remover Item</button>
 </fieldset>
 <?php endforeach; ?>
 </div>
 <br><br>
 
 <div id="dinamic_buttons">
-<button type="button" name="add" id="add" class="btn btn-success">Adicionar Novo Item</button>
+<button type="button" name="add<?php echo D1Plugin::$language; ?>" id="add" class="btn btn-success">Adicionar Novo Item</button>
 <input type="submit" id="cases_submit" class="btn btn-info" value="Salvar Alterações"/>
 </div>
 
@@ -71,21 +71,21 @@ $(document).ready(function(){
        }else{
             var hash = btoa(i);
             var img_default = $('#img_default').val();
-            $('#secao1_content1').append('<fieldset id="card_row'+i+'" style="display:inline;margin-right:4%;width:29%;"> <input type="hidden" name="id_card[]" value="">'
+            $('#secao1_content1').append('<fieldset id="card_row'+i+'" style="display:inline;margin-right:4%;width:29%;"> <input type="hidden" name="id_card[]<?php echo D1Plugin::$language; ?>" value="">'
                    + '<legend><span class="number">'+i+'</span>Card</legend>'
-                   //+ 'Destaque: <input type="checkbox" name="detach_card[]" value="0" style="margin-top:-2px;">'
-                   //+ '<input type="hidden" name="detach_card_hidden[]" value="0"/>'
-                   + '<label>Título:</label><input type="text" name="title_card[]" placeholder="Titulo do Card ">'
-                   + '<label>Objetivo:</label><input type="text" name="subtitle_card[]" placeholder="SubTitulo do Card">'
-                   + '<label>Número Impacto:</label><input type="text" name="text_footer_card[]" placeholder="Texto Card Footer">'
-                   + '<label>Descrição:</label><input type="text" name="subtext_footer_card[]" placeholder="SubTexto Card Footer">'
-				   + '<label>Link:</label><input type="text" name="card_link[]" placeholder="Link">'
+                   //+ 'Destaque: <input type="checkbox" name="detach_card[]<?php echo D1Plugin::$language; ?>" value="0" style="margin-top:-2px;">'
+                   //+ '<input type="hidden" name="detach_card_hidden[]<?php echo D1Plugin::$language; ?>" value="0"/>'
+                   + '<label>Título:</label><input type="text" name="title_card[]<?php echo D1Plugin::$language; ?>" placeholder="Titulo do Card ">'
+                   + '<label>Objetivo:</label><input type="text" name="subtitle_card[]<?php echo D1Plugin::$language; ?>" placeholder="SubTitulo do Card">'
+                   + '<label>Número Impacto:</label><input type="text" name="text_footer_card[]<?php echo D1Plugin::$language; ?>" placeholder="Texto Card Footer">'
+                   + '<label>Descrição:</label><input type="text" name="subtext_footer_card[]<?php echo D1Plugin::$language; ?>" placeholder="SubTexto Card Footer">'
+				   + '<label>Link:</label><input type="text" name="card_link[]<?php echo D1Plugin::$language; ?>" placeholder="Link">'
                    + '<legend>Imagem de Fundo</legend>'
                    + "<input type='hidden' id='" + hash + "' name=img_bg_url[] value='' readonly='readonly'>"
                    + "<div id='"+hash+"_d1_img_preview' style='min-height: 100px;margin-top: 10px;'> <img id='"+hash+"_d1_img_preview' style='max-width:100%;' src='"+img_default +"'  /> </div>"
                    + '<span> Após salvar o novo card, será liberado o upload de imagem </span><br>'
                    //+ "<input dest='"+hash+"' name='"+hash+"_d1_upload_btn' type='button' class='button' value='Upload Imagem'/>"
-                   + '<button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">Remover Item</button>');
+                   + '<button type="button" name="remove<?php echo D1Plugin::$language; ?>" id="'+i+'" class="btn btn-danger btn_remove">Remover Item</button>');
        }
 	});
 	

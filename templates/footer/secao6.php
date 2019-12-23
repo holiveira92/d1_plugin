@@ -36,7 +36,7 @@
                 <legend>Informações da Seção</legend>
                 <!----------------------------------------------------------------------- Seção 6 - Inicio Pitch ----------------------------------------------------------------------->
                 <fieldset>
-                    <label for="secao6_pitch">Pitch Footer:</label> <textarea name="secao6_pitch" rows=10><?php echo get_option_esc('secao6_pitch') ?></textarea>
+                    <label for="secao6_pitch">Pitch Footer:</label> <textarea name="secao6_pitch<?php echo D1Plugin::$language; ?>" rows=10><?php echo get_option_esc('secao6_pitch') ?></textarea>
                 </fieldset>
                 <!----------------------------------------------------------------------- Seção 6 - Fim Pitch -------------------------------------------------------------------------->
 

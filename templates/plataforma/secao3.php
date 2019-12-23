@@ -33,7 +33,7 @@
             <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">1</span>Informações da Seção</legend>
-                    <label for="plataforma_secao3_cases_title">Titulo:</label><input type="text" name="plataforma_secao3_cases_title" value="<?php echo get_option_esc('plataforma_secao3_cases_title'); ?>">
+                    <label for="plataforma_secao3_cases_title">Titulo:</label><input type="text" name="plataforma_secao3_cases_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao3_cases_title'); ?>">
                 </fieldset>
 
                 <fieldset>
@@ -47,7 +47,7 @@
                     ?>
                     <div class="col form-style-5 middle">
                         <!-- Início de Select para Card -->
-						<label for="plataforma_secao3_case<?php echo $i;?>">Case <?php echo $i;?>:</label> <select name="plataforma_secao3_case<?php echo $i;?>">
+						<label for="plataforma_secao3_case<?php echo $i;?>">Case <?php echo $i;?>:</label> <select name="plataforma_secao3_case<?php echo $i;?><?php echo D1Plugin::$language; ?>">
 							<option value="0"> Selecione </option>
 							<?php
 							foreach ($result as $key => &$value) :

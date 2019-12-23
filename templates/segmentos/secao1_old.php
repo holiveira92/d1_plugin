@@ -35,9 +35,9 @@
                     <legend><span class="number">1</span>Informações da Seção</legend>
                     <div class="row">
                         <div class="col form-style-5 middle">
-                            <label for="segmentos_secao1_main_title">Titulo Principal:</label><input type="text" name="segmentos_secao1_main_title" value="<?php echo get_option_esc('segmentos_secao1_main_title'); ?>" placeholder="Titulo Principal">
-                            <label for="segmentos_secao1_title">Titulo:</label><input type="text" name="segmentos_secao1_title" value="<?php echo get_option_esc('segmentos_secao1_title'); ?>" placeholder="Titulo">
-                            <label for="segmentos_secao1_descricao">Descricao:</label> <textarea name="segmentos_secao1_descricao" placeholder="Descrição"><?php echo get_option_esc('segmentos_secao1_descricao'); ?></textarea>
+                            <label for="segmentos_secao1_main_title">Titulo Principal:</label><input type="text" name="segmentos_secao1_main_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('segmentos_secao1_main_title'); ?>" placeholder="Titulo Principal">
+                            <label for="segmentos_secao1_title">Titulo:</label><input type="text" name="segmentos_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('segmentos_secao1_title'); ?>" placeholder="Titulo">
+                            <label for="segmentos_secao1_descricao">Descricao:</label> <textarea name="segmentos_secao1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc('segmentos_secao1_descricao'); ?></textarea>
                         </div>
                         <div class="col form-style-5 middle">
                             <?php echo $this->d1_upload->get_image_options('segmentos_secao1_img'); ?>
@@ -48,7 +48,7 @@
                 <fieldset>
                     <legend><span class="number">1</span>Informações da Seção</legend>
                     <div id='secao2_content1' class="content">
-                        <label for="segmentos_secao2_title">Titulo :</label><input type="text" name="segmentos_secao2_title" value="<?php echo get_option_esc('segmentos_secao2_title') ?>" placeholder="Titulo">
+                        <label for="segmentos_secao2_title">Titulo :</label><input type="text" name="segmentos_secao2_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('segmentos_secao2_title') ?>" placeholder="Titulo">
                     </div>
                 </fieldset>
 
@@ -59,8 +59,8 @@
                     for($i=1;$i<=3;$i++):
                 ?>  
                     <div class="col form-style-5 middle">
-                        <label for="segmentos_secao2_card<?php echo $i;?>_title">Titulo:</label><input type="text" name="segmentos_secao2_card<?php echo $i;?>_title" value="<?php echo get_option_esc("segmentos_secao2_card".$i."_title") ?>" placeholder="Titulo">
-                        <label for="segmentos_secao2_card<?php echo $i;?>_desc">Descricao:</label> <textarea name="segmentos_secao2_card<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("segmentos_secao2_card".$i."_desc") ?></textarea>
+                        <label for="segmentos_secao2_card<?php echo $i;?>_title">Titulo:</label><input type="text" name="segmentos_secao2_card<?php echo $i;?>_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("segmentos_secao2_card".$i."_title") ?>" placeholder="Titulo">
+                        <label for="segmentos_secao2_card<?php echo $i;?>_desc">Descricao:</label> <textarea name="segmentos_secao2_card<?php echo $i;?>_desc<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc("segmentos_secao2_card".$i."_desc") ?></textarea>
                     </div>
                 <?php endfor; ?>
                     </div>
@@ -68,7 +68,7 @@
 
                 <fieldset>
                     <legend><span class="number">3</span>Clientes</legend>
-                        <label for="segmentos_secao2_clientes_title">Titulo:</label><input type="text" name="segmentos_secao2_clientes_title" value="<?php echo get_option_esc('segmentos_secao2_clientes_title') ?>" placeholder="Titulo">
+                        <label for="segmentos_secao2_clientes_title">Titulo:</label><input type="text" name="segmentos_secao2_clientes_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('segmentos_secao2_clientes_title') ?>" placeholder="Titulo">
                         <div class="row">
                             <div class="col form-style-5 middle">
                                 <?php echo $this->d1_upload->get_image_options('segmentos_secao2_cliente1_img_logo'); ?>

@@ -35,8 +35,8 @@
                     <legend><span class="number">1</span>Informações da Seção</legend>
                     <div class="row">
                         <div class="col form-style-5 middle">
-                            <label for="seguranca_secao1_title">Titulo:</label><input type="text" name="seguranca_secao1_title" value="<?php echo get_option_esc('seguranca_secao1_title'); ?>" placeholder="Titulo">
-                            <label for="seguranca_secao1_descricao">Descricao:</label> <textarea name="seguranca_secao1_descricao" placeholder="Descrição"><?php echo get_option_esc('seguranca_secao1_descricao'); ?></textarea>
+                            <label for="seguranca_secao1_title">Titulo:</label><input type="text" name="seguranca_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('seguranca_secao1_title'); ?>" placeholder="Titulo">
+                            <label for="seguranca_secao1_descricao">Descricao:</label> <textarea name="seguranca_secao1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc('seguranca_secao1_descricao'); ?></textarea>
                         </div>
                         <div class="col form-style-5 middle">
                             <label for="seguranca_secao1_img">Imagem Background:</label>
@@ -52,9 +52,9 @@
                     for($i=1;$i<=3;$i++):
                 ?>  
                     <div class="col form-style-5 middle">
-                        <label for="seguranca_secao1_item<?php echo $i;?>_title">Titulo:</label><input type="text" name="seguranca_secao1_item<?php echo $i;?>_title" value="<?php echo get_option_esc("seguranca_secao1_item".$i."_title") ?>" placeholder="Titulo">
-                        <label for="seguranca_secao1_item<?php echo $i;?>_subtitle">SubTitulo:</label><input type="text" name="seguranca_secao1_item<?php echo $i;?>_subtitle" value="<?php echo get_option_esc("seguranca_secao1_item".$i."_subtitle") ?>" placeholder="SubTitulo">
-                        <label for="seguranca_secao1_item<?php echo $i;?>_desc">Descricao:</label> <textarea name="seguranca_secao1_item<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("seguranca_secao1_item".$i."_desc") ?></textarea>
+                        <label for="seguranca_secao1_item<?php echo $i;?>_title">Titulo:</label><input type="text" name="seguranca_secao1_item<?php echo $i;?>_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("seguranca_secao1_item".$i."_title") ?>" placeholder="Titulo">
+                        <label for="seguranca_secao1_item<?php echo $i;?>_subtitle">SubTitulo:</label><input type="text" name="seguranca_secao1_item<?php echo $i;?>_subtitle<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("seguranca_secao1_item".$i."_subtitle") ?>" placeholder="SubTitulo">
+                        <label for="seguranca_secao1_item<?php echo $i;?>_desc">Descricao:</label> <textarea name="seguranca_secao1_item<?php echo $i;?>_desc<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc("seguranca_secao1_item".$i."_desc") ?></textarea>
                     </div>
                 <?php endfor; ?>
                     </div>

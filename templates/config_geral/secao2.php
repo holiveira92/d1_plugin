@@ -27,35 +27,22 @@
 </head>
 
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                    <legend><span class="number">1</span>Status do Sistema</legend>
-                    <div class="row">
-                        <div class="col form-style-5 middle">
-                            <label for="seguranca_secao4_title">Titulo:</label><input type="text" name="seguranca_secao4_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('seguranca_secao4_title'); ?>" placeholder="Titulo">
-                            <label for="seguranca_secao4_descricao">Descricao:</label> <textarea name="seguranca_secao4_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc('seguranca_secao4_descricao'); ?></textarea>
-                        </div>
-                    </div>
+                    <legend><span class="number">1</span>Linguagem para Configuração</legend>
+                    <?php $lang_option = get_option_esc('d1_lang_option');?>
+                    <label for="d1_lang_option">Escolha a Linguagem para Editar:</label>
+                    <select name="d1_lang_option">
+                        <option value="PT" <?php echo ($lang_option == "PT") ? "selected" : "";?>>PT</option>
+                        <option value="EN" <?php echo ($lang_option == "EN") ? "selected" : "";?>>EN</option>
+                        <option value="ES" <?php echo ($lang_option == "ES") ? "selected" : "";?>>ES</option>
+                    </select>
                 </fieldset>
-
-                <fieldset>
-                    <legend><span class="number">2</span>Itens Status</legend>
-                    <div class="row">
-                <?php
-                    for($i=1;$i<=6;$i++):
-                ?>  
-                    <div class="col form-style-5 middle">
-                        <label for="seguranca_secao4_item<?php echo $i;?>_title">Titulo:</label><input type="text" name="seguranca_secao4_item<?php echo $i;?>_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("seguranca_secao4_item".$i."_title") ?>" placeholder="Titulo">
-                    </div>
-                <?php endfor; ?>
-                    </div>
-                </fieldset>
-
             </div>
         </div>
     </div>
-
 </body>
+
+</html>

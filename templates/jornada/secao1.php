@@ -35,14 +35,14 @@
                     <legend><span class="number">1</span>Missão</legend>
                     <div class="row">
                         <div class="col form-style-5">
-                            <label for="jornada_secao1_main_title">Titulo:</label><input type="text" name="jornada_secao1_main_title" value="<?php echo get_option_esc('jornada_secao1_main_title'); ?>">
-                            <label for="jornada_secao1_title">Missão:</label><input type="text" name="jornada_secao1_title" value="<?php echo get_option_esc('jornada_secao1_title'); ?>">
-                            <div class="checkbox-degrade"> <input type="checkbox" name="jornada_secao1_title_degrade"> <span>Para Inserir Degradê, Selecione o Texto e Marque Esta Opção</span> </div>
-                            <label for="jornada_secao1_desc">Descrição:</label><input type="text" name="jornada_secao1_desc" value="<?php echo get_option_esc('jornada_secao1_desc'); ?>">
+                            <label for="jornada_secao1_main_title">Titulo:</label><input type="text" name="jornada_secao1_main_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao1_main_title'); ?>">
+                            <label for="jornada_secao1_title">Missão:</label><input type="text" name="jornada_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao1_title'); ?>">
+                            <div class="checkbox-degrade"> <input type="checkbox" name="jornada_secao1_title_degrade<?php echo D1Plugin::$language; ?>"> <span>Para Inserir Degradê, Selecione o Texto e Marque Esta Opção</span> </div>
+                            <label for="jornada_secao1_desc">Descrição:</label><input type="text" name="jornada_secao1_desc<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao1_desc'); ?>">
 
                             <!-- Início de Select para CTA -->
                             <label for="jornada_secao1_cta">Selecione CTA:</label><span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
-                            <select name="jornada_secao1_cta">
+                            <select name="jornada_secao1_cta<?php echo D1Plugin::$language; ?>">
                                 <option value="0"> Selecione </option>
                                 <?php
                                 //obtendo opções salvas no BD
@@ -70,14 +70,14 @@
                     <div class="row">
                     
                     <div class="col form-style-5 middle">
-                        <label for="jornada_secao1_about">Título:</label><input type="text" name="jornada_secao1_about" value="<?php echo get_option_esc('jornada_secao1_about'); ?>">
-                        <label for="jornada_secao1_about_descricao">Descrição:</label> <textarea name="jornada_secao1_about_descricao" rows='5'><?php echo get_option_esc("jornada_secao1_about_descricao") ?></textarea>
-                        <label for="jornada_secao1_about_text_link">Texto do Link:</label><input type="text" name="jornada_secao1_about_text_link" value="<?php echo get_option_esc('jornada_secao1_about_text_link'); ?>">
-                        <label for="jornada_secao1_about_link">Link de redirecionamento:</label><input type="text" name="jornada_secao1_about_link" value="<?php echo get_option_esc('jornada_secao1_about_link'); ?>">
+                        <label for="jornada_secao1_about">Título:</label><input type="text" name="jornada_secao1_about<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao1_about'); ?>">
+                        <label for="jornada_secao1_about_descricao">Descrição:</label> <textarea name="jornada_secao1_about_descricao<?php echo D1Plugin::$language; ?>" rows='5'><?php echo get_option_esc("jornada_secao1_about_descricao") ?></textarea>
+                        <label for="jornada_secao1_about_text_link">Texto do Link:</label><input type="text" name="jornada_secao1_about_text_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao1_about_text_link'); ?>">
+                        <label for="jornada_secao1_about_link">Link de redirecionamento:</label><input type="text" name="jornada_secao1_about_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao1_about_link'); ?>">
                     </div>
 
                     <div class="col form-style-5 middle">
-                        <label for="jornada_secao1_about_descricao_secundaria">Destaque:</label> <textarea name="jornada_secao1_about_descricao_secundaria" rows='10'><?php echo get_option_esc("jornada_secao1_about_descricao_secundaria") ?></textarea>
+                        <label for="jornada_secao1_about_descricao_secundaria">Destaque:</label> <textarea name="jornada_secao1_about_descricao_secundaria<?php echo D1Plugin::$language; ?>" rows='10'><?php echo get_option_esc("jornada_secao1_about_descricao_secundaria") ?></textarea>
                     </div>
                     
                     </div>

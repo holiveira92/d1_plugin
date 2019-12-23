@@ -33,17 +33,17 @@
     <form id="footer_fields" action="<?php echo $url_action; ?>">
 
         <div class="form-style-5" id='secao_content'>
-            <input type="hidden" name="json_delete" id="json_delete" value="">
-            <input type="hidden" name="json_delete_items" id="json_delete_items" value="">
-            <input type="hidden" name="url_location" id="url_location" value="">
-            <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
+            <input type="hidden" name="json_delete<?php echo D1Plugin::$language; ?>" id="json_delete" value="">
+            <input type="hidden" name="json_delete_items<?php echo D1Plugin::$language; ?>" id="json_delete_items" value="">
+            <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="">
+            <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
             <div class="alert alert-warning" role="alert">Número Máximo de Grupos Permitidos : 9 </div>
             <div class="row">
                 <div class="col">
                     <legend>Grupos de Links</legend>
                 </div>
                 <div class="col">
-                    <button type="button" name="add_group" id="add_group" class="btn btn-success">Adicionar Grupo</button>
+                    <button type="button" name="add_group<?php echo D1Plugin::$language; ?>" id="add_group" class="btn btn-success">Adicionar Grupo</button>
                 </div>
             </div>
             <!----------------------------------------------------------------------- Seção 4 - Inicio Links ----------------------------------------------------------------------->
@@ -57,13 +57,13 @@
                 ?>
 
                 <!-- ----------------------------------- Inicio de Bloco de Definição dos Grupos--------------------------------------------- -->
-                <fieldset name="links" id_grupo="<?php echo $grupo['id']; ?>">
+                <fieldset name="links<?php echo D1Plugin::$language; ?>" id_grupo="<?php echo $grupo['id']; ?>">
 
                     <legend><span class="number"><?php echo $cont_grupos; ?></span>Grupo <?php echo $cont_grupos; ?> </legend>
-                    <input type="hidden" name="id[]" value="<?php echo $grupo['id']; ?>">
-                    <input type="hidden" name="group_id[]" value="">
-                    <input type="text" name="name[]" value="<?php echo $grupo['name']; ?>"><br><br>
-                    <input type="hidden" name="link[]" value="">
+                    <input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>" value="<?php echo $grupo['id']; ?>">
+                    <input type="hidden" name="group_id[]<?php echo D1Plugin::$language; ?>" value="">
+                    <input type="text" name="name[]<?php echo D1Plugin::$language; ?>" value="<?php echo $grupo['name']; ?>"><br><br>
+                    <input type="hidden" name="link[]<?php echo D1Plugin::$language; ?>" value="">
                     <label>Nome e Link</label>
                     <div name='items_content'>
 
@@ -73,19 +73,19 @@
                         ?>
                             <div name='item' id_item="<?php echo $item['id']; ?>">
                                 <?php echo $parent_arrow ; ?>
-                                <input type="hidden" name="id[]" value="<?php echo $item['id']; ?>">
-                                <input type="hidden" name="group_id[]" value="<?php echo $grupo['id']; ?>">
-                                <input type="hidden" name="parent_id[]" value="<?php echo $item['parent_id']; ?>">
-                                <input type="text" name="name[]" value="<?php echo $item['name']; ?>" style='width:45%;'> <span style='width:20px;'> e </span>
-                                <input type="text" name="link[]" value="<?php echo $item['link']; ?>" style='width:43%;'>
-                                <button type="button" id_item="<?php echo $item['id']; ?>" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>
+                                <input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['id']; ?>">
+                                <input type="hidden" name="group_id[]<?php echo D1Plugin::$language; ?>" value="<?php echo $grupo['id']; ?>">
+                                <input type="hidden" name="parent_id[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['parent_id']; ?>">
+                                <input type="text" name="name[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['name']; ?>" style='width:45%;'> <span style='width:20px;'> e </span>
+                                <input type="text" name="link[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['link']; ?>" style='width:43%;'>
+                                <button type="button" id_item="<?php echo $item['id']; ?>" name="remove<?php echo D1Plugin::$language; ?>" id="remove" class="btn btn-danger btn_remove">X</button>
                             </div>
                         <?php endforeach; ?>
                     </div>
                     
-                    <!-- <button type="button" id_grupo="" name="add_separador" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Separador</button> -->
-                    <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Link</button>
-                    <button type="button" name="remove_group" id_grupo="<?php echo $grupo['id']; ?>" class="btn btn-danger btn_remove_group">Remover Grupo</button>
+                    <!-- <button type="button" id_grupo="" name="add_separador<?php echo D1Plugin::$language; ?>" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Separador</button> -->
+                    <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_item<?php echo D1Plugin::$language; ?>" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Link</button>
+                    <button type="button" name="remove_group<?php echo D1Plugin::$language; ?>" id_grupo="<?php echo $grupo['id']; ?>" class="btn btn-danger btn_remove_group">Remover Grupo</button>
                 </fieldset>
             <?php endforeach; ?>
             <!-- -------------------------------------------- Fim de Bloco de Definição dos Grupos --------------------------------------- -->
@@ -118,18 +118,18 @@
                 } else {
                     var hash = btoa(Math.random());
                     var hash_item = btoa(Math.random());
-                    $('#secao_content').append('<fieldset name="links' + i + '" id_grupo="" id_grupo_temp="' + hash + '">' +
+                    $('#secao_content').append('<fieldset name="links' + i + '<?php echo D1Plugin::$language; ?>" id_grupo="" id_grupo_temp="' + hash + '">' +
                         '<div class="form-style-5"><legend><span class="number">' + i + '</span>Grupo ' + i + ' </legend>' +
-                        '<input type="hidden" name="id[]" value="' + hash + '">' +
-                        '<input type="hidden" name="group_id[]">' +
-                        '<input type="hidden" name="parent_id[]" value="' + hash_item + '">' +
-                        '<input type="text" name="name[]"><br><br>' +
-                        '<input type="hidden" name="link[]">' +
+                        '<input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>" value="' + hash + '">' +
+                        '<input type="hidden" name="group_id[]<?php echo D1Plugin::$language; ?>">' +
+                        '<input type="hidden" name="parent_id[]<?php echo D1Plugin::$language; ?>" value="' + hash_item + '">' +
+                        '<input type="text" name="name[]<?php echo D1Plugin::$language; ?>"><br><br>' +
+                        '<input type="hidden" name="link[]<?php echo D1Plugin::$language; ?>">' +
                         '<label>Nome -> Link</label>' +
-                        '<div name="items_content">' +
+                        '<div name="items_content<?php echo D1Plugin::$language; ?>">' +
                         '</div>' +
-                        '<button type="button" id_grupo="" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">+ Link</button>' +
-                        '<button type="button" id_grupo="" name="remove_group" id="remove_group" class="btn btn-danger btn_remove_group">Remover Grupo</button>' +
+                        '<button type="button" id_grupo="" name="add_item<?php echo D1Plugin::$language; ?>" id="add_item" class="btn btn-success btn_add_new_item">+ Link</button>' +
+                        '<button type="button" id_grupo="" name="remove_group<?php echo D1Plugin::$language; ?>" id="remove_group" class="btn btn-danger btn_remove_group">Remover Grupo</button>' +
                         '</fieldset>'
                     ).end();
                 }
@@ -161,13 +161,13 @@
                     var hash = btoa(Math.random());
                     //var separator = (action == "add_item") ? "" : "<span>&nbsp &nbsp &nbsp &rarr; </span>";
                     var separator = "";
-                    div_item.append('<div name="item">' + separator +
-                        '<input type="hidden" name="id[]">' +
-                        '<input type="hidden" name="group_id[]" value="' + id_grupo_pai + '">' +
-                        '<input type="hidden" name="parent_id[]" value="' + id_item + '">' +
-                        '<input type="text"name="name[]" style="width:45%;"> <span style="width:20px;"> e </span> ' +
-                        '<input type="text" name="link[]" style="width:43%;">' +
-                        '<button type="button" id_item="" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>' +
+                    div_item.append('<div name="item<?php echo D1Plugin::$language; ?>">' + separator +
+                        '<input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>">' +
+                        '<input type="hidden" name="group_id[]<?php echo D1Plugin::$language; ?>" value="' + id_grupo_pai + '">' +
+                        '<input type="hidden" name="parent_id[]<?php echo D1Plugin::$language; ?>" value="' + id_item + '">' +
+                        '<input type="text"name="name[]<?php echo D1Plugin::$language; ?>" style="width:45%;"> <span style="width:20px;"> e </span> ' +
+                        '<input type="text" name="link[]<?php echo D1Plugin::$language; ?>" style="width:43%;">' +
+                        '<button type="button" id_item="" name="remove<?php echo D1Plugin::$language; ?>" id="remove" class="btn btn-danger btn_remove">X</button>' +
                         '<br><br>' +
                         '</div>'
                     ).end();

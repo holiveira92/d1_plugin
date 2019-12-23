@@ -42,7 +42,7 @@
                             ?>
                             <!-- Início de Select para Card -->
                             <span class="margin-bottom"> Verifique o cadastro de cases de sucesso <a href="?page=d1_plugin_cases&tab=config_cards">clicando aqui</a></span>
-                            <label for="segmentos_secao3_card_select">Selecione Opção:</label> <select name="segmentos_secao3_card_select">
+                            <label for="segmentos_secao3_card_select">Selecione Opção:</label> <select name="segmentos_secao3_card_select<?php echo D1Plugin::$language; ?>">
                                 <option value="0"> Selecione </option>
                                 <?php
                                 foreach ($result as $key => &$value) :

@@ -34,7 +34,7 @@
                 <!-- ------------------------------------- Início Seção Clientes de Sucesso ----------------------------------------------->
                 <!-- Card Primeira Parte -->
                 <legend><span class="number">1</span>Informações da Seção</legend>
-                <label for="secao3_empresas_title">Titulo:</label><input type="text" name="secao3_empresas_title" value="<?php echo get_option_esc('secao3_empresas_title') ?>">
+                <label for="secao3_empresas_title">Titulo:</label><input type="text" name="secao3_empresas_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao3_empresas_title') ?>">
 
             </div>
         </div>

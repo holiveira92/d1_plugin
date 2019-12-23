@@ -34,13 +34,13 @@
                 <legend><span class="number">1</span>Informações da Seção</legend>
                 <fieldset>
 
-                    <label for="secao5_section_title">Titulo:</label> <input type="text" name="secao5_section_title" value="<?php echo get_option_esc('secao5_section_title') ?>">
-                    <div class="checkbox-degrade"> <input type="checkbox" name="secao5_section_title_degrade"> <span>Para Inserir Degradê, Selecione o Texto e Marque Esta Opção</span> </div>
+                    <label for="secao5_section_title">Titulo:</label> <input type="text" name="secao5_section_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao5_section_title') ?>">
+                    <div class="checkbox-degrade"> <input type="checkbox" name="secao5_section_title_degrade<?php echo D1Plugin::$language; ?>"> <span>Para Inserir Degradê, Selecione o Texto e Marque Esta Opção</span> </div>
 
                     <!-- todo - aplicar para os proximos degrades-->
 
-                    <label for="secao5_section_descricao">Descrição:</label> <textarea name="secao5_section_descricao" rows=5><?php echo get_option_esc('secao5_section_descricao') ?></textarea>
-                    <div class="checkbox-degrade"> <input type="checkbox" name="secao5_section_descricao_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                    <label for="secao5_section_descricao">Descrição:</label> <textarea name="secao5_section_descricao<?php echo D1Plugin::$language; ?>" rows=5><?php echo get_option_esc('secao5_section_descricao') ?></textarea>
+                    <div class="checkbox-degrade"> <input type="checkbox" name="secao5_section_descricao_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                 </fieldset>
                 <!-- ------------------------------------- Início Seção Config. Seção - Lead Generator ----------------------------------------------->
             </div>
@@ -50,7 +50,7 @@
             <div class="col form-style-5">
             <!-- Início de Select para CTA -->
             <label for="secao5_cta">Selecione CTA:</label><span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
-            <select name="secao5_cta">
+            <select name="secao5_cta<?php echo D1Plugin::$language; ?>">
                 <option value="0"> Selecione </option>
                 <?php
                 //obtendo opções salvas no BD

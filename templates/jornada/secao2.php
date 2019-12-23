@@ -35,10 +35,10 @@
                     <legend><span class="number">1</span>Plataforma</legend>
                     <div class="row">
                         <div class="col form-style-5 middle">
-                            <label for="jornada_secao2_main_title">Titulo:</label><input type="text" name="jornada_secao2_main_title" value="<?php echo get_option_esc('jornada_secao2_main_title'); ?>">
-                            <label for="jornada_secao2_title">Destaque:</label><input type="text" name="jornada_secao2_title" value="<?php echo get_option_esc('jornada_secao2_title'); ?>">
-                            <label for="jornada_secao2_descricao">Descrição:</label> <textarea name="jornada_secao2_descricao" rows='5'><?php echo get_option_esc('jornada_secao2_descricao'); ?></textarea>
-                            <label for="jornada_secao2_plataforma_link">Link de redirecionamento:</label><input type="text" name="jornada_secao2_plataforma_link" value="<?php echo get_option_esc('jornada_secao2_plataforma_link'); ?>">
+                            <label for="jornada_secao2_main_title">Titulo:</label><input type="text" name="jornada_secao2_main_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao2_main_title'); ?>">
+                            <label for="jornada_secao2_title">Destaque:</label><input type="text" name="jornada_secao2_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao2_title'); ?>">
+                            <label for="jornada_secao2_descricao">Descrição:</label> <textarea name="jornada_secao2_descricao<?php echo D1Plugin::$language; ?>" rows='5'><?php echo get_option_esc('jornada_secao2_descricao'); ?></textarea>
+                            <label for="jornada_secao2_plataforma_link">Link de redirecionamento:</label><input type="text" name="jornada_secao2_plataforma_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao2_plataforma_link'); ?>">
                         </div>
                         <div class="col form-style-5 middle">
                             <label for="jornada_secao2_img">Imagem do fundo:</label>

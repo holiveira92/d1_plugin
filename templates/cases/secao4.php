@@ -62,17 +62,17 @@
                         $query_string = http_build_query($param);
                 ?>
                 <tr class="tr-shadow">
-                    <input type="hidden" name="id_wp" id="id_wp" value="<?php echo $value['id_card'];?>">
-                    <input type="hidden" name="id_card" id="id_card" value="<?php echo $value['id_card'];?>">
+                    <input type="hidden" name="id_wp<?php echo D1Plugin::$language; ?>" id="id_wp" value="<?php echo $value['id_card'];?>">
+                    <input type="hidden" name="id_card<?php echo D1Plugin::$language; ?>" id="id_card" value="<?php echo $value['id_card'];?>">
                     <td><?php echo $value['title_card'];?></td>
                     <td class="desc"><?php echo $value['desc_completa_primaria'];?></td>
                     <td><?php echo $value['card_link'];?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit<?php echo D1Plugin::$language; ?>">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete<?php echo D1Plugin::$language; ?>">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>

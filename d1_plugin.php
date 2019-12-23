@@ -41,7 +41,10 @@ if (!class_exists('D1Plugin')) {
     {   
         //setando a linguagem escolhida para editar
         $language = get_option('d1_lang_option');
-        return esc_attr(get_option($option_name));
+        if($language == "PT" || $option_name == "d1_lang_option" || empty($language))
+            return esc_attr(get_option($option_name));
+        else
+            return esc_attr(get_option($option_name . "_$language"));
     }
 
     class D1Plugin
@@ -84,7 +87,10 @@ if (!class_exists('D1Plugin')) {
             $this->departamentos_fields = new Departamentos_Fields();
 
             //setando a linguagem escolhida para editar
-            D1Plugin::$language = get_option('d1_lang_option');
+            $language = strtoupper(get_option('d1_lang_option'));
+            $language = ($language == "PT" || empty($language)) ? "" : "_$language";
+            D1Plugin::$language = $language;
+            //pre($language);die;
         }
 
         function add_custom_options_page()
@@ -124,7 +130,9 @@ if (!class_exists('D1Plugin')) {
             );
             foreach ($all_options_settings as $option) {
                 foreach ($option as $key => $setting) {
-                    $whitelist_options[$setting['option_group']][] = $setting['option_name'];
+                    $whitelist_options[$setting['option_group']][] = $setting['option_name'];//opções para língua portuguesa
+                    $whitelist_options[$setting['option_group']][] = $setting['option_name'] . "_EN"; //opções para língua inglesa
+                    $whitelist_options[$setting['option_group']][] = $setting['option_name'] . "_ES"; //opções para língua espanhola
                 }
             }
             return $whitelist_options;

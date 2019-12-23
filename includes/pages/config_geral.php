@@ -79,6 +79,16 @@ class Admin{
 					),
 				);
 				break;
+			case 'secao2': 
+				$this->sections = array(
+					array(
+						'id' => 'home_d1_admin_secao2',
+						'title' => 'Linguagem',
+						'callback' => array( $this, 'd1Linguagem' ),
+						'page' => 'd1_plugin'
+					),
+				);
+				break;
             default:
 				$this->sections = array(
 					array(
@@ -97,6 +107,9 @@ class Admin{
             case 'secao1': 
                 $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao1','d1_plugin');
 				break;
+			case 'secao2': 
+				$this->fields =  $this->admin_fields->getFields('home_d1_admin_secao2','d1_plugin');
+				break;
             default:
                 $this->fields =  $this->admin_fields->getFields('home_d1_admin_index','d1_plugin');
                 break;
@@ -104,4 +117,5 @@ class Admin{
 	}
 
 	public function d1AdminConfGeral(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/config_geral/secao1.php';}
+	public function d1Linguagem(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/config_geral/secao2.php';}
 }

@@ -35,10 +35,10 @@
                 <!-- Titulo Seção Parte 2 -->
                 <legend><span class="number">1</span>Informações da Seção</legend>
                 <fieldset>
-                    <label for="secao7_section_title">Titulo:</label> <input type="text" name="secao7_section_title" value="<?php echo get_option_esc('secao7_section_title') ?>">
-                    <div class="checkbox-degrade"><input type="checkbox" name="secao7_section_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
-                    <label for="secao7_section_descricao">Descrição:</label> <textarea name="secao7_section_descricao" rows=6><?php echo get_option_esc('secao7_section_descricao') ?></textarea>
-                    <div class="checkbox-degrade"> <input type="checkbox" name="secao7_section_descricao_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                    <label for="secao7_section_title">Titulo:</label> <input type="text" name="secao7_section_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao7_section_title') ?>">
+                    <div class="checkbox-degrade"><input type="checkbox" name="secao7_section_title_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                    <label for="secao7_section_descricao">Descrição:</label> <textarea name="secao7_section_descricao<?php echo D1Plugin::$language; ?>" rows=6><?php echo get_option_esc('secao7_section_descricao') ?></textarea>
+                    <div class="checkbox-degrade"> <input type="checkbox" name="secao7_section_descricao_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                 </fieldset>
             </div>
 
@@ -54,7 +54,7 @@
             <div class="col form-style-5">
             <!-- Início de Select para CTA -->
             <label for="secao7_cta">Selecione CTA:</label><span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
-            <select name="secao7_cta">
+            <select name="secao7_cta<?php echo D1Plugin::$language; ?>">
                 <option value="0"> Selecione </option>
                 <?php
                 //obtendo opções salvas no BD

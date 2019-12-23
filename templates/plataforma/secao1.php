@@ -35,11 +35,11 @@
                     <legend><span class="number">1</span>Configurações da Seção</legend>
                     <div class="row">
                         <div class="col form-style-5 middle">
-                            <label for="plataforma_secao1_title">Titulo:</label><input type="text" name="plataforma_secao1_title" value="<?php echo get_option_esc('plataforma_secao1_title'); ?>">
-                            <label for="plataforma_secao1_descricao">Descrição:</label> <textarea name="plataforma_secao1_descricao"><?php echo get_option_esc('plataforma_secao1_descricao'); ?></textarea>
+                            <label for="plataforma_secao1_title">Titulo:</label><input type="text" name="plataforma_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao1_title'); ?>">
+                            <label for="plataforma_secao1_descricao">Descrição:</label> <textarea name="plataforma_secao1_descricao<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('plataforma_secao1_descricao'); ?></textarea>
                             <!-- Início de Select para CTA -->
                             <label for="plataforma_secao1_cta">Selecione CTA:</label><span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
-                            <select name="plataforma_secao1_cta">
+                            <select name="plataforma_secao1_cta<?php echo D1Plugin::$language; ?>">
                                 <option value="0"> Selecione </option>
                                 <?php
                                 //obtendo opções salvas no BD
@@ -65,7 +65,7 @@
                 <div class="col-12 form-style-5">
                     <fieldset>
                         <legend><span class="number">2</span>Cards de Desafio</legend>
-                        <label for="plataforma_secao1_desafio_title">Titulo:</label><input type="text" name="plataforma_secao1_desafio_title" value="<?php echo get_option_esc('plataforma_secao1_desafio_title'); ?>">
+                        <label for="plataforma_secao1_desafio_title">Titulo:</label><input type="text" name="plataforma_secao1_desafio_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao1_desafio_title'); ?>">
                     </fieldset>
                 </div>
                 <?php
@@ -73,8 +73,8 @@
                 ?>  
                 <div class="col-4 form-style-5 middle">
                     <fieldset>
-                        <label for="plataforma_secao1_card<?php echo $i;?>_title">Titulo:</label><input type="text" name="plataforma_secao1_card<?php echo $i;?>_title" value="<?php echo get_option_esc("plataforma_secao1_card".$i."_title") ?>">
-                        <label for="plataforma_secao1_card<?php echo $i;?>_desc">Descrição:</label> <textarea name="plataforma_secao1_card<?php echo $i;?>_desc"><?php echo get_option_esc("plataforma_secao1_card".$i."_desc") ?></textarea>
+                        <label for="plataforma_secao1_card<?php echo $i;?>_title">Titulo:</label><input type="text" name="plataforma_secao1_card<?php echo $i;?>_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("plataforma_secao1_card".$i."_title") ?>">
+                        <label for="plataforma_secao1_card<?php echo $i;?>_desc">Descrição:</label> <textarea name="plataforma_secao1_card<?php echo $i;?>_desc<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc("plataforma_secao1_card".$i."_desc") ?></textarea>
                     </fieldset>
                 </div>
                 <?php endfor; ?>

@@ -42,7 +42,7 @@
                     ?>
                     <div class="col form-style-5 middle">
                         <!-- Início de Select para Card -->
-						<label for="preco_secao3_case<?php echo $i;?>">Case <?php echo $i;?>:</label> <select name="preco_secao3_case<?php echo $i;?>">
+						<label for="preco_secao3_case<?php echo $i;?>">Case <?php echo $i;?>:</label> <select name="preco_secao3_case<?php echo $i;?><?php echo D1Plugin::$language; ?>">
 							<option value="0"> Selecione </option>
 							<?php
 							foreach ($result as $key => &$value) :

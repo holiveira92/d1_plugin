@@ -28,16 +28,16 @@
             <!-- Seção 1 - Configs Gerais -->
             <fieldset>
                 <legend><span class="number">1</span>Título da Seção</legend>
-                <label for="midia_secao1_title">Nome:</label> <input type="text" name="midia_secao1_title" value="<?php echo get_option_esc('midia_secao1_title') ?>" placeholder="Titulo">
-                <label for="midia_secao1_destaque_title">Nome:</label> <input type="text" name="midia_secao1_destaque_title" value="<?php echo get_option_esc('midia_secao1_destaque_title') ?>" placeholder="Titulo Destaque">
-                <label for="midia_secao1_text_link">Texto do Link Noticia:</label> <input type="text" name="midia_secao1_text_link" value="<?php echo get_option_esc('midia_secao1_text_link') ?>" placeholder="Texto do Link Noticia">
+                <label for="midia_secao1_title">Nome:</label> <input type="text" name="midia_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_title') ?>" placeholder="Titulo">
+                <label for="midia_secao1_destaque_title">Nome:</label> <input type="text" name="midia_secao1_destaque_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_destaque_title') ?>" placeholder="Titulo Destaque">
+                <label for="midia_secao1_text_link">Texto do Link Noticia:</label> <input type="text" name="midia_secao1_text_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_text_link') ?>" placeholder="Texto do Link Noticia">
                 <?php
                     //obtendo opções salvas no BD
                     global $wpdb;
                     $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_midia')), true);
                 ?>
                 <!-- Início de Select para Midia -->
-                <label for="midia_secao1_destaque_select">Selecione Notícia em Destaque:</label> <select name="midia_secao1_destaque_select">
+                <label for="midia_secao1_destaque_select">Selecione Notícia em Destaque:</label> <select name="midia_secao1_destaque_select<?php echo D1Plugin::$language; ?>">
                     <option value="0"> Selecione </option>
                     <?php
                     foreach ($result as $key => &$value) :
@@ -92,16 +92,16 @@
                         $query_string = http_build_query($param);
                 ?>
                 <tr class="tr-shadow">
-                    <input type="hidden" name="id_midia" id="id_midia" value="<?php echo $value['id'];?>">
+                    <input type="hidden" name="id_midia<?php echo D1Plugin::$language; ?>" id="id_midia" value="<?php echo $value['id'];?>">
                     <td><?php echo $value['title'];?></td>
                     <td><?php echo $value['vehicle'];?></td>
                     <td class="desc"><?php echo date('d/m/Y',strtotime($value['publication_date']));?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit<?php echo D1Plugin::$language; ?>">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete<?php echo D1Plugin::$language; ?>">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>

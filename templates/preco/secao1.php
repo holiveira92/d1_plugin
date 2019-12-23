@@ -35,10 +35,10 @@
                     <legend><span class="number">1</span>Informações da Seção</legend>
                     <div class="row">
                         <div class="col form-style-5 middle">
-                            <label for="preco_secao1_main_title">Titulo:</label><input type="text" name="preco_secao1_main_title" value="<?php echo get_option_esc('preco_secao1_main_title'); ?>" placeholder="Titulo Principal">
-                            <label for="preco_secao1_title">Titulo:</label><input type="text" name="preco_secao1_title" value="<?php echo get_option_esc('preco_secao1_title'); ?>" placeholder="Titulo">
-                            <label for="preco_secao1_descricao">Descricao:</label> <textarea name="preco_secao1_descricao" placeholder="Descrição"><?php echo get_option_esc('preco_secao1_descricao'); ?></textarea>
-                            <label for="preco_secao1_descricao_secundaria">Descricao Secundária:</label> <textarea name="preco_secao1_descricao_secundaria" placeholder="Descrição Secundária"><?php echo get_option_esc('preco_secao1_descricao_secundaria'); ?></textarea>
+                            <label for="preco_secao1_main_title">Titulo:</label><input type="text" name="preco_secao1_main_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('preco_secao1_main_title'); ?>" placeholder="Titulo Principal">
+                            <label for="preco_secao1_title">Titulo:</label><input type="text" name="preco_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('preco_secao1_title'); ?>" placeholder="Titulo">
+                            <label for="preco_secao1_descricao">Descricao:</label> <textarea name="preco_secao1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc('preco_secao1_descricao'); ?></textarea>
+                            <label for="preco_secao1_descricao_secundaria">Descricao Secundária:</label> <textarea name="preco_secao1_descricao_secundaria<?php echo D1Plugin::$language; ?>" placeholder="Descrição Secundária"><?php echo get_option_esc('preco_secao1_descricao_secundaria'); ?></textarea>
                         </div>
                     </div>
                 </fieldset>

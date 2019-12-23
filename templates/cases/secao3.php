@@ -47,14 +47,14 @@ $data = array(
         <div class="container">
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
-                    <input type="hidden" name="admin_url" id="admin_url" value="<?php echo admin_url(); ?>">
-                    <input type="hidden" name="url_location" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
-                    <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
-                    <input type="hidden" name="json_delete_items" id="json_delete_items" value="">
-                    <input type="hidden" name="id_categoria_principal" id="id_categoria_principal" value="<?php echo $data['id']; ?>">
-                    <input type="hidden" name="id_pai" value="<?php echo $data['id']; ?>">
-                    <input type="hidden" name="id_pai_categoria" value="<?php echo $data['id_categoria']; ?>">
-                    <label>Descrição:</label><input type="text" name="descricao_pai" value="<?php echo $data['descricao']; ?>">
+                    <input type="hidden" name="admin_url<?php echo D1Plugin::$language; ?>" id="admin_url" value="<?php echo admin_url(); ?>">
+                    <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
+                    <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
+                    <input type="hidden" name="json_delete_items<?php echo D1Plugin::$language; ?>" id="json_delete_items" value="">
+                    <input type="hidden" name="id_categoria_principal<?php echo D1Plugin::$language; ?>" id="id_categoria_principal" value="<?php echo $data['id']; ?>">
+                    <input type="hidden" name="id_pai<?php echo D1Plugin::$language; ?>" value="<?php echo $data['id']; ?>">
+                    <input type="hidden" name="id_pai_categoria<?php echo D1Plugin::$language; ?>" value="<?php echo $data['id_categoria']; ?>">
+                    <label>Descrição:</label><input type="text" name="descricao_pai<?php echo D1Plugin::$language; ?>" value="<?php echo $data['descricao']; ?>">
                     
                     <fieldset>
                     <div name='items_content'>
@@ -63,14 +63,14 @@ $data = array(
                             
                         ?>
                             <div name='item' id_item="<?php echo $item['id']; ?>">
-                                <input type="hidden" name="id[]" value="<?php echo $item['id']; ?>">
-                                <label>Descrição:</label><input type="text" name="descricao[]" value="<?php echo $item['descricao']; ?>" style='width:75%'>
-                                <input type="hidden" name="id_categoria[]" value="<?php echo $item['id_categoria']; ?>" >
-                                <button type="button" id_item="<?php echo $item['id']; ?>" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>
+                                <input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['id']; ?>">
+                                <label>Descrição:</label><input type="text" name="descricao[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['descricao']; ?>" style='width:75%'>
+                                <input type="hidden" name="id_categoria[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['id_categoria']; ?>" >
+                                <button type="button" id_item="<?php echo $item['id']; ?>" name="remove<?php echo D1Plugin::$language; ?>" id="remove" class="btn btn-danger btn_remove">X</button>
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <button type="button" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Categoria</button><br><br>
+                    <button type="button" name="add_item<?php echo D1Plugin::$language; ?>" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Categoria</button><br><br>
                     </fieldset>
                 </div>
             </div>
@@ -103,11 +103,11 @@ $data = array(
                 var hash = btoa(Math.random());
                 var id_categoria_principal = $("#id_categoria_principal").val();
                 id_categoria_principal = (id_categoria_principal != '' || id_categoria_principal != undefined) ? id_categoria_principal : "";
-                div_item.append('<div name="item">' +
-                '<input type="hidden" name="id[]">' +
-                '<label>Descrição:</label><input type="text" name="descricao[]" style="width:75%">' +
-                '<input type="hidden" name="id_categoria[]" value="' + id_categoria_principal + '">' +
-                '<button type="button" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>' +
+                div_item.append('<div name="item<?php echo D1Plugin::$language; ?>">' +
+                '<input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>">' +
+                '<label>Descrição:</label><input type="text" name="descricao[]<?php echo D1Plugin::$language; ?>" style="width:75%">' +
+                '<input type="hidden" name="id_categoria[]<?php echo D1Plugin::$language; ?>" value="' + id_categoria_principal + '">' +
+                '<button type="button" name="remove<?php echo D1Plugin::$language; ?>" id="remove" class="btn btn-danger btn_remove">X</button>' +
                 '<br><br>' +
                 '</div>'
                 ).end();
