@@ -1,0 +1,4 @@
+{
+    "config_geral_secao_1" : [{"option_name":"d1_main_logo"},{"option_name":"d1_favicon"},{"option_name":"d1_web_title"},{"option_name":"d1_menu_cta"},{"option_name":"top_bar_desc"} , {"option_name":"top_bar_text_link"} , {"option_name":"top_bar_link"} , {"option_name":"top_bar_text_login_link"} , {"option_name":"top_bar_login_link"}],
+    "config_geral_secao_2" : [{"option_name":"d1_lang_option"}]
+}

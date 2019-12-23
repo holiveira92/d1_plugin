@@ -15,22 +15,22 @@
 		switch($active_tab){
 			case 'secao1':
 				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
-				settings_fields('home_d1_options_group');
-				do_settings_sections('d1_plugin');
+				settings_fields('config_geral_secao_1');
+				do_settings_sections('d1_plugin_config_geral');
 				submit_button();
                 echo '</form>';
 				break;
 			case 'secao2':
 				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
-				settings_fields('home_d1_options_group');
-				do_settings_sections('d1_plugin');
+				settings_fields('config_geral_secao_2');
+				do_settings_sections('d1_plugin_config_geral');
 				submit_button();
 				echo '</form>';
 				break;
 			default:
 				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
-				settings_fields('home_d1_options_group');
-				do_settings_sections('d1_plugin');
+				settings_fields('config_geral_secao_1');
+				do_settings_sections('d1_plugin_config_geral');
 				submit_button();
                 echo '</form>';
 				break;

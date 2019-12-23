@@ -16,6 +16,7 @@ class D1_View_Parser {
         require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/modulos_fields.php';
         require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/objetivos_fields.php';
         require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/departamentos_fields.php';
+        require_once  $this->dirname_safe_parser(__FILE__,2) . '/fields/config_geral_fields.php';
         $this->admin_fields = new Admin_Fields();
         $this->cases_fields = new Cases_Fields();
         $this->footer_fields = new Footer_Fields();
@@ -29,6 +30,7 @@ class D1_View_Parser {
         $this->modulos_fields = new Modulos_Fields();
         $this->objetivos_fields = new Objetivos_Fields();
         $this->departamentos_fields = new Departamentos_Fields();
+        $this->config_geral_fields = new Config_Geral_Fields();
     }
     
     function dirname_safe_parser($path, $level = 0){
@@ -39,7 +41,7 @@ class D1_View_Parser {
         return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
     }
 
-    function get_data(){
+    function get_data($language="PT"){
         $home_options_settings = $this->admin_fields->getFields();
         $cases_options_settings = $this->cases_fields->getFields();
         $footer_options_settings = $this->footer_fields->getFields();
@@ -53,6 +55,7 @@ class D1_View_Parser {
         $modulos_options_settings = $this->modulos_fields->getFields();
         $objetivos_options_settings = $this->objetivos_fields->getFields();
         $departamentos_options_settings = $this->departamentos_fields->getFields();
+        $config_geral_options_settings = $this->config_geral_fields->getFields();
         $all_options_settings = array_merge(
             $home_options_settings,
             $cases_options_settings,
@@ -66,7 +69,8 @@ class D1_View_Parser {
             $d1_midia_options_settings,
             $modulos_options_settings,
             $objetivos_options_settings,
-            $departamentos_options_settings
+            $departamentos_options_settings,
+            $config_geral_options_settings
         );
         
         $data_fields['img_default'] = get_template_directory_uri() . "/images/img_default.jpg";
@@ -75,8 +79,6 @@ class D1_View_Parser {
                 $page = $field_name['page'];
                 $id_option = $field_name['id'];
                 $option_value       = get_option_esc($field_name['id']);
-                $option_value_en    = get_option_esc($field_name['id'] . "_EN");
-                $option_value_es    = get_option_esc($field_name['id'] . "_ES");
                 if(empty($option_value) && ( strpos($field_name['id'], 'image') !== false 
                     || strpos($field_name['id'], 'img') !== false || strpos($field_name['id'], 'favicon') !== false 
                     || strpos($field_name['id'], 'logo') !== false )){
@@ -87,9 +89,11 @@ class D1_View_Parser {
                     $option_value   = "Insira uma Informação";
                 }
 
-                $data_fields[$page][$id_option] = !empty($option_value) ? $option_value : "";
-                $data_fields[$page][$id_option . "_EN"] = !empty($option_value_en) ? $option_value_en : "";
-                $data_fields[$page][$id_option . "_ES"] = !empty($option_value_es) ? $option_value_es : "";
+                if(!empty($language) || $language != "PT"){
+                    $data_fields[$page][$id_option . "_$language"] = !empty($option_value) ? $option_value : "";
+                }else{
+                    $data_fields[$page][$id_option] = !empty($option_value) ? $option_value : "";
+                }
             }
         }
         return $data_fields;

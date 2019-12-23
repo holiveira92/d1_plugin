@@ -41,7 +41,7 @@ if (!class_exists('D1Plugin')) {
     {   
         //setando a linguagem escolhida para editar
         $language = get_option('d1_lang_option');
-        if($language == "PT" || $option_name == "d1_lang_option" || empty($language))
+        if(($language == "PT" || empty($language) || $language == "_") || $option_name == 'd1_lang_option')
             return esc_attr(get_option($option_name));
         else
             return esc_attr(get_option($option_name . "_$language"));
@@ -71,6 +71,7 @@ if (!class_exists('D1Plugin')) {
             require_once  dirname(__FILE__) . '/includes/fields/modulos_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/objetivos_fields.php';
             require_once  dirname(__FILE__) . '/includes/fields/departamentos_fields.php';
+            require_once  dirname(__FILE__) . '/includes/fields/config_geral_fields.php';
 
             $this->admin_fields = new Admin_Fields();
             $this->cases_fields = new Cases_Fields();
@@ -85,12 +86,12 @@ if (!class_exists('D1Plugin')) {
             $this->modulos_fields = new Modulos_Fields();
             $this->objetivos_fields = new Objetivos_Fields();
             $this->departamentos_fields = new Departamentos_Fields();
+            $this->config_geral_fields = new Config_Geral_Fields();
 
             //setando a linguagem escolhida para editar
             $language = strtoupper(get_option('d1_lang_option'));
-            $language = ($language == "PT" || empty($language)) ? "" : "_$language";
+            $language = ($language == "PT" || empty($language) || $language == "_") ? "" : "_$language";
             D1Plugin::$language = $language;
-            //pre($language);die;
         }
 
         function add_custom_options_page()
@@ -113,6 +114,7 @@ if (!class_exists('D1Plugin')) {
             $modulos_options_settings = $this->modulos_fields->getSettings();
             $objetivos_options_settings = $this->objetivos_fields->getSettings();
             $departamentos_options_settings = $this->departamentos_fields->getSettings();
+            $config_geral_options_settings = $this->config_geral_fields->getSettings();
             $all_options_settings = array_merge(
                 $home_options_settings,
                 $cases_options_settings,
@@ -126,15 +128,18 @@ if (!class_exists('D1Plugin')) {
                 $d1_midia_options_settings,
                 $modulos_options_settings,
                 $objetivos_options_settings,
-                $departamentos_options_settings
+                $departamentos_options_settings,
+                $config_geral_options_settings
             );
             foreach ($all_options_settings as $option) {
                 foreach ($option as $key => $setting) {
-                    $whitelist_options[$setting['option_group']][] = $setting['option_name'];//opções para língua portuguesa
-                    $whitelist_options[$setting['option_group']][] = $setting['option_name'] . "_EN"; //opções para língua inglesa
-                    $whitelist_options[$setting['option_group']][] = $setting['option_name'] . "_ES"; //opções para língua espanhola
+                    $language = strtoupper(get_option('d1_lang_option'));
+                    $language = ($language == "PT" || empty($language) || $language == "_" || $setting['option_name'] == 'd1_lang_option') ? "" : "_$language";
+                    //$whitelist_options[$setting['option_group']][] = $setting['option_name'];//opções para língua portuguesa
+                    $whitelist_options[$setting['option_group']][] = $setting['option_name'] . "$language";
                 }
             }
+            //pre($whitelist_options);die;
             return $whitelist_options;
         }
 
@@ -216,7 +221,7 @@ if (!class_exists('D1Plugin')) {
         public function config_geral_index()
         {
             require_once plugin_dir_path(__FILE__) . 'includes/pages/config_geral.php';
-            $adm = new Admin();
+            $adm = new Config_Geral();
             $adm->register();
             require_once plugin_dir_path(__FILE__) . 'templates/config_geral.php';
         }
