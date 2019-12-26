@@ -51,28 +51,28 @@ $id_hero            = !empty($data['id']) ? $data['id'] : 0;
 <body class="animsition">
     <a href="<?php echo $voltar_url . $query_string ;?>"><button type="button" class="button button-primary"><-- Voltar para Lista de Heroes</button></a>
     <form id="hero_fields" action="<?php echo $url_action; ?>">
-    <input type="hidden" name="admin_url<?php echo D1Plugin::$language; ?>" id="admin_url" value="<?php echo admin_url(); ?>">
-    <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
-    <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
+    <input type="hidden" name="admin_url" id="admin_url" value="<?php echo admin_url(); ?>">
+    <input type="hidden" name="url_location" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
+    <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
     <div class="container">
         <div class="row">
             <div class="col form-style-5">
                 <fieldset>
-                    <input type="hidden" name="id<?php echo D1Plugin::$language; ?>" id="id" value="<?php echo $data['id']; ?>">
+                    <input type="hidden" name="id" id="id" value="<?php echo $data['id']; ?>">
                     <legend><span class="number">1</span>Hero</legend>
-                    <label for="chamada_principal">Chamada Principal:</label> <textarea name="chamada_principal<?php echo D1Plugin::$language; ?>"><?php echo $data['chamada_principal']; ?></textarea>
-                    <div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="chamada_principal_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
-                    <label for="descricao_primaria">Benefícios:</label> <textarea name="descricao_primaria<?php echo D1Plugin::$language; ?>" rows=6><?php echo $data['descricao_primaria']; ?></textarea>
-                    <label for="descricao_secundaria">Chamada Pré CTA:</label> <textarea name="descricao_secundaria<?php echo D1Plugin::$language; ?>"><?php echo $data['descricao_secundaria']; ?></textarea>
-                    <div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="descricao_secundaria_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                    <label for="chamada_principal">Chamada Principal:</label> <textarea name="chamada_principal"><?php echo $data['chamada_principal']; ?></textarea>
+                    <div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="chamada_principal_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                    <label for="descricao_primaria">Benefícios:</label> <textarea name="descricao_primaria" rows=6><?php echo $data['descricao_primaria']; ?></textarea>
+                    <label for="descricao_secundaria">Chamada Pré CTA:</label> <textarea name="descricao_secundaria"><?php echo $data['descricao_secundaria']; ?></textarea>
+                    <div style='display:flex;align-items:center;margin-bottom:25px;'> <input type="checkbox" name="descricao_secundaria_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                 </fieldset>
             </div>
             <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">2</span>Depoimento</legend>
-                    <label for="hero_name">Nome:</label> <input type="text" name="hero_name<?php echo D1Plugin::$language; ?>" value="<?php echo $data['hero_name']; ?>">
-                    <label for="hero_cargo">Cargo:</label> <input type="text" name="hero_cargo<?php echo D1Plugin::$language; ?>" value="<?php echo $data['hero_cargo']; ?>">
-                    <label for="hero_descricao">Mensagem:</label> <textarea name="hero_descricao<?php echo D1Plugin::$language; ?>"><?php echo $data['hero_descricao']; ?></textarea>
+                    <label for="hero_name">Nome:</label> <input type="text" name="hero_name" value="<?php echo $data['hero_name']; ?>">
+                    <label for="hero_cargo">Cargo:</label> <input type="text" name="hero_cargo" value="<?php echo $data['hero_cargo']; ?>">
+                    <label for="hero_descricao">Mensagem:</label> <textarea name="hero_descricao"><?php echo $data['hero_descricao']; ?></textarea>
                     <legend>Logotipo da empresa</legend><?php echo $this->d1_upload->get_image_options_common("img_url_logo_hero_company",$data['img_url_logo_hero_company'],$data['id']); ?>
                 </fieldset>
             </div>
@@ -91,7 +91,7 @@ $id_hero            = !empty($data['id']) ? $data['id'] : 0;
             <div class="col form-style-5">
             <!-- Início de Select para CTA -->
             <label for="id_cta">Selecione CTA:</label><span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
-            <select name="id_cta<?php echo D1Plugin::$language; ?>">
+            <select name="id_cta">
                 <option value="0"> Selecione </option>
                 <?php
                 //obtendo opções salvas no BD

@@ -62,20 +62,20 @@ $id_departamento        = !empty($data["id_departamento"]) ? $data["id_departame
         <div class="container">
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
-                    <input type="hidden" name="admin_url<?php echo D1Plugin::$language; ?>" id="admin_url" value="<?php echo admin_url(); ?>">
-                    <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
-                    <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
+                    <input type="hidden" name="admin_url" id="admin_url" value="<?php echo admin_url(); ?>">
+                    <input type="hidden" name="url_location" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
+                    <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
                     <div class="col form-style-5 middle">
-                        <input type="hidden" name="id<?php echo D1Plugin::$language; ?>" id="id" value="<?php echo $data['id']; ?>">
-                        <input type="hidden" name="id_departamento<?php echo D1Plugin::$language; ?>" id="id_departamento" value="<?php echo $data['id_departamento']; ?>">
-                        <label for="title">Titulo:</label><input type="text" name="title<?php echo D1Plugin::$language; ?>" value="<?php echo $data['title']; ?>" placeholder="Titulo">
-                        <label for="subtitle">SubTitulo:</label><input type="text" name="subtitle<?php echo D1Plugin::$language; ?>" value="<?php echo $data['subtitle']; ?>" placeholder="Titulo">
-                        <label for="description1">Descricao 1:</label> <textarea name="description1<?php echo D1Plugin::$language; ?>" placeholder="Descrição 1" rows='7'><?php echo $data['description1']; ?></textarea>
-                        <div class="checkbox-degrade"><input type="checkbox" name="description1_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
-                        <label for="description2">Descricao 2:</label> <textarea name="description2<?php echo D1Plugin::$language; ?>" placeholder="Descrição 2" rows='7'><?php echo $data['description2']; ?></textarea>
-                        <div class="checkbox-degrade"><input type="checkbox" name="description2_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
-                        <label for="description3">Descricao 3:</label> <textarea name="description3<?php echo D1Plugin::$language; ?>" placeholder="Descrição 3" rows='7'><?php echo $data['description3']; ?></textarea>
-                        <div class="checkbox-degrade"><input type="checkbox" name="description3_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                        <input type="hidden" name="id" id="id" value="<?php echo $data['id']; ?>">
+                        <input type="hidden" name="id_departamento" id="id_departamento" value="<?php echo $data['id_departamento']; ?>">
+                        <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo">
+                        <label for="subtitle">SubTitulo:</label><input type="text" name="subtitle" value="<?php echo $data['subtitle']; ?>" placeholder="Titulo">
+                        <label for="description1">Descricao 1:</label> <textarea name="description1" placeholder="Descrição 1" rows='7'><?php echo $data['description1']; ?></textarea>
+                        <div class="checkbox-degrade"><input type="checkbox" name="description1_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                        <label for="description2">Descricao 2:</label> <textarea name="description2" placeholder="Descrição 2" rows='7'><?php echo $data['description2']; ?></textarea>
+                        <div class="checkbox-degrade"><input type="checkbox" name="description2_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                        <label for="description3">Descricao 3:</label> <textarea name="description3" placeholder="Descrição 3" rows='7'><?php echo $data['description3']; ?></textarea>
+                        <div class="checkbox-degrade"><input type="checkbox" name="description3_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                     </div>
                 </div>
             </div>

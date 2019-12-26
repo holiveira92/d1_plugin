@@ -46,7 +46,8 @@
 							<option value="0"> Selecione </option>
 							<?php
 							foreach ($result as $key => &$value) :
-								$id_selected = get_option_esc("midia_secao2_case$i");
+                                $id_selected = get_option_esc("midia_secao2_case$i" . D1Plugin::$language);
+                                
 								if ($value['id_card'] == $id_selected) {
 									$value['selected'] = 'selected';
 								} else {

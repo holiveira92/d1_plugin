@@ -92,17 +92,17 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
         <div class="container">
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
-                    <input type="hidden" name="admin_url<?php echo D1Plugin::$language; ?>" id="admin_url" value="<?php echo admin_url(); ?>">
-                    <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
-                    <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
+                    <input type="hidden" name="admin_url" id="admin_url" value="<?php echo admin_url(); ?>">
+                    <input type="hidden" name="url_location" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
+                    <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
                     <div class="row">
                     <div class="col form-style-5 middle">
                     <fieldset>
                         <legend><span class="number">1</span>Infos Departamento</legend>
-                        <input type="hidden" name="id<?php echo D1Plugin::$language; ?>" id="id" value="<?php echo $data['id']; ?>">
-                        <label for="main_title">Titulo Principal:</label><input type="text" name="main_title<?php echo D1Plugin::$language; ?>" value="<?php echo $data["main_title"]; ?>" placeholder="Titulo Principal">
-                        <label for="title">Titulo:</label><input type="text" name="title<?php echo D1Plugin::$language; ?>" value="<?php echo $data['title']; ?>" placeholder="Titulo" required>
-                        <label for="description">Descricao:</label> <textarea name="description<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
+                        <input type="hidden" name="id" id="id" value="<?php echo $data['id']; ?>">
+                        <label for="main_title">Titulo Principal:</label><input type="text" name="main_title" value="<?php echo $data["main_title"]; ?>" placeholder="Titulo Principal">
+                        <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo" required>
+                        <label for="description">Descricao:</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
                     </fieldset>
                     </div>
                     <div class="col form-style-5 middle">
@@ -118,13 +118,13 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <fieldset>
                         <legend><span class="number">2</span>Desafios</legend>
                     <div class="row">
-                    <label for="challenge_title">Titulo:</label><input type="text" name="challenge_title<?php echo D1Plugin::$language; ?>" value="<?php echo $data["challenge_title"]; ?>" placeholder="Titulo Principal">
+                    <label for="challenge_title">Titulo:</label><input type="text" name="challenge_title" value="<?php echo $data["challenge_title"]; ?>" placeholder="Titulo Principal">
                         <?php for($i=1;$i<=3;$i++): ?>
                         <div class="col form-style-5 middle">
                         <fieldset>
                             <legend><span class="number">2.<?php echo $i;?></span>Desafio <?php echo $i;?></legend>
-                            <label for="challenge<?php echo $i;?>_title">Titulo:</label><input type="text" name="challenge<?php echo $i;?>_title<?php echo D1Plugin::$language; ?>" value="<?php echo $challenge[$i]["title"]; ?>" placeholder="Titulo">
-                            <label for="challenge<?php echo $i;?>_description">Descricao:</label> <textarea name="challenge<?php echo $i;?>_description<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows='7'><?php echo $challenge[$i]["description"]; ?></textarea>
+                            <label for="challenge<?php echo $i;?>_title">Titulo:</label><input type="text" name="challenge<?php echo $i;?>_title" value="<?php echo $challenge[$i]["title"]; ?>" placeholder="Titulo">
+                            <label for="challenge<?php echo $i;?>_description">Descricao:</label> <textarea name="challenge<?php echo $i;?>_description" placeholder="Descrição" rows='7'><?php echo $challenge[$i]["description"]; ?></textarea>
                         </fieldset>
                         </div>
                         <?php endfor; ?>
@@ -142,12 +142,12 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <fieldset>
                     <legend><span class="number">3</span>Features</legend>
                     <div class="row">
-                    <label for="modulos_title">Titulo Features:</label><input type="text" name="modulos_title<?php echo D1Plugin::$language; ?>" value="<?php echo $modulos_options["modulos_title"]; ?>" placeholder="Titulo">
-                    <label for="modulos_descricao">Descrição Features:</label> <textarea name="modulos_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows='7'><?php echo $modulos_options["modulos_descricao"]; ?></textarea>
+                    <label for="modulos_title">Titulo Features:</label><input type="text" name="modulos_title" value="<?php echo $modulos_options["modulos_title"]; ?>" placeholder="Titulo">
+                    <label for="modulos_descricao">Descrição Features:</label> <textarea name="modulos_descricao" placeholder="Descrição" rows='7'><?php echo $modulos_options["modulos_descricao"]; ?></textarea>
                     <?php for($i=1;$i<=3;$i++): ?>
                     <div class="col-4 form-style-5 middle">
                                 <!-- Início de Select para Card -->
-                                <label for="list_modulos<?php echo $i;?>">Selecione as Features -  Opção <?php echo $i;?>:</label> <select name="list_modulos<?php echo $i;?><?php echo D1Plugin::$language; ?>">
+                                <label for="list_modulos<?php echo $i;?>">Selecione as Features -  Opção <?php echo $i;?>:</label> <select name="list_modulos<?php echo $i;?>">
                                     <option value="0"> Selecione </option>
                                     <?php $id_selected = $modulos_options["list_modulos$i"];
                                     foreach ($features_list as $key => &$value) :
@@ -171,11 +171,11 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <fieldset>
                     <legend><span class="number">4</span>Cases</legend>
                     <div class="row">
-                    <label for="cases_title">Titulo Cases:</label><input type="text" name="cases_title<?php echo D1Plugin::$language; ?>" value="<?php echo $cases_options["cases_title"]; ?>" placeholder="Titulo">
+                    <label for="cases_title">Titulo Cases:</label><input type="text" name="cases_title" value="<?php echo $cases_options["cases_title"]; ?>" placeholder="Titulo">
                     <?php for($i=1;$i<=3;$i++): ?>
                     <div class="col-4 form-style-5 middle">
                                 <!-- Início de Select para Card -->
-                                <label for="list_case<?php echo $i;?>">Selecione os Cases -  Opção <?php echo $i;?>:</label> <select name="list_case<?php echo $i;?><?php echo D1Plugin::$language; ?>">
+                                <label for="list_case<?php echo $i;?>">Selecione os Cases -  Opção <?php echo $i;?>:</label> <select name="list_case<?php echo $i;?>">
                                     <option value="0"> Selecione </option>
                                     <?php $id_selected = $cases_options["list_case$i"];
                                     foreach ($cases_list as $key => &$value) :
@@ -235,15 +235,15 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                         $query_string = http_build_query($param);
                 ?>
                 <tr class="tr-shadow">
-                    <input type="hidden" name="id_keyp<?php echo D1Plugin::$language; ?>" id="id_keyp" value="<?php echo $value['id'];?>">
+                    <input type="hidden" name="id_keyp" id="id_keyp" value="<?php echo $value['id'];?>">
                     <td><?php echo $value['title'];?></td>
                     <td class="desc"><?php echo $value['description'];?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit<?php echo D1Plugin::$language; ?>">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete<?php echo D1Plugin::$language; ?>">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>
@@ -301,15 +301,15 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                         $query_string = http_build_query($param);
                 ?>
                 <tr class="tr-shadow">
-                    <input type="hidden" name="id_cargo<?php echo D1Plugin::$language; ?>" id="id_cargo" value="<?php echo $value['id'];?>">
+                    <input type="hidden" name="id_cargo" id="id_cargo" value="<?php echo $value['id'];?>">
                     <td><?php echo $value['title'];?></td>
                     <td class="desc"><?php echo $value['description1'];?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit<?php echo D1Plugin::$language; ?>">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete_cargo" data-toggle="tooltip" data-placement="top" title="Delete" name="delete<?php echo D1Plugin::$language; ?>">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete_cargo" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>

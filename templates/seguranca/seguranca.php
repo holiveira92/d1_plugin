@@ -48,15 +48,15 @@ $data = array(
         <div class="container">
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
-                    <input type="hidden" name="admin_url<?php echo D1Plugin::$language; ?>" id="admin_url" value="<?php echo admin_url(); ?>">
-                    <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
-                    <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
+                    <input type="hidden" name="admin_url" id="admin_url" value="<?php echo admin_url(); ?>">
+                    <input type="hidden" name="url_location" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
+                    <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
                     <div class="col form-style-5 middle">
-                        <input type="hidden" name="id<?php echo D1Plugin::$language; ?>" id="id" value="<?php echo $data['id']; ?>">
-                        <input type="hidden" name="tipo<?php echo D1Plugin::$language; ?>" id="tipo" value="seguranca">
-                        <label for="title">Titulo:</label><input type="text" name="title<?php echo D1Plugin::$language; ?>" value="<?php echo $data['title']; ?>" placeholder="Titulo">
-                        <label for="description">Descricao:</label> <textarea name="description<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
-                        <label for="description_alternative">Descricao Secundaria:</label> <textarea name="description_alternative<?php echo D1Plugin::$language; ?>" placeholder="Descrição Secundária" rows='7'><?php echo $data['description_alternative']; ?></textarea>
+                        <input type="hidden" name="id" id="id" value="<?php echo $data['id']; ?>">
+                        <input type="hidden" name="tipo" id="tipo" value="seguranca">
+                        <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo">
+                        <label for="description">Descricao:</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
+                        <label for="description_alternative">Descricao Secundaria:</label> <textarea name="description_alternative" placeholder="Descrição Secundária" rows='7'><?php echo $data['description_alternative']; ?></textarea>
                         <?php echo $this->d1_upload->get_image_options_common("url_img",$data['url_img'],$data['id']); ?>
                     </div>
                 </div>

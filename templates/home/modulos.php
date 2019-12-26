@@ -52,14 +52,14 @@ $data = array(
         <div class="container">
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
-                    <input type="hidden" name="img_default<?php echo D1Plugin::$language; ?>" id="img_default" value="<?php echo get_template_directory_uri() . "/images/img_default.jpg";?> ">
-                    <input type="hidden" name="admin_url<?php echo D1Plugin::$language; ?>" id="admin_url" value="<?php echo admin_url(); ?>">
-                    <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
-                    <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
-                    <input type="hidden" name="json_delete_items<?php echo D1Plugin::$language; ?>" id="json_delete_items" value="">
-                    <input type="hidden" name="id_modulo_principal<?php echo D1Plugin::$language; ?>" id="id_modulo_principal" value="<?php echo $data['id']; ?>">
-                    <input type="hidden" name="id_pai<?php echo D1Plugin::$language; ?>" value="<?php echo $data['id']; ?>">
-                    <label>Título do módulo:</label><input type="text" name="main_title<?php echo D1Plugin::$language; ?>" value="<?php echo $data['title']; ?>" required>
+                    <input type="hidden" name="img_default" id="img_default" value="<?php echo get_template_directory_uri() . "/images/img_default.jpg";?> ">
+                    <input type="hidden" name="admin_url" id="admin_url" value="<?php echo admin_url(); ?>">
+                    <input type="hidden" name="url_location" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
+                    <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
+                    <input type="hidden" name="json_delete_items" id="json_delete_items" value="">
+                    <input type="hidden" name="id_modulo_principal" id="id_modulo_principal" value="<?php echo $data['id']; ?>">
+                    <input type="hidden" name="id_pai" value="<?php echo $data['id']; ?>">
+                    <label>Título do módulo:</label><input type="text" name="main_title" value="<?php echo $data['title']; ?>" required>
                     
                     <div name='items_content'>
                         <div class="row">
@@ -70,22 +70,22 @@ $data = array(
                         <fieldset>
                         <legend><span class="number">1</span>Itens</legend>
                             <div name='item' id_item="<?php echo $item['id']; ?>">
-                                <input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['id']; ?>">
-                                <input type="hidden" name="title[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['title']; ?>">
-                                <input type="hidden" name="id_modulo[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['id_modulo']; ?>" >
-                                <label>Titulo:</label><input type="text" name="subtitle[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['subtitle']; ?>" >
-                                <label for="description">Descrição:</label> <textarea name="description[]<?php echo D1Plugin::$language; ?>"><?php echo $item['description']; ?> </textarea>
-                                <label>Texto Link:</label><input type="text" name="text_link[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['text_link']; ?>" >
-                                <label>URL Link:</label><input type="text" name="url_link[]<?php echo D1Plugin::$language; ?>" value="<?php echo $item['url_link']; ?>" >
+                                <input type="hidden" name="id[]" value="<?php echo $item['id']; ?>">
+                                <input type="hidden" name="title[]" value="<?php echo $item['title']; ?>">
+                                <input type="hidden" name="id_modulo[]" value="<?php echo $item['id_modulo']; ?>" >
+                                <label>Titulo:</label><input type="text" name="subtitle[]" value="<?php echo $item['subtitle']; ?>" >
+                                <label for="description">Descrição:</label> <textarea name="description[]"><?php echo $item['description']; ?> </textarea>
+                                <label>Texto Link:</label><input type="text" name="text_link[]" value="<?php echo $item['text_link']; ?>" >
+                                <label>URL Link:</label><input type="text" name="url_link[]" value="<?php echo $item['url_link']; ?>" >
                                 <label>Imagem/GIF:</label> <?php echo $this->d1_upload->get_image_options_common("url_img[]",$item['url_img'],$item['id']); ?>
-                                <button type="button" id_item="<?php echo $item['id']; ?>" name="remove<?php echo D1Plugin::$language; ?>" id="remove" class="btn btn-danger btn_remove">X</button>
+                                <button type="button" id_item="<?php echo $item['id']; ?>" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>
                             </div>
                         </fieldset>
                         </div>
                         <?php endforeach; ?>
                         </div>
                     </div>
-                    <button type="button" name="add_item<?php echo D1Plugin::$language; ?>" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Item</button><br><br>
+                    <button type="button" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Item</button><br><br>
                 </div>
             </div>
         </div>
@@ -118,19 +118,19 @@ $data = array(
                 var hash = btoa(Math.random());
                 var id_modulo_principal = $("#id_modulo_principal").val();
                 id_modulo_principal = (id_modulo_principal != '' || id_modulo_principal != undefined) ? id_modulo_principal : "";
-                div_item.append('<div name="item<?php echo D1Plugin::$language; ?>">' +
-                '<input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>">' +
-                '<input type="hidden" name="title[]<?php echo D1Plugin::$language; ?>">' +
-                '<input type="hidden" name="id_modulo[]<?php echo D1Plugin::$language; ?>" value="' + id_modulo_principal + '">' +
-                '<label>Titulo:</label><input type="text" name="subtitle[]<?php echo D1Plugin::$language; ?>" ' +
-                '<label for="description">Descrição:</label> <textarea name="description[]<?php echo D1Plugin::$language; ?>"></textarea>' +
-                '<label>Texto Link:</label><input type="text" name="text_link[]<?php echo D1Plugin::$language; ?>" ' +
-                '<label>URL Link:</label><input type="text" name="url_link[]<?php echo D1Plugin::$language; ?>" ' +
+                div_item.append('<div name="item">' +
+                '<input type="hidden" name="id[]">' +
+                '<input type="hidden" name="title[]">' +
+                '<input type="hidden" name="id_modulo[]" value="' + id_modulo_principal + '">' +
+                '<label>Titulo:</label><input type="text" name="subtitle[]" ' +
+                '<label for="description">Descrição:</label> <textarea name="description[]"></textarea>' +
+                '<label>Texto Link:</label><input type="text" name="text_link[]" ' +
+                '<label>URL Link:</label><input type="text" name="url_link[]" ' +
                 '<legend>Imagem/GIF</legend>' + 
                 "<input type='hidden' id='" + hash + "' name=url_img[] value='' readonly='readonly'>" + 
                 "<div id='"+hash+"_d1_img_preview' style='min-height: 100px;margin-top: 10px;'> <img id='"+hash+"_d1_img_preview' style='max-width:100%;' src='"+img_default +"'  /> </div>" +
                 '<span> Após salvar o novo card, será liberado o upload de imagem </span><br>' + 
-                '<button type="button" name="remove<?php echo D1Plugin::$language; ?>" id="remove" class="btn btn-danger btn_remove">X</button>' +
+                '<button type="button" name="remove" id="remove" class="btn btn-danger btn_remove">X</button>' +
                 '<br><br>' +
                 '</div>'
                 ).end();

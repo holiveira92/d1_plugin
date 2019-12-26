@@ -70,14 +70,14 @@
                         $query_string = http_build_query($param);
                 ?>
                 <tr class="tr-shadow">
-                    <input type="hidden" name="id_modulo<?php echo D1Plugin::$language; ?>" id="id_modulo" value="<?php echo $value['id'];?>">
+                    <input type="hidden" name="id_modulo" id="id_modulo" value="<?php echo $value['id'];?>">
                     <td class="desc"><?php echo $value['title'];?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit<?php echo D1Plugin::$language; ?>">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete<?php echo D1Plugin::$language; ?>">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>
