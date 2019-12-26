@@ -1,12 +1,7 @@
 <?php
-function pre($data) {
-    echo "<pre>";
-        print_r($data);
-    echo "</pre>";
-}
-
-define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
+define( 'SHORTINIT', true );
 global $wpdb;
 $id_card                = !empty($_REQUEST["id_card"]) ? $_REQUEST["id_card"]: false;
 
