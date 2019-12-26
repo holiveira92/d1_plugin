@@ -85,7 +85,6 @@ if(empty($id_card)){
     $param              = array('path_wp' => $_REQUEST["path_wp"], 'id_card' => $wpdb->insert_id, 'url_location' => $_REQUEST["admin_url"]);
     $query_string       = http_build_query($param);
     $location           = $_REQUEST["admin_url"] . "admin.php?page=d1_plugin_cases&tab=secao1&" . $query_string;
-    //pre($location);die;
 }
 //update
 else{

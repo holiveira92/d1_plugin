@@ -34,12 +34,12 @@
         <div class="form-style-5" id='secao_content'>
             <div class="row">
                 <div class="col">
-                    <button type="button" name="add_cta<?php echo D1Plugin::$language; ?>" id="add_group" class="btn btn-success">Adicionar CTA</button>
+                    <button type="button" name="add_cta" id="add_group" class="btn btn-success">Adicionar CTA</button>
                 </div>
             </div>
-            <input type="hidden" name="json_delete<?php echo D1Plugin::$language; ?>" id="json_delete" value="">
-            <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="">
-            <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
+            <input type="hidden" name="json_delete" id="json_delete" value="">
+            <input type="hidden" name="url_location" id="url_location" value="">
+            <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
             <!----------------------------------------------------------------------- Seção 4 - Inicio Links ----------------------------------------------------------------------->
             <div class="row">
             <?php
@@ -52,12 +52,12 @@
 
                 <!-- ----------------------------------- Inicio de Bloco de Definição dos Grupos--------------------------------------------- -->
                 <div class="col form-style-5 middle">
-                <fieldset name="d1_cta<?php echo D1Plugin::$language; ?>" id_cta="<?php echo $cta['id']; ?>">
+                <fieldset name="d1_cta" id_cta="<?php echo $cta['id']; ?>">
                     <legend><span class="number"><?php echo $cont_cta; ?></span>CTA <?php echo $cont_cta; ?> </legend>
-                    <input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>" value="<?php echo $cta['id']; ?>">
-                    <label for="title">Título:</label> <textarea name="title[]<?php echo D1Plugin::$language; ?>"><?php echo $cta['title']; ?></textarea>
-                    <label for="link">Link:</label> <textarea name="link[]<?php echo D1Plugin::$language; ?>"><?php echo $cta['link']; ?></textarea>
-                    <select name="target[]<?php echo D1Plugin::$language; ?>">
+                    <input type="hidden" name="id[]" value="<?php echo $cta['id']; ?>">
+                    <label for="title">Título:</label> <textarea name="title[]"><?php echo $cta['title']; ?></textarea>
+                    <label for="link">Link:</label> <textarea name="link[]"><?php echo $cta['link']; ?></textarea>
+                    <select name="target[]">
                         <?php echo $cta['target']; 
                             $self = ($cta['target'] == '_self') ? 'selected' : '';
                             $blank = ($cta['target'] == '_blank') ? 'selected' : '';
@@ -68,7 +68,7 @@
                         <option value="_blank" <?php echo $blank; ?> > Blank - Nova Página </option>
                         <option value="modal" <?php echo $modal; ?> > Modal </option>
                     </select>
-                    <button id="remove" type="button" name="remove_cta<?php echo D1Plugin::$language; ?>" id_cta="<?php echo $cta['id']; ?>" class="btn btn-danger btn_remove_group">Remover</button>
+                    <button id="remove" type="button" name="remove_cta" id_cta="<?php echo $cta['id']; ?>" class="btn btn-danger btn_remove_group">Remover</button>
                 </fieldset>
                 </div>
             <?php endforeach; ?>
@@ -101,18 +101,18 @@
                     var hash = btoa(Math.random());
                     var hash_item = btoa(Math.random());
                     $('#secao_content').append('<div class="col form-style-5 middle">' + 
-                    '<fieldset name="d1_cta<?php echo D1Plugin::$language; ?>" id_cta="">' + 
+                    '<fieldset name="d1_cta" id_cta="">' + 
                     '<legend><span class="number">' + i + '</span>CTA</legend>' +
-                    '<input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>">' +
-                    '<label for="title">Título:</label> <textarea name="title[]<?php echo D1Plugin::$language; ?>"></textarea>' +
-                    '<label for="link">Link:</label> <textarea name="link[]<?php echo D1Plugin::$language; ?>"></textarea>' +
-                    '<select name="target[]<?php echo D1Plugin::$language; ?>">' +
+                    '<input type="hidden" name="id[]">' +
+                    '<label for="title">Título:</label> <textarea name="title[]"></textarea>' +
+                    '<label for="link">Link:</label> <textarea name="link[]"></textarea>' +
+                    '<select name="target[]">' +
                         '<option value="0"> Selecione </option>' +
                         '<option value="_self"> Self - Padrão Mesma Página </option>' +
                         '<option value="_blank"> Blank - Nova Página </option>' +
                         '<option value="modal"> Modal </option>' +
                     '</select>'+
-                    '<button id="remove" type="button" name="remove_cta<?php echo D1Plugin::$language; ?>" id_cta="" class="btn btn-danger btn_remove_group">Remover</button>' +
+                    '<button id="remove" type="button" name="remove_cta" id_cta="" class="btn btn-danger btn_remove_group">Remover</button>' +
                     '</fieldset> </div>'
                     ).end();
                 }

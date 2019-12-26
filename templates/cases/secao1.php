@@ -103,13 +103,13 @@ $cases_options = array(
         <div class="container">
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
-                    <input type="hidden" name="admin_url<?php echo D1Plugin::$language; ?>" id="admin_url" value="<?php echo admin_url(); ?>">
-                    <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
-                    <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
-                    <input type="hidden" name="img_default<?php echo D1Plugin::$language; ?>" id="img_default" value="<?php echo get_template_directory_uri() . "/images/img_default.jpg"; ?> ">
+                    <input type="hidden" name="admin_url" id="admin_url" value="<?php echo admin_url(); ?>">
+                    <input type="hidden" name="url_location" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
+                    <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
+                    <input type="hidden" name="img_default" id="img_default" value="<?php echo get_template_directory_uri() . "/images/img_default.jpg"; ?> ">
                     <!-- Seção 1 -->
                     <fieldset>
-                        <input type="hidden" name="id_card<?php echo D1Plugin::$language; ?>" value="<?php echo $data['id_card']; ?>">
+                        <input type="hidden" name="id_card" value="<?php echo $data['id_card']; ?>">
                         <legend><span class="number">1</span>Informações do Case</legend>
                     </fieldset>
                 </div>
@@ -117,20 +117,20 @@ $cases_options = array(
             <div class="row">
                 <div class="col form-style-5 middle" id='secao1_content1'>
                     <fieldset>
-                        <!-- Destaque: <input type="checkbox" name="detach_card<?php echo D1Plugin::$language; ?>" style='margin-top:-2px;'> !-->
-                        <input type="hidden" name="detach_card_hidden<?php echo D1Plugin::$language; ?>" value="<?php echo $data['detach_card']; ?>" />
-                        <label>Título:</label><input type="text" name="title_card<?php echo D1Plugin::$language; ?>" value="<?php echo $data['title_card']; ?>" required>
-                        <label>Descrição:</label><input type="text" name="desc_card<?php echo D1Plugin::$language; ?>" value="<?php echo $data['desc_card']; ?>" required>
-                        <div class="checkbox-degrade"> <input type="checkbox" name="desc_card_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
-                        <!-- <label>Objetivo:</label><input type="text" name="subtitle_card<?php echo D1Plugin::$language; ?>" value="<?php //echo $data['subtitle_card']; ?>"> -->
-                        <label>Nº Impacto:</label><input type="text" name="text_footer_card<?php echo D1Plugin::$language; ?>" value="<?php echo $data['text_footer_card']; ?>">
-                        <label>Descrição Secundária:</label><input type="text" name="subtext_footer_card<?php echo D1Plugin::$language; ?>" value="<?php echo $data['subtext_footer_card']; ?>">
+                        <!-- Destaque: <input type="checkbox" name="detach_card" style='margin-top:-2px;'> !-->
+                        <input type="hidden" name="detach_card_hidden" value="<?php echo $data['detach_card']; ?>" />
+                        <label>Título:</label><input type="text" name="title_card" value="<?php echo $data['title_card']; ?>" required>
+                        <label>Descrição:</label><input type="text" name="desc_card" value="<?php echo $data['desc_card']; ?>" required>
+                        <div class="checkbox-degrade"> <input type="checkbox" name="desc_card_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                        <!-- <label>Objetivo:</label><input type="text" name="subtitle_card" value="<?php //echo $data['subtitle_card']; ?>"> -->
+                        <label>Nº Impacto:</label><input type="text" name="text_footer_card" value="<?php echo $data['text_footer_card']; ?>">
+                        <label>Descrição Secundária:</label><input type="text" name="subtext_footer_card" value="<?php echo $data['subtext_footer_card']; ?>">
 
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle" id='secao1_content1'>
                     <fieldset>
-                        <label for="list_case<?php echo $i;?>">Selecione a Categoria:</label> <select name="categoria_case<?php echo D1Plugin::$language; ?>">
+                        <label for="list_case<?php echo $i;?>">Selecione a Categoria:</label> <select name="categoria_case">
                             <option value="0"> Selecione </option>
                             <?php $id_selected = $cases_options["categoria_case"];
                             foreach ($categorias_list as $key => &$value) :
@@ -140,7 +140,7 @@ $cases_options = array(
                             <option value="<?php echo $value['id']; ?>" <?php echo $value['selected']; ?>> <?php echo $value['descricao']; ?> </option>
                             <?php endforeach; ?>
                         </select>
-                        <!--<label>Link:</label><input type="text" name="card_link<?php echo D1Plugin::$language; ?>" value="<?php //echo $data['card_link']; ?>"> !-->
+                        <!--<label>Link:</label><input type="text" name="card_link" value="<?php //echo $data['card_link']; ?>"> !-->
                         <label>Imagem de Fundo</label><?php echo $this->d1_upload->get_image_options_cases("img_bg_url", $data['id_card']); ?>
                     </fieldset>
                 </div>
@@ -150,7 +150,7 @@ $cases_options = array(
                 <div class="col form-style-5 middle" id='secao1_content2'>
                     <fieldset>
                         <legend><span class="number">2</span>Impacto</legend>
-                        <label>Titulo:</label><input type="text" name="impacto_title<?php echo D1Plugin::$language; ?>" value="<?php echo $impactos_data['impacto_title']; ?>">
+                        <label>Titulo:</label><input type="text" name="impacto_title" value="<?php echo $impactos_data['impacto_title']; ?>">
                     </fieldset>
                 </div>
             </div>
@@ -159,27 +159,27 @@ $cases_options = array(
                     <!-- Impacto 1 -->
                     <fieldset>
                         <legend>Impacto 1</legend>
-                        <label>Titulo:</label><input type="text" name="impacto1_title<?php echo D1Plugin::$language; ?>" value="<?php echo $impactos_data['impacto1_title']; ?>">
-                        <label>Total:</label><input type="text" name="impacto1_total<?php echo D1Plugin::$language; ?>" value="<?php echo $impactos_data['impacto1_total']; ?>">
-                        <label>Descrição:</label><input type="text" name="impacto1_desc<?php echo D1Plugin::$language; ?>" value="<?php echo $impactos_data['impacto1_desc']; ?>">
+                        <label>Titulo:</label><input type="text" name="impacto1_title" value="<?php echo $impactos_data['impacto1_title']; ?>">
+                        <label>Total:</label><input type="text" name="impacto1_total" value="<?php echo $impactos_data['impacto1_total']; ?>">
+                        <label>Descrição:</label><input type="text" name="impacto1_desc" value="<?php echo $impactos_data['impacto1_desc']; ?>">
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle">
                     <!-- Impacto 2 -->
                     <fieldset>
                         <legend>Impacto 2</legend>
-                        <label>Titulo:</label><input type="text" name="impacto2_title<?php echo D1Plugin::$language; ?>" value="<?php echo $impactos_data['impacto2_title']; ?>">
-                        <label>Total:</label><input type="text" name="impacto2_total<?php echo D1Plugin::$language; ?>" value="<?php echo $impactos_data['impacto2_total']; ?>">
-                        <label>Descrição:</label><input type="text" name="impacto2_desc<?php echo D1Plugin::$language; ?>" value="<?php echo $impactos_data['impacto2_desc']; ?>">
+                        <label>Titulo:</label><input type="text" name="impacto2_title" value="<?php echo $impactos_data['impacto2_title']; ?>">
+                        <label>Total:</label><input type="text" name="impacto2_total" value="<?php echo $impactos_data['impacto2_total']; ?>">
+                        <label>Descrição:</label><input type="text" name="impacto2_desc" value="<?php echo $impactos_data['impacto2_desc']; ?>">
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle">
                     <!-- Impacto 3 -->
                     <fieldset>
                         <legend>Impacto 3</legend>
-                        <label>Titulo:</label><input type="text" name="impacto3_title<?php echo D1Plugin::$language; ?>" value="<?php echo $impactos_data['impacto3_title']; ?>">
-                        <label>Total:</label><input type="text" name="impacto3_total<?php echo D1Plugin::$language; ?>" value="<?php echo $impactos_data['impacto3_total']; ?>">
-                        <label>Descrição:</label><input type="text" name="impacto3_desc<?php echo D1Plugin::$language; ?>" value="<?php echo $impactos_data['impacto3_desc']; ?>">
+                        <label>Titulo:</label><input type="text" name="impacto3_title" value="<?php echo $impactos_data['impacto3_title']; ?>">
+                        <label>Total:</label><input type="text" name="impacto3_total" value="<?php echo $impactos_data['impacto3_total']; ?>">
+                        <label>Descrição:</label><input type="text" name="impacto3_desc" value="<?php echo $impactos_data['impacto3_desc']; ?>">
                     </fieldset>
                 </div>
             </div>
@@ -194,12 +194,12 @@ $cases_options = array(
             <div class="row">
                 <div class="col form-style-5 middle">
                     <fieldset>
-                        <label for="desc_completa_primaria">Primária</label> <textarea name="desc_completa_primaria<?php echo D1Plugin::$language; ?>" rows='10'><?php echo $data['desc_completa_primaria']; ?> </textarea>
+                        <label for="desc_completa_primaria">Primária</label> <textarea name="desc_completa_primaria" rows='10'><?php echo $data['desc_completa_primaria']; ?> </textarea>
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle">
                     <fieldset>
-                        <label for="desc_completa_secundaria">Secundária</label> <textarea name="desc_completa_secundaria<?php echo D1Plugin::$language; ?>" rows='10'><?php echo $data['desc_completa_secundaria']; ?> </textarea>
+                        <label for="desc_completa_secundaria">Secundária</label> <textarea name="desc_completa_secundaria" rows='10'><?php echo $data['desc_completa_secundaria']; ?> </textarea>
                     </fieldset>
                 </div>
             </div>
@@ -214,12 +214,12 @@ $cases_options = array(
             <div class="row">
                 <div class="col-4 form-style-5 middle">
                     <fieldset>
-                        <label>Titulo:</label><input type="text" name="objetivos_title<?php echo D1Plugin::$language; ?>" value="<?php echo $data['objetivos_title']; ?>">
+                        <label>Titulo:</label><input type="text" name="objetivos_title" value="<?php echo $data['objetivos_title']; ?>">
                     </fieldset>
                 </div>
                 <div class="col-8 form-style-5 middle">
                     <fieldset>
-                        <label for="objetivos_desc_completa">Descrição</label> <textarea name="objetivos_desc_completa<?php echo D1Plugin::$language; ?>" rows='10'><?php echo $data['objetivos_desc_completa']; ?> </textarea>
+                        <label for="objetivos_desc_completa">Descrição</label> <textarea name="objetivos_desc_completa" rows='10'><?php echo $data['objetivos_desc_completa']; ?> </textarea>
                     </fieldset>
                 </div>
             </div>
@@ -228,7 +228,7 @@ $cases_options = array(
                 <div class="col form-style-5 middle" id='secao1_content5'>
                     <fieldset>
                         <legend><span class="number">5</span>Desafios</legend>
-                        <label>Titulo:</label><input type="text" name="desafios_title<?php echo D1Plugin::$language; ?>" value="<?php echo $desafios_data['desafios_title']; ?>">
+                        <label>Titulo:</label><input type="text" name="desafios_title" value="<?php echo $desafios_data['desafios_title']; ?>">
                     </fieldset>
                 </div>
             </div>
@@ -236,19 +236,19 @@ $cases_options = array(
                 <div class="col form-style-5 middle">
                     <!-- Desafio 1 -->
                     <fieldset>
-                        <label for="desafio1_desc_completa">Descrição do Desafio 1</label> <textarea name="desafio1_desc_completa<?php echo D1Plugin::$language; ?>" rows='10'><?php echo $desafios_data['desafio1_desc_completa']; ?> </textarea>
+                        <label for="desafio1_desc_completa">Descrição do Desafio 1</label> <textarea name="desafio1_desc_completa" rows='10'><?php echo $desafios_data['desafio1_desc_completa']; ?> </textarea>
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle">
                     <!-- Desafio 2 -->
                     <fieldset>
-                        <label for="desafio2_desc_completa">Descrição do Desafio 2</label> <textarea name="desafio2_desc_completa<?php echo D1Plugin::$language; ?>" rows='10'><?php echo $desafios_data['desafio2_desc_completa']; ?> </textarea>
+                        <label for="desafio2_desc_completa">Descrição do Desafio 2</label> <textarea name="desafio2_desc_completa" rows='10'><?php echo $desafios_data['desafio2_desc_completa']; ?> </textarea>
                     </fieldset>
                 </div>
                 <div class="col form-style-5 middle">
                     <!-- Desafio 3 -->
                     <fieldset>
-                        <label for="desafio3_desc_completa">Descrição do Desafio 3</label> <textarea name="desafio3_desc_completa<?php echo D1Plugin::$language; ?>" rows='10'><?php echo $desafios_data['desafio3_desc_completa']; ?> </textarea>
+                        <label for="desafio3_desc_completa">Descrição do Desafio 3</label> <textarea name="desafio3_desc_completa" rows='10'><?php echo $desafios_data['desafio3_desc_completa']; ?> </textarea>
                     </fieldset>
                 </div>
             </div>
@@ -258,45 +258,45 @@ $cases_options = array(
                 <div class="col form-style-5 middle" id='secao1_content6'>
                     <fieldset>
                         <legend><span class="number">6</span>Etapas de Implantação</legend>
-                        <label>Titulo:</label><input type="text" name="implantacao_title<?php echo D1Plugin::$language; ?>" value="<?php echo $implantacao_data['implantacao_title']; ?>">
+                        <label>Titulo:</label><input type="text" name="implantacao_title" value="<?php echo $implantacao_data['implantacao_title']; ?>">
                     </fieldset>
                 </div>
             </div>
             <div class="row">
                 <div class="col-4 form-style-5 middle">
                     <fieldset>
-                        <label for="implantacao_desc_primaria">Descrição Primária</label> <textarea name="implantacao_desc_primaria<?php echo D1Plugin::$language; ?>" rows='10'><?php echo $implantacao_data['implantacao_desc_primaria']; ?> </textarea>
+                        <label for="implantacao_desc_primaria">Descrição Primária</label> <textarea name="implantacao_desc_primaria" rows='10'><?php echo $implantacao_data['implantacao_desc_primaria']; ?> </textarea>
                     </fieldset>
                 </div>
                 <div class="col-8 form-style-5 middle">
                     <fieldset>
-                        <label for="implantacao_desc_secundaria">Descrição Secundária</label> <textarea name="implantacao_desc_secundaria<?php echo D1Plugin::$language; ?>" rows='10'><?php echo $implantacao_data['implantacao_desc_secundaria']; ?> </textarea>
-                        <div class="checkbox-degrade"> <input type="checkbox" name="implantacao_desc_secundaria_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                        <label for="implantacao_desc_secundaria">Descrição Secundária</label> <textarea name="implantacao_desc_secundaria" rows='10'><?php echo $implantacao_data['implantacao_desc_secundaria']; ?> </textarea>
+                        <div class="checkbox-degrade"> <input type="checkbox" name="implantacao_desc_secundaria_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                     </fieldset>
                 </div>
             </div>
             <div class="row">
                 <div class="col-4 form-style-5 middle">
                     <fieldset>
-                        <label>Resultado 1:</label><input type="text" name="implantacao_resultado1_title<?php echo D1Plugin::$language; ?>" value="<?php echo $implantacao_data['implantacao_resultado1_title']; ?>">
-                        <label>Valor:</label><input type="text" name="implantacao_resultado1_valor<?php echo D1Plugin::$language; ?>" value="<?php echo $implantacao_data['implantacao_resultado1_valor']; ?>">
-                        <label>Descrição:</label><input type="text" name="implantacao_resultado1_desc<?php echo D1Plugin::$language; ?>" value="<?php echo $implantacao_data['implantacao_resultado1_desc']; ?>">
+                        <label>Resultado 1:</label><input type="text" name="implantacao_resultado1_title" value="<?php echo $implantacao_data['implantacao_resultado1_title']; ?>">
+                        <label>Valor:</label><input type="text" name="implantacao_resultado1_valor" value="<?php echo $implantacao_data['implantacao_resultado1_valor']; ?>">
+                        <label>Descrição:</label><input type="text" name="implantacao_resultado1_desc" value="<?php echo $implantacao_data['implantacao_resultado1_desc']; ?>">
                     </fieldset>
                 </div>
                 <div class="col-4 form-style-5 middle">
                     <fieldset>
-                        <label>Resultado 2:</label><input type="text" name="implantacao_resultado2_title<?php echo D1Plugin::$language; ?>" value="<?php echo $implantacao_data['implantacao_resultado2_title']; ?>">
-                        <label>Valor:</label><input type="text" name="implantacao_resultado2_valor<?php echo D1Plugin::$language; ?>" value="<?php echo $implantacao_data['implantacao_resultado2_valor']; ?>">
-                        <label>Descrição:</label><input type="text" name="implantacao_resultado2_desc<?php echo D1Plugin::$language; ?>" value="<?php echo $implantacao_data['implantacao_resultado2_desc']; ?>">
+                        <label>Resultado 2:</label><input type="text" name="implantacao_resultado2_title" value="<?php echo $implantacao_data['implantacao_resultado2_title']; ?>">
+                        <label>Valor:</label><input type="text" name="implantacao_resultado2_valor" value="<?php echo $implantacao_data['implantacao_resultado2_valor']; ?>">
+                        <label>Descrição:</label><input type="text" name="implantacao_resultado2_desc" value="<?php echo $implantacao_data['implantacao_resultado2_desc']; ?>">
                     </fieldset>
                 </div>
                 <div class="col-4 form-style-5 middle">
-                <input type="checkbox" name="cases_random<?php echo D1Plugin::$language; ?>" <?php echo $cases_options['cases_random'];?>> <span style="margin-bottom:10px">Marque para Usar Cases Aleatórios</span><br><br>
+                <input type="checkbox" name="cases_random" <?php echo $cases_options['cases_random'];?>> <span style="margin-bottom:10px">Marque para Usar Cases Aleatórios</span><br><br>
                         <?php
                             for($i=1;$i<=3;$i++):
                         ?>
                             <!-- Início de Select para Card -->
-                            <label for="list_case<?php echo $i;?>">Selecione os Cases -  Opção <?php echo $i;?>:</label> <select name="list_case<?php echo $i;?><?php echo D1Plugin::$language; ?>">
+                            <label for="list_case<?php echo $i;?>">Selecione os Cases -  Opção <?php echo $i;?>:</label> <select name="list_case<?php echo $i;?>">
                                 <option value="0"> Selecione </option>
                                 <?php $id_selected = $cases_options["list_case$i"];
                                 foreach ($cases_list as $key => &$value) :

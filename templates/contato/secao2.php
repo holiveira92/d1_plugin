@@ -34,12 +34,12 @@
         <div class="form-style-5" id='secao_content'>
             <div class="row">
                 <div class="col">
-                    <button type="button" name="add_faq<?php echo D1Plugin::$language; ?>" id="add_group" class="btn btn-success">Adicionar Pergunta</button>
+                    <button type="button" name="add_faq" id="add_group" class="btn btn-success">Adicionar Pergunta</button>
                 </div>
             </div>
-            <input type="hidden" name="json_delete<?php echo D1Plugin::$language; ?>" id="json_delete" value="">
-            <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="">
-            <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
+            <input type="hidden" name="json_delete" id="json_delete" value="">
+            <input type="hidden" name="url_location" id="url_location" value="">
+            <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
             <!----------------------------------------------------------------------- Seção 4 - Inicio Links ----------------------------------------------------------------------->
             <div class="row">
             <?php
@@ -52,13 +52,13 @@
 
                 <!-- ----------------------------------- Inicio de Bloco de Definição dos Grupos--------------------------------------------- -->
                 <div class="col form-style-5 middle">
-                <fieldset name="d1_faqs<?php echo D1Plugin::$language; ?>" id_faq="<?php echo $faq['id']; ?>">
+                <fieldset name="d1_faqs" id_faq="<?php echo $faq['id']; ?>">
                     <legend><span class="number"><?php echo $cont_faq; ?></span>FAQ <?php echo $cont_faq; ?> </legend>
-                    <input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>" value="<?php echo $faq['id']; ?>">
-                    <input type="hidden" name="page[]<?php echo D1Plugin::$language; ?>" value="contato">
-                    <label for="pergunta">Pergunta:</label> <textarea name="question[]<?php echo D1Plugin::$language; ?>"><?php echo $faq['question']; ?></textarea>
-                    <label for="pergunta">Resposta:</label> <textarea name="answer[]<?php echo D1Plugin::$language; ?>"><?php echo $faq['answer']; ?></textarea>
-                    <button id="remove" type="button" name="remove_faq<?php echo D1Plugin::$language; ?>" id_faq="<?php echo $faq['id']; ?>" class="btn btn-danger btn_remove_group">Remover</button>
+                    <input type="hidden" name="id[]" value="<?php echo $faq['id']; ?>">
+                    <input type="hidden" name="page[]" value="contato">
+                    <label for="pergunta">Pergunta:</label> <textarea name="question[]"><?php echo $faq['question']; ?></textarea>
+                    <label for="pergunta">Resposta:</label> <textarea name="answer[]"><?php echo $faq['answer']; ?></textarea>
+                    <button id="remove" type="button" name="remove_faq" id_faq="<?php echo $faq['id']; ?>" class="btn btn-danger btn_remove_group">Remover</button>
                 </fieldset>
                 </div>
             <?php endforeach; ?>
@@ -91,13 +91,13 @@
                     var hash = btoa(Math.random());
                     var hash_item = btoa(Math.random());
                     $('#secao_content').append('<div class="col form-style-5 middle">' + 
-                    '<fieldset name="d1_faqs<?php echo D1Plugin::$language; ?>" id_faq="">' + 
+                    '<fieldset name="d1_faqs" id_faq="">' + 
                     '<legend><span class="number">' + i + '  </span>FAQ ' + i + ' </legend>' +
-                    '<input type="hidden" name="id[]<?php echo D1Plugin::$language; ?>">' +
-                    '<input type="hidden" name="page[]<?php echo D1Plugin::$language; ?>" value="contato">' + 
-                    '<label for="pergunta">Pergunta:</label> <textarea name="question[]<?php echo D1Plugin::$language; ?>"></textarea>' +
-                    '<label for="pergunta">Resposta:</label> <textarea name="answer[]<?php echo D1Plugin::$language; ?>"></textarea>' +
-                    '<button id="remove" type="button" name="remove_faq<?php echo D1Plugin::$language; ?>" id_faq="" class="btn btn-danger btn_remove_group">Remover</button>' +
+                    '<input type="hidden" name="id[]">' +
+                    '<input type="hidden" name="page[]" value="contato">' + 
+                    '<label for="pergunta">Pergunta:</label> <textarea name="question[]"></textarea>' +
+                    '<label for="pergunta">Resposta:</label> <textarea name="answer[]"></textarea>' +
+                    '<button id="remove" type="button" name="remove_faq" id_faq="" class="btn btn-danger btn_remove_group">Remover</button>' +
                     '</fieldset> </div>'
                     ).end();
                 }
