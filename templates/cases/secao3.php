@@ -1,8 +1,8 @@
 <?php
-global $wpdb;
+global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 $id_categoria       = !empty($_REQUEST["id_categoria"]) ? $_REQUEST["id_categoria"] : false;
-$data_bd            = !empty($id_categoria) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases_categorias WHERE id = $id_categoria")), true) : array();
-$itens              = !empty($id_categoria) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases_categorias WHERE id_categoria = $id_categoria")), true) : array();
+$data_bd            = !empty($id_categoria) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cases_categorias WHERE id = $id_categoria")), true) : array();
+$itens              = !empty($id_categoria) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cases_categorias WHERE id_categoria = $id_categoria")), true) : array();
 $param              = array('path_wp' => ABSPATH, 'id_categoria' => $id_categoria, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/cases/categorias_delete.php?', 'd1_plugin') . $query_string;
@@ -15,7 +15,7 @@ $data = array(
 ?>
 
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">

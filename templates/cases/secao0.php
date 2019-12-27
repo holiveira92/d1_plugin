@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css','d1_plugin');?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css','d1_plugin');?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css','d1_plugin');?>" rel="stylesheet" media="all">
@@ -27,7 +27,7 @@
             <!-- Seção 1 - Configs Gerais -->
             <fieldset>
                 <legend><span class="number">1</span>Título da Seção</legend>
-                <label for="cases_secao0_title">Nome:</label> <input type="text" name="cases_secao0_title" value="<?php echo get_option_esc('cases_secao0_title') ?>" placeholder="Titulo">
+                <label for="cases_secao0_title">Nome:</label> <input type="text" name="cases_secao0_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('cases_secao0_title') ?>" placeholder="Titulo">
             </fieldset>
         </div>
     </div>
@@ -59,7 +59,7 @@
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')),true);
+                    $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_cases')),true);
                     $cont = 0;
                     //$create_edit_url = plugins_url('d1_plugin/templates/cases/create_edit.php?','d1_plugin');
                     $delete_url = plugins_url('d1_plugin/templates/cases/delete.php?','d1_plugin');

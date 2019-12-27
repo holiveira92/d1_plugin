@@ -1,7 +1,7 @@
 <?php
-global $wpdb;
+global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 $id_wp              = !empty($_REQUEST["id_wp"]) ? $_REQUEST["id_wp"] : false;
-$data_bd            = !empty($id_wp) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases WHERE id_card = $id_wp")), true) : array();
+$data_bd            = !empty($id_wp) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cases WHERE id_card = $id_wp")), true) : array();
 $param              = array('path_wp' => ABSPATH, 'id_wp' => $id_wp, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $voltar_url         = "?page=d1_plugin_cases&tab=secao4&" . $query_string;
@@ -17,7 +17,7 @@ $data = array(
 ?>
 
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -50,17 +50,17 @@ $data = array(
         <div class="container">
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
-                    <input type="hidden" name="admin_url<?php echo D1Plugin::$language; ?>" id="admin_url" value="<?php echo admin_url(); ?>">
-                    <input type="hidden" name="url_location<?php echo D1Plugin::$language; ?>" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
-                    <input type="hidden" name="path_wp<?php echo D1Plugin::$language; ?>" id="path_wp" value="<?php echo ABSPATH; ?> ">
-                    <input type="hidden" name="id_card<?php echo D1Plugin::$language; ?>" value="<?php echo $data['id_card']; ?>">
-                    <input type="hidden" name="id_wp<?php echo D1Plugin::$language; ?>" value="<?php echo $data['id_card']; ?>">
+                    <input type="hidden" name="admin_url" id="admin_url" value="<?php echo admin_url(); ?>">
+                    <input type="hidden" name="url_location" id="url_location" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">
+                    <input type="hidden" name="path_wp" id="path_wp" value="<?php echo ABSPATH; ?> ">
+                    <input type="hidden" name="id_card" value="<?php echo $data['id_card']; ?>">
+                    <input type="hidden" name="id_wp" value="<?php echo $data['id_card']; ?>">
                     <fieldset>
-                        <label>Título:</label><input type="text" name="title_card<?php echo D1Plugin::$language; ?>" value="<?php echo $data['title_card']; ?>" required>
-                        <label>Objetivo:</label><input type="text" name="subtitle_card<?php echo D1Plugin::$language; ?>" value="<?php echo $data['subtitle_card']; ?>">
-                        <label>Nº Impacto:</label><input type="text" name="text_footer_card<?php echo D1Plugin::$language; ?>" value="<?php echo $data['text_footer_card']; ?>">
-                        <label>Descrição Secundária:</label><input type="text" name="subtext_footer_card<?php echo D1Plugin::$language; ?>" value="<?php echo $data['subtext_footer_card']; ?>">
-                        <label>Link:</label><input type="text" name="card_link<?php echo D1Plugin::$language; ?>" value="<?php echo $data['card_link']; ?>">
+                        <label>Título:</label><input type="text" name="title_card" value="<?php echo $data['title_card']; ?>" required>
+                        <label>Objetivo:</label><input type="text" name="subtitle_card" value="<?php echo $data['subtitle_card']; ?>">
+                        <label>Nº Impacto:</label><input type="text" name="text_footer_card" value="<?php echo $data['text_footer_card']; ?>">
+                        <label>Descrição Secundária:</label><input type="text" name="subtext_footer_card" value="<?php echo $data['subtext_footer_card']; ?>">
+                        <label>Link:</label><input type="text" name="card_link" value="<?php echo $data['card_link']; ?>">
                         <label>Imagem de Fundo</label><?php echo $this->d1_upload->get_image_options_cases("img_bg_url", $data['id_card']); ?>
                     </fieldset>
                 </div>

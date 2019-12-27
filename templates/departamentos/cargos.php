@@ -1,8 +1,8 @@
 <?php
-global $wpdb;
+global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 $id_cargo           = !empty($_REQUEST["id_cargo"]) ? $_REQUEST["id_cargo"] : false;
 $id_departamento    = !empty($_REQUEST["id_modulo"]) ? $_REQUEST["id_modulo"] : ''; //aproveitando tabela de segmentos - ID do modulo será salvo como do segmento
-$data_bd            = !empty($id_cargo) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cargos WHERE id = '$id_cargo'")), true) : array();
+$data_bd            = !empty($id_cargo) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cargos WHERE id = '$id_cargo'")), true) : array();
 $param              = array('path_wp' => ABSPATH, 'id_cargo' => $id_cargo, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/departamentos/cargos_delete.php?', 'd1_plugin') . $query_string;
@@ -21,7 +21,7 @@ $id_departamento        = !empty($data["id_departamento"]) ? $data["id_departame
 ?>
 
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">

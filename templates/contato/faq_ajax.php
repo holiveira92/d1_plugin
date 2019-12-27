@@ -3,8 +3,17 @@
 
 
 
+function dirname_safe($path, $level = 0)
+{
+    $dir = explode(DIRECTORY_SEPARATOR, $path);
+    $level = $level * -1;
+    if ($level == 0) $level = count($dir);
+    array_splice($dir, $level);
+    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+}
 define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 global $wpdb;
 
 $number             = !empty($_REQUEST["question"]) ? count($_REQUEST["question"]) : false;
@@ -30,7 +39,7 @@ foreach($table_data as $key=>&$value){
         unset($value['id']);
         //insert
         $fields                 = implode("','",$value);
-        $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_faq(question,answer,page) VALUES('$fields')";
+        $sql                    = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_faq(question,answer,page) VALUES('$fields')";
         $wpdb->query($wpdb->prepare($sql,array()));
     }else{
         //update
@@ -38,14 +47,14 @@ foreach($table_data as $key=>&$value){
         $question               = $value['question'];
         $answer                 = $value['answer'];
         $page             = $value['page'];
-        $sql                    = "UPDATE " . $wpdb->prefix ."d1_faq SET question='%s', answer='%s', page='%s' WHERE id = '%s';";
+        $sql                    = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_faq SET question='%s', answer='%s', page='%s' WHERE id = '%s';";
         $wpdb->query($wpdb->prepare($sql,array($question,$answer,$page,$id)));
     }
 }
 
 if(!empty($ids_delete[0])){
     foreach($ids_delete as $id){
-        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_faq WHERE id=$id;",array()));
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . D1_LANG . "d1_faq WHERE id=$id;",array()));
     }
 }
 

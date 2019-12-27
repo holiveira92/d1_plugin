@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css','d1_plugin');?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css','d1_plugin');?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css','d1_plugin');?>" rel="stylesheet" media="all">
@@ -34,7 +34,7 @@
                 <?php
                     //obtendo opções salvas no BD
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_midia')), true);
+                    $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_midia')), true);
                 ?>
                 <!-- Início de Select para Midia -->
                 <label for="midia_secao1_destaque_select">Selecione Notícia em Destaque:</label> <select name="midia_secao1_destaque_select<?php echo D1Plugin::$language; ?>">
@@ -82,7 +82,7 @@
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_midia")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_midia")),true);
                     $cont = 0;
                     $delete_url = plugins_url('d1_plugin/templates/d1_midia/midia_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 

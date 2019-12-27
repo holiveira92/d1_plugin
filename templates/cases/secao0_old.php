@@ -19,7 +19,7 @@
 
 <?php 
 global $wpdb;
-$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')),true);
+$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_cases')),true);
 $cont = 0;
 foreach($result as $key=>&$value): 
     $value['destaque'] = ($value['detach_card'] == 1) ? 'checked' : '';

@@ -9,5 +9,5 @@ function dirname_path($path, $level = 0)
 }
 require(dirname_path(__FILE__,6) . "wp-load.php");
 $language = get_option('d1_lang_option');
-$language = ($language == "PT" || empty($language) || $language == "_") ? "" : "_$language";
+$language = ($language == "PT" || empty($language) || $language == "_") ? "" : "$language" . "_";
 define("D1_LANG", $language);

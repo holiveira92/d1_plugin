@@ -6,7 +6,7 @@ function st_create_table() {
     
     // Verifica se a nova tabela existe
     // "prefix" o prefixo escolhido na instalacao do WordPress
-    $tablename = $wpdb->prefix . 'd1-design';
+    $tablename = $wpdb->prefix . D1_LANG . 'd1-design';
     
     // Se a tabela nao existe sera criada
     if ( $wpdb->get_var( "SHOW TABLES LIKE '$tablename'" ) != $tablename ) {

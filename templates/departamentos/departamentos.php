@@ -1,9 +1,9 @@
 <?php
-global $wpdb;
+global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 $id_mod             = !empty($_REQUEST["id_mod"]) ? $_REQUEST["id_mod"] : false;
-$data_bd            = !empty($id_mod) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_departamentos WHERE id = '$id_mod'")), true) : array();
-$cases_list         = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases")), true);
-$features_list      = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='modulos' ")), true);
+$data_bd            = !empty($id_mod) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_departamentos WHERE id = '$id_mod'")), true) : array();
+$cases_list         = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cases")), true);
+$features_list      = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_key_points WHERE page='modulos' ")), true);
 $param              = array('path_wp' => ABSPATH, 'id_mod' => $id_mod, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/departamentos/departamentos_delete.php?', 'd1_plugin') . $query_string;
@@ -60,7 +60,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
 ?>
 
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -224,7 +224,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='departamentos' AND id_segmento=$id_modulo")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_key_points WHERE page='departamentos' AND id_segmento=$id_modulo")),true);
                     $cont = 0;
                     $delete_url = plugins_url('d1_plugin/templates/departamentos/keyp_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 
@@ -290,7 +290,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cargos WHERE id_departamento=$id_modulo")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cargos WHERE id_departamento=$id_modulo")),true);
                     $cont = 0;
                     $delete_url = plugins_url('d1_plugin/templates/departamentos/cargos_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 

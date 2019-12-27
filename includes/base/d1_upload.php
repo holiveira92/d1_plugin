@@ -10,7 +10,7 @@ class D1_Upload {
     function get_image_options_cases($name_field,$id_field=0){
         global $wpdb;
         $id_element_field = str_replace("[]","",$name_field) . "_" . $id_field;
-        $result = !empty($id_field) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases WHERE id_card=$id_field LIMIT 1")),true) : array();
+        $result = !empty($id_field) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cases WHERE id_card=$id_field LIMIT 1")),true) : array();
         $img_options = !empty($result[0]['img_bg_url']) ? $result[0]['img_bg_url'] : "";
 		$name_button = $id_element_field . '_d1_upload_btn';
 		$name_del_button = $id_element_field . '_d1_btn_del';

@@ -1,8 +1,15 @@
 <?php
-global $wpdb;
+function dirname_safe($path, $level = 0)
+{
+    $dir = explode(DIRECTORY_SEPARATOR, $path);
+    $level = $level * -1;
+    if ($level == 0) $level = count($dir);
+    array_splice($dir, $level);
+    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+}global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 $id_modulo          = !empty($_REQUEST["id_modulo"]) ? $_REQUEST["id_modulo"] : false;
-$data_bd            = !empty($id_modulo) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_modulos WHERE id = $id_modulo")), true) : array();
-$itens              = !empty($id_modulo) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_modulos WHERE id_modulo = $id_modulo")), true) : array();
+$data_bd            = !empty($id_modulo) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_modulos WHERE id = $id_modulo")), true) : array();
+$itens              = !empty($id_modulo) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_modulos WHERE id_modulo = $id_modulo")), true) : array();
 $param              = array('path_wp' => ABSPATH, 'id_modulo' => $id_modulo, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/home/modulos_delete.php?', 'd1_plugin') . $query_string;
@@ -20,7 +27,7 @@ $data = array(
 ?>
 
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">

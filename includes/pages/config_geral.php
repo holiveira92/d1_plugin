@@ -95,7 +95,7 @@ class Config_Geral{
             default:
 				$this->sections = array(
 					array(
-						'id' => 'home_d1_admin_index',
+						'id' => 'config_geral_secao_1',
 						'title' => 'Configurações Gerais',
 						'callback' => array( $this, 'd1AdminConfGeral' ),
 						'page' => 'd1_plugin_config_geral'

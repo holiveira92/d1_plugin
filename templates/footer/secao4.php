@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -49,10 +49,10 @@
             <!----------------------------------------------------------------------- Seção 4 - Inicio Links ----------------------------------------------------------------------->
             <?php
             global $wpdb;
-            $grupos = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id IS NULL OR group_id = "" ')), true);
+            $grupos = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_footer_links WHERE group_id IS NULL OR group_id = "" ')), true);
             $cont_grupos = 0;
             foreach ($grupos as $key => &$grupo) :
-                $itens = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id = ' . $grupo['id'] . ' ORDER BY group_id DESC')), true);
+                $itens = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_footer_links WHERE group_id = ' . $grupo['id'] . ' ORDER BY group_id DESC')), true);
                 $cont_grupos++;
                 ?>
 

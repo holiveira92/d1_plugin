@@ -1,45 +1,56 @@
 <?php
+function dirname_safe($path, $level = 0)
+{
+    $dir = explode(DIRECTORY_SEPARATOR, $path);
+    $level = $level * -1;
+    if ($level == 0) $level = count($dir);
+    array_splice($dir, $level);
+    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+}
 define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 
 
 
 function insert_bd($data){
     require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
     global $wpdb;
 
     $name = $data[0];
     $link = $data[1];
     $group_id = $data[2];
-    $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_footer_links(name,link,group_id) VALUES(%s,%s,%s)";
+    $sql                    = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_footer_links(name,link,group_id) VALUES(%s,%s,%s)";
     $wpdb->query($wpdb->prepare($sql,array($name,$link,$group_id)));
     return $wpdb->insert_id;
 }
 
 function update_bd($data){
     require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
     global $wpdb;
 
     $name                   = $data[0];
     $link                   = $data[1];
     $group_id               = !empty($data[2]) ? $data[2] : '';
     $id                     = $data[3];
-    $sql                    = "UPDATE " . $wpdb->prefix ."d1_footer_links SET name=%s, link=%s, group_id=%s WHERE id = %d";
+    $sql                    = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_footer_links SET name=%s, link=%s, group_id=%s WHERE id = %d";
     $wpdb->query($wpdb->prepare($sql,array($name,$link,$group_id,$id)) );
 }
 
 function delete_pai($ids_delete){
     global $wpdb;
     foreach($ids_delete as $id){
-        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_footer_links WHERE id=%d;",array($id)));
-        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_footer_links WHERE group_id=%d;",array($id)));
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . D1_LANG . "d1_footer_links WHERE id=%d;",array($id)));
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . D1_LANG . "d1_footer_links WHERE group_id=%d;",array($id)));
     }
 }
 
 function delete_items($ids_delete){
     global $wpdb;
     foreach($ids_delete as $id){
-        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_footer_links WHERE id=%d;",array($id)));
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . D1_LANG . "d1_footer_links WHERE id=%d;",array($id)));
     }
 }
 

@@ -1,8 +1,8 @@
 <?php
-global $wpdb;
+global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 $id_keyp            = !empty($_REQUEST["id_keyp"]) ? $_REQUEST["id_keyp"] : false;
 $id_segmento        = !empty($_REQUEST["id_segmento"]) ? $_REQUEST["id_segmento"] : '';
-$data_bd            = !empty($id_keyp) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE id = '$id_keyp'")), true) : array();
+$data_bd            = !empty($id_keyp) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_key_points WHERE id = '$id_keyp'")), true) : array();
 $param              = array('path_wp' => ABSPATH, 'id_keyp' => $id_keyp, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/segmentos/keyp_delete.php?', 'd1_plugin') . $query_string;
@@ -20,7 +20,7 @@ $id_segmento        = !empty($data["id_segmento"]) ? $data["id_segmento"] : '';
 ?>
 
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">

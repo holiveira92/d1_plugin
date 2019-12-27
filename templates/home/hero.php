@@ -1,7 +1,7 @@
 <?php
-global $wpdb;
+global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';  
 $id_hero            = !empty($_REQUEST["id_hero"]) ? $_REQUEST["id_hero"] : false;
-$data_bd            = !empty($id_hero) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_home_hero WHERE id = '$id_hero'")), true) : array();
+$data_bd            = !empty($id_hero) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_home_hero WHERE id = '$id_hero'")), true) : array();
 $param              = array('path_wp' => ABSPATH, 'id_hero' => $id_hero, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/home/hero_delete.php?', 'd1_plugin') . $query_string;
@@ -23,7 +23,7 @@ $id_hero            = !empty($data['id']) ? $data['id'] : 0;
 ?>
 
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -96,7 +96,7 @@ $id_hero            = !empty($data['id']) ? $data['id'] : 0;
                 <?php
                 //obtendo opções salvas no BD
 				global $wpdb;
-				$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_call_to_action')), true);
+				$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_call_to_action')), true);
                 foreach ($result as $key => &$value) :
                     $id_selected = $data['id_cta'];
                     if ($value['id'] == $id_selected) $value['selected'] = 'selected';

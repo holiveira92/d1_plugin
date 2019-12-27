@@ -69,7 +69,7 @@ $data = array(
 
 //insert
 if(empty($id_card)){
-    $sql                = "INSERT INTO " . $wpdb->prefix . "d1_cases(title_card,desc_card,subtitle_card,text_footer_card,subtext_footer_card,card_link,img_bg_url,
+    $sql                = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_cases(title_card,desc_card,subtitle_card,text_footer_card,subtext_footer_card,card_link,img_bg_url,
                         detach_card,desc_completa_primaria,desc_completa_secundaria,objetivos_title,objetivos_desc_completa,impactos, desafios, implantacao, cases_options) 
     VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
     $wpdb->query($wpdb->prepare($sql,array(
@@ -86,7 +86,7 @@ else{
     $param              = array('path_wp' => $_REQUEST["path_wp"], 'id_card' => $id_card, 'url_location' => $_REQUEST["admin_url"]);
     $query_string       = http_build_query($param);
     $location           = $_REQUEST["admin_url"] . "admin.php?page=d1_plugin_cases&tab=secao1&" . $query_string;
-    $sql                = "UPDATE " . $wpdb->prefix ."d1_cases SET title_card='%s', desc_card='%s', subtitle_card='%s', text_footer_card='%s', subtext_footer_card='%s', card_link='%s', img_bg_url='%s',
+    $sql                = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_cases SET title_card='%s', desc_card='%s', subtitle_card='%s', text_footer_card='%s', subtext_footer_card='%s', card_link='%s', img_bg_url='%s',
     detach_card='%s', desc_completa_primaria='%s', desc_completa_secundaria='%s', objetivos_title='%s', objetivos_desc_completa='%s', 
     impactos='%s', desafios='%s', implantacao='%s', cases_options='%s' WHERE id_card = %d";
     $wpdb->query($wpdb->prepare($sql,array($data['title_card'],$data['desc_card'],$data['subtitle_card'],$data['text_footer_card'],$data['subtext_footer_card'],$data['card_link'],$data['img_bg_url'],

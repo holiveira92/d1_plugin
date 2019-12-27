@@ -74,7 +74,7 @@
 				break;
 			default:
 				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
-				settings_fields('home_d1_options_group');
+				settings_fields('home_secao1_options_group');
 				do_settings_sections('d1_plugin');
 				submit_button();
                 echo '</form>';
