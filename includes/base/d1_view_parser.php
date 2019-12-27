@@ -78,7 +78,8 @@ class D1_View_Parser {
             foreach($option as $key=>$field_name){
                 $page = $field_name['page'];
                 $id_option = $field_name['id'];
-                $option_value       = get_option_esc($field_name['id']);
+                $language_option = ($language == "PT") ? "" : "_" . $language;
+                $option_value       = get_option($field_name['id'].$language_option);
                 if(empty($option_value) && ( strpos($field_name['id'], 'image') !== false 
                     || strpos($field_name['id'], 'img') !== false || strpos($field_name['id'], 'favicon') !== false 
                     || strpos($field_name['id'], 'logo') !== false )){
@@ -88,12 +89,7 @@ class D1_View_Parser {
                 if(empty($option_value)){
                     $option_value   = "Insira uma Informação";
                 }
-
-                if(!empty($language) || $language != "PT"){
-                    $data_fields[$page][$id_option . "_$language"] = !empty($option_value) ? $option_value : "";
-                }else{
-                    $data_fields[$page][$id_option] = !empty($option_value) ? $option_value : "";
-                }
+                $data_fields[$page][$id_option] = !empty($option_value) ? $option_value : "";
             }
         }
         return $data_fields;
