@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
     //ao clicar em qualquer botão de upload, abre a tela de gerenciamento de midia do wordpress
-    $('[name*=_d1_upload_btn').click(function(){
+    $('[name*=_d1_upload_btn]').click(function(){
         var destination_field = $(this).attr('dest');
         $('#destination_field').val(destination_field);
         tb_show('Upload Image', 'media-upload.php?referer=d1_upload_settings&type=image&TB_iframe=true&post_id=0', false);
@@ -18,4 +18,12 @@ jQuery(document).ready(function($) {
         //$('#submit').trigger('click');
     }
 
+    //remove imagem
+    $('[name*=_d1_btn_del]').click(function(){
+        var destination_field = $(this).attr('dest');
+        var img_default = $('#d1_img_default').val();
+        $('#destination_field').val(destination_field);
+        $("input[id=" + destination_field + "]").val('');
+        $("img[id=" + destination_field + "_d1_img_preview]").removeAttr("src").attr('src',img_default);
+    });
 });

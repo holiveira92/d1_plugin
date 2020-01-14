@@ -26,6 +26,7 @@ class D1_Upload {
 			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;margin-top: 10px;'> <img id=$name_img_preview style='max-width:300px;' src=$this->img_default  /> </div>";
 			$img_component = $img_component . "<input dest=$id_element_field name=$name_button type='button' class='button' value='Upload Imagem'/>";
 		}
+		$img_component = $img_component . "<input type='hidden' id='d1_img_default' name='d1_img_default' value='$this->img_default' readonly='readonly'>";
 		return $img_component;
     }
     
@@ -45,6 +46,7 @@ class D1_Upload {
 			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;margin-top: 10px;'> <img id=$name_img_preview style='max-width:300px;' src=$this->img_default  /> </div>";
 			$img_component = $img_component . "<input dest=$name_field name=$name_button type='button' class='button' value='Upload Imagem'/>";
 		}
+		$img_component = $img_component . "<input type='hidden' id='d1_img_default' name='d1_img_default' value='$this->img_default' readonly='readonly'>";
 		return $img_component;
 	}
 
@@ -93,6 +95,7 @@ class D1_Upload {
 			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;margin-top: 10px;'> <img id=$name_img_preview style='max-width:300px;' src=$this->img_default  /> </div>";
 			$img_component = $img_component . "<input dest=$id_element_field name=$name_button type='button' class='button' value='Upload Imagem'/>";
 		}
+		$img_component = $img_component . "<input type='hidden' id='d1_img_default' name='d1_img_default' value='$this->img_default' readonly='readonly'>";
 		return $img_component;
     }
 }
