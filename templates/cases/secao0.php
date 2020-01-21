@@ -64,7 +64,10 @@
                     //$create_edit_url = plugins_url('d1_plugin/templates/cases/create_edit.php?','d1_plugin');
                     $delete_url = plugins_url('d1_plugin/templates/cases/delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 
-                        //$value['destaque'] = ($value['detach_card'] == 1) ? 'checked' : '';
+                        $whitepaper  = json_decode($value['cases_options'],true);
+                        $whitepaper  = !empty($whitepaper['is_whitepaper']) ? true : false;
+                        if($whitepaper)
+                            continue;
                         $cont++;
                         $create_edit_url = "?page=d1_plugin_cases&tab=secao1&";
                         $param = array('path_wp' => ABSPATH, 'id_card' => $value['id_card'], 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
@@ -73,7 +76,7 @@
                 <tr class="tr-shadow">
                     <input type="hidden" name="id_card" id="id_card" value="<?php echo $value['id_card'];?>">
                     <td><?php echo $value['title_card'];?></td>
-                    <td class="desc"><?php echo $value['subtitle_card'];?></td>
+                    <td class="desc"><?php echo $value['desc_completa_primaria'];?></td>
                     <td><?php echo $value['text_footer_card'];?></td>
                     <td><?php echo $value['card_link'];?></td>
                     <td>

@@ -11,7 +11,7 @@ class Admin{
 		require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/base/d1_upload.php';
 		$this->d1_upload = new D1_Upload();
         $this->admin_fields = new Admin_Fields();
-        $this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'config_geral';
+        $this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'secao1';
 	}
 	
 	public function register(){
@@ -72,9 +72,6 @@ class Admin{
 
 	public function setSettings(){
         switch($this->active_tab){
-            case 'config_geral': 
-                $this->settings =  $this->admin_fields->getSettings('home_d1_options_group','d1_plugin');
-                break;
             case 'secao1': 
                 $this->settings =  $this->admin_fields->getSettings('home_secao1_options_group','d1_plugin');
 				break;
@@ -104,16 +101,6 @@ class Admin{
 
 	public function setSections(){
         switch($this->active_tab){
-            case 'config_geral': 
-				$this->sections = array(
-					array(
-						'id' => 'home_d1_admin_index',
-						'title' => 'Configurações Gerais',
-						'callback' => array( $this, 'd1AdminConfGeral' ),
-						'page' => 'd1_plugin'
-					),
-				);
-				break;
             case 'secao1': 
 				$this->sections = array(
 					array(
@@ -194,6 +181,16 @@ class Admin{
 					),
 				);
 				break;
+			case 'hero': 
+				$this->sections = array(
+					array(
+						'id' => 'home_d1_admin_hero',
+						'title' => 'Hero - Slider',
+						'callback' => array( $this, 'd1Hero' ),
+						'page' => 'd1_plugin'
+					),
+				);
+				break;
             default:
 				$this->sections = array(
 					array(
@@ -209,9 +206,6 @@ class Admin{
 
 	public function setFields(){
         switch($this->active_tab){
-            case 'config_geral': 
-                $this->fields =  $this->admin_fields->getFields('home_d1_admin_index','d1_plugin');
-                break;
             case 'secao1': 
                 $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao1','d1_plugin');
 				break;
@@ -248,4 +242,5 @@ class Admin{
     public function d1Section6Solucao(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao6.php';}
 	public function d1Section7Diferencial(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/secao7.php';}
 	public function d1Modulos(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/modulos.php';}
+	public function d1Hero(){require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'templates/home/hero.php';}
 }

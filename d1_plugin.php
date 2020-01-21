@@ -38,13 +38,16 @@ if (!class_exists('D1Plugin')) {
     }
 
     function get_option_esc($option_name)
-    {
+    {   
+        //setando a linguagem escolhida para editar
+        $language = get_option('d1_lang_option');
         return esc_attr(get_option($option_name));
     }
 
     class D1Plugin
     {
         public $plugin;
+        static $language;
         function __construct()
         {
             $this->plugin = plugin_basename(__FILE__);
@@ -79,6 +82,9 @@ if (!class_exists('D1Plugin')) {
             $this->modulos_fields = new Modulos_Fields();
             $this->objetivos_fields = new Objetivos_Fields();
             $this->departamentos_fields = new Departamentos_Fields();
+
+            //setando a linguagem escolhida para editar
+            D1Plugin::$language = get_option('d1_lang_option');
         }
 
         function add_custom_options_page()
@@ -144,6 +150,9 @@ if (!class_exists('D1Plugin')) {
 
         public function add_admin_pages()
         {
+            /* CONFIGURAÇÕES GERAIS*/
+            add_menu_page('Configurações Gerais', 'Configurações Gerais', 'manage_options', 'd1_plugin_config_geral', array($this, 'config_geral_index'), "", 110);
+            
             /* HOME PAGE */
             add_menu_page('Página Inicial', 'Página Inicial', 'manage_options', 'd1_plugin', array($this, 'admin_index'), get_template_directory_uri() . "/images/d1_logo_admin.ico", 110);
 
@@ -194,6 +203,14 @@ if (!class_exists('D1Plugin')) {
             $adm = new Admin();
             $adm->register();
             require_once plugin_dir_path(__FILE__) . 'templates/admin.php';
+        }
+
+        public function config_geral_index()
+        {
+            require_once plugin_dir_path(__FILE__) . 'includes/pages/config_geral.php';
+            $adm = new Admin();
+            $adm->register();
+            require_once plugin_dir_path(__FILE__) . 'templates/config_geral.php';
         }
 
         public function plataforma_admin()

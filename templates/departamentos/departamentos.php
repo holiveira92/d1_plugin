@@ -86,7 +86,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
 </head>
 
 <body class="animsition">
-<h1> Link Permanente: </h1> <a href="<?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['title']);?>/<?php echo $data['id'];?></a>
+<h1> Link Permanente: </h1> <a href="<?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?></a>
     <form id="keypoints_fields" action="<?php echo $url_action; ?>">
         <!-- DADOS DO SEGMENTO -->
         <div class="container">
