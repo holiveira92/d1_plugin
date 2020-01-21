@@ -86,7 +86,7 @@ $id_segmento = !empty($data['id']) ? $data['id'] : 0;
 </head>
 
 <body class="animsition">
-<h1> Link Permanente: </h1> <a href="<?php echo get_home_url();?>/segmentos/<?php echo sanitize_title($data['title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/segmentos/<?php echo sanitize_title($data['title']);?>/<?php echo $data['id'];?></a>
+<h1> Link Permanente: </h1> <a href="<?php echo get_home_url();?>/segmentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/segmentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?></a>
     <form id="keypoints_fields" action="<?php echo $url_action; ?>">
         <!-- DADOS DO SEGMENTO -->
         <div class="container">
@@ -100,9 +100,9 @@ $id_segmento = !empty($data['id']) ? $data['id'] : 0;
                     <fieldset>
                         <legend><span class="number">1</span>Infos Segmento</legend>
                         <input type="hidden" name="id" id="id" value="<?php echo $data['id']; ?>">
-                        <label for="main_title">Titulo:</label><input type="text" name="main_title" value="<?php echo $data['main_title']; ?>" placeholder="Titulo Principal" required>
+                        <label for="main_title">Segmento:</label><input type="text" name="main_title" value="<?php echo $data['main_title']; ?>" placeholder="Titulo Principal" required>
                         <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo" required>
-                        <label for="description">Descricao:</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
+                        <label for="description">Descrição</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
                     </fieldset>
                     </div>
                     <div class="col form-style-5 middle">
@@ -122,7 +122,7 @@ $id_segmento = !empty($data['id']) ? $data['id'] : 0;
                         <fieldset>
                             <legend><span class="number"><?php echo $i;?></span>Desafio <?php echo $i;?></legend>
                             <label for="challenge<?php echo $i;?>_title">Titulo:</label><input type="text" name="challenge<?php echo $i;?>_title" value="<?php echo $challenge[$i]["title"]; ?>" placeholder="Titulo">
-                            <label for="challenge<?php echo $i;?>_description">Descricao:</label> <textarea name="challenge<?php echo $i;?>_description" placeholder="Descrição" rows='7'><?php echo $challenge[$i]["description"]; ?></textarea>
+                            <label for="challenge<?php echo $i;?>_description">Descrição</label> <textarea name="challenge<?php echo $i;?>_description" placeholder="Descrição" rows='7'><?php echo $challenge[$i]["description"]; ?></textarea>
                         </fieldset>
                         </div>
                         <?php endfor; ?>

@@ -39,7 +39,7 @@
                 ?>  
                     <div class="col form-style-5 middle">
                         <label for="segmentos_secao3_keyp<?php echo $i;?>_title">Titulo:</label><input type="text" name="segmentos_secao3_keyp<?php echo $i;?>_title" value="<?php echo get_option_esc("segmentos_secao3_keyp".$i."_title") ?>" placeholder="Titulo">
-                        <label for="segmentos_secao3_keyp<?php echo $i;?>_desc">Descricao:</label> <textarea name="segmentos_secao3_keyp<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("segmentos_secao3_keyp".$i."_desc") ?></textarea>
+                        <label for="segmentos_secao3_keyp<?php echo $i;?>_desc">Descrição</label> <textarea name="segmentos_secao3_keyp<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("segmentos_secao3_keyp".$i."_desc") ?></textarea>
                         <?php echo $this->d1_upload->get_image_options("segmentos_secao3_keyp".$i."_img"); ?>
                     </div>
 

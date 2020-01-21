@@ -36,7 +36,7 @@
                     <div class="row">
                         <div class="col form-style-5 middle">
                             <label for="seguranca_secao4_title">Titulo:</label><input type="text" name="seguranca_secao4_title" value="<?php echo get_option_esc('seguranca_secao4_title'); ?>" placeholder="Titulo">
-                            <label for="seguranca_secao4_descricao">Descricao:</label> <textarea name="seguranca_secao4_descricao" placeholder="Descrição"><?php echo get_option_esc('seguranca_secao4_descricao'); ?></textarea>
+                            <label for="seguranca_secao4_descricao">Descrição</label> <textarea name="seguranca_secao4_descricao" placeholder="Descrição"><?php echo get_option_esc('seguranca_secao4_descricao'); ?></textarea>
                         </div>
                     </div>
                 </fieldset>

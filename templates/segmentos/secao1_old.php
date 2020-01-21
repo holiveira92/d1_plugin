@@ -37,7 +37,7 @@
                         <div class="col form-style-5 middle">
                             <label for="segmentos_secao1_main_title">Titulo Principal:</label><input type="text" name="segmentos_secao1_main_title" value="<?php echo get_option_esc('segmentos_secao1_main_title'); ?>" placeholder="Titulo Principal">
                             <label for="segmentos_secao1_title">Titulo:</label><input type="text" name="segmentos_secao1_title" value="<?php echo get_option_esc('segmentos_secao1_title'); ?>" placeholder="Titulo">
-                            <label for="segmentos_secao1_descricao">Descricao:</label> <textarea name="segmentos_secao1_descricao" placeholder="Descrição"><?php echo get_option_esc('segmentos_secao1_descricao'); ?></textarea>
+                            <label for="segmentos_secao1_descricao">Descrição</label> <textarea name="segmentos_secao1_descricao" placeholder="Descrição"><?php echo get_option_esc('segmentos_secao1_descricao'); ?></textarea>
                         </div>
                         <div class="col form-style-5 middle">
                             <?php echo $this->d1_upload->get_image_options('segmentos_secao1_img'); ?>
@@ -60,7 +60,7 @@
                 ?>  
                     <div class="col form-style-5 middle">
                         <label for="segmentos_secao2_card<?php echo $i;?>_title">Titulo:</label><input type="text" name="segmentos_secao2_card<?php echo $i;?>_title" value="<?php echo get_option_esc("segmentos_secao2_card".$i."_title") ?>" placeholder="Titulo">
-                        <label for="segmentos_secao2_card<?php echo $i;?>_desc">Descricao:</label> <textarea name="segmentos_secao2_card<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("segmentos_secao2_card".$i."_desc") ?></textarea>
+                        <label for="segmentos_secao2_card<?php echo $i;?>_desc">Descrição</label> <textarea name="segmentos_secao2_card<?php echo $i;?>_desc" placeholder="Descrição"><?php echo get_option_esc("segmentos_secao2_card".$i."_desc") ?></textarea>
                     </div>
                 <?php endfor; ?>
                     </div>

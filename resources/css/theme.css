@@ -101,9 +101,7 @@ button#add_group, button#add_item, .d1-button, .wp-core-ui .button-primary {
     border-radius: 100px;
     border: none;
     background-color: transparent;
-    background-image: url(https://uploads-ssl.webflow.com/5d9f3e2…/5d9f7af…_infinite-icon.svg), linear-gradient(257.91deg, #0a8cff 6.41%, #0fc6ff 82.61%);
-    background-position: 94% 50%, 0px 0px;
-    background-size: 64px, auto;
+    background-image: linear-gradient(257.91deg, #0a8cff 6.41%, #0fc6ff 82.61%);
     background-repeat: no-repeat, repeat;
     background-attachment: scroll, scroll;
     -webkit-transition: all 359ms ease;
@@ -116,6 +114,7 @@ button#add_group, button#add_item, .d1-button, .wp-core-ui .button-primary {
     text-shadow: none;
     height: auto;
     box-shadow: none;
+    margin: 20px 0 0;
 }
 
 button#remove_group, button#remove, button.btn.btn-danger.btn_remove_group {
@@ -123,8 +122,6 @@ button#remove_group, button#remove, button.btn.btn-danger.btn_remove_group {
     padding: 6px 20px;
     border-radius: 100px;
     border: none;
-    background-color: transparent;
-    background-image: url(https://uploads-ssl.webflow.com/5d9f3e2…/5d9f7af…_infinite-icon.svg), linear-gradient(257.91deg, #F93C12 6.41%, #E43165 82.61%);
     background-position: 94% 50%, 0px 0px;
     background-size: 64px, auto;
     background-repeat: no-repeat, repeat;
@@ -481,6 +478,7 @@ section {
 }
 
 .form-style-5 {
+    flex: 1 0 21%;
     padding: 20px;
     background: #f4f7f8;
     border-radius: 8px;
@@ -13392,3 +13390,22 @@ div#postdivrich {
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
 }
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('../fonts/Gotham-Book.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Gotham';
+    src: url('../fonts/Gotham-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Gotham';
+    src: url('../fonts/Gotham-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
