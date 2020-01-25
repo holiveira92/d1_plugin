@@ -76,7 +76,7 @@ $id_segmento        = !empty($data["id_segmento"]) ? $data["id_segmento"] : '';
                         <input type="hidden" name="page" id="page" value="<?php echo $data['page']; ?>">
                         <input type="hidden" name="id_segmento" id="id_segmento" value="<?php echo $data['id_segmento']; ?>">
                         <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo">
-                        <label for="description">Descricao:</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
+                        <label for="description">Descrição</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
                         <?php echo $this->d1_upload->get_image_options_common("url_img",$data['url_img'],$data['id']); ?>
                     </div>
                 </div>

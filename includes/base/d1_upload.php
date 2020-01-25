@@ -2,9 +2,12 @@
 
 class D1_Upload {
 
+	private $language;
 	public function __construct(){
-        $this->img_default = get_template_directory_uri() . "/images/img_default.jpg";
-        $this->setup();
+        $this->img_default 	= get_template_directory_uri() . "/images/img_default.jpg";
+		$this->setup();
+		$language 			= strtoupper(get_option('d1_lang_option'));
+        $this->language 	= ($language == "PT" || empty($language) || $language == "_") ? "" : "_$language";
 	}
 
     function get_image_options_cases($name_field,$id_field=0){
@@ -26,11 +29,14 @@ class D1_Upload {
 			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;margin-top: 10px;'> <img id=$name_img_preview style='max-width:300px;' src=$this->img_default  /> </div>";
 			$img_component = $img_component . "<input dest=$id_element_field name=$name_button type='button' class='button' value='Upload Imagem'/>";
 		}
+		$img_component = $img_component . "<input type='hidden' id='d1_img_default' name='d1_img_default' value='$this->img_default' readonly='readonly'>";
 		return $img_component;
     }
     
 	function get_image_options($name_field){
-		$img_options = esc_url(get_option_esc($name_field));
+		$name_temp = $name_field;
+		$name_field = $name_field . $this->language;
+		$img_options = esc_url(get_option_esc($name_temp));
 		$name_button = $name_field . '_d1_upload_btn';
 		$name_del_button = $name_field . '_d1_btn_del';
 		$name_img_preview = $name_field . '_d1_img_preview';
@@ -45,6 +51,7 @@ class D1_Upload {
 			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;margin-top: 10px;'> <img id=$name_img_preview style='max-width:300px;' src=$this->img_default  /> </div>";
 			$img_component = $img_component . "<input dest=$name_field name=$name_button type='button' class='button' value='Upload Imagem'/>";
 		}
+		$img_component = $img_component . "<input type='hidden' id='d1_img_default' name='d1_img_default' value='$this->img_default' readonly='readonly'>";
 		return $img_component;
 	}
 
@@ -93,6 +100,7 @@ class D1_Upload {
 			$img_component = $img_component . "<div id=$name_img_preview style='min-height: 100px;margin-top: 10px;'> <img id=$name_img_preview style='max-width:300px;' src=$this->img_default  /> </div>";
 			$img_component = $img_component . "<input dest=$id_element_field name=$name_button type='button' class='button' value='Upload Imagem'/>";
 		}
+		$img_component = $img_component . "<input type='hidden' id='d1_img_default' name='d1_img_default' value='$this->img_default' readonly='readonly'>";
 		return $img_component;
     }
 }

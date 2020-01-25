@@ -134,12 +134,11 @@ if (!class_exists('D1Plugin')) {
             foreach ($all_options_settings as $option) {
                 foreach ($option as $key => $setting) {
                     $language = strtoupper(get_option('d1_lang_option'));
-                    $language = ($language == "PT" || empty($language) || $language == "_" || $setting['option_name'] == 'd1_lang_option') ? "" : "_$language";
-                    //$whitelist_options[$setting['option_group']][] = $setting['option_name'];//opções para língua portuguesa
-                    $whitelist_options[$setting['option_group']][] = $setting['option_name'] . "$language";
+                    $language_option = ($language == "PT" || empty($language) || $language == "_" || $setting['option_name'] == 'd1_lang_option') ? "" : "_$language";
+                    $whitelist_options[$setting['option_group']][] = $setting['option_name'] . "$language_option";
+                    $arr[$setting['option_name'] . "$language_option"][] = get_option($setting['option_name'] . "$language_option");
                 }
             }
-            //pre($whitelist_options);die;
             return $whitelist_options;
         }
 

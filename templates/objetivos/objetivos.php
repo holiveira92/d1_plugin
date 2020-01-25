@@ -92,7 +92,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                         <legend><span class="number">1</span>Infos Objetivo</legend>
                         <input type="hidden" name="id" id="id" value="<?php echo $data['id']; ?>">
                         <label for="title">Titulo:</label><input type="text" name="title" value="<?php echo $data['title']; ?>" placeholder="Titulo" required>
-                        <label for="description">Descricao:</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
+                        <label for="description">Descrição</label> <textarea name="description" placeholder="Descrição" rows='7'><?php echo $data['description']; ?></textarea>
                     </fieldset>
                     </div>
                     <div class="col form-style-5 middle">
@@ -112,7 +112,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                             <label for="subtitle">Titulo:</label><input type="text" name="subtitle" value="<?php echo $data["subtitle"]; ?>" placeholder="Titulo">
                             <label for="main_subtitle">Titulo Principal:</label><textarea name="main_subtitle" placeholder="Titulo Principal" rows='7'><?php echo $data["main_subtitle"];?></textarea>
                             <div class="checkbox-degrade"><input type="checkbox" name="main_subtitle_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
-                            <label for="subtitle_description">Descricao:</label> <textarea name="subtitle_description" placeholder="Descrição" rows='7'><?php echo $data["subtitle_description"]; ?></textarea>
+                            <label for="subtitle_description">Descrição</label> <textarea name="subtitle_description" placeholder="Descrição" rows='7'><?php echo $data["subtitle_description"]; ?></textarea>
                         </fieldset>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                         <fieldset>
                             <legend><span class="number"><?php echo $i;?></span>Desafio <?php echo $i;?></legend>
                             <label for="challenge<?php echo $i;?>_title">Titulo:</label><input type="text" name="challenge<?php echo $i;?>_title" value="<?php echo $challenge[$i]["title"]; ?>" placeholder="Titulo">
-                            <label for="challenge<?php echo $i;?>_description">Descricao:</label> <textarea name="challenge<?php echo $i;?>_description" placeholder="Descrição" rows='7'><?php echo $challenge[$i]["description"]; ?></textarea>
+                            <label for="challenge<?php echo $i;?>_description">Descrição</label> <textarea name="challenge<?php echo $i;?>_description" placeholder="Descrição" rows='7'><?php echo $challenge[$i]["description"]; ?></textarea>
                         </fieldset>
                         </div>
                         <?php endfor; ?>

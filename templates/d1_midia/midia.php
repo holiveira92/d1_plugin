@@ -62,7 +62,7 @@ $data = array(
                         <label for="vehicle">Veículo:</label><input type="text" name="vehicle" value="<?php echo $data['vehicle']; ?>" placeholder="Veículo">
                         <label for="publication_date">Data Publicação:</label><input type="date" name="publication_date" value="<?php echo $data['publication_date']; ?>" placeholder="Data Publicação">
                         <label for="link">Link:</label><input type="text" name="link" value="<?php echo $data['link']; ?>" placeholder="Link">
-                        <label for="content">Descricao:</label> <textarea name="content" placeholder="Descrição" rows='7'><?php echo $data['content']; ?></textarea>
+                        <label for="content">Descrição:</label> <textarea name="content" placeholder="Descrição" rows='7'><?php echo $data['content']; ?></textarea>
                     </fieldset>
                     </div>
                     <div class="col form-style-5 middle">
