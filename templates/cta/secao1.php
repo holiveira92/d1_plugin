@@ -62,11 +62,15 @@
                             $self = ($cta['target'] == '_self') ? 'selected' : '';
                             $blank = ($cta['target'] == '_blank') ? 'selected' : '';
                             $modal = ($cta['target'] == 'modal') ? 'selected' : '';
+                            $infinite = ($cta['target'] == 'infinite') ? 'selected' : '';
+                            $play = ($cta['target'] == 'play') ? 'selected' : '';
                         ?>
                         <option value="0"> Selecione </option>
                         <option value="_self" <?php echo $self; ?> > Self - Padrão Mesma Página </option>
                         <option value="_blank" <?php echo $blank; ?> > Blank - Nova Página </option>
-                        <option value="modal" <?php echo $modal; ?> > Modal </option>
+                        <option value="modal" <?php echo $modal; ?> > Modal - Play </option>
+                        <option value="play" <?php echo $play; ?> > Play </option>
+                        <option value="infinite" <?php echo $infinite; ?> > Botão CX - Ícone Infinito </option>
                     </select>
                     <button id="remove" type="button" name="remove_cta" id_cta="<?php echo $cta['id']; ?>" class="btn btn-danger btn_remove_group">Remover</button>
                 </fieldset>
