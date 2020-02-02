@@ -91,6 +91,15 @@
                 </fieldset>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col form-style-5">
+            <fieldset>
+                    <legend><span class="number">6</span>Chamadas Gerais</legend>
+                        <label for="config_geral_chamada_faq">Chamada FAQ-Perguntas Frequentes:</label> <input type="text" name="config_geral_chamada_faq<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('config_geral_chamada_faq') ?>" placeholder="Chamada FAQ-Perguntas Frequentes">
+                </fieldset>
+            </div>
+        </div>
     </div>
 </body>
 
