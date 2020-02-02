@@ -22,6 +22,16 @@
 </head>
 
 <body class="animsition">
+    <div class="row">
+        <div class="col form-style-5">
+            <!-- Seção 1 - Configs Gerais -->
+            <fieldset>
+                <legend><span class="number">1</span>Chamada</legend>
+                <label for="whitepapers_chamada">Chamada Whitepapers - Ver Whitepapers:</label> <input type="text" name="whitepapers_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('whitepapers_chamada') ?>" placeholder="Chamada Whitepapers - Ver Whitepapers">
+            </fieldset>
+        </div>
+    </div>
+
     <!-- DATA TABLE -->
     <div class="table-data__tool">
         <div class="table-data__tool-right">

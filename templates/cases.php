@@ -25,9 +25,12 @@
 				settings_fields('cases_d1_card_group');
                 do_settings_sections('d1_plugin_cases');
 				break;
-			case 'whitepapers':
-				settings_fields('cases_d1_card_group');
+			case 'secao4':
+				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
+				settings_fields('whitepaper_d1_options_group');
 				do_settings_sections('d1_plugin_cases');
+				submit_button();
+                echo '</form>';
 				break;
 			default:
 				settings_fields('cases_d1_card_group');

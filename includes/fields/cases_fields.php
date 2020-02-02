@@ -78,4 +78,5 @@ class Cases_Fields {
 	public function d1_cases_config_geral($input){return $input;}
 	public function d1_cases_categorias($input){return $input;}
 	public function d1_cases_categorias_config($input){return $input;}
+	public function whitepaper_d1_options_group($input){return $input;}
 }

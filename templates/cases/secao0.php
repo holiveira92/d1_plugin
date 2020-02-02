@@ -28,6 +28,7 @@
             <fieldset>
                 <legend><span class="number">1</span>Título da Seção</legend>
                 <label for="cases_secao0_title">Nome:</label> <input type="text" name="cases_secao0_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('cases_secao0_title') ?>" placeholder="Titulo">
+                <label for="cases_secao0_chamada">Chamada Cases - Ver Cases:</label> <input type="text" name="cases_secao0_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('cases_secao0_chamada') ?>" placeholder="Chamada Cases - Ver Cases">
             </fieldset>
         </div>
     </div>
