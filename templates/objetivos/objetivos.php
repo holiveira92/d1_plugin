@@ -41,6 +41,7 @@ $challenge[3] = array(
 
 $cases_options      = !empty($data_bd[0]["cases_options"]) ? json_decode($data_bd[0]["cases_options"], true) : array();
 $cases_options = array(
+    'cases_chamada' => !empty($cases_options['cases_chamada']) ? $cases_options['cases_chamada'] : '',
     'cases_title' => !empty($cases_options['cases_title']) ? $cases_options['cases_title'] : '',
     'list_case1' => !empty($cases_options['list_case1']) ? $cases_options['list_case1'] : 0,
     'list_case2' => !empty($cases_options['list_case2']) ? $cases_options['list_case2'] : 0,
@@ -145,6 +146,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                     <legend><span class="number">2</span>Cases</legend>
                     <div class="row">
                     <label for="cases_title">Titulo Cases:</label><input type="text" name="cases_title" value="<?php echo $cases_options["cases_title"]; ?>" placeholder="Titulo">
+                    <label for="cases_chamada">Chamada - Ver Cases:</label><input type="text" name="cases_chamada" value="<?php echo $cases_options["cases_chamada"]; ?>" placeholder="Chamada - Ver Cases">
                     <?php for($i=1;$i<=3;$i++): ?>
                     <div class="col-4 form-style-5 middle">
                                 <!-- Início de Select para Card -->

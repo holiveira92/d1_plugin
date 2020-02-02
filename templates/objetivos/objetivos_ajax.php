@@ -1,6 +1,4 @@
 <?php
-
-
 function dirname_safe($path, $level = 0)
 {
     $dir = explode(DIRECTORY_SEPARATOR, $path);
@@ -32,7 +30,8 @@ $challenge3 = array(
 );
 
 $cases_options_data = array(
-    'cases_title'                   => !empty($_REQUEST['cases_title']) ? $_REQUEST['cases_title'] : 0,
+    'cases_title'                   => !empty($_REQUEST['cases_title']) ? $_REQUEST['cases_title'] : '',
+    'cases_chamada'                 => !empty($_REQUEST['cases_chamada']) ? $_REQUEST['cases_chamada'] : '',
     'list_case1'                    => !empty($_REQUEST['list_case1']) ? $_REQUEST['list_case1'] : 0,
     'list_case2'                    => !empty($_REQUEST['list_case2']) ? $_REQUEST['list_case2'] : 0,
     'list_case3'                    => !empty($_REQUEST['list_case3']) ? $_REQUEST['list_case3'] : 0,

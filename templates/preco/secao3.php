@@ -33,6 +33,8 @@
             <div class="col form-style-5">
                 <fieldset>
                 <legend><span class="number">1</span>Cases</legend>
+                <label for="preco_secao3_cases_title">Titulo Cases:</label><input type="text" name="preco_secao3_cases_title" value="<?php echo get_option_esc('preco_secao3_cases_title'); ?>" placeholder="Titulo">
+                <label for="preco_secao3_cases_chamada">Chamada - Ver Cases:</label><input type="text" name="preco_secao3_cases_chamada" value="<?php echo get_option_esc('preco_secao3_cases_chamada'); ?>" placeholder="Chamada - Ver Cases">
                 <div class="row">
                     <?php
                         //obtendo opções salvas no BD
