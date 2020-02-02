@@ -1,12 +1,6 @@
 <?php
-function dirname_safe($path, $level = 0)
-{
-    $dir = explode(DIRECTORY_SEPARATOR, $path);
-    $level = $level * -1;
-    if ($level == 0) $level = count($dir);
-    array_splice($dir, $level);
-    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
-}global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
+global $wpdb;
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 $id_keyp            = !empty($_REQUEST["id_keyp"]) ? $_REQUEST["id_keyp"] : false;
 $id_segmento        = !empty($_REQUEST["id_modulo"]) ? $_REQUEST["id_modulo"] : ''; //aproveitando tabela de segmentos - ID do modulo será salvo como do segmento
 $data_bd            = !empty($id_keyp) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_key_points WHERE id = '$id_keyp'")), true) : array();

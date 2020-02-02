@@ -1,12 +1,6 @@
 <?php
-function dirname_safe($path, $level = 0)
-{
-    $dir = explode(DIRECTORY_SEPARATOR, $path);
-    $level = $level * -1;
-    if ($level == 0) $level = count($dir);
-    array_splice($dir, $level);
-    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
-}global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
+global $wpdb;
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 $id_modulo          = !empty($_REQUEST["id_modulo"]) ? $_REQUEST["id_modulo"] : false;
 $data_bd            = !empty($id_modulo) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_modulos WHERE id = $id_modulo")), true) : array();
 $itens              = !empty($id_modulo) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_modulos WHERE id_modulo = $id_modulo")), true) : array();

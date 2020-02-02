@@ -38,7 +38,8 @@
                             <label for="preco_secao1_main_title">Titulo:</label><input type="text" name="preco_secao1_main_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('preco_secao1_main_title'); ?>" placeholder="Titulo Principal">
                             <label for="preco_secao1_title">Titulo:</label><input type="text" name="preco_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('preco_secao1_title'); ?>" placeholder="Titulo">
                             <label for="preco_secao1_descricao">Descrição:</label> <textarea name="preco_secao1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc('preco_secao1_descricao'); ?></textarea>
-                            <label for="preco_secao1_descricao_secundaria">Descrição Secundária:</label> <textarea name="preco_secao1_descricao_secundaria<?php echo D1Plugin::$language; ?>" placeholder="Descrição Secundária"><?php echo get_option_esc('preco_secao1_descricao_secundaria'); ?></textarea>
+                            <label for="preco_secao1_descricao_secundaria">Descrição Secundária:</label> 
+                            <?php wp_editor(get_option_esc('preco_secao1_descricao_secundaria'), "preco_secao1_descricao_secundaria". D1Plugin::$language); ?>
                         </div>
                     </div>
                 </fieldset>
