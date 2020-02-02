@@ -34,6 +34,7 @@
                     <legend><span class="number">1</span>Slide</legend>
                     <label for="jornada_secao4_slide_title">Titulo:</label><input type="text" name="jornada_secao4_slide_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao4_slide_title'); ?>">
                     <label for="jornada_secao4_slide_code">Código iframe do Slideshare:</label> <textarea name="jornada_secao4_slide_code<?php echo D1Plugin::$language; ?>" rows='7'><?php echo get_option_esc('jornada_secao4_slide_code'); ?></textarea>
+                    <label for="jornada_secao4_slide_link_chamada">Chamda - Download Slides:</label><input type="text" name="jornada_secao4_slide_link_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao4_slide_link_chamada'); ?>" placeholder="Chamda - Download Slides">
                     <label for="jornada_secao4_slide_link">Link de download:</label><input type="text" name="jornada_secao4_slide_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao4_slide_link'); ?>" >
                 </fieldset>
 
