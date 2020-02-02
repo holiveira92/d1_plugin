@@ -33,7 +33,8 @@
             <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">1</span>Informações da Seção</legend>
-                    <label for="plataforma_secao2_title">Titulo:</label><input type="text" name="plataforma_secao2_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao2_title'); ?>">
+                    <label for="plataforma_secao2_title">Titulo:</label><input type="text" name="plataforma_secao2_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao2_title'); ?>" placeholder="Título">
+                    <label for="plataforma_secao2_chamada">Chamada - Ver Plataforma:</label><input type="text" name="plataforma_secao2_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao2_chamada'); ?>" placeholder="Chamada - Ver Plataforma">
                 </fieldset>
 
                     <div class="row">
