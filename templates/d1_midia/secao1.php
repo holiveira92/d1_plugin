@@ -30,7 +30,8 @@
                 <legend><span class="number">1</span>Título da Seção</legend>
                 <label for="midia_secao1_title">Nome:</label> <input type="text" name="midia_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_title') ?>" placeholder="Titulo">
                 <label for="midia_secao1_destaque_title">Nome:</label> <input type="text" name="midia_secao1_destaque_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_destaque_title') ?>" placeholder="Titulo Destaque">
-                <label for="midia_secao1_text_link">Texto do Link Noticia:</label> <input type="text" name="midia_secao1_text_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_text_link') ?>" placeholder="Texto do Link Noticia">
+                <label for="midia_secao1_text_link">Texto do Link Notícia:</label> <input type="text" name="midia_secao1_text_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_text_link') ?>" placeholder="Texto do Link Noticia">
+                <label for="midia_secao1_chamada">Chamadas para Notícias:</label> <input type="text" name="midia_secao1_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_chamada') ?>" placeholder="Chamadas para Notícias">
                 <?php
                     //obtendo opções salvas no BD
                     global $wpdb;
