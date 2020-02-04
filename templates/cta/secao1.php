@@ -114,7 +114,9 @@
                         '<option value="0"> Selecione </option>' +
                         '<option value="_self"> Self - Padrão Mesma Página </option>' +
                         '<option value="_blank"> Blank - Nova Página </option>' +
-                        '<option value="modal"> Modal </option>' +
+                        '<option value="modal"> Modal - Play </option>' +
+                        '<option value="play"> Play </option>' +
+                        '<option value="infinite"> Botão CX - Ícone Infinito </option>' +
                     '</select>'+
                     '<button id="remove" type="button" name="remove_cta" id_cta="" class="btn btn-danger btn_remove_group">Remover</button>' +
                     '</fieldset> </div>'
