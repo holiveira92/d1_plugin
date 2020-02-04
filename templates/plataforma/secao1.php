@@ -37,6 +37,7 @@
                         <div class="col form-style-5 middle">
                             <label for="plataforma_secao1_title">Titulo:</label><input type="text" name="plataforma_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao1_title'); ?>">
                             <label for="plataforma_secao1_descricao">Descrição:</label> <textarea name="plataforma_secao1_descricao<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('plataforma_secao1_descricao'); ?></textarea>
+                            <label for="plataforma_secao1_chamada_modulo">Chamada Módulos:</label><input type="text" name="plataforma_secao1_chamada_modulo<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao1_chamada_modulo'); ?>">
                             <!-- Início de Select para CTA -->
                             <label for="plataforma_secao1_cta">Selecione CTA:</label><span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
                             <select name="plataforma_secao1_cta<?php echo D1Plugin::$language; ?>">

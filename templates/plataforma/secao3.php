@@ -34,6 +34,7 @@
                 <fieldset>
                     <legend><span class="number">1</span>Informações da Seção</legend>
                     <label for="plataforma_secao3_cases_title">Titulo:</label><input type="text" name="plataforma_secao3_cases_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao3_cases_title'); ?>">
+                    <label for="plataforma_secao3_cases_chamada">Chamada Cases - Ver Cases:</label> <input type="text" name="plataforma_secao3_cases_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao3_cases_chamada') ?>" placeholder="Chamada Cases - Ver Cases">
                 </fieldset>
 
                 <fieldset>
