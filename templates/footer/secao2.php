@@ -37,7 +37,7 @@
                 <fieldset>
                     <legend><span class="number">1</span>Informações da Seção</legend>
                     <div id='secao2_content1' class="content" style='display:block;'>
-                        <label for="secao2_title">Titulo da Seção:</label><input type="text" name="secao2_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao2_title') ?>">-->
+                        <label for="secao2_title">Titulo da Seção:</label><input type="text" name="secao2_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao2_title') ?>">
                         <label for="secao2_descricao">Descrição da Seção:</label> <textarea name="secao2_descricao<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('secao2_descricao') ?></textarea>
                 </fieldset>
             </div>

@@ -23,8 +23,9 @@
 
 <body class="animsition">
 <div class="alert alert-warning" role="alert">Número Máximo de Módulos Permitidos : 6 </div>
+    <div class="container">
     <div class="row">
-        <div class="col form-style-5">
+        <div class="col-12 form-style-5">
             <!-- Seção 1 - Configs Gerais -->
             <fieldset>
                 <legend><span class="number">1</span>Título da Seção</legend>
@@ -33,8 +34,9 @@
         </div>
     </div>
 
+    <div class="row">
     <!-- DATA TABLE -->
-    <div class="col form-style-5">
+    <div class="col-12 form-style-5">
     <fieldset>
     <legend><span class="number">2</span>Lista de Módulos</legend>
     <div class="table-data__tool">
@@ -88,6 +90,8 @@
         </table>
     </div>
     </fieldset>
+    </div>
+    </div>
     </div>
     <!-- END DATA TABLE -->
 

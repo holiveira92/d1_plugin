@@ -76,7 +76,7 @@ class D1_Midia{
 				$this->sections = array(
 					array(
 						'id' => 'd1_midia_secao1',
-						'title' => 'Configurações Seção Principal',
+						'title' => 'Configurações D1 na Mídia',
 						'callback' => array( $this, 'D1_MidiaSecao1' ),
 						'page' => $this->page
 					),

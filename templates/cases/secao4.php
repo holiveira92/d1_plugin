@@ -22,6 +22,7 @@
 </head>
 
 <body class="animsition">
+<div class="container">
     <div class="row">
         <div class="col form-style-5">
             <!-- Seção 1 - Configs Gerais -->
@@ -31,19 +32,16 @@
             </fieldset>
         </div>
     </div>
-
     <!-- DATA TABLE -->
-    <div class="table-data__tool">
-        <div class="table-data__tool-right">
+    <div class="row">
+        <div class="col form-style-5">
             <?php   
                     $create_url = "?page=d1_plugin_cases&tab=whitepaper&";
                     $param = array('path_wp' => ABSPATH, 'id_wp' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                     $query_string = http_build_query($param); 
             ?>
-            <a href="<?php echo $create_url . $query_string ;?>"><button class="button button-primary">
+            <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
                 <i class="zmdi zmdi-plus"></i>Adicionar Whitepaper</button></a>
-        </div>
-    </div>
     <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
             <thead>
@@ -79,10 +77,10 @@
                     <td><?php echo $value['card_link'];?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>
@@ -91,6 +89,9 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
+    </div>
+    </div>
     </div>
     <!-- END DATA TABLE -->
 

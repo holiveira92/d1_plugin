@@ -50,7 +50,7 @@
                 <div class="col form-style-5 middle">
                 <fieldset>
                     <legend><span class="number"><?php echo $i;?></span>Itens Especialidade <?php echo $i;?></legend>
-                        <label for="contato_secao1_item<?php echo $i;?>_desc">Descricao:</label> <textarea name="contato_secao1_item<?php echo $i;?>_desc<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc("contato_secao1_item".$i."_desc") ?></textarea>
+                        <label for="contato_secao1_item<?php echo $i;?>_desc">Descrição:</label> <textarea name="contato_secao1_item<?php echo $i;?>_desc<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc("contato_secao1_item".$i."_desc") ?></textarea>
                         <label for="contato_secao1_item<?php echo $i;?>_button_title">Titulo Botão:</label><input type="text" name="contato_secao1_item<?php echo $i;?>_button_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("contato_secao1_item".$i."_button_title") ?>" placeholder="Titulo Botão">
                         <label for="contato_secao1_item<?php echo $i;?>_link">Link Botão:</label><input type="text" name="contato_secao1_item<?php echo $i;?>_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("contato_secao1_item".$i."_link") ?>" placeholder="Link Botão">
                         <label for="contato_secao1_img_icon">Ícone:</label>

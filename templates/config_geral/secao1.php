@@ -83,7 +83,7 @@
             <div class="col form-style-5">
             <fieldset>
                     <legend><span class="number">5</span>Top Bar</legend>
-                        <label for="top_bar_desc">Descricao:</label> <textarea name="top_bar_desc<?php echo D1Plugin::$language; ?>" rows="6"><?php echo get_option_esc('top_bar_desc') ?></textarea>
+                        <label for="top_bar_desc">Descrição:</label> <textarea name="top_bar_desc<?php echo D1Plugin::$language; ?>" rows="6"><?php echo get_option_esc('top_bar_desc') ?></textarea>
                         <label for="top_bar_text_link">Texto Link:</label> <input type="text" name="top_bar_text_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('top_bar_text_link') ?>">
                         <label for="top_bar_link">URL Link:</label> <input type="text" name="top_bar_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('top_bar_link') ?>">
                         <label for="top_bar_text_login_link">Texto Login Link:</label> <input type="text" name="top_bar_text_login_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('top_bar_text_login_link') ?>">
@@ -96,7 +96,7 @@
             <div class="col form-style-5">
             <fieldset>
                     <legend><span class="number">6</span>Chamadas Gerais</legend>
-                        <label for="config_geral_chamada_faq">Chamada FAQ-Perguntas Frequentes:</label> <input type="text" name="config_geral_chamada_faq<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('config_geral_chamada_faq') ?>" placeholder="Chamada FAQ-Perguntas Frequentes">
+                        <label for="config_geral_chamada_faq">Chamada FAQ - Perguntas Frequentes:</label> <input type="text" name="config_geral_chamada_faq<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('config_geral_chamada_faq') ?>" placeholder="Chamada FAQ - Perguntas Frequentes">
                 </fieldset>
             </div>
         </div>

@@ -71,7 +71,7 @@
                             //$parent_arrow = (!empty($item['parent_id'])) ? "<span> &nbsp &nbsp &nbsp &rarr; </span>" : "";
                             $parent_arrow = "";
                         ?>
-                            <div name='item' id_item="<?php echo $item['id']; ?>">
+                            <div style="display:inline-block;width:100%;" name='item' id_item="<?php echo $item['id']; ?>">
                                 <?php echo $parent_arrow ; ?>
                                 <input type="hidden" name="id[]" value="<?php echo $item['id']; ?>">
                                 <input type="hidden" name="group_id[]" value="<?php echo $grupo['id']; ?>">
@@ -83,8 +83,10 @@
                         <?php endforeach; ?>
                     </div>
                     
-                    <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Link</button>
-                    <button type="button" name="remove_group" id_grupo="<?php echo $grupo['id']; ?>" class="btn btn-danger btn_remove_group">Remover Grupo</button>
+                    <div style="display:inline-flex;justify-content:space-between;width:100%;">
+                        <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Link</button>
+                        <button type="button" name="remove_group" id_grupo="<?php echo $grupo['id']; ?>" class="btn btn-danger btn_remove_group">Remover Grupo</button>
+                    </div>
                 </fieldset>
             <?php endforeach; ?>
             <!-- -------------------------------------------- Fim de Bloco de Definição dos Grupos --------------------------------------- -->

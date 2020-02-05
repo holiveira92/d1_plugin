@@ -22,6 +22,7 @@
 </head>
 
 <body class="animsition">
+<div class="container">
     <div class="row">
         <div class="col form-style-5">
             <!-- Seção 1 - Configs Gerais -->
@@ -32,10 +33,9 @@
             </fieldset>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col form-style-5">
     <!-- DATA TABLE -->
-    <div class="table-data__tool">
-        <div class="table-data__tool-right">
             <?php   
                     $create_url = "?page=d1_plugin_cases&tab=secao1&";
                     $param = array('path_wp' => ABSPATH, 'id_card' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
@@ -43,8 +43,6 @@
             ?>
             <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
                 <i class="zmdi zmdi-plus"></i>Adicionar case</button></a>
-        </div>
-    </div>
     <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
             <thead>
@@ -94,6 +92,9 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
+    </div>
+    </div>
     </div>
     <!-- END DATA TABLE -->
 

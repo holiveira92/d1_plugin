@@ -34,7 +34,7 @@
                     <legend><span class="number">1</span>Slide</legend>
                     <label for="jornada_secao4_slide_title">Titulo:</label><input type="text" name="jornada_secao4_slide_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao4_slide_title'); ?>">
                     <label for="jornada_secao4_slide_code">Código iframe do Slideshare:</label> <textarea name="jornada_secao4_slide_code<?php echo D1Plugin::$language; ?>" rows='7'><?php echo get_option_esc('jornada_secao4_slide_code'); ?></textarea>
-                    <label for="jornada_secao4_slide_link_chamada">Chamda - Download Slides:</label><input type="text" name="jornada_secao4_slide_link_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao4_slide_link_chamada'); ?>" placeholder="Chamda - Download Slides">
+                    <label for="jornada_secao4_slide_link_chamada">Chamada - Download Slides:</label><input type="text" name="jornada_secao4_slide_link_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao4_slide_link_chamada'); ?>" placeholder="Chamda - Download Slides">
                     <label for="jornada_secao4_slide_link">Link de download:</label><input type="text" name="jornada_secao4_slide_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao4_slide_link'); ?>" >
                 </fieldset>
 
@@ -43,7 +43,7 @@
                     <label for="jornada_secao4_inovacao_main_title">Titulo:</label><input type="text" name="jornada_secao4_inovacao_main_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao4_inovacao_main_title'); ?>">
                     <label for="jornada_secao4_inovacao_title">Destaque:</label><input type="text" name="jornada_secao4_inovacao_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao4_inovacao_title'); ?>">
                     <label for="jornada_secao4_inovacao_desc">Descrição:</label> <textarea name="jornada_secao4_inovacao_desc<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('jornada_secao4_inovacao_desc'); ?></textarea>
-                    <label for="jornada_secao4_inovacao_desc_pre_cta">Descricao Pré-CTA:</label> <textarea name="jornada_secao4_inovacao_desc_pre_cta<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('jornada_secao4_inovacao_desc_pre_cta'); ?></textarea>
+                    <label for="jornada_secao4_inovacao_desc_pre_cta">Descrição Pré-CTA:</label> <textarea name="jornada_secao4_inovacao_desc_pre_cta<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc('jornada_secao4_inovacao_desc_pre_cta'); ?></textarea>
                     <div class="checkbox-degrade"> <input type="checkbox" name="jornada_secao4_inovacao_desc_pre_cta_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
 
                     <?php

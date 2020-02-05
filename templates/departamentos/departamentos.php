@@ -86,7 +86,8 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
 </head>
 
 <body class="animsition">
-<h1> Link Permanente: </h1> <a href="<?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?></a>
+<a href="<?php echo $voltar_url . $query_string ;?>"><button type="button" class="button button-primary"><-- Voltar para Departamentos</button></a>
+<p> Link Permanente: </p> <a style="margin-bottom:20px" href="<?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?></a>
     <form id="keypoints_fields" action="<?php echo $url_action; ?>">
         <!-- DADOS DO SEGMENTO -->
         <div class="container">
@@ -118,7 +119,11 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <fieldset>
                         <legend><span class="number">2</span>Desafios</legend>
                     <div class="row">
-                    <label for="challenge_title">Titulo:</label><input type="text" name="challenge_title" value="<?php echo $data["challenge_title"]; ?>" placeholder="Titulo Principal">
+                    <div class="col form-style-5 middle">
+                        <label for="challenge_title">Titulo:</label><input type="text" name="challenge_title" value="<?php echo $data["challenge_title"]; ?>" placeholder="Titulo Principal">
+                    </div>
+                    </div>
+                    <div class="row">
                         <?php for($i=1;$i<=3;$i++): ?>
                         <div class="col form-style-5 middle">
                         <fieldset>
@@ -142,8 +147,12 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <fieldset>
                     <legend><span class="number">3</span>Features</legend>
                     <div class="row">
-                    <label for="modulos_title">Titulo Features:</label><input type="text" name="modulos_title" value="<?php echo $modulos_options["modulos_title"]; ?>" placeholder="Titulo">
-                    <label for="modulos_descricao">Descrição Features:</label> <textarea name="modulos_descricao" placeholder="Descrição" rows='7'><?php echo $modulos_options["modulos_descricao"]; ?></textarea>
+                    <div class="col form-style-5 middle">
+                        <label for="modulos_title">Titulo Features:</label><input type="text" name="modulos_title" value="<?php echo $modulos_options["modulos_title"]; ?>" placeholder="Titulo">
+                        <label for="modulos_descricao">Descrição Features:</label> <textarea name="modulos_descricao" placeholder="Descrição" rows='7'><?php echo $modulos_options["modulos_descricao"]; ?></textarea>
+                    </div>
+                    </div>
+                    <div class="row">
                     <?php for($i=1;$i<=3;$i++): ?>
                     <div class="col-4 form-style-5 middle">
                                 <!-- Início de Select para Card -->
@@ -171,7 +180,11 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <fieldset>
                     <legend><span class="number">4</span>Cases</legend>
                     <div class="row">
-                    <label for="cases_title">Titulo Cases:</label><input type="text" name="cases_title" value="<?php echo $cases_options["cases_title"]; ?>" placeholder="Titulo">
+                    <div class="col form-style-5 middle">
+                        <label for="cases_title">Titulo Cases:</label><input type="text" name="cases_title" value="<?php echo $cases_options["cases_title"]; ?>" placeholder="Titulo">
+                    </div>
+                    </div>
+                    <div class="row">
                     <?php for($i=1;$i<=3;$i++): ?>
                     <div class="col-4 form-style-5 middle">
                                 <!-- Início de Select para Card -->

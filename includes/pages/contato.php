@@ -76,7 +76,7 @@ class Contato{
 				$this->sections = array(
 					array(
 						'id' => 'd1_contato_secao1',
-						'title' => 'Configurações Seção Principal',
+						'title' => 'Configurações Contato',
 						'callback' => array( $this, 'd1ContatoSecao1' ),
 						'page' => $this->page
 					),

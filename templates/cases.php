@@ -1,6 +1,7 @@
 <div class="wrap">
 	<h1>D1 - Editor de Conteúdos</h1>
 	<?php
+		require_once plugin_dir_path(__FILE__) . 'languages_options.php';
 		settings_errors(); 
 		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'config_cards';
 	?>

@@ -56,8 +56,8 @@
                     <legend><span class="number"><?php echo $cont_faq; ?></span>FAQ <?php echo $cont_faq; ?> </legend>
                     <input type="hidden" name="id[]" value="<?php echo $faq['id']; ?>">
                     <input type="hidden" name="page[]" value="contato">
-                    <label for="pergunta">Pergunta:</label> <textarea name="question[]"><?php echo $faq['question']; ?></textarea>
-                    <label for="pergunta">Resposta:</label> <textarea name="answer[]"><?php echo $faq['answer']; ?></textarea>
+                    <label for="pergunta">Pergunta:</label> <textarea name="question[]" rows="5"><?php echo $faq['question']; ?></textarea>
+                    <label for="pergunta">Resposta:</label> <textarea name="answer[]" rows="5"><?php echo $faq['answer']; ?></textarea>
                     <button id="remove" type="button" name="remove_faq" id_faq="<?php echo $faq['id']; ?>" class="btn btn-danger btn_remove_group">Remover</button>
                 </fieldset>
                 </div>
@@ -95,8 +95,8 @@
                     '<legend><span class="number">' + i + '  </span>FAQ ' + i + ' </legend>' +
                     '<input type="hidden" name="id[]">' +
                     '<input type="hidden" name="page[]" value="contato">' + 
-                    '<label for="pergunta">Pergunta:</label> <textarea name="question[]"></textarea>' +
-                    '<label for="pergunta">Resposta:</label> <textarea name="answer[]"></textarea>' +
+                    '<label for="pergunta">Pergunta:</label> <textarea name="question[]" rows="5"></textarea>' +
+                    '<label for="pergunta">Resposta:</label> <textarea name="answer[]" rows="5"></textarea>' +
                     '<button id="remove" type="button" name="remove_faq" id_faq="" class="btn btn-danger btn_remove_group">Remover</button>' +
                     '</fieldset> </div>'
                     ).end();

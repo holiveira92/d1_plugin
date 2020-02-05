@@ -78,7 +78,8 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
 </head>
 
 <body class="animsition">
-<h1> Link Permanente: </h1> <a href="<?php echo get_home_url();?>/objetivos/<?php echo sanitize_title($data['title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/objetivos/<?php echo sanitize_title($data['title']);?>/<?php echo $data['id'];?></a>
+<a href="<?php echo $voltar_url . $query_string ;?>"><button type="button" class="button button-primary"><-- Voltar para Objetivos</button></a>
+<p> Link Permanente: </p> <a style="margin-bottom:20px" href="<?php echo get_home_url();?>/objetivos/<?php echo sanitize_title($data['title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/objetivos/<?php echo sanitize_title($data['title']);?>/<?php echo $data['id'];?></a>
     <form id="keypoints_fields" action="<?php echo $url_action; ?>">
         <!-- DADOS DO SEGMENTO -->
         <div class="container">
@@ -145,8 +146,12 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <fieldset>
                     <legend><span class="number">2</span>Cases</legend>
                     <div class="row">
-                    <label for="cases_title">Titulo Cases:</label><input type="text" name="cases_title" value="<?php echo $cases_options["cases_title"]; ?>" placeholder="Titulo">
-                    <label for="cases_chamada">Chamada - Ver Cases:</label><input type="text" name="cases_chamada" value="<?php echo $cases_options["cases_chamada"]; ?>" placeholder="Chamada - Ver Cases">
+                    <div class="col form-style-5 middle">
+                        <label for="cases_title">Titulo Cases:</label><input type="text" name="cases_title" value="<?php echo $cases_options["cases_title"]; ?>" placeholder="Titulo">
+                        <label for="cases_chamada">Chamada - Ver Cases:</label><input type="text" name="cases_chamada" value="<?php echo $cases_options["cases_chamada"]; ?>" placeholder="Chamada - Ver Cases">
+                    </div>
+                    </div>
+                    <div class="row">
                     <?php for($i=1;$i<=3;$i++): ?>
                     <div class="col-4 form-style-5 middle">
                                 <!-- Início de Select para Card -->
@@ -168,7 +173,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
         </div></div></div>
     
     <!-- INFOS DOS KEY POINTS -->
-    <div class="row">
+    <div class="container">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
                     <div class="row">
     <fieldset id='kps'>

@@ -22,7 +22,7 @@
 </head>
 
 <body class="animsition">
-    
+<div class="container">
     <div class="row">
         <div class="col form-style-5">
             <!-- Seção 1 - Configs Gerais -->
@@ -58,8 +58,8 @@
     </div>
 
     <!-- DATA TABLE -->
-    <div class="table-data__tool">
-        <div class="table-data__tool-right">
+    <div class="row">
+        <div class="col form-style-5">
             <?php   
                     $create_url = "?page=d1_plugin_d1_midia&tab=midia&";
                     $param = array('path_wp' => ABSPATH, 'id_midia' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
@@ -67,8 +67,6 @@
             ?>
             <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
                 <i class="zmdi zmdi-plus"></i>Adicionar Mídia</button></a>
-        </div>
-    </div>
     <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
             <thead>
@@ -111,6 +109,9 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
+    </div>
+    </div>
     </div>
     <!-- END DATA TABLE -->
 

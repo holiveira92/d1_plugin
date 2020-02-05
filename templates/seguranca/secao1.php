@@ -36,7 +36,7 @@
                     <div class="row">
                         <div class="col form-style-5 middle">
                             <label for="seguranca_secao1_title">Título:</label><input type="text" name="seguranca_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('seguranca_secao1_title'); ?>" placeholder="Título">
-                            <label for="seguranca_secao1_descricao">Descrição:</label> <textarea name="seguranca_secao1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc('seguranca_secao1_descricao'); ?></textarea>
+                            <label for="seguranca_secao1_descricao">Descrição:</label> <textarea name="seguranca_secao1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows="5"><?php echo get_option_esc('seguranca_secao1_descricao'); ?></textarea>
                         </div>
                         <div class="col form-style-5 middle">
                             <label for="seguranca_secao1_img">Imagem Background:</label>
@@ -54,7 +54,7 @@
                     <div class="col form-style-5 middle">
                         <label for="seguranca_secao1_item<?php echo $i;?>_title">Título:</label><input type="text" name="seguranca_secao1_item<?php echo $i;?>_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("seguranca_secao1_item".$i."_title") ?>" placeholder="Título">
                         <label for="seguranca_secao1_item<?php echo $i;?>_subtitle">SubTítulo:</label><input type="text" name="seguranca_secao1_item<?php echo $i;?>_subtitle<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("seguranca_secao1_item".$i."_subtitle") ?>" placeholder="SubTítulo">
-                        <label for="seguranca_secao1_item<?php echo $i;?>_desc">Descrição:</label> <textarea name="seguranca_secao1_item<?php echo $i;?>_desc<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc("seguranca_secao1_item".$i."_desc") ?></textarea>
+                        <label for="seguranca_secao1_item<?php echo $i;?>_desc">Descrição:</label> <textarea name="seguranca_secao1_item<?php echo $i;?>_desc<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows="7"><?php echo get_option_esc("seguranca_secao1_item".$i."_desc") ?></textarea>
                     </div>
                 <?php endfor; ?>
                     </div>

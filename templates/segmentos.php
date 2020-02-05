@@ -6,7 +6,6 @@
 	?>
 
     <h2 class="nav-tab-wrapper">
-        <a href="?page=d1_plugin_segmentos&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Segmentos</a>
         <input type="hidden" id="destination_field">
     </h2>
     
