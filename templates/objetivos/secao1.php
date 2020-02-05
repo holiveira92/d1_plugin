@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+global $wpdb;
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
+
+?>
 <head>
     <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css','d1_plugin');?>" rel="stylesheet" media="all">
@@ -22,6 +26,19 @@
 </head>
 
 <body class="animsition">
+    <div class="row">
+        <div class="col form-style-5">
+            <fieldset>
+                <legend><span class="number">1</span>Informações da Seção</legend>
+                <div class="row">
+                    <div class="col form-style-5 middle">
+                    <label>Título Desafios:</label><input type="text" name="objetivos_secao1_desafios_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('objetivos_secao1_desafios_title'); ?>" placeholder="Título Desafios">
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
     <!-- DATA TABLE -->
     <div class="table-data__tool">
         <div class="table-data__tool-right">
@@ -30,7 +47,7 @@
                     $param = array('path_wp' => ABSPATH, 'id_mod' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
                     $query_string = http_build_query($param); 
             ?>
-            <a href="<?php echo $create_url . $query_string ;?>"><button class="button button-primary">
+            <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
                 <i class="zmdi zmdi-plus"></i>Adicionar Objetivo</button></a>
         </div>
     </div>
@@ -62,10 +79,10 @@
                     <td class="desc"><?php echo $value['description'];?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>

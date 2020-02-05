@@ -73,7 +73,7 @@ class Objetivos{
 				$this->sections = array(
 					array(
 						'id' => 'd1_objetivos_secao1',
-						'title' => 'Objetivos',
+						'title' => '',
 						'callback' => array( $this, 'd1ObjetivosSecao1' ),
 						'page' => $this->page
 					),

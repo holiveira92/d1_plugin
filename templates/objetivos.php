@@ -12,9 +12,11 @@
     <?php 
 		switch($active_tab){
             case 'secao1':
+                echo '<form method="post" action="options.php" enctype="multipart/form-data">';
                 settings_fields('objetivos_secao1_options_group');
                 do_settings_sections('d1_plugin_objetivos');
-				break;
+                submit_button();
+                echo '</form>';
             case 'secao2':
                 settings_fields('objetivos_secao2_options_group');
                 do_settings_sections('d1_plugin_objetivos');
