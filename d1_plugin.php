@@ -164,40 +164,78 @@ if (!class_exists('D1Plugin')) {
         {
             /* CONFIGURAÇÕES GERAIS*/
             add_menu_page('Configurações Gerais', 'Configurações Gerais', 'manage_options', 'd1_plugin_config_geral', array($this, 'config_geral_index'), "", 110);
+            add_submenu_page('d1_plugin_config_geral', 'Linguagem', 'Linguagem', 'manage_options', 'd1_plugin_config_geral&tab=secao2', array($this, 'config_geral_index'));
             
             /* HOME PAGE */
             add_menu_page('Página Inicial', 'Página Inicial', 'manage_options', 'd1_plugin', array($this, 'admin_index'), get_template_directory_uri() . "/images/d1_logo_admin.ico", 110);
+            add_submenu_page('d1_plugin', 'Hero - Slider', 'Hero', 'manage_options', 'd1_plugin&tab=secao1', array($this, 'admin_index'));
+            add_submenu_page('d1_plugin', 'Cases', 'Cases', 'manage_options', 'd1_plugin&tab=secao2', array($this, 'admin_index'));
+            add_submenu_page('d1_plugin', 'Clientes', 'Clientes', 'manage_options', 'd1_plugin&tab=secao3', array($this, 'admin_index'));
+            add_submenu_page('d1_plugin', 'Desafios', 'Desafios', 'manage_options', 'd1_plugin&tab=secao4', array($this, 'admin_index'));
+            add_submenu_page('d1_plugin', 'Lead Generator', 'Lead Generator', 'manage_options', 'd1_plugin&tab=secao5', array($this, 'admin_index'));
+            add_submenu_page('d1_plugin', 'Solução', 'Solução', 'manage_options', 'd1_plugin&tab=secao6', array($this, 'admin_index'));
+            add_submenu_page('d1_plugin', 'Diferencial', 'Diferencial', 'manage_options', 'd1_plugin&tab=secao7', array($this, 'admin_index'));
 
             /* PLATAFORMA */
             add_menu_page('Plataforma', 'Plataforma', 'manage_options', 'd1_plugin_plataforma', array($this, 'plataforma_admin'), "", 111);
+            add_submenu_page('d1_plugin_plataforma', 'Hero', 'Hero', 'manage_options', 'd1_plugin_plataforma&tab=secao1', array($this, 'plataforma_admin'));
+            add_submenu_page('d1_plugin_plataforma', 'Módulos', 'Módulos', 'manage_options', 'd1_plugin_plataforma&tab=secao2', array($this, 'plataforma_admin'));
+            add_submenu_page('d1_plugin_plataforma', 'Cases', 'Cases', 'manage_options', 'd1_plugin_plataforma&tab=secao3', array($this, 'plataforma_admin'));
+            add_submenu_page('d1_plugin_plataforma', 'FAQ', 'FAQ', 'manage_options', 'd1_plugin_plataforma&tab=secao4', array($this, 'plataforma_admin'));
 
             /* NOSSA JORNADA */
             add_menu_page('Nossa Jornada', 'Nossa Jornada', 'manage_options', 'd1_plugin_jornada', array($this, 'jornada_admin'), "", 112);
+            add_submenu_page('d1_plugin_jornada', 'Principal', 'Principal', 'manage_options', 'd1_plugin_jornada&tab=secao1', array($this, 'jornada_admin'));
+            add_submenu_page('d1_plugin_jornada', 'Plataforma', 'Plataforma', 'manage_options', 'd1_plugin_jornada&tab=secao2', array($this, 'jornada_admin'));
+            add_submenu_page('d1_plugin_jornada', 'Equipe', 'Equipe', 'manage_options', 'd1_plugin_jornada&tab=secao3', array($this, 'jornada_admin'));
+            add_submenu_page('d1_plugin_jornada', 'Slide', 'Slide', 'manage_options', 'd1_plugin_jornada&tab=secao4', array($this, 'jornada_admin'));
+            add_submenu_page('d1_plugin_jornada', 'FAQ', 'FAQ', 'manage_options', 'd1_plugin_jornada&tab=secao5', array($this, 'jornada_admin'));
+            add_submenu_page('d1_plugin_jornada', 'Cases', 'Cases', 'manage_options', 'd1_plugin_jornada&tab=secao6', array($this, 'jornada_admin'));
+            
 
             /* SEGURANÇA */
             add_menu_page('Segurança', 'Segurança', 'manage_options', 'd1_plugin_seguranca', array($this, 'seguranca_admin'), "", 111);
+            add_submenu_page('d1_plugin_seguranca', 'Principal', 'Principal', 'manage_options', 'd1_plugin_seguranca&tab=secao1', array($this, 'seguranca_admin'));
+            add_submenu_page('d1_plugin_seguranca', 'Segurança', 'Segurança', 'manage_options', 'd1_plugin_seguranca&tab=secao2', array($this, 'seguranca_admin'));
+            add_submenu_page('d1_plugin_seguranca', 'Conformidade', 'Conformidade', 'manage_options', 'd1_plugin_seguranca&tab=secao3', array($this, 'seguranca_admin'));
+            add_submenu_page('d1_plugin_seguranca', 'Status Sistema', 'Status Sistema', 'manage_options', 'd1_plugin_seguranca&tab=secao4', array($this, 'seguranca_admin'));
+            
 
             /* SOLUÇÕES */
             add_menu_page('Segmentos', 'Segmentos', 'manage_options', 'd1_plugin_segmentos', array($this, 'segmentos_index'), 'dashicons-admin-site-alt3', 113);
-            //add_submenu_page('d1_plugin_solucoes', 'Segmentos', 'Segmentos', 'manage_options', 'd1_plugin_segmentos', array($this, 'segmentos_index'));
 
             /* CONTEÚDO */
             add_menu_page('Cases', 'Cases', 'manage_options', 'd1_plugin_cases', array($this, 'cases_admin'), 'dashicons-welcome-widgets-menus', 114);
             add_submenu_page('d1_plugin_cases', 'Categorias', 'Categorias', 'manage_options', 'd1_plugin_cases&tab=secao2', array($this, 'cases_admin'));
+            add_submenu_page('d1_plugin_cases', 'Whitepapers', 'Whitepapers', 'manage_options', 'd1_plugin_cases&tab=secao4', array($this, 'cases_admin'));
 
             /* PREÇO */
             add_menu_page('Preço', 'Preço', 'manage_options', 'd1_plugin_preco', array($this, 'preco_admin'), 'dashicons-cart', 115);
+            add_submenu_page('d1_plugin_preco', 'Principal', 'Principal', 'manage_options', 'd1_plugin_preco&tab=secao1', array($this, 'preco_admin'));
+            add_submenu_page('d1_plugin_preco', 'FAQ', 'FAQ', 'manage_options', 'd1_plugin_preco&tab=secao2', array($this, 'preco_admin'));
+            add_submenu_page('d1_plugin_preco', 'Cases', 'Cases', 'manage_options', 'd1_plugin_preco&tab=secao3', array($this, 'preco_admin'));
 
             /* CONTATO */
             add_menu_page('Contato', 'Contato', 'manage_options', 'd1_plugin_contato', array($this, 'contato_admin'), '', 115);
+            add_submenu_page('d1_plugin_contato', 'Principal', 'Principal', 'manage_options', 'd1_plugin_contato&tab=secao1', array($this, 'contato_admin'));
+            add_submenu_page('d1_plugin_contato', 'FAQ', 'FAQ', 'manage_options', 'd1_plugin_contato&tab=secao1', array($this, 'contato_admin'));
 
-            /* HEADER MENU, FOOTER, CTA */
-            //add_menu_page('Header Menu', 'Header Menu', 'manage_options', 'd1_plugin_header_menu', '', '', 118);
+            /* FOOTER*/
             add_menu_page('Footer', 'Footer', 'manage_options', 'd1_plugin_footer', array($this, 'footer_admin'), '', 119);
+            add_submenu_page('d1_plugin_footer', 'Pré-Footer', 'Pré-Footer', 'manage_options', 'd1_plugin_footer&tab=secao1', array($this, 'footer_admin'));
+            add_submenu_page('d1_plugin_footer', 'Blog', 'Blog', 'manage_options', 'd1_plugin_footer&tab=secao2', array($this, 'footer_admin'));
+            add_submenu_page('d1_plugin_footer', 'Info D1', 'Info D1', 'manage_options', 'd1_plugin_footer&tab=secao3', array($this, 'footer_admin'));
+            add_submenu_page('d1_plugin_footer', 'Links', 'Links', 'manage_options', 'd1_plugin_footer&tab=secao4', array($this, 'footer_admin'));
+            add_submenu_page('d1_plugin_footer', 'Regulamentação', 'Regulamentação', 'manage_options', 'd1_plugin_footer&tab=secao5', array($this, 'footer_admin'));
+            add_submenu_page('d1_plugin_footer', 'Pitch', 'Pitch', 'manage_options', 'd1_plugin_footer&tab=secao6', array($this, 'footer_admin'));
+            
+            /* FOOTER, CTA */
             add_menu_page('Call To Action', 'Call To Action', 'manage_options', 'd1_plugin_cta', array($this, 'cta_admin'), '', 120);
 
             /* D1 NA MÍDIA */
             add_menu_page('D1 na Mídia', 'D1 na Mídia', 'manage_options', 'd1_plugin_d1_midia', array($this, 'd1_midia_admin'), '', 118);
+            add_submenu_page('d1_plugin_d1_midia', 'Mídia', 'Mídia', 'manage_options', 'd1_plugin_d1_midia&tab=secao1', array($this, 'd1_midia_admin'));
+            add_submenu_page('d1_plugin_d1_midia', 'Cases', 'Cases', 'manage_options', 'd1_plugin_d1_midia&tab=secao2', array($this, 'd1_midia_admin'));
 
             /* MODULOS */
             add_menu_page('Módulos', 'Módulos', 'manage_options', 'd1_plugin_modulos', array($this, 'modulos_index'), '', 113);
