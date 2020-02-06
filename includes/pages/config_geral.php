@@ -2,8 +2,7 @@
 class Config_Geral{
 	public $settings;
 	public $callbacks;
-	public $pages = array();
-    public $subpages = array();
+	public $page = 'd1_plugin_config_geral';
     private $active_tab;
 
 	function __construct(){
