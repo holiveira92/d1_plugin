@@ -1,10 +1,5 @@
 <?php
-
-
-
-
-function dirname_safe($path, $level = 0)
-{
+function dirname_safe($path, $level = 0){
     $dir = explode(DIRECTORY_SEPARATOR, $path);
     $level = $level * -1;
     if ($level == 0) $level = count($dir);
@@ -31,18 +26,20 @@ for($i=0; $i<$number; $i++){
         'title'     => !empty($_REQUEST["title"][$i]) ? $_REQUEST["title"][$i] : '',
         'link'      => !empty($_REQUEST["link"][$i]) ? $_REQUEST["link"][$i] : '',
         'target'    => !empty($_REQUEST["target"][$i]) ? $_REQUEST["target"][$i] : '',
+        'background'    => !empty($_REQUEST["background"][$i]) ? $_REQUEST["background"][$i] : '',
+        'hover'    => !empty($_REQUEST["hover"][$i]) ? $_REQUEST["hover"][$i] : '',
     );
 }
 
 foreach($table_data as $key=>&$value){
     if(empty($value['id'])){
         //insert
-        $sql                    = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_call_to_action(title,link,target) VALUES('%s','%s','%s')";
-        $wpdb->query($wpdb->prepare($sql,array($value['title'],$value['link'],$value['target'])));
+        $sql                    = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_call_to_action(title,link,target,background,hover) VALUES('%s','%s','%s','%s','%s')";
+        $wpdb->query($wpdb->prepare($sql,array($value['title'],$value['link'],$value['target'],$value['background'],$value['hover'])));
     }else{
         //update
-        $sql                    = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_call_to_action SET title='%s', link='%s', target='%s' WHERE id = '%s';";
-        $wpdb->query($wpdb->prepare($sql,array($value['title'],$value['link'],$value['target'],$value['id'])));
+        $sql                    = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_call_to_action SET title='%s', link='%s', target='%s', background='%s', hover='%s' WHERE id = '%s';";
+        $wpdb->query($wpdb->prepare($sql,array($value['title'],$value['link'],$value['target'],$value['background'],$value['hover'],$value['id'])));
     }
 }
 
