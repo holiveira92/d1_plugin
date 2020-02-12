@@ -1,4 +1,4 @@
 {
     "config_geral_secao_1" : [{"id":"d1_main_logo"},{"id":"d1_favicon"},{"id":"d1_web_title"},{"id":"d1_menu_cta"},{"id":"top_bar_desc"} , {"id":"top_bar_text_link"} , {"id":"top_bar_link"} , {"id":"top_bar_text_login_link"} , {"id":"top_bar_login_link"}, {"id":"config_geral_chamada_faq"}],
-    "config_geral_secao_2" : [{"id":"d1_lang_option"}]
+    "config_geral_secao_2" : [{"id":"d1_lang_option"},{"id":"site_lang_pt"},{"id":"site_lang_en"},{"id":"site_lang_es"}]
 }

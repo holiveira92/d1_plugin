@@ -40,6 +40,15 @@
                         <option value="ES" <?php echo ($lang_option == "ES") ? "selected" : "";?>>ES</option>
                     </select>
                 </fieldset>
+                <fieldset>
+                    <legend><span class="number">2</span>Linguagem Disponíveis Site</legend>
+                    <input type="hidden" id="site_lang_options" name="site_lang_options" value="<?php echo get_option_esc('site_lang_options'); ?>">
+                    <?php $site_lang_options = "";?>
+                    <label>Escolha as Opções de Linguagem:</label>
+                    <input type="checkbox" name="site_lang_pt" value="1" checked disabled/>PT
+                    <input type="checkbox" name="site_lang_en" value="1" <?php echo (get_option_esc('site_lang_en')==1) ? 'checked' : '';?>/>EN
+                    <input type="checkbox" name="site_lang_es" value="1" <?php echo (get_option_esc('site_lang_es')==1) ? 'checked' : '';?>/>ES
+                </fieldset>
             </div>
         </div>
     </div>
