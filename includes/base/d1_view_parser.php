@@ -80,6 +80,11 @@ class D1_View_Parser {
                 $id_option = $field_name['id'];
                 $language_option = ($language == "PT") ? "" : "_" . $language;
                 $option_value       = get_option($field_name['id'].$language_option);
+
+                //testa campos que não podem ser traduzidos, caso algum deles, pega apenas o valor absoluto sem opção de tradução
+                if(in_array($field_name['id'],array('d1_lang_option','site_lang_pt','site_lang_en','site_lang_es'))){
+                    $option_value       = get_option($field_name['id']);
+                }
                 if(empty($option_value) && ( strpos($field_name['id'], 'image') !== false 
                     || strpos($field_name['id'], 'img') !== false || strpos($field_name['id'], 'favicon') !== false 
                     || strpos($field_name['id'], 'logo') !== false )){

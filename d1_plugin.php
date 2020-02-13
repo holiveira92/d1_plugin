@@ -41,7 +41,8 @@ if (!class_exists('D1Plugin')) {
     {   
         //setando a linguagem escolhida para editar
         $language = get_option('d1_lang_option');
-        if(($language == "PT" || empty($language) || $language == "_") || $option_name == 'd1_lang_option')
+        if(($language == "PT" || empty($language) || $language == "_") || ($option_name == 'd1_lang_option' ||
+            $option_name == 'site_lang_pt' || $option_name == 'site_lang_en' || $option_name == 'site_lang_es'))
             return esc_attr(get_option($option_name));
         else
             return esc_attr(get_option($option_name . "_$language"));
