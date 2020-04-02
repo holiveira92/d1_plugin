@@ -1,9 +1,9 @@
 <?php
-global $wpdb;
+global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 $id_mod             = !empty($_REQUEST["id_mod"]) ? $_REQUEST["id_mod"] : false;
-$data_bd            = !empty($id_mod) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_departamentos WHERE id = '$id_mod'")), true) : array();
-$cases_list         = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases")), true);
-$features_list      = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='modulos' ")), true);
+$data_bd            = !empty($id_mod) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_departamentos WHERE id = '$id_mod'")), true) : array();
+$cases_list         = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cases")), true);
+$features_list      = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_key_points WHERE page='modulos' ")), true);
 $param              = array('path_wp' => ABSPATH, 'id_mod' => $id_mod, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/departamentos/departamentos_delete.php?', 'd1_plugin') . $query_string;
@@ -60,7 +60,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
 ?>
 
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -86,7 +86,8 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
 </head>
 
 <body class="animsition">
-<h1> Link Permanente: </h1> <a href="<?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?></a>
+<a href="<?php echo $voltar_url . $query_string ;?>"><button type="button" class="button button-primary"><-- Voltar para Departamentos</button></a>
+<p> Link Permanente: </p> <a style="margin-bottom:20px" href="<?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/departamentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?></a>
     <form id="keypoints_fields" action="<?php echo $url_action; ?>">
         <!-- DADOS DO SEGMENTO -->
         <div class="container">
@@ -118,7 +119,11 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <fieldset>
                         <legend><span class="number">2</span>Desafios</legend>
                     <div class="row">
-                    <label for="challenge_title">Titulo:</label><input type="text" name="challenge_title" value="<?php echo $data["challenge_title"]; ?>" placeholder="Titulo Principal">
+                    <div class="col form-style-5 middle">
+                        <label for="challenge_title">Titulo:</label><input type="text" name="challenge_title" value="<?php echo $data["challenge_title"]; ?>" placeholder="Titulo Principal">
+                    </div>
+                    </div>
+                    <div class="row">
                         <?php for($i=1;$i<=3;$i++): ?>
                         <div class="col form-style-5 middle">
                         <fieldset>
@@ -142,8 +147,12 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <fieldset>
                     <legend><span class="number">3</span>Features</legend>
                     <div class="row">
-                    <label for="modulos_title">Titulo Features:</label><input type="text" name="modulos_title" value="<?php echo $modulos_options["modulos_title"]; ?>" placeholder="Titulo">
-                    <label for="modulos_descricao">Descrição Features:</label> <textarea name="modulos_descricao" placeholder="Descrição" rows='7'><?php echo $modulos_options["modulos_descricao"]; ?></textarea>
+                    <div class="col form-style-5 middle">
+                        <label for="modulos_title">Titulo Features:</label><input type="text" name="modulos_title" value="<?php echo $modulos_options["modulos_title"]; ?>" placeholder="Titulo">
+                        <label for="modulos_descricao">Descrição Features:</label> <textarea name="modulos_descricao" placeholder="Descrição" rows='7'><?php echo $modulos_options["modulos_descricao"]; ?></textarea>
+                    </div>
+                    </div>
+                    <div class="row">
                     <?php for($i=1;$i<=3;$i++): ?>
                     <div class="col-4 form-style-5 middle">
                                 <!-- Início de Select para Card -->
@@ -171,7 +180,11 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
                 <fieldset>
                     <legend><span class="number">4</span>Cases</legend>
                     <div class="row">
-                    <label for="cases_title">Titulo Cases:</label><input type="text" name="cases_title" value="<?php echo $cases_options["cases_title"]; ?>" placeholder="Titulo">
+                    <div class="col form-style-5 middle">
+                        <label for="cases_title">Titulo Cases:</label><input type="text" name="cases_title" value="<?php echo $cases_options["cases_title"]; ?>" placeholder="Titulo">
+                    </div>
+                    </div>
+                    <div class="row">
                     <?php for($i=1;$i<=3;$i++): ?>
                     <div class="col-4 form-style-5 middle">
                                 <!-- Início de Select para Card -->
@@ -224,7 +237,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='departamentos' AND id_segmento=$id_modulo")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_key_points WHERE page='departamentos' AND id_segmento=$id_modulo")),true);
                     $cont = 0;
                     $delete_url = plugins_url('d1_plugin/templates/departamentos/keyp_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 
@@ -290,7 +303,7 @@ $id_modulo = !empty($data['id']) ? $data['id'] : 0;
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cargos WHERE id_departamento=$id_modulo")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cargos WHERE id_departamento=$id_modulo")),true);
                     $cont = 0;
                     $delete_url = plugins_url('d1_plugin/templates/departamentos/cargos_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 

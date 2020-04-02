@@ -5,7 +5,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -35,7 +35,7 @@
 
                 <fieldset>
                     <legend><span class="number">1</span>Título da Seção</legend>
-                    <label for="secao6_title">Nome:</label> <input type="text" name="secao6_title" value="<?php echo get_option_esc('secao6_title') ?>" placeholder="Titulo">
+                    <label for="secao6_title">Nome:</label> <input type="text" name="secao6_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_title') ?>" placeholder="Titulo">
                 </fieldset>
             </div>
         </div>
@@ -51,7 +51,7 @@
                 <div class="collapse multi-collapse show" id="modulo-1">
                     <div class="row">
                         <div class="col form-style-5">
-                            <label for="secao6_modulo1_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo1_nome" value="<?php echo get_option_esc('secao6_modulo1_nome') ?>" placeholder="Nome do Módulo">
+                            <label for="secao6_modulo1_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo1_nome<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo1_nome') ?>" placeholder="Nome do Módulo">
                         </div>
                     </div>
                     <div class="row">
@@ -59,9 +59,9 @@
                             <!-- Seção 2 - Modulo 1 - Subitem 1 -->
                             <fieldset>
                                 <legend><span class="number">1</span>Subitem 1</legend>
-                                <label for="secao6_modulo1_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo1_subitem1" value="<?php echo get_option_esc('secao6_modulo1_subitem1') ?>" placeholder="Nome do SubItem 1:">
-                                <label for="secao6_modulo1_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo1_subitem1_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo1_subitem1_descricao') ?></textarea>
-                                <label for="secao6_modulo1_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo1_subitem1_link" value="<?php echo get_option_esc('secao6_modulo1_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
+                                <label for="secao6_modulo1_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo1_subitem1<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo1_subitem1') ?>" placeholder="Nome do SubItem 1:">
+                                <label for="secao6_modulo1_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo1_subitem1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo1_subitem1_descricao') ?></textarea>
+                                <label for="secao6_modulo1_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo1_subitem1_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo1_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
                                 <label for="secao6_modulo1_subitem1_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo1_subitem1_image'); ?>
                             </fieldset>
                         </div>
@@ -69,9 +69,9 @@
                             <!-- Seção 2 - Modulo 1 - Subitem 2 -->
                             <fieldset>
                                 <legend><span class="number">2</span>Subitem 2</legend>
-                                <label for="secao6_modulo1_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo1_subitem2" value="<?php echo get_option_esc('secao6_modulo1_subitem2') ?>" placeholder="Nome do SubItem 2:">
-                                <label for="secao6_modulo1_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo1_subitem2_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo1_subitem2_descricao') ?></textarea>
-                                <label for="secao6_modulo1_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo1_subitem2_link" value="<?php echo get_option_esc('secao6_modulo1_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
+                                <label for="secao6_modulo1_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo1_subitem2<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo1_subitem2') ?>" placeholder="Nome do SubItem 2:">
+                                <label for="secao6_modulo1_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo1_subitem2_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo1_subitem2_descricao') ?></textarea>
+                                <label for="secao6_modulo1_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo1_subitem2_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo1_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
                                 <label for="secao6_modulo1_subitem2_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo1_subitem2_image'); ?>
                             </fieldset>
                         </div>
@@ -79,9 +79,9 @@
                             <!-- Seção 2 - Modulo 1 - Subitem 3 -->
                             <fieldset>
                                 <legend><span class="number">3</span>Subitem 3</legend>
-                                <label for="secao6_modulo1_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo1_subitem3" value="<?php echo get_option_esc('secao6_modulo1_subitem3') ?>" placeholder="Nome do SubItem 3:">
-                                <label for="secao6_modulo1_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo1_subitem3_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo1_subitem3_descricao') ?></textarea>
-                                <label for="secao6_modulo1_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo1_subitem3_link" value="<?php echo get_option_esc('secao6_modulo1_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
+                                <label for="secao6_modulo1_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo1_subitem3<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo1_subitem3') ?>" placeholder="Nome do SubItem 3:">
+                                <label for="secao6_modulo1_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo1_subitem3_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo1_subitem3_descricao') ?></textarea>
+                                <label for="secao6_modulo1_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo1_subitem3_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo1_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
                                 <label for="secao6_modulo1_subitem3_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo1_subitem3_image'); ?>
                             </fieldset>
                         </div>
@@ -102,7 +102,7 @@
                 <div class="collapse multi-collapse show" id="modulo-2">
                     <div class="row">
                         <div class="col form-style-5">
-                            <label for="secao6_modulo2_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo2_nome" value="<?php echo get_option_esc('secao6_modulo2_nome') ?>" placeholder="Nome do Módulo">
+                            <label for="secao6_modulo2_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo2_nome<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo2_nome') ?>" placeholder="Nome do Módulo">
                         </div>
                     </div>
                     <div class="row">
@@ -110,9 +110,9 @@
                             <!-- Seção 2 - Modulo 2 - Subitem 1 -->
                             <fieldset>
                                 <legend><span class="number">1</span>Subitem 1</legend>
-                                <label for="secao6_modulo2_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo2_subitem1" value="<?php echo get_option_esc('secao6_modulo2_subitem1') ?>" placeholder="Nome do SubItem 1:">
-                                <label for="secao6_modulo2_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo2_subitem1_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo2_subitem1_descricao') ?></textarea>
-                                <label for="secao6_modulo2_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo2_subitem1_link" value="<?php echo get_option_esc('secao6_modulo2_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
+                                <label for="secao6_modulo2_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo2_subitem1<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo2_subitem1') ?>" placeholder="Nome do SubItem 1:">
+                                <label for="secao6_modulo2_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo2_subitem1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo2_subitem1_descricao') ?></textarea>
+                                <label for="secao6_modulo2_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo2_subitem1_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo2_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
                                 <label for="secao6_modulo2_subitem1_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo2_subitem1_image'); ?>
                             </fieldset>
                         </div>
@@ -120,9 +120,9 @@
                             <!-- Seção 2 - Modulo 2 - Subitem 2 -->
                             <fieldset>
                                 <legend><span class="number">2</span>Subitem 2</legend>
-                                <label for="secao6_modulo2_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo2_subitem2" value="<?php echo get_option_esc('secao6_modulo2_subitem2') ?>" placeholder="Nome do SubItem 2:">
-                                <label for="secao6_modulo2_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo2_subitem2_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo2_subitem2_descricao') ?></textarea>
-                                <label for="secao6_modulo2_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo2_subitem2_link" value="<?php echo get_option_esc('secao6_modulo2_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
+                                <label for="secao6_modulo2_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo2_subitem2<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo2_subitem2') ?>" placeholder="Nome do SubItem 2:">
+                                <label for="secao6_modulo2_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo2_subitem2_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo2_subitem2_descricao') ?></textarea>
+                                <label for="secao6_modulo2_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo2_subitem2_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo2_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
                                 <label for="secao6_modulo2_subitem2_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo2_subitem2_image'); ?>
                             </fieldset>
                         </div>
@@ -130,9 +130,9 @@
                             <!-- Seção 2 - Modulo 2 - Subitem 3 -->
                             <fieldset>
                                 <legend><span class="number">3</span>Subitem 3</legend>
-                                <label for="secao6_modulo2_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo2_subitem3" value="<?php echo get_option_esc('secao6_modulo2_subitem3') ?>" placeholder="Nome do SubItem 3:">
-                                <label for="secao6_modulo2_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo2_subitem3_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo2_subitem3_descricao') ?></textarea>
-                                <label for="secao6_modulo2_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo2_subitem3_link" value="<?php echo get_option_esc('secao6_modulo2_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
+                                <label for="secao6_modulo2_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo2_subitem3<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo2_subitem3') ?>" placeholder="Nome do SubItem 3:">
+                                <label for="secao6_modulo2_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo2_subitem3_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo2_subitem3_descricao') ?></textarea>
+                                <label for="secao6_modulo2_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo2_subitem3_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo2_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
                                 <label for="secao6_modulo2_subitem3_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo2_subitem3_image'); ?>
                             </fieldset>
                         </div>
@@ -153,7 +153,7 @@
                 <div class="collapse multi-collapse show" id="modulo-3">
                     <div class="row">
                         <div class="col form-style-5">
-                            <label for="secao6_modulo3_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo3_nome" value="<?php echo get_option_esc('secao6_modulo3_nome') ?>" placeholder="Nome do Módulo">
+                            <label for="secao6_modulo3_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo3_nome<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo3_nome') ?>" placeholder="Nome do Módulo">
                         </div>
                     </div>
                     <div class="row">
@@ -161,9 +161,9 @@
                             <!-- Seção 2 - Modulo 3 - Subitem 1 -->
                             <fieldset>
                                 <legend><span class="number">1</span>Subitem 1</legend>
-                                <label for="secao6_modulo3_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo3_subitem1" value="<?php echo get_option_esc('secao6_modulo3_subitem1') ?>" placeholder="Nome do SubItem 1:">
-                                <label for="secao6_modulo3_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo3_subitem1_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo3_subitem1_descricao') ?></textarea>
-                                <label for="secao6_modulo3_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo3_subitem1_link" value="<?php echo get_option_esc('secao6_modulo3_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
+                                <label for="secao6_modulo3_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo3_subitem1<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo3_subitem1') ?>" placeholder="Nome do SubItem 1:">
+                                <label for="secao6_modulo3_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo3_subitem1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo3_subitem1_descricao') ?></textarea>
+                                <label for="secao6_modulo3_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo3_subitem1_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo3_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
                                 <label for="secao6_modulo3_subitem1_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo3_subitem1_image'); ?>
                             </fieldset>
                         </div>
@@ -171,9 +171,9 @@
                             <!-- Seção 2 - Modulo 3 - Subitem 2 -->
                             <fieldset>
                                 <legend><span class="number">2</span>Subitem 2</legend>
-                                <label for="secao6_modulo3_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo3_subitem2" value="<?php echo get_option_esc('secao6_modulo3_subitem2') ?>" placeholder="Nome do SubItem 2:">
-                                <label for="secao6_modulo3_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo3_subitem2_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo3_subitem2_descricao') ?></textarea>
-                                <label for="secao6_modulo3_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo3_subitem2_link" value="<?php echo get_option_esc('secao6_modulo3_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
+                                <label for="secao6_modulo3_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo3_subitem2<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo3_subitem2') ?>" placeholder="Nome do SubItem 2:">
+                                <label for="secao6_modulo3_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo3_subitem2_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo3_subitem2_descricao') ?></textarea>
+                                <label for="secao6_modulo3_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo3_subitem2_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo3_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
                                 <label for="secao6_modulo3_subitem2_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo3_subitem2_image'); ?>
                             </fieldset>
                         </div>
@@ -181,9 +181,9 @@
                             <!-- Seção 2 - Modulo 3 - Subitem 3 -->
                             <fieldset>
                                 <legend><span class="number">3</span>Subitem 3</legend>
-                                <label for="secao6_modulo3_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo3_subitem3" value="<?php echo get_option_esc('secao6_modulo3_subitem3') ?>" placeholder="Nome do SubItem 3:">
-                                <label for="secao6_modulo3_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo3_subitem3_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo3_subitem3_descricao') ?></textarea>
-                                <label for="secao6_modulo3_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo3_subitem3_link" value="<?php echo get_option_esc('secao6_modulo3_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
+                                <label for="secao6_modulo3_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo3_subitem3<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo3_subitem3') ?>" placeholder="Nome do SubItem 3:">
+                                <label for="secao6_modulo3_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo3_subitem3_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo3_subitem3_descricao') ?></textarea>
+                                <label for="secao6_modulo3_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo3_subitem3_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo3_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
                                 <label for="secao6_modulo3_subitem3_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo3_subitem3_image'); ?>
                             </fieldset>
                         </div>
@@ -204,7 +204,7 @@
                 <div class="collapse multi-collapse show" id="modulo-4">
                     <div class="row">
                         <div class="col form-style-5">
-                            <label for="secao6_modulo4_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo4_nome" value="<?php echo get_option_esc('secao6_modulo4_nome') ?>" placeholder="Nome do Módulo">
+                            <label for="secao6_modulo4_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo4_nome<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo4_nome') ?>" placeholder="Nome do Módulo">
                         </div>
                     </div>
                     <div class="row">
@@ -212,9 +212,9 @@
                             <!-- Seção 2 - Modulo 4 - Subitem 1 -->
                             <fieldset>
                                 <legend><span class="number">1</span>Subitem 1</legend>
-                                <label for="secao6_modulo4_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo4_subitem1" value="<?php echo get_option_esc('secao6_modulo4_subitem1') ?>" placeholder="Nome do SubItem 1:">
-                                <label for="secao6_modulo4_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo4_subitem1_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo4_subitem1_descricao') ?></textarea>
-                                <label for="secao6_modulo4_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo4_subitem1_link" value="<?php echo get_option_esc('secao6_modulo4_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
+                                <label for="secao6_modulo4_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo4_subitem1<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo4_subitem1') ?>" placeholder="Nome do SubItem 1:">
+                                <label for="secao6_modulo4_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo4_subitem1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo4_subitem1_descricao') ?></textarea>
+                                <label for="secao6_modulo4_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo4_subitem1_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo4_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
                                 <label for="secao6_modulo4_subitem1_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo4_subitem1_image'); ?>
                             </fieldset>
                         </div>
@@ -222,9 +222,9 @@
                             <!-- Seção 2 - Modulo 4 - Subitem 2 -->
                             <fieldset>
                                 <legend><span class="number">2</span>Subitem 2</legend>
-                                <label for="secao6_modulo4_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo4_subitem2" value="<?php echo get_option_esc('secao6_modulo4_subitem2') ?>" placeholder="Nome do SubItem 2:">
-                                <label for="secao6_modulo4_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo4_subitem2_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo4_subitem2_descricao') ?></textarea>
-                                <label for="secao6_modulo4_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo4_subitem2_link" value="<?php echo get_option_esc('secao6_modulo4_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
+                                <label for="secao6_modulo4_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo4_subitem2<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo4_subitem2') ?>" placeholder="Nome do SubItem 2:">
+                                <label for="secao6_modulo4_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo4_subitem2_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo4_subitem2_descricao') ?></textarea>
+                                <label for="secao6_modulo4_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo4_subitem2_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo4_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
                                 <label for="secao6_modulo4_subitem2_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo4_subitem2_image'); ?>
                             </fieldset>
                         </div>
@@ -232,9 +232,9 @@
                             <!-- Seção 2 - Modulo 4 - Subitem 3 -->
                             <fieldset>
                                 <legend><span class="number">3</span>Subitem 3</legend>
-                                <label for="secao6_modulo4_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo4_subitem3" value="<?php echo get_option_esc('secao6_modulo4_subitem3') ?>" placeholder="Nome do SubItem 3:">
-                                <label for="secao6_modulo4_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo4_subitem3_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo4_subitem3_descricao') ?></textarea>
-                                <label for="secao6_modulo4_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo4_subitem3_link" value="<?php echo get_option_esc('secao6_modulo4_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
+                                <label for="secao6_modulo4_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo4_subitem3<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo4_subitem3') ?>" placeholder="Nome do SubItem 3:">
+                                <label for="secao6_modulo4_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo4_subitem3_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo4_subitem3_descricao') ?></textarea>
+                                <label for="secao6_modulo4_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo4_subitem3_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo4_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
                                 <label for="secao6_modulo4_subitem3_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo4_subitem3_image'); ?>
                             </fieldset>
                         </div>
@@ -255,7 +255,7 @@
                 <div class="collapse multi-collapse show" id="modulo-5">
                     <div class="row">
                         <div class="col form-style-5">
-                            <label for="secao6_modulo5_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo5_nome" value="<?php echo get_option_esc('secao6_modulo5_nome') ?>" placeholder="Nome do Módulo">
+                            <label for="secao6_modulo5_nome">Nome do Módulo:</label> <input type="text" name="secao6_modulo5_nome<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo5_nome') ?>" placeholder="Nome do Módulo">
                         </div>
                     </div>
                     <div class="row">
@@ -263,9 +263,9 @@
                             <!-- Seção 2 - Modulo 5 - Subitem 1 -->
                             <fieldset>
                                 <legend><span class="number">1</span>Subitem 1</legend>
-                                <label for="secao6_modulo5_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo5_subitem1" value="<?php echo get_option_esc('secao6_modulo5_subitem1') ?>" placeholder="Nome do SubItem 1:">
-                                <label for="secao6_modulo5_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo5_subitem1_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo5_subitem1_descricao') ?></textarea>
-                                <label for="secao6_modulo5_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo5_subitem1_link" value="<?php echo get_option_esc('secao6_modulo5_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
+                                <label for="secao6_modulo5_subitem1">Nome do SubItem 1:</label> <input type="text" name="secao6_modulo5_subitem1<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo5_subitem1') ?>" placeholder="Nome do SubItem 1:">
+                                <label for="secao6_modulo5_subitem1_descricao">Descrição SubItem 1:</label> <textarea name="secao6_modulo5_subitem1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo5_subitem1_descricao') ?></textarea>
+                                <label for="secao6_modulo5_subitem1_link">Link Leia Mais SubItem 1:</label> <input type="text" name="secao6_modulo5_subitem1_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo5_subitem1_link') ?>" placeholder="Link Leia Mais SubItem 1">
                                 <label for="secao6_modulo5_subitem1_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo5_subitem1_image'); ?>
                             </fieldset>
                         </div>
@@ -273,9 +273,9 @@
                             <!-- Seção 2 - Modulo 5 - Subitem 2 -->
                             <fieldset>
                                 <legend><span class="number">2</span>Subitem 2</legend>
-                                <label for="secao6_modulo5_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo5_subitem2" value="<?php echo get_option_esc('secao6_modulo5_subitem2') ?>" placeholder="Nome do SubItem 2:">
-                                <label for="secao6_modulo5_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo5_subitem2_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo5_subitem2_descricao') ?></textarea>
-                                <label for="secao6_modulo5_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo5_subitem2_link" value="<?php echo get_option_esc('secao6_modulo5_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
+                                <label for="secao6_modulo5_subitem2">Nome do SubItem 2:</label> <input type="text" name="secao6_modulo5_subitem2<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo5_subitem2') ?>" placeholder="Nome do SubItem 2:">
+                                <label for="secao6_modulo5_subitem2_descricao">Descrição SubItem 2:</label> <textarea name="secao6_modulo5_subitem2_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo5_subitem2_descricao') ?></textarea>
+                                <label for="secao6_modulo5_subitem2_link">Link Leia Mais SubItem 2:</label> <input type="text" name="secao6_modulo5_subitem2_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo5_subitem2_link') ?>" placeholder="Link Leia Mais SubItem 2">
                                 <label for="secao6_modulo5_subitem2_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo5_subitem2_image'); ?>
                             </fieldset>
                         </div>
@@ -283,9 +283,9 @@
                             <!-- Seção 2 - Modulo 5 - Subitem 3 -->
                             <fieldset>
                                 <legend><span class="number">3</span>Subitem 3</legend>
-                                <label for="secao6_modulo5_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo5_subitem3" value="<?php echo get_option_esc('secao6_modulo5_subitem3') ?>" placeholder="Nome do SubItem 3:">
-                                <label for="secao6_modulo5_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo5_subitem3_descricao" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo5_subitem3_descricao') ?></textarea>
-                                <label for="secao6_modulo5_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo5_subitem3_link" value="<?php echo get_option_esc('secao6_modulo5_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
+                                <label for="secao6_modulo5_subitem3">Nome do SubItem 3:</label> <input type="text" name="secao6_modulo5_subitem3<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo5_subitem3') ?>" placeholder="Nome do SubItem 3:">
+                                <label for="secao6_modulo5_subitem3_descricao">Descrição SubItem 3:</label> <textarea name="secao6_modulo5_subitem3_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição" rows=5><?php echo get_option_esc('secao6_modulo5_subitem3_descricao') ?></textarea>
+                                <label for="secao6_modulo5_subitem3_link">Link Leia Mais SubItem 3:</label> <input type="text" name="secao6_modulo5_subitem3_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_modulo5_subitem3_link') ?>" placeholder="Link Leia Mais SubItem 3">
                                 <label for="secao6_modulo5_subitem3_image">Imagem de Background :</label> <?php echo $this->d1_upload->get_image_options('secao6_modulo5_subitem3_image'); ?>
                             </fieldset>
                         </div>

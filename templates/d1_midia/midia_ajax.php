@@ -1,12 +1,17 @@
 <?php
-function pre($data) {
-    echo "<pre>";
-        print_r($data);
-    echo "</pre>";
-}
 
+
+function dirname_safe($path, $level = 0)
+{
+    $dir = explode(DIRECTORY_SEPARATOR, $path);
+    $level = $level * -1;
+    if ($level == 0) $level = count($dir);
+    array_splice($dir, $level);
+    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+}
 define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 global $wpdb;
 $id_midia              = !empty($_REQUEST["id"]) ? $_REQUEST["id"]: false;
 $location              = urldecode($_REQUEST["url_location"]);
@@ -22,7 +27,7 @@ $data = array(
 
 //insert
 if(empty($id_midia)){
-    $sql           = "INSERT INTO " . $wpdb->prefix . "d1_midia
+    $sql           = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_midia
     (title,content,vehicle,publication_date,link,url_img_bg) 
     VALUES('%s','%s','%s','%s','%s','%s')";
     $wpdb->query($wpdb->prepare($sql,array(
@@ -39,7 +44,7 @@ else{
     $param              = array('path_wp' => $_REQUEST["path_wp"], 'id_midia' => $id_midia, 'url_location' => $_REQUEST["admin_url"]);
     $query_string       = http_build_query($param);
     $location           = urldecode($_REQUEST["admin_url"] . "admin.php?page=d1_plugin_d1_midia&tab=midia&" . $query_string);
-    $sql                = "UPDATE " . $wpdb->prefix ."d1_midia SET title='%s', content='%s',
+    $sql                = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_midia SET title='%s', content='%s',
     vehicle='%s', publication_date='%s' , link='%s' , url_img_bg='%s'
     WHERE id = %d";
     $wpdb->query($wpdb->prepare($sql,array($data['title'],$data['content'],$data['vehicle'],$data['publication_date'],

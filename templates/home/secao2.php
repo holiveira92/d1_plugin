@@ -5,7 +5,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<!-- Fontfaces CSS-->
+	<!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
 	<link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
 	<link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
 	<link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -36,8 +36,8 @@
 				<div id='secao2_content1' class="content">
 					<fieldset>
 						<legend><span class="number">1</span>Informações da Seção</legend>
-						<label for="secao2_section_title">Título:</label> <input type="text" name="secao2_section_title" value="<?php echo get_option_esc('secao2_section_title') ?>">
-						<label for="secao2_call_action_cases">Chamada para Ação - Cases:</label> <input type="text" name="secao2_call_action_cases" value="<?php echo get_option_esc('secao2_call_action_cases') ?>">
+						<label for="secao2_section_title">Título:</label> <input type="text" name="secao2_section_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao2_section_title') ?>">
+						<label for="secao2_call_action_cases">Chamada para Ação - Cases:</label> <input type="text" name="secao2_call_action_cases<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao2_call_action_cases') ?>">
 					</fieldset>
 				</div>
 				<!-- ------------------------------------- Fim Seção Config. Seção -  Cases de Sucesso ------------------------------------------>
@@ -46,7 +46,7 @@
 				<?php
 				//obtendo opções salvas no BD
 				global $wpdb;
-				$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')), true);
+				$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_cases')), true);
 				?>
 			</div>
 			<div class="col form-style-5">
@@ -57,7 +57,7 @@
 						<legend><span class="number">2</span>Selecione os Cases</legend>
 						<span class="margin-bottom"> Verifique o cadastro de cases de sucesso <a href="?page=d1_plugin_cases&tab=config_cards">clicando aqui</a></span>
 						<!-- Início de Select para Card 1 -->
-						<label for="secao2_select_card_cases1">Selecione Opção 1:</label> <select name="secao2_select_card_cases1">
+						<label for="secao2_select_card_cases1">Selecione Opção 1:</label> <select name="secao2_select_card_cases1<?php echo D1Plugin::$language; ?>">
 							<option value="0"> Selecione </option>
 							<?php
 							foreach ($result as $key => &$value) :
@@ -74,7 +74,7 @@
 						<!-- Fim de Select para Card 1 -->
 
 						<!-- Início de Select para Card 2 -->
-						<label for="secao2_select_card_cases2">Selecione Opção 2:</label> <select name="secao2_select_card_cases2">
+						<label for="secao2_select_card_cases2">Selecione Opção 2:</label> <select name="secao2_select_card_cases2<?php echo D1Plugin::$language; ?>">
 							<option value="0"> Selecione </option>
 							<?php
 							foreach ($result as $key => &$value) :
@@ -91,7 +91,7 @@
 						<!-- Fim de Select para Card 2 -->
 
 						<!-- Início de Select para Card 3 -->
-						<label for="secao2_select_card_cases3">Selecione Opção 3:</label> <select name="secao2_select_card_cases3">
+						<label for="secao2_select_card_cases3">Selecione Opção 3:</label> <select name="secao2_select_card_cases3<?php echo D1Plugin::$language; ?>">
 							<option value="0"> Selecione </option>
 							<?php
 							foreach ($result as $key => &$value) :

@@ -1,13 +1,19 @@
 <?php
+
 class D1_Upload {
+
+	private $language;
 	public function __construct(){
-        $this->img_default = get_template_directory_uri() . "/images/img_default.jpg";
-        $this->setup();
+        $this->img_default 	= get_template_directory_uri() . "/images/img_default.jpg";
+		$this->setup();
+		$language 			= strtoupper(get_option('d1_lang_option'));
+        $this->language 	= ($language == "PT" || empty($language) || $language == "_") ? "" : "_$language";
 	}
+
     function get_image_options_cases($name_field,$id_field=0){
         global $wpdb;
         $id_element_field = str_replace("[]","",$name_field) . "_" . $id_field;
-        $result = !empty($id_field) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases WHERE id_card=$id_field LIMIT 1")),true) : array();
+        $result = !empty($id_field) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cases WHERE id_card=$id_field LIMIT 1")),true) : array();
         $img_options = !empty($result[0]['img_bg_url']) ? $result[0]['img_bg_url'] : "";
 		$name_button = $id_element_field . '_d1_upload_btn';
 		$name_del_button = $id_element_field . '_d1_btn_del';
@@ -28,7 +34,9 @@ class D1_Upload {
     }
     
 	function get_image_options($name_field){
-		$img_options = esc_url(get_option_esc($name_field));
+		$name_temp = $name_field;
+		$name_field = $name_field . $this->language;
+		$img_options = esc_url(get_option_esc($name_temp));
 		$name_button = $name_field . '_d1_upload_btn';
 		$name_del_button = $name_field . '_d1_btn_del';
 		$name_img_preview = $name_field . '_d1_img_preview';
@@ -46,6 +54,7 @@ class D1_Upload {
 		$img_component = $img_component . "<input type='hidden' id='d1_img_default' name='d1_img_default' value='$this->img_default' readonly='readonly'>";
 		return $img_component;
 	}
+
 	private function setup() {
         global $pagenow;
         if ('media-upload.php'==$pagenow || 'async-upload.php'==$pagenow) {
@@ -72,6 +81,7 @@ class D1_Upload {
 			wp_delete_attachment($row->ID);
 		}
 	}
+
 	function get_image_options_common($name_field,$img_options='',$id_field=''){
 		global $wpdb;
 		$name_temp = str_replace("[]","",$name_field);

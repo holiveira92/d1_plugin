@@ -1,12 +1,12 @@
 <div class="wrap">
 	<h1>D1 - Editor de Conteúdos</h1>
 	<?php
+        require_once plugin_dir_path(__FILE__) . 'languages_options.php';
 		settings_errors(); 
 		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'secao1';
 	?>
 
     <h2 class="nav-tab-wrapper">
-        <a href="?page=d1_plugin_departamentos&tab=secao1" class="nav-tab <?php echo $active_tab == 'secao1' ? 'nav-tab-active' : ''; ?>">Departamentos</a>
         <input type="hidden" id="destination_field">
     </h2>
     

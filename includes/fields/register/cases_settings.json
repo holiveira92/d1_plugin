@@ -1,5 +1,6 @@
 {
-    "cases_d1_card_group" : [{"option_name":"cases_secao0_title"}],
+    "cases_d1_card_group" : [{"option_name":"cases_secao0_title"},{"option_name":"cases_secao0_chamada"}],
     "cases_secao1_options_group" : [{"option_name":"secao2_title"},{"option_name":"secao2_link_botao"},{"option_name":"secao2_minicard1_title"},{"option_name":"secao2_minicard1_descricao"},{"option_name":"secao2_minicard2_title"},{"option_name":"secao2_minicard2_descricao"},{"option_name":"secao2_minicard3_title"},{"option_name":"secao2_minicard3_descricao"},{"option_name":"secao2_minicard4_title"},{"option_name":"secao2_minicard4_descricao"}],
-    "cases_secao2_options_group" : [{"option_name":"secao3_title"},{"option_name":"secao3_descricao"},{"option_name":"secao3_minicard1_img_bg"},{"option_name":"secao3_minicard1_descricao"},{"option_name":"secao3_minicard2_img_bg"},{"option_name":"secao3_minicard2_descricao"},{"option_name":"secao3_minicard3_img_bg"},{"option_name":"secao3_minicard3_descricao"}]
+    "cases_secao2_options_group" : [{"option_name":"secao3_title"},{"option_name":"secao3_descricao"},{"option_name":"secao3_minicard1_img_bg"},{"option_name":"secao3_minicard1_descricao"},{"option_name":"secao3_minicard2_img_bg"},{"option_name":"secao3_minicard2_descricao"},{"option_name":"secao3_minicard3_img_bg"},{"option_name":"secao3_minicard3_descricao"}],
+    "whitepaper_d1_options_group" : [{"option_name":"whitepapers_chamada"}]
 }

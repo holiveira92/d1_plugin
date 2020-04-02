@@ -5,7 +5,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -37,8 +37,8 @@
                 <!----------------------------------------------------------------------- Seção 3 - Inicio Seção Pré-CTA ----------------------------------------------------------------------->
                 <fieldset>
                     <legend><span class="number">1</span>Titulo da Seção</legend>
-                    <textarea name="secao3_title" rows='6'><?php echo get_option_esc('secao3_title') ?></textarea>
-                    <div style='display:flex;align-items:center;margin-bottom:25px;'><input type="checkbox" name="secao3_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                    <textarea name="secao3_title<?php echo D1Plugin::$language; ?>" rows='6'><?php echo get_option_esc('secao3_title') ?></textarea>
+                    <div style='display:flex;align-items:center;margin-bottom:25px;'><input type="checkbox" name="secao3_title_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                 <fieldset>
                 <!----------------------------------------------------------------------- Seção 3 - Fim Seção Pré-CTA -------------------------------------------------------------------------->
             </div>
@@ -49,13 +49,13 @@
             <?php
                 //obtendo opções salvas no BD
 				global $wpdb;
-				$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_call_to_action')), true);
+				$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_call_to_action')), true);
             ?>
             
             <!-- Início de Select para CTA 1-->
             <span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
             <label for="secao3_footer_cta1">Selecione CTA 1:</label>
-            <select name="secao3_footer_cta1">
+            <select name="secao3_footer_cta1<?php echo D1Plugin::$language; ?>">
                 <option value="0"> Selecione </option>
                 <?php
                 foreach ($result as $key => &$value) :
@@ -70,7 +70,7 @@
 
             <!-- Início de Select para CTA2-->
             <label for="secao3_footer_cta2">Selecione CTA 2:</label>
-            <select name="secao3_footer_cta2">
+            <select name="secao3_footer_cta2<?php echo D1Plugin::$language; ?>">
                 <option value="0"> Selecione </option>
                 <?php
                 foreach ($result as $key => &$value) :
@@ -85,7 +85,7 @@
 
             <!-- Início de Select para CTA3-->
             <label for="secao3_footer_cta3">Selecione CTA 3:</label>
-            <select name="secao3_footer_cta3">
+            <select name="secao3_footer_cta3<?php echo D1Plugin::$language; ?>">
                 <option value="0"> Selecione </option>
                 <?php
                 foreach ($result as $key => &$value) :
@@ -107,7 +107,7 @@
                 <!----------------------------------------------------------------------- Seção 3 - Inicio Info D1 ----------------------------------------------------------------------->
                 <fieldset>
                     <legend><span class="number">3</span>Info D1</legend>
-                    <textarea name="secao3_info_d1" rows=10><?php echo get_option_esc('secao3_info_d1') ?></textarea>
+                    <textarea name="secao3_info_d1<?php echo D1Plugin::$language; ?>" rows=10><?php echo get_option_esc('secao3_info_d1') ?></textarea>
                 </fieldset>
             </div>
         </div>

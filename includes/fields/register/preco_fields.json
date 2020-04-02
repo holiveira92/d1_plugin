@@ -1,6 +1,6 @@
 {   
     "d1_preco_secao1" : [{"id":"preco_secao1_main_title"},{"id":"preco_secao1_title"},{"id":"preco_secao1_descricao"},{"id":"preco_secao1_descricao_secundaria"}],
     "d1_preco_secao2" : [],
-    "d1_preco_secao3" : [{"id":"preco_secao3_case1"},{"id":"preco_secao3_case2"},{"id":"preco_secao3_case3"}],
+    "d1_preco_secao3" : [{"id":"preco_secao3_case1"},{"id":"preco_secao3_case2"},{"id":"preco_secao3_case3"},{"id":"preco_secao3_cases_chamada"},{"id":"preco_secao3_cases_title"}],
     "d1_preco_secao4" : []
 }

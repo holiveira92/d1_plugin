@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css','d1_plugin');?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css','d1_plugin');?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css','d1_plugin');?>" rel="stylesheet" media="all">
@@ -22,19 +22,20 @@
 </head>
 
 <body class="animsition">
+<div class="container">
     <div class="row">
         <div class="col form-style-5">
             <!-- Seção 1 - Configs Gerais -->
             <fieldset>
                 <legend><span class="number">1</span>Título da Seção</legend>
-                <label for="cases_secao0_title">Nome:</label> <input type="text" name="cases_secao0_title" value="<?php echo get_option_esc('cases_secao0_title') ?>" placeholder="Titulo">
+                <label for="cases_secao0_title">Nome:</label> <input type="text" name="cases_secao0_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('cases_secao0_title') ?>" placeholder="Titulo">
+                <label for="cases_secao0_chamada">Chamada Cases - Ver Cases:</label> <input type="text" name="cases_secao0_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('cases_secao0_chamada') ?>" placeholder="Chamada Cases - Ver Cases">
             </fieldset>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col form-style-5">
     <!-- DATA TABLE -->
-    <div class="table-data__tool">
-        <div class="table-data__tool-right">
             <?php   
                     $create_url = "?page=d1_plugin_cases&tab=secao1&";
                     $param = array('path_wp' => ABSPATH, 'id_card' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
@@ -42,8 +43,6 @@
             ?>
             <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
                 <i class="zmdi zmdi-plus"></i>Adicionar case</button></a>
-        </div>
-    </div>
     <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
             <thead>
@@ -59,7 +58,7 @@
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_cases')),true);
+                    $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_cases')),true);
                     $cont = 0;
                     //$create_edit_url = plugins_url('d1_plugin/templates/cases/create_edit.php?','d1_plugin');
                     $delete_url = plugins_url('d1_plugin/templates/cases/delete.php?','d1_plugin');
@@ -93,6 +92,9 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
+    </div>
+    </div>
     </div>
     <!-- END DATA TABLE -->
 

@@ -1,6 +1,15 @@
 <?php
+function dirname_safe($path, $level = 0)
+{
+    $dir = explode(DIRECTORY_SEPARATOR, $path);
+    $level = $level * -1;
+    if ($level == 0) $level = count($dir);
+    array_splice($dir, $level);
+    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+}
 define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 global $wpdb;
 
 $number             = !empty($_REQUEST["title_card"]) ? count($_REQUEST["title_card"]) : false;
@@ -30,7 +39,7 @@ foreach($table_data as $key=>&$value){
         unset($value['id_card']);
         //insert
         $fields                 = implode("','",$value);
-        $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_cases(title_card,subtitle_card,text_footer_card,subtext_footer_card,card_link,img_bg_url,detach_card) VALUES('$fields')";
+        $sql                    = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_cases(title_card,subtitle_card,text_footer_card,subtext_footer_card,card_link,img_bg_url,detach_card) VALUES('$fields')";
         $wpdb->query($wpdb->prepare($sql,array()));
     }else{
         //update
@@ -42,7 +51,7 @@ foreach($table_data as $key=>&$value){
         $card_link              = $value['card_link'];
         $img_bg_url             = $value['img_bg_url'];
         $detach_card            = $value['detach_card'];
-        $sql                    = "UPDATE " . $wpdb->prefix ."d1_cases SET title_card='$title_card', subtitle_card='$subtitle_card', text_footer_card='$text_footer_card',
+        $sql                    = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_cases SET title_card='$title_card', subtitle_card='$subtitle_card', text_footer_card='$text_footer_card',
          subtext_footer_card='$subtext_footer_card', card_link='$card_link', img_bg_url='$img_bg_url' , detach_card='$detach_card' WHERE id_card = '$id_card';";
         $wpdb->query($wpdb->prepare($sql,array()));
     }
@@ -50,7 +59,7 @@ foreach($table_data as $key=>&$value){
 
 if(!empty($ids_delete[0])){
     foreach($ids_delete as $id){
-        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_cases WHERE id_card=$id;",array()));
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . D1_LANG . "d1_cases WHERE id_card=$id;",array()));
     }
 }
 

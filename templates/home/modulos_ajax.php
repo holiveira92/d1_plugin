@@ -1,12 +1,17 @@
 <?php
-function pre($data) {
-    echo "<pre>";
-        print_r($data);
-    echo "</pre>";
-}
 
+
+function dirname_safe($path, $level = 0)
+{
+    $dir = explode(DIRECTORY_SEPARATOR, $path);
+    $level = $level * -1;
+    if ($level == 0) $level = count($dir);
+    array_splice($dir, $level);
+    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+}
 define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 global $wpdb;
 
 $number             = !empty($_REQUEST["subtitle"]) ? count($_REQUEST["subtitle"]) : false;
@@ -34,13 +39,13 @@ for($i=0; $i<$number; $i++){
 //criando / atualizando o pai da categoria
 if(empty($_REQUEST["id_pai"])){
     $descricao              = $_REQUEST['main_title'];
-    $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_modulos(title) VALUES('%s')";
+    $sql                    = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_modulos(title) VALUES('%s')";
     $wpdb->query($wpdb->prepare($sql,array($descricao)));
     $id_pai = $wpdb->insert_id;
 }else{
     $id_pai                 = $_REQUEST['id_pai'];
     $descricao              = $_REQUEST['main_title'];
-    $sql                    = "UPDATE " . $wpdb->prefix ."d1_modulos SET title='%s' WHERE id = '%s';";
+    $sql                    = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_modulos SET title='%s' WHERE id = '%s';";
     $wpdb->query($wpdb->prepare($sql,array($descricao,$id_pai)));
 }
 
@@ -52,12 +57,12 @@ foreach($table_data as $key=>&$value){
     $value['id_modulo'] = $id_pai;
     if(empty($value['id'])){
         unset($value['id']);
-        $sql           = "INSERT INTO " . $wpdb->prefix . "d1_modulos(id_modulo,subtitle,description,text_link,url_link,url_img) 
+        $sql           = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_modulos(id_modulo,subtitle,description,text_link,url_link,url_img) 
         VALUES('%s','%s','%s','%s','%s','%s')";
         $wpdb->query($wpdb->prepare($sql,array($value['id_modulo'],$value['subtitle'],$value['description'],$value['text_link'],$value['url_link'],$value['url_img'])));
     }else{
         //update
-        $sql                    = "UPDATE " . $wpdb->prefix ."d1_modulos SET id_modulo='%s', subtitle='%s', description='%s', text_link='%s',
+        $sql                    = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_modulos SET id_modulo='%s', subtitle='%s', description='%s', text_link='%s',
         url_link='%s', url_img='%s'  WHERE id = '%s';";
         $wpdb->query($wpdb->prepare($sql,array($value['id_modulo'],$value['subtitle'],$value['description'],$value['text_link'],$value['url_link'],$value['url_img'],$value['id'])));
     }
@@ -65,7 +70,7 @@ foreach($table_data as $key=>&$value){
 
 if(!empty($ids_delete[0])){
     foreach($ids_delete as $id){
-        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_modulos WHERE id=$id;",array()));
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . D1_LANG . "d1_modulos WHERE id=$id;",array()));
     }
 }
 //pre($location);die;

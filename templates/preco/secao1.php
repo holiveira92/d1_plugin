@@ -5,7 +5,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -35,14 +35,11 @@
                     <legend><span class="number">1</span>Informações da Seção</legend>
                     <div class="row">
                         <div class="col form-style-5 middle">
-                            <label for="preco_secao1_main_title">Titulo:</label><input type="text" name="preco_secao1_main_title" value="<?php echo get_option_esc('preco_secao1_main_title'); ?>" placeholder="Titulo Principal">
-                            <label for="preco_secao1_title">Titulo:</label><input type="text" name="preco_secao1_title" value="<?php echo get_option_esc('preco_secao1_title'); ?>" placeholder="Titulo">
-                            <label for="preco_secao1_descricao">Descrição</label> <textarea name="preco_secao1_descricao" placeholder="Descrição"><?php echo get_option_esc('preco_secao1_descricao'); ?></textarea>
+                            <label for="preco_secao1_main_title">Titulo:</label><input type="text" name="preco_secao1_main_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('preco_secao1_main_title'); ?>" placeholder="Titulo Principal">
+                            <label for="preco_secao1_title">Titulo:</label><input type="text" name="preco_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('preco_secao1_title'); ?>" placeholder="Titulo">
+                            <label for="preco_secao1_descricao">Descrição:</label> <textarea name="preco_secao1_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc('preco_secao1_descricao'); ?></textarea>
                             <label for="preco_secao1_descricao_secundaria">Descrição Secundária:</label> 
-                            <?php
-                            $content = get_option('preco_secao1_descricao_secundaria');
-                            wp_editor( $content, 'preco_secao1_descricao_secundaria', $settings = array('textarea_rows'=> '10') );?>
-                            <!--<label for="preco_secao1_descricao_secundaria">Descrição Secundária:</label> <textarea name="preco_secao1_descricao_secundaria" placeholder="Descrição Secundária"><?php echo get_option_esc('preco_secao1_descricao_secundaria'); ?></textarea>-->
+                            <?php wp_editor(get_option_esc('preco_secao1_descricao_secundaria'), "preco_secao1_descricao_secundaria". D1Plugin::$language); ?>
                         </div>
                     </div>
                 </fieldset>

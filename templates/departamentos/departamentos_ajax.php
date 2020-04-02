@@ -1,12 +1,17 @@
 <?php
-function pre($data) {
-    echo "<pre>";
-        print_r($data);
-    echo "</pre>";
-}
 
+
+function dirname_safe($path, $level = 0)
+{
+    $dir = explode(DIRECTORY_SEPARATOR, $path);
+    $level = $level * -1;
+    if ($level == 0) $level = count($dir);
+    array_splice($dir, $level);
+    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+}
 define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 global $wpdb;
 $id_mod                = !empty($_REQUEST["id"]) ? $_REQUEST["id"]: false;
 $location              = urldecode($_REQUEST["url_location"]);
@@ -57,7 +62,7 @@ $data = array(
 
 //insert
 if(empty($id_mod)){
-    $sql           = "INSERT INTO " . $wpdb->prefix . "d1_departamentos
+    $sql           = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_departamentos
     (main_title,title,description,url_img,
     challenge_title,challenge1,challenge2,challenge3,cases_options,modulos_options)
     VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
@@ -75,7 +80,7 @@ else{
     $param              = array('path_wp' => $_REQUEST["path_wp"], 'id_mod' => $id_mod, 'url_location' => $_REQUEST["admin_url"]);
     $query_string       = http_build_query($param);
     $location           = urldecode($_REQUEST["admin_url"] . "admin.php?page=d1_plugin_departamentos&tab=mod&" . $query_string);
-    $sql                = "UPDATE " . $wpdb->prefix ."d1_departamentos SET main_title='%s', title='%s', description='%s',
+    $sql                = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_departamentos SET main_title='%s', title='%s', description='%s',
     url_img='%s', challenge_title='%s',
     challenge1='%s' , challenge2='%s' , challenge3='%s', cases_options='%s', modulos_options='%s' WHERE id = %d";
     $wpdb->query($wpdb->prepare($sql,array($data['main_title'],$data['title'],$data['description'],$data['url_img'],$data['challenge_title'],

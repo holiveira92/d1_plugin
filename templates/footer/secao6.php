@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -36,7 +36,7 @@
                 <legend>Informações da Seção</legend>
                 <!----------------------------------------------------------------------- Seção 6 - Inicio Pitch ----------------------------------------------------------------------->
                 <fieldset>
-                    <label for="secao6_pitch">Pitch Footer:</label> <textarea name="secao6_pitch" rows=10><?php echo get_option_esc('secao6_pitch') ?></textarea>
+                    <label for="secao6_pitch">Pitch Footer:</label> <textarea name="secao6_pitch<?php echo D1Plugin::$language; ?>" rows=10><?php echo get_option_esc('secao6_pitch') ?></textarea>
                 </fieldset>
                 <!----------------------------------------------------------------------- Seção 6 - Fim Pitch -------------------------------------------------------------------------->
 

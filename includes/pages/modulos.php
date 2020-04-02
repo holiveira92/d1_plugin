@@ -113,7 +113,7 @@ class Modulos{
 				$this->sections = array(
 					array(
 						'id' => 'd1_modulos_mod',
-						'title' => 'Configurações de Modulos ',
+						'title' => 'Configurações de Módulos ',
 						'callback' => array( $this, 'd1Modulos' ),
 						'page' => $this->page
 					),

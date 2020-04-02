@@ -1,8 +1,8 @@
 <?php
-global $wpdb;
+global $wpdb;require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 $id_seg            = !empty($_REQUEST["id_seg"]) ? $_REQUEST["id_seg"] : false;
-$data_bd            = !empty($id_seg) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_segmentos WHERE id = '$id_seg'")), true) : array();
-$cases_list         = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_cases")), true);
+$data_bd            = !empty($id_seg) ? json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_segmentos WHERE id = '$id_seg'")), true) : array();
+$cases_list         = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_cases")), true);
 $param              = array('path_wp' => ABSPATH, 'id_seg' => $id_seg, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $query_string       = http_build_query($param);
 $delete_url         = plugins_url('d1_plugin/templates/segmentos/segmentos_delete.php?', 'd1_plugin') . $query_string;
@@ -60,7 +60,7 @@ $id_segmento = !empty($data['id']) ? $data['id'] : 0;
 ?>
 
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -86,7 +86,8 @@ $id_segmento = !empty($data['id']) ? $data['id'] : 0;
 </head>
 
 <body class="animsition">
-<h1> Link Permanente: </h1> <a href="<?php echo get_home_url();?>/segmentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/segmentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?></a>
+<a href="<?php echo $voltar_url . $query_string ;?>"><button type="button" class="button button-primary"><-- Voltar para Segmentos</button></a>
+<p> Link Permanente: </p> <a style="margin-bottom:20px" href="<?php echo get_home_url();?>/segmentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?>" target="_blank"><?php echo get_home_url();?>/segmentos/<?php echo sanitize_title($data['main_title']);?>/<?php echo $data['id'];?></a>
     <form id="keypoints_fields" action="<?php echo $url_action; ?>">
         <!-- DADOS DO SEGMENTO -->
         <div class="container">
@@ -116,7 +117,11 @@ $id_segmento = !empty($data['id']) ? $data['id'] : 0;
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
                     <div class="row">
+                    <div class="col form-style-5 middle">
                         <label for="challenge_title">Titulo:</label><input type="text" name="challenge_title" value="<?php echo $data["challenge_title"]; ?>" placeholder="Titulo Principal">
+                    </div>
+                    </div>
+                    <div class="row">
                         <?php for($i=1;$i<=3;$i++): ?>
                         <div class="col form-style-5 middle">
                         <fieldset>
@@ -133,7 +138,11 @@ $id_segmento = !empty($data['id']) ? $data['id'] : 0;
             <div class="row">
                 <div class="col form-style-5" id='secao1_content1' style="padding-bottom:0px!important">
                     <div class="row">
-                    <label for="customers_title">Titulo Clientes:</label><input type="text" name="customers_title" value="<?php echo $data["customers_title"]; ?>" placeholder="Titulo Clientes">
+                    <div class="col form-style-5 middle">
+                        <label for="customers_title">Titulo Clientes:</label><input type="text" name="customers_title" value="<?php echo $data["customers_title"]; ?>" placeholder="Titulo Clientes">
+                    </div>
+                    </div>
+                    <div class="row">
                         <?php for($i=1;$i<=3;$i++): ?>
                         <div class="col form-style-5 middle">
                         <fieldset>
@@ -206,7 +215,7 @@ $id_segmento = !empty($data['id']) ? $data['id'] : 0;
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_key_points WHERE page='segmentos' AND id_segmento=$id_segmento")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_key_points WHERE page='segmentos' AND id_segmento=$id_segmento")),true);
                     $cont = 0;
                     $delete_url = plugins_url('d1_plugin/templates/segmentos/keyp_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 

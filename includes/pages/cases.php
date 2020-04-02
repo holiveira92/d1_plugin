@@ -60,7 +60,10 @@ class Cases{
 				break;
 			case 'secao2': 
                 $this->settings =  $this->cases_fields->getSettings('cases_secao2_options_group',$this->page);
-                break;
+				break;
+			case 'secao4': 
+				$this->settings =  $this->cases_fields->getSettings('whitepaper_d1_options_group',$this->page);
+				break;
             default:
                 $this->settings =  $this->cases_fields->getSettings('cases_d1_card_group',$this->page);
                 break;
@@ -155,7 +158,10 @@ class Cases{
 				break;
 			case 'secao3': 
                 $this->fields =  $this->cases_fields->getFields('d1_cases_categorias_config','d1_plugin_cases');
-                break;
+				break;
+			case 'secao4': 
+				$this->fields =  $this->cases_fields->getFields('d1_whitepapers','d1_plugin_cases');
+				break;
             default:
                 $this->fields =  $this->cases_fields->getFields('d1_cases_cards','d1_plugin_cases');
                 break;

@@ -76,7 +76,7 @@ class Preco{
 				$this->sections = array(
 					array(
 						'id' => 'd1_preco_secao1',
-						'title' => 'Configurações Seção Principal',
+						'title' => 'Configurações Preço',
 						'callback' => array( $this, 'd1PrecoSecao1' ),
 						'page' => $this->page
 					),

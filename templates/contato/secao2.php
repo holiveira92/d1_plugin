@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -44,7 +44,7 @@
             <div class="row">
             <?php
             global $wpdb;
-            $faqs = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_faq WHERE page = "contato" ')), true);
+            $faqs = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_faq WHERE page = "contato" ')), true);
             $cont_faq = 0;
             foreach ($faqs as $key => &$faq) :
                 $cont_faq++;
@@ -56,8 +56,8 @@
                     <legend><span class="number"><?php echo $cont_faq; ?></span>FAQ <?php echo $cont_faq; ?> </legend>
                     <input type="hidden" name="id[]" value="<?php echo $faq['id']; ?>">
                     <input type="hidden" name="page[]" value="contato">
-                    <label for="pergunta">Pergunta:</label> <textarea name="question[]"><?php echo $faq['question']; ?></textarea>
-                    <label for="pergunta">Resposta:</label> <textarea name="answer[]"><?php echo $faq['answer']; ?></textarea>
+                    <label for="pergunta">Pergunta:</label> <textarea name="question[]" rows="5"><?php echo $faq['question']; ?></textarea>
+                    <label for="pergunta">Resposta:</label> <textarea name="answer[]" rows="5"><?php echo $faq['answer']; ?></textarea>
                     <button id="remove" type="button" name="remove_faq" id_faq="<?php echo $faq['id']; ?>" class="btn btn-danger btn_remove_group">Remover</button>
                 </fieldset>
                 </div>
@@ -95,8 +95,8 @@
                     '<legend><span class="number">' + i + '  </span>FAQ ' + i + ' </legend>' +
                     '<input type="hidden" name="id[]">' +
                     '<input type="hidden" name="page[]" value="contato">' + 
-                    '<label for="pergunta">Pergunta:</label> <textarea name="question[]"></textarea>' +
-                    '<label for="pergunta">Resposta:</label> <textarea name="answer[]"></textarea>' +
+                    '<label for="pergunta">Pergunta:</label> <textarea name="question[]" rows="5"></textarea>' +
+                    '<label for="pergunta">Resposta:</label> <textarea name="answer[]" rows="5"></textarea>' +
                     '<button id="remove" type="button" name="remove_faq" id_faq="" class="btn btn-danger btn_remove_group">Remover</button>' +
                     '</fieldset> </div>'
                     ).end();

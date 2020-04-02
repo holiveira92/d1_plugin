@@ -76,7 +76,7 @@ class Cta{
 				$this->sections = array(
 					array(
 						'id' => 'd1_cta_secao1',
-						'title' => 'Configurações Seção Principal',
+						'title' => 'Configurações CTA',
 						'callback' => array( $this, 'd1CtaSecao1' ),
 						'page' => $this->page
 					),

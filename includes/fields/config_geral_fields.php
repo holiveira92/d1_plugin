@@ -1,18 +1,27 @@
 <?php
-class Cases_Fields {
+class Config_Geral_Fields {
 	private $path_data_fields;
 	private $path_data_settings;
 	private $active_tab;
 
 	public function __construct(){
-		require_once plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/base/d1_upload.php';
+		require_once plugin_dir_path($this->dirname_safe(__FILE__,2)) . 'includes/base/d1_upload.php';
 		$this->d1_upload = new D1_Upload();
-		$this->path_data_fields = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/cases_fields.json';
-		$this->path_data_settings = plugin_dir_path(dirname_safe(__FILE__,2)) . 'includes/fields/register/cases_settings.json';
+		$this->path_data_fields = plugin_dir_path($this->dirname_safe(__FILE__,2)) . 'includes/fields/register/config_geral_fields.json';
+		$this->path_data_settings = plugin_dir_path($this->dirname_safe(__FILE__,2)) . 'includes/fields/register/config_geral_settings.json';
 		$this->active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'secao1';
     }
 
-    public function getSettings($opt_group=false,$page='d1_plugin_cases'){
+    //Utilizar essa função apenas para modo compatibilidade com PHP menor que 7
+    function dirname_safe($path, $level = 0){
+        $dir = explode(DIRECTORY_SEPARATOR, $path);
+        $level = $level * -1;
+        if ($level == 0) $level = count($dir);
+        array_splice($dir, $level);
+        return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+    }
+
+    public function getSettings($opt_group=false,$page='d1_plugin_config_geral'){
 		$settings = array();
 		$config_data_settings = $this->getConfigDataSettings($this->path_data_settings);
 		if($opt_group){
@@ -36,7 +45,7 @@ class Cases_Fields {
 		return $config_data;
 	}
 	
-    public function getFields($section=false,$page='d1_plugin_cases'){
+    public function getFields($section=false,$page='d1_plugin_config_geral'){
 		$fields = array();
 		$config_data_fields = $this->getConfigDataFields($this->path_data_fields,$page,$section);
 		if($section){
@@ -74,9 +83,6 @@ class Cases_Fields {
 		Funções callbacks devem ter o nome do grupo de opções correspondente
 		----------------------------------------------------------------------------------------------------------------------------
 	*/ 
-    public function cases_d1_card_group($input){return $input;}
-	public function d1_cases_config_geral($input){return $input;}
-	public function d1_cases_categorias($input){return $input;}
-	public function d1_cases_categorias_config($input){return $input;}
-	public function whitepaper_d1_options_group($input){return $input;}
+	public function config_geral_secao_1($input){return $input;}
+	public function config_geral_secao_2($input){return $input;}
 }

@@ -5,7 +5,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -34,7 +34,7 @@
                 <!-- ------------------------------------- Início Seção Clientes de Sucesso ----------------------------------------------->
                 <!-- Card Primeira Parte -->
                 <legend><span class="number">1</span>Informações da Seção</legend>
-                <label for="secao3_empresas_title">Titulo:</label><input type="text" name="secao3_empresas_title" value="<?php echo get_option_esc('secao3_empresas_title') ?>">
+                <label for="secao3_empresas_title">Titulo:</label><input type="text" name="secao3_empresas_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao3_empresas_title') ?>">
 
             </div>
         </div>

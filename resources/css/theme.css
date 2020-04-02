@@ -95,6 +95,11 @@ button#add_item {
     margin-right: 10px;
 }
 
+h2.nav-tab-wrapper {
+    margin-top: 0!important;
+    margin-bottom: 15px !important;
+}
+
 button#add_group, button#add_item, .d1-button, .wp-core-ui .button-primary {
     position: static;
     padding: 6px 20px;
@@ -114,7 +119,7 @@ button#add_group, button#add_item, .d1-button, .wp-core-ui .button-primary {
     text-shadow: none;
     height: auto;
     box-shadow: none;
-    margin: 20px 0 0;
+    margin: 0 0 20px;
 }
 
 button#remove_group, button#remove, button.btn.btn-danger.btn_remove_group {
@@ -136,6 +141,7 @@ button#remove_group, button#remove, button.btn.btn-danger.btn_remove_group {
     text-shadow: none;
     height: auto;
     box-shadow: none;
+    margin: 0 0 20px;
 }
 
 button#add_group:hover, button#add_item:hover, .d1-button:hover, .wp-core-ui .button-primary:hover, button#remove_group:hover, button#remove:hover, button.btn_remove_group:hover, button.btn.btn-danger.btn_remove_group:hover {
@@ -198,10 +204,6 @@ h1 {
 h2 {
     font-size: 1.4rem;
     margin: 25px 0!important;
-}
-
-h2.nav-tab-wrapper {
-    margin: 0!important;
 }
 
 h3 {

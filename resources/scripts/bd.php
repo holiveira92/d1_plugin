@@ -6,7 +6,7 @@ function st_create_table() {
     
     // Verifica se a nova tabela existe
     // "prefix" o prefixo escolhido na instalacao do WordPress
-    $tablename = $wpdb->prefix . 'd1-design';
+    $tablename = $wpdb->prefix . D1_LANG . 'd1-design';
     
     // Se a tabela nao existe sera criada
     if ( $wpdb->get_var( "SHOW TABLES LIKE '$tablename'" ) != $tablename ) {
@@ -78,7 +78,9 @@ CREATE TABLE wp_d1_call_to_action (
 	id INT(11) NOT NULL AUTO_INCREMENT,
 	title VARCHAR(250) NULL DEFAULT NULL,
 	link VARCHAR(250) NULL DEFAULT NULL,
-	target VARCHAR(50) NULL DEFAULT NULL,
+    target VARCHAR(250) NULL DEFAULT NULL,
+    background VARCHAR(250) NULL DEFAULT NULL,
+    hover VARCHAR(250) NULL DEFAULT NULL,
 	PRIMARY KEY (id)
 )
 COLLATE='utf8_general_ci'

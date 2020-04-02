@@ -5,7 +5,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -35,8 +35,8 @@
                     <legend><span class="number">1</span>Status do Sistema</legend>
                     <div class="row">
                         <div class="col form-style-5 middle">
-                            <label for="seguranca_secao4_title">Titulo:</label><input type="text" name="seguranca_secao4_title" value="<?php echo get_option_esc('seguranca_secao4_title'); ?>" placeholder="Titulo">
-                            <label for="seguranca_secao4_descricao">Descrição</label> <textarea name="seguranca_secao4_descricao" placeholder="Descrição"><?php echo get_option_esc('seguranca_secao4_descricao'); ?></textarea>
+                            <label for="seguranca_secao4_title">Título:</label><input type="text" name="seguranca_secao4_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('seguranca_secao4_title'); ?>" placeholder="Título">
+                            <label for="seguranca_secao4_descricao">Descrição:</label> <textarea name="seguranca_secao4_descricao<?php echo D1Plugin::$language; ?>" placeholder="Descrição"><?php echo get_option_esc('seguranca_secao4_descricao'); ?></textarea>
                         </div>
                     </div>
                 </fieldset>
@@ -48,7 +48,7 @@
                     for($i=1;$i<=6;$i++):
                 ?>  
                     <div class="col form-style-5 middle">
-                        <label for="seguranca_secao4_item<?php echo $i;?>_title">Titulo:</label><input type="text" name="seguranca_secao4_item<?php echo $i;?>_title" value="<?php echo get_option_esc("seguranca_secao4_item".$i."_title") ?>" placeholder="Titulo">
+                        <label for="seguranca_secao4_item<?php echo $i;?>_title">Título:</label><input type="text" name="seguranca_secao4_item<?php echo $i;?>_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("seguranca_secao4_item".$i."_title") ?>" placeholder="Título">
                     </div>
                 <?php endfor; ?>
                     </div>

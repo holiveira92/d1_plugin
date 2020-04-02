@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css','d1_plugin');?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css','d1_plugin');?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css','d1_plugin');?>" rel="stylesheet" media="all">
@@ -23,18 +23,20 @@
 
 <body class="animsition">
 <div class="alert alert-warning" role="alert">Número Máximo de Módulos Permitidos : 6 </div>
+    <div class="container">
     <div class="row">
-        <div class="col form-style-5">
+        <div class="col-12 form-style-5">
             <!-- Seção 1 - Configs Gerais -->
             <fieldset>
                 <legend><span class="number">1</span>Título da Seção</legend>
-                <label for="secao6_title">Nome:</label> <input type="text" name="secao6_title" value="<?php echo get_option_esc('secao6_title') ?>" placeholder="Titulo">
+                <label for="secao6_title">Nome:</label> <input type="text" name="secao6_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao6_title') ?>" placeholder="Titulo">
             </fieldset>
         </div>
     </div>
 
+    <div class="row">
     <!-- DATA TABLE -->
-    <div class="col form-style-5">
+    <div class="col-12 form-style-5">
     <fieldset>
     <legend><span class="number">2</span>Lista de Módulos</legend>
     <div class="table-data__tool">
@@ -60,7 +62,7 @@
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_modulos WHERE id_modulo IS NULL OR id_modulo =''")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_modulos WHERE id_modulo IS NULL OR id_modulo =''")),true);
                     $cont = 0;
                     $delete_url = plugins_url('d1_plugin/templates/home/modulos_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 
@@ -88,6 +90,8 @@
         </table>
     </div>
     </fieldset>
+    </div>
+    </div>
     </div>
     <!-- END DATA TABLE -->
 

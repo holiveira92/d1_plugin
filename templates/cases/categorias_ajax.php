@@ -1,14 +1,15 @@
 <?php
-
-function pre($data) {
-    echo "<pre>";
-        print_r($data);
-    echo "</pre>";
+function dirname_safe($path, $level = 0)
+{
+    $dir = explode(DIRECTORY_SEPARATOR, $path);
+    $level = $level * -1;
+    if ($level == 0) $level = count($dir);
+    array_splice($dir, $level);
+    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
 }
-
-
 define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 global $wpdb;
 
 $number             = !empty($_REQUEST["descricao"]) ? count($_REQUEST["descricao"]) : false;
@@ -32,14 +33,14 @@ for($i=0; $i<$number; $i++){
 if(empty($_REQUEST["id_pai"])){
     $descricao              = $_REQUEST['descricao_pai'];
     $id_categoria           = $_REQUEST['id_pai_categoria'];
-    $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_cases_categorias(descricao,id_categoria) VALUES('$descricao' , '$id_categoria')";
+    $sql                    = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_cases_categorias(descricao,id_categoria) VALUES('$descricao' , '$id_categoria')";
     $wpdb->query($wpdb->prepare($sql,array()));
     $id_pai = $wpdb->insert_id;
 }else{
     $id_pai                 = $_REQUEST['id_pai'];
     $descricao              = $_REQUEST['descricao_pai'];
     $id_categoria           = $_REQUEST['id_pai_categoria'];
-    $sql                    = "UPDATE " . $wpdb->prefix ."d1_cases_categorias SET descricao='%s', id_categoria='%s' WHERE id = '%s';";
+    $sql                    = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_cases_categorias SET descricao='%s', id_categoria='%s' WHERE id = '%s';";
     $wpdb->query($wpdb->prepare($sql,array($descricao,$id_categoria,$id_pai)));
 }
 
@@ -50,21 +51,21 @@ foreach($table_data as $key=>&$value){
         unset($value['id']);
         //insert
         $fields                 = implode("','",$value);
-        $sql                    = "INSERT INTO " . $wpdb->prefix . "d1_cases_categorias(descricao,id_categoria) VALUES('$fields')";
+        $sql                    = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_cases_categorias(descricao,id_categoria) VALUES('$fields')";
         $wpdb->query($wpdb->prepare($sql,array()));
     }else{
         //update
         $id                     = $value['id'];
         $descricao              = $value['descricao'];
         $id_categoria           = $value['id_categoria'];
-        $sql                    = "UPDATE " . $wpdb->prefix ."d1_cases_categorias SET descricao='%s', id_categoria='%s' WHERE id = '%s';";
+        $sql                    = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_cases_categorias SET descricao='%s', id_categoria='%s' WHERE id = '%s';";
         $wpdb->query($wpdb->prepare($sql,array($descricao,$id_categoria,$id)));
     }
 }
 
 if(!empty($ids_delete[0])){
     foreach($ids_delete as $id){
-        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . "d1_cases_categorias WHERE id=$id;",array()));
+        $wpdb->query($wpdb->prepare("DELETE FROM ". $wpdb->prefix . D1_LANG . "d1_cases_categorias WHERE id=$id;",array()));
     }
 }
 

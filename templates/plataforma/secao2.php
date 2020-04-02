@@ -5,7 +5,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -33,7 +33,8 @@
             <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">1</span>Informações da Seção</legend>
-                    <label for="plataforma_secao2_title">Titulo:</label><input type="text" name="plataforma_secao2_title" value="<?php echo get_option_esc('plataforma_secao2_title'); ?>">
+                    <label for="plataforma_secao2_title">Titulo:</label><input type="text" name="plataforma_secao2_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao2_title'); ?>" placeholder="Título">
+                    <label for="plataforma_secao2_chamada">Chamada - Ver Plataforma:</label><input type="text" name="plataforma_secao2_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('plataforma_secao2_chamada'); ?>" placeholder="Chamada - Ver Plataforma">
                 </fieldset>
 
                     <div class="row">
@@ -43,9 +44,9 @@
                         <div class="col-4 form-style-5">
                         <fieldset>
                         <legend><span class="number"><?php echo $i+1;?></span>Módulo</legend>
-                            <label for="plataforma_secao2_modulo<?php echo $i;?>_title">Titulo:</label><input type="text" name="plataforma_secao2_modulo<?php echo $i;?>_title" value="<?php echo get_option_esc("plataforma_secao2_modulo".$i."_title") ?>">
-                            <label for="plataforma_secao2_modulo<?php echo $i;?>_desc">Descrição:</label> <textarea name="plataforma_secao2_modulo<?php echo $i;?>_desc"><?php echo get_option_esc("plataforma_secao2_modulo".$i."_desc") ?></textarea>
-                            <label for="plataforma_secao2_modulo<?php echo $i;?>_link">Link de redirecionamento:</label><input type="text" name="plataforma_secao2_modulo<?php echo $i;?>_link" value="<?php echo get_option_esc("plataforma_secao2_modulo".$i."_link") ?>">
+                            <label for="plataforma_secao2_modulo<?php echo $i;?>_title">Titulo:</label><input type="text" name="plataforma_secao2_modulo<?php echo $i;?>_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("plataforma_secao2_modulo".$i."_title") ?>">
+                            <label for="plataforma_secao2_modulo<?php echo $i;?>_desc">Descrição:</label> <textarea name="plataforma_secao2_modulo<?php echo $i;?>_desc<?php echo D1Plugin::$language; ?>"><?php echo get_option_esc("plataforma_secao2_modulo".$i."_desc") ?></textarea>
+                            <label for="plataforma_secao2_modulo<?php echo $i;?>_link">Link de redirecionamento:</label><input type="text" name="plataforma_secao2_modulo<?php echo $i;?>_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc("plataforma_secao2_modulo".$i."_link") ?>">
                             <label for="plataforma_secao2_modulo<?php echo $i;?>_img_icon">Ícone:</label> <?php echo $this->d1_upload->get_image_options("plataforma_secao2_modulo".$i."_img_icon"); ?><br><br>
                             <label for="plataforma_secao2_modulo<?php echo $i;?>_img">Imagem da Plataforma:</label> <?php echo $this->d1_upload->get_image_options("plataforma_secao2_modulo".$i."_img"); ?>
                         </fieldset>

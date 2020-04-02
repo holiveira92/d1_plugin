@@ -5,7 +5,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -32,9 +32,9 @@
             <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">1</span>Equipe</legend>
-                    <label for="jornada_secao3_equipe1_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe1_main_title" value="<?php echo get_option_esc('jornada_secao3_equipe1_main_title'); ?>">
-                    <label for="jornada_secao3_equipe1_title">Destaque:</label><input type="text" name="jornada_secao3_equipe1_title" value="<?php echo get_option_esc('jornada_secao3_equipe1_title'); ?>">
-                    <label for="jornada_secao3_equipe1_descricao">Descrição:</label> <textarea name="jornada_secao3_equipe1_descricao" rows='5'><?php echo get_option_esc('jornada_secao3_equipe1_descricao'); ?></textarea>
+                    <label for="jornada_secao3_equipe1_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe1_main_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao3_equipe1_main_title'); ?>">
+                    <label for="jornada_secao3_equipe1_title">Destaque:</label><input type="text" name="jornada_secao3_equipe1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao3_equipe1_title'); ?>">
+                    <label for="jornada_secao3_equipe1_descricao">Descrição:</label> <textarea name="jornada_secao3_equipe1_descricao<?php echo D1Plugin::$language; ?>" rows='5'><?php echo get_option_esc('jornada_secao3_equipe1_descricao'); ?></textarea>
                      <label for="jornada_secao2_img">Imagem do fundo:</label><?php echo $this->d1_upload->get_image_options('jornada_secao3_equipe1_img'); ?>
                 </fieldset>
             </div>
@@ -42,10 +42,10 @@
             <div class="col form-style-5">
                 <fieldset>
                     <legend><span class="number">2</span>Como Criamos</legend>
-                    <label for="jornada_secao3_equipe2_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe2_main_title" value="<?php echo get_option_esc('jornada_secao3_equipe2_main_title'); ?>">
-                    <label for="jornada_secao3_equipe2_title">Destaque:</label><input type="text" name="jornada_secao3_equipe2_title" value="<?php echo get_option_esc('jornada_secao3_equipe2_title'); ?>">
-                    <label for="jornada_secao3_equipe2_link">Link de redirecionamento:</label><input type="text" name="jornada_secao3_equipe2_link" value="<?php echo get_option_esc('jornada_secao3_equipe2_link'); ?>">
-                    <label for="jornada_secao3_equipe2_descricao">Descrição:</label> <textarea name="jornada_secao3_equipe2_descricao" rows='5'><?php echo get_option_esc('jornada_secao3_equipe2_descricao'); ?></textarea>
+                    <label for="jornada_secao3_equipe2_main_title">Titulo:</label><input type="text" name="jornada_secao3_equipe2_main_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao3_equipe2_main_title'); ?>">
+                    <label for="jornada_secao3_equipe2_title">Destaque:</label><input type="text" name="jornada_secao3_equipe2_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao3_equipe2_title'); ?>">
+                    <label for="jornada_secao3_equipe2_link">Link de redirecionamento:</label><input type="text" name="jornada_secao3_equipe2_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('jornada_secao3_equipe2_link'); ?>">
+                    <label for="jornada_secao3_equipe2_descricao">Descrição:</label> <textarea name="jornada_secao3_equipe2_descricao<?php echo D1Plugin::$language; ?>" rows='5'><?php echo get_option_esc('jornada_secao3_equipe2_descricao'); ?></textarea>
                 </fieldset>
             </div>
 

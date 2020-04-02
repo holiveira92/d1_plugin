@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css','d1_plugin');?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css','d1_plugin');?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css','d1_plugin');?>" rel="stylesheet" media="all">
@@ -22,22 +22,23 @@
 </head>
 
 <body class="animsition">
-    
+<div class="container">
     <div class="row">
         <div class="col form-style-5">
             <!-- Seção 1 - Configs Gerais -->
             <fieldset>
                 <legend><span class="number">1</span>Título da Seção</legend>
-                <label for="midia_secao1_title">Nome:</label> <input type="text" name="midia_secao1_title" value="<?php echo get_option_esc('midia_secao1_title') ?>" placeholder="Titulo">
-                <label for="midia_secao1_destaque_title">Nome:</label> <input type="text" name="midia_secao1_destaque_title" value="<?php echo get_option_esc('midia_secao1_destaque_title') ?>" placeholder="Titulo Destaque">
-                <label for="midia_secao1_text_link">Texto do Link Noticia:</label> <input type="text" name="midia_secao1_text_link" value="<?php echo get_option_esc('midia_secao1_text_link') ?>" placeholder="Texto do Link Noticia">
+                <label for="midia_secao1_title">Nome:</label> <input type="text" name="midia_secao1_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_title') ?>" placeholder="Titulo">
+                <label for="midia_secao1_destaque_title">Nome:</label> <input type="text" name="midia_secao1_destaque_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_destaque_title') ?>" placeholder="Titulo Destaque">
+                <label for="midia_secao1_text_link">Texto do Link Notícia:</label> <input type="text" name="midia_secao1_text_link<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_text_link') ?>" placeholder="Texto do Link Noticia">
+                <label for="midia_secao1_chamada">Chamadas para Notícias:</label> <input type="text" name="midia_secao1_chamada<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('midia_secao1_chamada') ?>" placeholder="Chamadas para Notícias">
                 <?php
                     //obtendo opções salvas no BD
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_midia')), true);
+                    $result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_midia')), true);
                 ?>
                 <!-- Início de Select para Midia -->
-                <label for="midia_secao1_destaque_select">Selecione Notícia em Destaque:</label> <select name="midia_secao1_destaque_select">
+                <label for="midia_secao1_destaque_select">Selecione Notícia em Destaque:</label> <select name="midia_secao1_destaque_select<?php echo D1Plugin::$language; ?>">
                     <option value="0"> Selecione </option>
                     <?php
                     foreach ($result as $key => &$value) :
@@ -57,8 +58,8 @@
     </div>
 
     <!-- DATA TABLE -->
-    <div class="table-data__tool">
-        <div class="table-data__tool-right">
+    <div class="row">
+        <div class="col form-style-5">
             <?php   
                     $create_url = "?page=d1_plugin_d1_midia&tab=midia&";
                     $param = array('path_wp' => ABSPATH, 'id_midia' => false, 'url_location' => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
@@ -66,8 +67,6 @@
             ?>
             <a href="<?php echo $create_url . $query_string ;?>"><button type="button" class="button button-primary">
                 <i class="zmdi zmdi-plus"></i>Adicionar Mídia</button></a>
-        </div>
-    </div>
     <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
             <thead>
@@ -82,7 +81,7 @@
             <tbody>
                 <?php 
                     global $wpdb;
-                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "d1_midia")),true);
+                    $result = json_decode(json_encode($wpdb->get_results("SELECT * FROM " . $wpdb->prefix . D1_LANG . "d1_midia")),true);
                     $cont = 0;
                     $delete_url = plugins_url('d1_plugin/templates/d1_midia/midia_delete.php?','d1_plugin');
                     foreach($result as $key=>&$value): 
@@ -92,16 +91,16 @@
                         $query_string = http_build_query($param);
                 ?>
                 <tr class="tr-shadow">
-                    <input type="hidden" name="id_midia" id="id_midia" value="<?php echo $value['id'];?>">
+                    <input type="hidden" name="id_midia<?php echo D1Plugin::$language; ?>" id="id_midia" value="<?php echo $value['id'];?>">
                     <td><?php echo $value['title'];?></td>
                     <td><?php echo $value['vehicle'];?></td>
                     <td class="desc"><?php echo date('d/m/Y',strtotime($value['publication_date']));?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit">
+                            <a href="<?php echo $create_edit_url . $query_string;?>"><button type="button" class="item btn_edit" data-toggle="tooltip" data-placement="top" title="Edit" name="edit<?php echo D1Plugin::$language; ?>">
                                 <i class="zmdi zmdi-edit"></i>
                             </button></a>
-                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete">
+                            <a href="<?php echo $delete_url . $query_string;?>"><button type="button" class="item btn_delete" data-toggle="tooltip" data-placement="top" title="Delete" name="delete<?php echo D1Plugin::$language; ?>">
                                 <i class="zmdi zmdi-delete"></i>
                             </button></a>
                         </div>
@@ -110,6 +109,9 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
+    </div>
+    </div>
     </div>
     <!-- END DATA TABLE -->
 

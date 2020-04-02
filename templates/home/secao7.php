@@ -5,7 +5,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -35,10 +35,10 @@
                 <!-- Titulo Seção Parte 2 -->
                 <legend><span class="number">1</span>Informações da Seção</legend>
                 <fieldset>
-                    <label for="secao7_section_title">Titulo:</label> <input type="text" name="secao7_section_title" value="<?php echo get_option_esc('secao7_section_title') ?>">
-                    <div class="checkbox-degrade"><input type="checkbox" name="secao7_section_title_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
-                    <label for="secao7_section_descricao">Descrição:</label> <textarea name="secao7_section_descricao" rows=6><?php echo get_option_esc('secao7_section_descricao') ?></textarea>
-                    <div class="checkbox-degrade"> <input type="checkbox" name="secao7_section_descricao_degrade"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                    <label for="secao7_section_title">Titulo:</label> <input type="text" name="secao7_section_title<?php echo D1Plugin::$language; ?>" value="<?php echo get_option_esc('secao7_section_title') ?>">
+                    <div class="checkbox-degrade"><input type="checkbox" name="secao7_section_title_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
+                    <label for="secao7_section_descricao">Descrição:</label> <textarea name="secao7_section_descricao<?php echo D1Plugin::$language; ?>" rows=6><?php echo get_option_esc('secao7_section_descricao') ?></textarea>
+                    <div class="checkbox-degrade"> <input type="checkbox" name="secao7_section_descricao_degrade<?php echo D1Plugin::$language; ?>"> Para Inserir Degradê, Selecione o Texto e Marque Esta Opção </div>
                 </fieldset>
             </div>
 
@@ -54,12 +54,12 @@
             <div class="col form-style-5">
             <!-- Início de Select para CTA -->
             <label for="secao7_cta">Selecione CTA:</label><span class="margin-bottom"> Verifique o cadastro de CTA <a href="?page=d1_plugin_cta&tab=secao1">clicando aqui</a></span>
-            <select name="secao7_cta">
+            <select name="secao7_cta<?php echo D1Plugin::$language; ?>">
                 <option value="0"> Selecione </option>
                 <?php
                 //obtendo opções salvas no BD
 				global $wpdb;
-				$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_call_to_action')), true);
+				$result = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_call_to_action')), true);
                 foreach ($result as $key => &$value) :
                     $id_selected = get_option_esc('secao7_cta');
                     if ($value['id'] == $id_selected) $value['selected'] = 'selected';

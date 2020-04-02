@@ -1,12 +1,17 @@
 <?php
-function pre($data) {
-    echo "<pre>";
-        print_r($data);
-    echo "</pre>";
-}
 
+
+function dirname_safe($path, $level = 0)
+{
+    $dir = explode(DIRECTORY_SEPARATOR, $path);
+    $level = $level * -1;
+    if ($level == 0) $level = count($dir);
+    array_splice($dir, $level);
+    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+}
 define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 global $wpdb;
 $id_hero                    = !empty($_REQUEST["id"]) ? $_REQUEST["id"]: false;
 $location                   = urldecode($_REQUEST["url_location"]);
@@ -25,7 +30,7 @@ $data = array(
 
 //insert
 if(empty($id_hero)){
-    $sql           = "INSERT INTO " . $wpdb->prefix . "d1_home_hero
+    $sql           = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_home_hero
     (chamada_principal,descricao_primaria,descricao_secundaria,hero_name,hero_cargo,
     hero_descricao,img_url_logo_hero_company,img_url_bg_hero,id_cta)
     VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s')";
@@ -43,7 +48,7 @@ else{
     $param              = array('path_wp' => $_REQUEST["path_wp"], 'id_hero' => $id_hero, 'url_location' => $_REQUEST["admin_url"]);
     $query_string       = http_build_query($param);
     $location           = urldecode($_REQUEST["admin_url"] . "admin.php?page=d1_plugin&tab=hero&" . $query_string);
-    $sql                = "UPDATE " . $wpdb->prefix ."d1_home_hero SET chamada_principal='%s', descricao_primaria='%s', descricao_secundaria='%s',
+    $sql                = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_home_hero SET chamada_principal='%s', descricao_primaria='%s', descricao_secundaria='%s',
     hero_name='%s', hero_cargo='%s',
     hero_descricao='%s' , img_url_logo_hero_company='%s' , img_url_bg_hero='%s' , id_cta='%s' WHERE id = %d";
     $wpdb->query($wpdb->prepare($sql,array($data['chamada_principal'],$data['descricao_primaria'],$data['descricao_secundaria'],$data['hero_name'],$data['hero_cargo'],

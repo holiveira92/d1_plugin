@@ -1,5 +1,5 @@
 {   
-    "d1_midia_secao1" : [{"id":"midia_secao1_title"},{"id":"midia_secao1_destaque_title"},{"id":"midia_secao1_text_link"},{"id":"midia_secao1_destaque_select"}],
+    "d1_midia_secao1" : [{"id":"midia_secao1_title"},{"id":"midia_secao1_destaque_title"},{"id":"midia_secao1_text_link"},{"id":"midia_secao1_destaque_select"},{"id":"midia_secao1_chamada"}],
     "d1_midia_secao2" : [{"id":"midia_secao2_case1"},{"id":"midia_secao2_case2"},{"id":"midia_secao2_case3"}],
     "d1_midia_secao3" : [],
     "d1_midia_secao4" : []

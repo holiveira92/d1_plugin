@@ -1,12 +1,15 @@
 <?php
-function pre($data) {
-    echo "<pre>";
-        print_r($data);
-    echo "</pre>";
+function dirname_safe($path, $level = 0)
+{
+    $dir = explode(DIRECTORY_SEPARATOR, $path);
+    $level = $level * -1;
+    if ($level == 0) $level = count($dir);
+    array_splice($dir, $level);
+    return implode($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
 }
-
 define( 'SHORTINIT', true );
 require(trim($_REQUEST["path_wp"]) . "wp-load.php");
+require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php';
 global $wpdb;
 $id_seg                = !empty($_REQUEST["id"]) ? $_REQUEST["id"]: false;
 $location              = urldecode($_REQUEST["url_location"]);
@@ -52,7 +55,7 @@ $data = array(
 
 //insert
 if(empty($id_seg)){
-    $sql           = "INSERT INTO " . $wpdb->prefix . "d1_segmentos
+    $sql           = "INSERT INTO " . $wpdb->prefix . D1_LANG . "d1_segmentos
     (main_title,title,description,url_img_bg,challenge_title,challenge1,challenge2,challenge3,img_customer1,img_customer2,img_customer3,customers_title,cases_options) 
     VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
     $wpdb->query($wpdb->prepare($sql,array(
@@ -69,7 +72,7 @@ else{
     $param              = array('path_wp' => $_REQUEST["path_wp"], 'id_seg' => $id_seg, 'url_location' => $_REQUEST["admin_url"]);
     $query_string       = http_build_query($param);
     $location           = urldecode($_REQUEST["admin_url"] . "admin.php?page=d1_plugin_segmentos&tab=seg&" . $query_string);
-    $sql                = "UPDATE " . $wpdb->prefix ."d1_segmentos SET main_title='%s', title='%s', description='%s',
+    $sql                = "UPDATE " . $wpdb->prefix . D1_LANG ."d1_segmentos SET main_title='%s', title='%s', description='%s',
     url_img_bg='%s', challenge_title='%s' , challenge1='%s' , challenge2='%s' , challenge3='%s'
     , img_customer1='%s', img_customer2='%s', img_customer3='%s', customers_title='%s', cases_options='%s'
     WHERE id = %d";

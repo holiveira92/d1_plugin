@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Fontfaces CSS-->
+    <!-- Fontfaces CSS--><?php require_once dirname_safe(__FILE__,3) . 'includes/base/d1_constants.php'; ?>
     <link href="<?php echo plugins_url('d1_plugin/resources/css/font-face.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-4.7/css/font-awesome.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
     <link href="<?php echo plugins_url('d1_plugin/resources/vendor/font-awesome-5/css/fontawesome-all.min.css', 'd1_plugin'); ?>" rel="stylesheet" media="all">
@@ -49,10 +49,10 @@
             <!----------------------------------------------------------------------- Seção 4 - Inicio Links ----------------------------------------------------------------------->
             <?php
             global $wpdb;
-            $grupos = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id IS NULL OR group_id = "" ')), true);
+            $grupos = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_footer_links WHERE group_id IS NULL OR group_id = "" ')), true);
             $cont_grupos = 0;
             foreach ($grupos as $key => &$grupo) :
-                $itens = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'd1_footer_links WHERE group_id = ' . $grupo['id'] . ' ORDER BY group_id DESC')), true);
+                $itens = json_decode(json_encode($wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . D1_LANG . 'd1_footer_links WHERE group_id = ' . $grupo['id'] . ' ORDER BY group_id DESC')), true);
                 $cont_grupos++;
                 ?>
 
@@ -71,7 +71,7 @@
                             //$parent_arrow = (!empty($item['parent_id'])) ? "<span> &nbsp &nbsp &nbsp &rarr; </span>" : "";
                             $parent_arrow = "";
                         ?>
-                            <div name='item' id_item="<?php echo $item['id']; ?>">
+                            <div style="display:inline-block;width:100%;" name='item' id_item="<?php echo $item['id']; ?>">
                                 <?php echo $parent_arrow ; ?>
                                 <input type="hidden" name="id[]" value="<?php echo $item['id']; ?>">
                                 <input type="hidden" name="group_id[]" value="<?php echo $grupo['id']; ?>">
@@ -83,9 +83,10 @@
                         <?php endforeach; ?>
                     </div>
                     
-                    <!-- <button type="button" id_grupo="" name="add_separador" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Separador</button> -->
-                    <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Link</button>
-                    <button type="button" name="remove_group" id_grupo="<?php echo $grupo['id']; ?>" class="btn btn-danger btn_remove_group">Remover Grupo</button>
+                    <div style="display:inline-flex;justify-content:space-between;width:100%;">
+                        <button type="button" id_grupo="<?php echo $grupo['id']; ?>" name="add_item" id="add_item" class="btn btn-success btn_add_new_item">Adicionar Link</button>
+                        <button type="button" name="remove_group" id_grupo="<?php echo $grupo['id']; ?>" class="btn btn-danger btn_remove_group">Remover Grupo</button>
+                    </div>
                 </fieldset>
             <?php endforeach; ?>
             <!-- -------------------------------------------- Fim de Bloco de Definição dos Grupos --------------------------------------- -->
@@ -159,7 +160,6 @@
                     return false;
                 } else {
                     var hash = btoa(Math.random());
-                    //var separator = (action == "add_item") ? "" : "<span>&nbsp &nbsp &nbsp &rarr; </span>";
                     var separator = "";
                     div_item.append('<div name="item">' + separator +
                         '<input type="hidden" name="id[]">' +

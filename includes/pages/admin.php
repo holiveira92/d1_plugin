@@ -94,7 +94,7 @@ class Admin{
                 $this->settings =  $this->admin_fields->getSettings('home_secao7_options_group','d1_plugin');
                 break;
             default:
-                $this->settings =  $this->admin_fields->getSettings('home_d1_options_group','d1_plugin');
+                $this->settings =  $this->admin_fields->getSettings('home_secao1_options_group','d1_plugin');
                 break;
         }
 	}
@@ -194,9 +194,9 @@ class Admin{
             default:
 				$this->sections = array(
 					array(
-						'id' => 'home_d1_admin_index',
-						'title' => 'Configurações Gerais',
-						'callback' => array( $this, 'd1AdminConfGeral' ),
+						'id' => 'home_d1_admin_secao1',
+						'title' => 'Seção 1 - Hero',
+						'callback' => array( $this, 'd1Section1Hero' ),
 						'page' => 'd1_plugin'
 					),
 				);
@@ -228,7 +228,7 @@ class Admin{
                 $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao7','d1_plugin');
                 break;
             default:
-                $this->fields =  $this->admin_fields->getFields('home_d1_admin_index','d1_plugin');
+                $this->fields =  $this->admin_fields->getFields('home_d1_admin_secao1','d1_plugin');
                 break;
         }
 	}
