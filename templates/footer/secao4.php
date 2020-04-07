@@ -140,7 +140,7 @@
             $(document).on('click', '.btn_add_new_item', function() {
                 //busca a div de itens do respectivo botão adicionar itens
                 var action = $(this).attr('name');
-                var div_item = $(this).siblings('div[name*=items_content]');
+                var div_item = $(this).parent('div').siblings('div[name*=items_content]');
                 var name_itens = div_item.find('input[name*=name]');
                 var id_item = $(this).siblings('div[name*=item]').find('hidden[name*=parent_id]:last').attr('id_item');
                 var id_grupo_pai = $(this).closest("fieldset").attr('id_grupo');
